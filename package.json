@@ -1,0 +1,87 @@
+{
+	"name": "gridhub",
+	"title": "GridHub",
+	"description": "GridHub is a page builder for the WordPress Gutenberg blocks",
+	"version": "1.0.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/daonham/gridhub"
+	},
+	"author": "GridHub",
+	"license": "GPL-2.0",
+	"homepage": "https://github.com/daonham/gridhub",
+	"bugs": {
+		"url": "https://github.com/daonham/gridhub/issues"
+	},
+	"scripts": {
+		"setup": "composer install && npm install && npm run build && wp-scripts env install",
+		"start": "wp-scripts start --config .tool/config/webpack.config.js --progress",
+		"build": "wp-scripts build --config .tool/config/webpack.config.js",
+		"clean": "wp-scripts env stop && rm -rf build dist/*.* dist/js node_modules vendor wordpress",
+		"env": "wp-scripts env",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"lint:php": "wp-scripts env lint-php",
+		"test:php": "wp-scripts env test-php",
+		"test:js": "wp-scripts test-unit-js --config .tool/tests/jest/jest.config.js",
+		"test:js:coverage": "wp-scripts test-unit-js --config .tool/tests/jest/jest.config.js --coverage"
+	},
+	"wp-env": {
+		"plugin-dir": "gridhub",
+		"plugin-name": "GridHub"
+	},
+	"devDependencies": {
+		"@babel/plugin-proposal-class-properties": "7.10.4",
+		"@wordpress/base-styles": "2.0.1",
+		"@wordpress/block-editor": "5.2.0",
+		"@wordpress/block-library": "2.27.0",
+		"@wordpress/blocks": "^6.25.0",
+		"@wordpress/edit-post": "3.7.0",
+		"@wordpress/i18n": "3.6.0",
+		"@wordpress/postcss-themes": "^2.2.0",
+		"@wordpress/scripts": "^12.6.0",
+		"autoprefixer": "^9.7.5",
+		"css-loader": "^3.2.1",
+		"cypress": "^5.6.0",
+		"cypress-file-upload": "^3.5.3",
+		"email-validator": "^2.0.4",
+		"flickity": "^2.2.1",
+		"gzip-size": "^4.1.0",
+		"html-react-parser": "^0.9.1",
+		"husky": "^3.1.0",
+		"jest": "^24.8.0",
+		"jest-junit": "12.0.0",
+		"jsdom": "^15.2.1",
+		"lint-staged": "^9.5.0",
+		"matchdep": "^2.0.0",
+		"memize": "^1.0.5",
+		"mini-css-extract-plugin": "^0.8.0",
+		"node-sass": "^4.14.1",
+		"node-sass-glob-importer": "^5.3.2",
+		"po2json": "^1.0.0-alpha",
+		"postcss": "7.0.13",
+		"postcss-color-function": "^4.1.0",
+		"postcss-loader": "^3.0.0",
+		"react-flickity-component": "^3.4.0",
+		"react-google-maps": "^9.4.5",
+		"react-masonry-component": "^6.2.1",
+		"rtlcss-webpack-plugin": "^4.0.3",
+		"sass-loader": "^10.1.0",
+		"style-loader": "^0.19.1",
+		"stylelint-config-wordpress": "^17.0.0",
+		"webpack-fix-style-only-entries": "^0.4.0"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.scss": [
+			"stylelint src/**/*.scss --fix"
+		],
+		"*.js": [
+			"jest --config .dev/tests/jest/jest.config.js --silent --findRelatedTests"
+		]
+	}
+}

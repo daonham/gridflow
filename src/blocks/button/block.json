@@ -1,0 +1,14 @@
+{
+	"name": "gridhub/buttons",
+	"category": "layout",
+	"attributes": {
+		"items": {
+			"type": "number",
+			"default": "2"
+		},
+		"contentAlign": {
+			"type": "string",
+			"default": "left"
+		}
+	}
+}

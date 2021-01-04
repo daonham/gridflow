@@ -1,0 +1,20 @@
+{
+	"name": "gridhub/heading",
+	"category": "gridhub",
+	"attributes": {
+		"textAlign": {
+			"type": "string"
+		},
+		"content": {
+			"type": "string",
+			"default": ""
+		},
+		"tagName": {
+			"type": "string",
+			"default": "h3"
+		},
+		"placeholder": {
+			"type": "string"
+		}
+	}
+}
