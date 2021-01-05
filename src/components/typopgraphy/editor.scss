@@ -1,0 +1,19 @@
+.gridhub-text-component {
+
+	&__family {
+		width: 100%;
+
+		&--select {
+			width: 100%;
+			display: flex;
+			flex-flow: row nowrap;
+			padding: 8px 8px 8px 16px;
+			justify-content: space-between;
+			cursor: pointer;
+
+			> svg {
+				fill: #444;
+			}
+		}
+	}
+}

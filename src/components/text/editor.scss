@@ -1,0 +1,67 @@
+.gridhub-text-input-component {
+
+	&__label {
+		--text-opacity: 1;
+		color: #374151;
+		color: rgba(55, 65, 81, var(--text-opacity)) !important;
+		font-weight: 500;
+		margin-bottom: 5px;
+	}
+
+	&__content {
+		width: 100%;
+		flex: 1 1 100%;
+	}
+
+	&__input {
+		margin-top: 5px;
+	}
+}
+
+.gridhub-enable-reponsive-component {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.gridhub-reponsive-component {
+	margin: 0 0 0 10px !important;
+
+	&__inner {
+		display: flex !important;
+		flex-direction: row !important;
+		flex-wrap: nowrap !important;
+		justify-content: flex-start;
+
+		> button {
+			width: 24px !important;
+			height: 24px !important;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			padding: 6px !important;
+			margin: 0 0 0 5px !important;
+			cursor: pointer;
+
+			&.is-active {
+				background-color: #dadada !important;
+			}
+
+			&:focus {
+				--border-opacity: 1;
+				box-shadow: 0 0 0 1px rgba(164, 202, 254, 0.45) !important;
+				outline: 1px solid transparent !important;
+				outline-offset: 1px;
+				border-color: rgba(164, 202, 254, var(--border-opacity)) !important;
+			}
+
+			> svg {
+				height: 10px !important;
+				fill: #444 !important;
+				outline: none;
+				width: 10px !important;
+			}
+		}
+	}
+}

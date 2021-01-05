@@ -1,1 +1,28 @@
+.gridhub-button-component {
+
+	button,
+	input,
+	&__inner {
+		--border-opacity: 1;
+		--bg-opacity: 1;
+		background-color: rgba(255, 255, 255, var(--bg-opacity)) !important;
+		display: flex;
+		align-items: center;
+		border: 1px solid rgba(210, 214, 220, var(--border-opacity)) !important;
+		height: 38px !important;
+		padding: 8px 16px !important;
+		border-radius: 6px !important;
+		color: rgba(55, 65, 81, 1) !important;
+		font-weight: 400;
+
+		&:focus {
+			--border-opacity: 1;
+			box-shadow: 0 0 0 3px rgba(164, 202, 254, 0.45) !important;
+			outline: 2px solid transparent !important;
+			outline-offset: 2px;
+			border-color: rgba(164, 202, 254, var(--border-opacity)) !important;
+		}
+	}
+}
+
 @import "../components/**/editor.scss";

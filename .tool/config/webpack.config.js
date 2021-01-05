@@ -13,7 +13,7 @@ module.exports = {
 	...defaultConfig,
 
 	entry: {
-		'gridhub': path.resolve( process.cwd(), 'src/blocks.js' ),
+		gridhub: path.resolve( process.cwd(), 'src/blocks.js' ),
 		'gridhub-editor': path.resolve( process.cwd(), 'src/styles/editor.scss' ),
 		'gridhub-style': path.resolve( process.cwd(), 'src/styles/style.scss' ),
 
