@@ -7,6 +7,7 @@ import { useState, useEffect } from '@wordpress/element';
 import { BaseControl, Dropdown, Button, MenuGroup, TextControl, MenuItem, Icon } from '@wordpress/components';
 
 import TextInput from '../text';
+import RangeInput from '../range';
 
 import ggFonts from './google-fonts.json';
 
@@ -17,6 +18,8 @@ const Typhography = ( {
 	onChangeFontSize,
 	fontWeight,
 	onChangeFontWeight,
+	lineHeight,
+	onChangeLineHeight,
 } ) => {
 	const [ fonts, setFonts ] = useState( null );
 	const [ variants, setVariants ] = useState( null );
@@ -150,11 +153,30 @@ const Typhography = ( {
 				/>
 			</BaseControl>
 
-			<TextInput
+			<RangeInput
 				label={ __( 'Font Size', 'gridhub' ) }
 				value={ fontSize }
 				style={ { width: '100%' } }
 				onChange={ onChangeFontSize }
+				units={ [ 'px', 'em', 'rem', '%' ] }
+				responsive={ true }
+				isUnit={ true }
+			/>
+			<RangeInput
+				label={ __( 'Line Height', 'gridhub' ) }
+				value={ lineHeight }
+				style={ { width: '100%' } }
+				onChange={ onChangeLineHeight }
+				units={ [ 'px', 'em', 'rem', '%' ] }
+				responsive={ true }
+			/>
+			<RangeInput
+				label={ __( 'Font Weight', 'gridhub' ) }
+				value={ fontWeight }
+				style={ { width: '100%' } }
+				onChange={ onChangeFontWeight }
+				units={ [ 'px', 'em', 'rem', '%' ] }
+				isUnit={ true }
 			/>
 		</>
 	);

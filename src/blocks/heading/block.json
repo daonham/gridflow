@@ -16,9 +16,18 @@
 		"placeholder": {
 			"type": "string"
 		},
-		"fontSize": {
+		"fontSizes": {
 			"type": "object",
 			"default": ""
+		},
+		"lineHeight": {
+			"type": "object",
+			"default": {
+				"desktop": "10"
+			}
+		},
+		"fontWeights": {
+			"type": "string"
 		}
 	}
 }

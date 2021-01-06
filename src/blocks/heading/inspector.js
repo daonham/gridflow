@@ -5,7 +5,7 @@ import { PanelBody } from '@wordpress/components';
 import Typhography from '../../components/typopgraphy';
 
 const Inspector = ( { attributes, setAttributes } ) => {
-	const { font, fontSize } = attributes;
+	const { font, fontSizes, lineHeight, fontWeights } = attributes;
 
 	return (
 		<>
@@ -14,8 +14,12 @@ const Inspector = ( { attributes, setAttributes } ) => {
 					<Typhography
 						font={ font }
 						onChangeFont={ ( value ) => setAttributes( { font: value } ) }
-						fontSize={ fontSize }
-						onChangeFontSize={ ( value ) => setAttributes( { fontSize: value } ) }
+						fontSize={ fontSizes }
+						onChangeFontSize={ ( value ) => setAttributes( { fontSizes: value } ) }
+						lineHeight={ lineHeight }
+						onChangeLineHeight={ ( value ) => setAttributes( { lineHeight: value } ) }
+						fontWeight={ fontWeights }
+						onChangeFontWeight={ ( value ) => setAttributes( { fontWeights: value } ) }
 					/>
 				</PanelBody>
 			</InspectorControls>

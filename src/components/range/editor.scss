@@ -1,4 +1,4 @@
-.gridhub-text-input-component {
+.gridhub-range-control {
 	margin-bottom: 20px;
 
 	&__label {
@@ -10,19 +10,10 @@
 	}
 
 	&__content {
-		margin-top: 5px;
+		margin-top: 10px;
 		width: 100%;
 		flex: 1 1 100%;
 	}
 
-	&__input {
-		margin-top: 5px;
-	}
-}
-
-.gridhub-enable-reponsive-component {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
 }
 
