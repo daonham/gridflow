@@ -1,7 +1,7 @@
 import { registerBlockType } from '@wordpress/blocks';
 
 // Register block category
-import './ultils/category';
+import './utils/category';
 
 // Register Blocks
 import * as heading from './blocks/heading';

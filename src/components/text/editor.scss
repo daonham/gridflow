@@ -1,28 +1,6 @@
-.gridhub-text-input-component {
-	margin-bottom: 20px;
-
-	&__label {
-		--text-opacity: 1;
-		color: #374151;
-		color: rgba(55, 65, 81, var(--text-opacity)) !important;
-		font-weight: 500;
-		margin-bottom: 5px;
-	}
-
-	&__content {
-		margin-top: 5px;
-		width: 100%;
-		flex: 1 1 100%;
-	}
-
-	&__input {
-		margin-top: 5px;
-	}
+.gridhub-textunit-control {
+	box-sizing: border-box;
+	max-width: 235px;
+	margin-bottom: 24px;
+	width: 100%;
 }
-
-.gridhub-enable-reponsive-component {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-}
-

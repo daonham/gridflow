@@ -1,0 +1,24 @@
+.gridhub-color-component {
+
+	> .components-base-control__field {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 16px;
+
+		> .components-dropdown {
+			margin: 0;
+		}
+	}
+
+	&__tabs {
+		margin-bottom: 10px;
+	}
+
+	&__popover {
+
+		.components-popover__content {
+			min-width: 290px;
+		}
+	}
+}

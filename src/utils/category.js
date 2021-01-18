@@ -8,9 +8,10 @@ const categories = [
 	{
 		slug: 'gridhub',
 		title: 'GridHub',
-		icon: 'dashicons-tag'
+		icon: 'dashicons-tag',
 	},
-	...getCategories().filter( ( { slug } ) => slug !== 'gridhub' )
+	...getCategories().filter( ( { slug } ) => slug !== 'gridhub' ),
 ];
 
 setCategories( categories );
+

@@ -1,0 +1,50 @@
+.gridhub-box-shadow-component {
+
+	> .components-base-control__field {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 16px;
+
+		> .components-dropdown {
+			margin: 0;
+		}
+	}
+
+	&__reset {
+		height: 30px;
+		min-height: 30px;
+	}
+
+	&__popover {
+
+		.components-popover__content {
+			min-width: 240px;
+		}
+	}
+
+	&__button {
+		margin-right: 10px;
+		height: 30px;
+		min-height: 30px;
+		line-height: 30px;
+		min-width: 30px !important;
+		width: 30px !important;
+		border-radius: 100px;
+		justify-content: center;
+
+		> span {
+			font-size: 15px;
+			width: 15px;
+			height: 15px;
+		}
+	}
+
+	.gridhub-color-component {
+		margin: 0 10px 0 auto !important;
+
+		> .components-base-control__field {
+			margin: 0 !important;
+		}
+	}
+}

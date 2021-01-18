@@ -1,54 +1,67 @@
-.gridhub-button-component {
+.gridhub-control {
 
-	button,
-	input[type="text"],
-	input[type="number"],
-	&__inner {
-		--border-opacity: 1;
-		--bg-opacity: 1;
-		background-color: rgba(255, 255, 255, var(--bg-opacity)) !important;
-		display: flex;
-		align-items: center;
-		border: 1px solid rgba(210, 214, 220, var(--border-opacity)) !important;
-		height: 38px !important;
-		padding: 8px 16px !important;
-		border-radius: 6px !important;
-		color: rgba(55, 65, 81, 1) !important;
+	&__label {
+		box-sizing: border-box;
+		margin: 0;
 		font-weight: 400;
+	}
 
-		&:focus {
-			--border-opacity: 1;
-			box-shadow: 0 0 0 3px rgba(164, 202, 254, 0.45) !important;
-			outline: 2px solid transparent !important;
-			outline-offset: 2px;
-			border-color: rgba(164, 202, 254, var(--border-opacity)) !important;
-		}
+	&__header {
+		padding-bottom: 3px;
 	}
 }
 
+.gridhub-enable-reponsive-component {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
 
 .gridhub-reponsive-component {
-	margin: 0 0 0 10px !important;
+	margin: 0 !important;
+	position: relative;
+	width: 24px;
+	height: 24px;
+
+	&__show {
+		top: calc(-1 * var(--gridhub-reponsive-top) * 24px) !important;
+	}
 
 	&__inner {
 		display: flex !important;
-		flex-direction: row !important;
+		flex-direction: column !important;
 		flex-wrap: nowrap !important;
 		justify-content: flex-start;
+		background-color: #fff;
+		border: 1px solid #ddd;
+		border-radius: 2px;
+		position: absolute;
+		top: 0;
+		z-index: 9999;
 
 		> button {
-			width: 24px !important;
-			height: 24px !important;
+			width: 22px !important;
+			height: 22px !important;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			text-align: center;
 			padding: 6px !important;
-			margin: 0 0 0 5px !important;
+			margin: 0 !important;
 			cursor: pointer;
+			border: none !important;
+			border-radius: 0 !important;
+			color: #374151 !important;
+			font-weight: 400;
+			background: none;
+			vertical-align: middle;
 
 			&.is-active {
-				background-color: #dadada !important;
+				background-color: #ddd !important;
+			}
+
+			&.is-hidden {
+				display: none !important;
 			}
 
 			&:focus {

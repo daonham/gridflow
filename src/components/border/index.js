@@ -5,15 +5,15 @@ import { noop } from 'lodash';
 
 import { useControlledState } from '../../utils/use-controlled-state';
 
-import { DEFAULT_VALUES } from '../../utils/ultils';
+import { DEFAULT_VALUES } from './utils';
 
 function useUniqueId( idProp ) {
-	const instanceId = useInstanceId( GridHubRangeControl, 'inspector-gridhub-range-control' );
+	const instanceId = useInstanceId( GridHubBorder, 'inspector-gridhub-textunit-control' );
 
 	return idProp || instanceId;
 }
 
-const GridHubRangeControl = ( {
+const GridHubBorder = ( {
 	id: idProp,
 	label,
 	values: valuesProp,
@@ -40,6 +40,7 @@ const GridHubRangeControl = ( {
 		headingId,
 		onChange: handleOnChange,
 		values: inputValues,
+		min: 0,
 		...props,
 	};
 
@@ -47,5 +48,5 @@ const GridHubRangeControl = ( {
 		<TextInputControl { ...inputControlProps } />
 	);
 };
-export default GridHubRangeControl;
+export default GridHubBorder;
 

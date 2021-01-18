@@ -28,6 +28,24 @@
 		},
 		"fontWeights": {
 			"type": "string"
+		},
+		"transform": {
+			"type": "string"
+		},
+		"textShadow": {
+			"type": "object"
+		},
+		"paddingss": {
+			"type": "object"
+		},
+		"paddingsss": {
+			"type": "object"
+		},
+		"borderTests": {
+			"type": "object"
+		},
+		"iconTest": {
+			"type": "string"
 		}
 	}
 }

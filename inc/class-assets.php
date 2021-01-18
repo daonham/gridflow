@@ -36,7 +36,11 @@ class Assets {
 		$url        = $this->url();
 		$url_vendor = $this->url( true );
 
+		// Script.
 		wp_enqueue_script( 'gridhub-flickity', $url_vendor . 'flickity.js', array(), GRIDHUB_VERSION, true );
+
+		// Style.
+		wp_enqueue_style( 'gridhub-font-awesome', $url . 'lib/font-awesome/css/all.css', array(), '5.12.0' );
 	}
 
 	public function editor() {
