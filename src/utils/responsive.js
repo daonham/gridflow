@@ -1,11 +1,14 @@
 import { useState } from '@wordpress/element';
+import { useDispatch } from '@wordpress/data';
 import classnames from 'classnames';
 
-import { allDevice } from './ultils';
+import { allDevice } from './utils';
 
 const ResponsiveControl = ( { device, setDevice } ) => {
 	const [ visible, setVisible ] = useState( false );
 	const [ option, setOption ] = useState( 0 );
+
+	const { __experimentalSetPreviewDeviceType: setPreviewDeviceType } = useDispatch( 'core/edit-post' );
 
 	return (
 		<div className="gridhub-reponsive-component">
@@ -33,6 +36,7 @@ const ResponsiveControl = ( { device, setDevice } ) => {
 									setVisible( false );
 									setDevice( val.name );
 									setOption( i );
+									setPreviewDeviceType( val.name.replace( /\b\w/g, ( l ) => l.toUpperCase() ) );
 								}
 							} }
 							dangerouslySetInnerHTML={ { __html: val.icon } }

@@ -5,7 +5,7 @@ import { noop } from 'lodash';
 
 import { useControlledState } from '../../utils/use-controlled-state';
 
-import { DEFAULT_VALUES } from '../../utils/ultils';
+import { DEFAULT_VALUES } from '../../utils/utils';
 
 function useUniqueId( idProp ) {
 	const instanceId = useInstanceId( GridHubRangeControl, 'inspector-gridhub-range-control' );

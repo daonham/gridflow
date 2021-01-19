@@ -1,6 +1,7 @@
 import { noop } from 'lodash';
 
 import { useState } from '@wordpress/element';
+import { useSelect } from '@wordpress/data';
 import { __experimentalBoxControl as BoxControl, FlexItem, Flex } from '@wordpress/components';
 
 import ResponsiveControl from '../../utils/responsive';
@@ -25,7 +26,15 @@ const TextInputControl = ( {
 		handleOnChange( nextValues );
 	};
 
+	const getPreviewDeviceType = useSelect( ( select ) => {
+		const { __experimentalGetPreviewDeviceType } = select( 'core/edit-post' );
+
+		return __experimentalGetPreviewDeviceType ? __experimentalGetPreviewDeviceType() : false;
+	}, [] );
+
 	const [ device, setDevice ] = useState( 'desktop' );
+
+	const getDevice = getPreviewDeviceType ? getPreviewDeviceType.toLowerCase() : device;
 
 	return (
 		<>
@@ -40,7 +49,7 @@ const TextInputControl = ( {
 
 					<FlexItem>
 						<ResponsiveControl
-							device={ device }
+							device={ getDevice }
 							setDevice={ setDevice }
 						/>
 					</FlexItem>
@@ -49,8 +58,8 @@ const TextInputControl = ( {
 				<BoxControl
 					{ ...props }
 					label={ null }
-					values={ values[ device ] }
-					onChange={ createHandleOnChange( [ device ] ) }
+					values={ values[ getDevice ] }
+					onChange={ createHandleOnChange( [ getDevice ] ) }
 				/>
 
 			</div>
