@@ -1,9 +1,15 @@
 import { registerBlockType } from '@wordpress/blocks';
 
-// Register block category
+// Register block category.
 import './utils/category';
 
-// Register Blocks
+// Register custom Hooks.
+import './hooks';
+
+// Register Components.
+import './components';
+
+// Register Blocks.
 import * as heading from './blocks/heading';
 
 const registerBlock = ( block ) => {

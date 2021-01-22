@@ -2,6 +2,9 @@
 	"name": "gridhub/heading",
 	"category": "gridhub",
 	"attributes": {
+		"uniqueId": {
+			"type": "string"
+		},
 		"textAlign": {
 			"type": "string"
 		},

@@ -1,12 +1,14 @@
+/**
+ * WordPress dependencies
+ */
+import { __ } from '@wordpress/i18n';
+
 import edit from './edit';
 import metadata from './block.json';
 import save from './save';
 import transforms from './transforms';
 
-/**
- * WordPress dependencies
- */
-import { __ } from '@wordpress/i18n';
+import './style';
 
 const { name, category, attributes } = metadata;
 
@@ -26,7 +28,6 @@ const settings = {
 	transforms,
 	edit,
 	save,
-	// deprecated,
 };
 
 export { name, category, metadata, settings, attributes };

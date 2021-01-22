@@ -7,17 +7,21 @@ import classnames from 'classnames';
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
+
 import { RichText, useBlockProps } from '@wordpress/block-editor';
+import { compose } from '@wordpress/compose';
 
 import Controls from './controls';
 import Inspector from './inspector';
 
-const edit = ( {
+const { withInlineStyle } = wp.gridhubCompose;
+
+function Edit( {
 	isSelected,
 	attributes,
 	setAttributes,
-} ) => {
-	const { content, placeholder, tagName } = attributes;
+} ) {
+	const { content, placeholder, tagName, uniqueId } = attributes;
 
 	return (
 		<>
@@ -35,7 +39,7 @@ const edit = ( {
 				/>
 			) }
 
-			<div { ...useBlockProps( { className: classnames( 'gridhub-heading' ) } ) }>
+			<div { ...useBlockProps( { className: classnames( 'gridhub-heading', uniqueId ) } ) }>
 				<div className={ classnames( 'gridhub-heading__inner' ) }>
 					{ ( ! RichText.isEmpty( content ) || isSelected ) && (
 						<RichText
@@ -51,5 +55,7 @@ const edit = ( {
 			</div>
 		</>
 	);
-};
-export default edit;
+}
+export default compose( [
+	withInlineStyle,
+] )( Edit );
