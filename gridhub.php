@@ -37,6 +37,7 @@ if ( ! class_exists( 'GridHub' ) ) {
 		protected function includes() {
 			require_once GRIDHUB_PLUGIN_DIR . 'inc/class-init.php';
 			require_once GRIDHUB_PLUGIN_DIR . 'inc/class-assets.php';
+			require_once GRIDHUB_PLUGIN_DIR . 'inc/class-styles.php';
 		}
 
 		public function load_textdomain() {

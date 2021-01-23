@@ -9,7 +9,11 @@ subscribe( () => {
 		isPublishingPost,
 	} = select( 'core/editor' );
 
-	if ( isSavingPost() && ! isAutosavingPost() ) {
-		parseStyle();
+	if ( isPublishingPost() || isPreviewingPost() || ( isSavingPost() && ! isAutosavingPost() ) ) {
+		if ( isPreviewingPost() ) {
+			parseStyle( true );
+		} else {
+			parseStyle();
+		}
 	}
 } );

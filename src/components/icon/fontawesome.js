@@ -1,5 +1,5 @@
 import { __ } from '@wordpress/i18n';
-import { TabPanel } from '@wordpress/components';
+import { TabPanel, Spinner } from '@wordpress/components';
 import { useState, useEffect } from '@wordpress/element';
 
 import regular from './lib/font-awesome/regular.json';
@@ -11,66 +11,78 @@ const FontAwesome = ( { search, onChange, closeModal } ) => {
 	const [ renderSolid, setRenderSolid ] = useState( null );
 	const [ renderBrands, setRenderBrands ] = useState( null );
 
+	const [ loading, setLoading ] = useState( true );
+
 	useEffect( () => {
-		setRenderRegular(
-			regular.icons.map( ( icon ) => {
-				if ( ! search || icon.toLowerCase().includes( search.toLowerCase() ) ) {
-					return (
-						<div className="gridhub-icon-component__icon" key={ icon }>
-							<button onClick={ () => {
-								onChange( `far fa-${ icon }` );
-								closeModal();
-							} }>
-								<i className={ `far fa-${ icon }` } />
-								<span>{ icon }</span>
-							</button>
-						</div>
-					);
-				}
+		if ( search ) {
+			setLoading( true );
+		}
 
-				return null;
-			} )
-		);
+		const timer = setTimeout( () => {
+			setRenderRegular(
+				regular.icons.map( ( icon ) => {
+					if ( ! search || icon.toLowerCase().includes( search.toLowerCase() ) ) {
+						return (
+							<div className="gridhub-icon-component__icon" key={ icon }>
+								<button onClick={ () => {
+									onChange( `far fa-${ icon }` );
+									closeModal();
+								} }>
+									<i className={ `far fa-${ icon }` } />
+									<span>{ icon }</span>
+								</button>
+							</div>
+						);
+					}
 
-		setRenderSolid(
-			solid.icons.map( ( icon ) => {
-				if ( ! search || icon.toLowerCase().includes( search.toLowerCase() ) ) {
-					return (
-						<div className="gridhub-icon-component__icon" key={ icon }>
-							<button onClick={ () => {
-								onChange( `fas fa-${ icon }` );
-								closeModal();
-							} }>
-								<i className={ `fas fa-${ icon }` } />
-								<span>{ icon }</span>
-							</button>
-						</div>
-					);
-				}
+					return null;
+				} )
+			);
 
-				return null;
-			} )
-		);
+			setRenderSolid(
+				solid.icons.map( ( icon ) => {
+					if ( ! search || icon.toLowerCase().includes( search.toLowerCase() ) ) {
+						return (
+							<div className="gridhub-icon-component__icon" key={ icon }>
+								<button onClick={ () => {
+									onChange( `fas fa-${ icon }` );
+									closeModal();
+								} }>
+									<i className={ `fas fa-${ icon }` } />
+									<span>{ icon }</span>
+								</button>
+							</div>
+						);
+					}
 
-		setRenderBrands(
-			brands.icons.map( ( icon ) => {
-				if ( ! search || icon.toLowerCase().includes( search.toLowerCase() ) ) {
-					return (
-						<div className="gridhub-icon-component__icon" key={ icon }>
-							<button onClick={ () => {
-								onChange( `fab fa-${ icon }` );
-								closeModal();
-							} }>
-								<i className={ `fab fa-${ icon }` } />
-								<span>{ icon }</span>
-							</button>
-						</div>
-					);
-				}
+					return null;
+				} )
+			);
 
-				return null;
-			} )
-		);
+			setRenderBrands(
+				brands.icons.map( ( icon ) => {
+					if ( ! search || icon.toLowerCase().includes( search.toLowerCase() ) ) {
+						return (
+							<div className="gridhub-icon-component__icon" key={ icon }>
+								<button onClick={ () => {
+									onChange( `fab fa-${ icon }` );
+									closeModal();
+								} }>
+									<i className={ `fab fa-${ icon }` } />
+									<span>{ icon }</span>
+								</button>
+							</div>
+						);
+					}
+
+					return null;
+				} )
+			);
+
+			setLoading( false );
+		}, 1000 );
+
+		return () => clearTimeout( timer );
 	}, [ search ] );
 
 	const tabs = [
@@ -101,18 +113,25 @@ const FontAwesome = ( { search, onChange, closeModal } ) => {
 
 			{ ( tab ) => {
 				return (
-					<div className="gridhub-icon-component__icons">
-						{ tab.name === 'all' && (
+					<>
+						{ loading ? (
+							<Spinner />
+						) : (
 							<>
-								{ renderRegular }
-								{ renderSolid }
-								{ renderBrands }
+								<div className="gridhub-icon-component__icons" style={ { display: ( tab.name === 'all' || tab.name === 'regular' ) || 'none' } }>
+									{ renderRegular }
+								</div>
+
+								<div className="gridhub-icon-component__icons" style={ { display: ( tab.name === 'all' || tab.name === 'solid' ) || 'none' } }>
+									{ renderSolid }
+								</div>
+
+								<div className="gridhub-icon-component__icons" style={ { display: ( tab.name === 'all' || tab.name === 'brands' ) || 'none' } }>
+									{ renderBrands }
+								</div>
 							</>
 						) }
-						{ tab.name === 'regular' && renderRegular }
-						{ tab.name === 'solid' && renderSolid }
-						{ tab.name === 'brands' && renderBrands }
-					</div>
+					</>
 				);
 			} }
 		</TabPanel>

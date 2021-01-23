@@ -21,7 +21,7 @@ export default function getStyle( selectors, uniqueId, isResponsive = false, res
 			}
 
 			if ( typeof sel[ j ] !== 'undefined' && checkString ) {
-				css += j + ': ' + sel[ j ] + ';';
+				css += j + ':' + sel[ j ] + ';';
 			}
 		}
 

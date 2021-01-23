@@ -3,8 +3,10 @@ import { applyFilters } from '@wordpress/hooks';
 
 import getStyle from '../inline-style';
 
-function parseStyle() {
+function parseStyle( isPreview = false ) {
 	const allBlocks = select( 'core/block-editor' ).getBlocks();
+	const { getCurrentPostId } = select( 'core/editor' );
+
 	let styles = '';
 
 	allBlocks.map( ( block ) => {
@@ -29,9 +31,28 @@ function parseStyle() {
 		}
 	} );
 
-	return styles;
+	gridhubApi( getCurrentPostId(), styles, isPreview );
 }
 export default parseStyle;
+
+const gridhubApi = async ( postId, css, isPreview ) => {
+	const response = await wp.apiFetch( {
+		path: '/gridhub/v1/style/save',
+		method: 'POST',
+		data: {
+			postId,
+			css,
+			isPreview,
+		},
+	} );
+
+	const { status, message } = response;
+
+	if ( status === 'fail' ) {
+		// eslint-disable-next-line no-console
+		console.log( message );
+	}
+};
 
 function getStyleBlock( name, attributes ) {
 	let output;

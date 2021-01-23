@@ -125,6 +125,7 @@ const GridHubIconSelect = ( {
 								<TextControl
 									value={ inputValues.icon || '' }
 									onChange={ ( e ) => onChangeIcon( e ) }
+									placeholder={ __( 'Icon class name', 'gridhub' ) }
 								/>
 							</FlexBlock>
 

@@ -22,7 +22,7 @@ const settings = {
 	],
 	example: {
 		attributes: {
-			placeholder: __( 'Hello World!', 'gridhub' ),
+			content: __( 'Hello World!', 'gridhub' ),
 		},
 	},
 	transforms,
