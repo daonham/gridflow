@@ -31,7 +31,9 @@ function parseStyle( isPreview = false ) {
 		}
 	} );
 
-	gridhubApi( getCurrentPostId(), styles, isPreview );
+	if ( styles ) {
+		gridhubApi( getCurrentPostId(), styles, isPreview );
+	}
 }
 export default parseStyle;
 

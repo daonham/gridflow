@@ -1,37 +1,39 @@
 import { addFilter, hasFilter } from '@wordpress/hooks';
+const { GridHubStyleTypography } = wp.gridhubComponents;
 
 function inlineStyle( { attributes } ) {
 	const {
-		fontSizes,
 		color,
+		font,
+		fontSize,
+		lineHeight,
+		fontWeight,
+		decoration,
 		transform,
+		fontStyle,
+		letterSpacing,
 	} = attributes;
 
-	let desktop = {},
-		tablet = {},
-		mobile = {};
-
-	desktop = {
+	const desktop = {
 		'': {
 			color: color || undefined,
 			'text-transform': transform || undefined,
 		},
 		' .gridhub-heading__content': {
-			'font-size': fontSizes.desktop || undefined,
+			...GridHubStyleTypography( { font, fontSize, lineHeight, fontWeight, decoration, transform, fontStyle, letterSpacing, device: 'desktop' } ),
 			color: color || undefined,
-			'text-transform': transform || undefined,
 		},
 	};
 
-	tablet = {
+	const tablet = {
 		' .gridhub-heading__content': {
-			'font-size': fontSizes.tablet || undefined,
+			...GridHubStyleTypography( { fontSize, lineHeight, letterSpacing, device: 'tablet' } ),
 		},
 	};
 
-	mobile = {
+	const mobile = {
 		' .gridhub-heading__content': {
-			'font-size': fontSizes.mobile || undefined,
+			...GridHubStyleTypography( { fontSize, lineHeight, letterSpacing, device: 'mobile' } ),
 		},
 	};
 

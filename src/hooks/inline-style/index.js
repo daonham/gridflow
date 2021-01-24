@@ -20,6 +20,10 @@ export default function getStyle( selectors, uniqueId, isResponsive = false, res
 				checkString = false;
 			}
 
+			if ( sel[ j ] === null && checkString ) {
+				checkString = false;
+			}
+
 			if ( typeof sel[ j ] !== 'undefined' && checkString ) {
 				css += j + ':' + sel[ j ] + ';';
 			}

@@ -5,9 +5,6 @@
 		"uniqueId": {
 			"type": "string"
 		},
-		"textAlign": {
-			"type": "string"
-		},
 		"content": {
 			"type": "string",
 			"default": ""
@@ -19,21 +16,41 @@
 		"placeholder": {
 			"type": "string"
 		},
-		"fontSizes": {
-			"type": "object",
-			"default": ""
+		"textAlign": {
+			"type": "string"
+		},
+		"textAligns": {
+			"type": "object"
+		},
+		"color": {
+			"type": "string"
+		},
+		"links": {
+			"type": "object"
+		},
+		"font": {
+			"type": "string"
+		},
+		"fontSize": {
+			"type": "object"
 		},
 		"lineHeight": {
-			"type": "object",
-			"default": {
-				"desktop": "10"
-			}
+			"type": "object"
 		},
-		"fontWeights": {
+		"fontWeight": {
+			"type": "string"
+		},
+		"decoration": {
 			"type": "string"
 		},
 		"transform": {
 			"type": "string"
+		},
+		"fontStyle": {
+			"type": "string"
+		},
+		"letterSpacing": {
+			"type": "object"
 		},
 		"textShadow": {
 			"type": "object"

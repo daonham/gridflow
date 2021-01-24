@@ -7,7 +7,6 @@ import classnames from 'classnames';
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-
 import { RichText, useBlockProps } from '@wordpress/block-editor';
 import { compose } from '@wordpress/compose';
 
@@ -41,16 +40,14 @@ function Edit( {
 
 			<div { ...useBlockProps( { className: classnames( 'gridhub-heading', uniqueId ) } ) }>
 				<div className={ classnames( 'gridhub-heading__inner' ) }>
-					{ ( ! RichText.isEmpty( content ) || isSelected ) && (
-						<RichText
-							className={ classnames( 'gridhub-heading__content' ) }
-							tagName={ tagName }
-							placeholder={ placeholder || __( 'Write heading...' ) }
-							keepPlaceholderOnFocus
-							value={ content }
-							onChange={ ( value ) => setAttributes( { content: value } ) }
-						/>
-					) }
+					<RichText
+						className={ classnames( 'gridhub-heading__content' ) }
+						tagName={ tagName }
+						placeholder={ placeholder || __( 'Write heading...', 'gridhub' ) }
+						keepPlaceholderOnFocus
+						value={ content }
+						onChange={ ( value ) => setAttributes( { content: value } ) }
+					/>
 				</div>
 			</div>
 		</>
