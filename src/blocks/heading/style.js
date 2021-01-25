@@ -41,7 +41,7 @@ function inlineStyle( { attributes } ) {
 }
 
 if ( ! hasFilter( 'gridhub.inlineStyle.heading', 'gridhub/inline/styles' ) ) {
-	addFilter( 'gridhub.inlineStyle.heading', 'gridhub/inline/styles', function( output, attributes ) {
+	addFilter( 'gridhub.inlineStyle.heading', 'gridhub/inline/styles', function( attributes ) {
 		return inlineStyle( { attributes } );
 	} );
 }

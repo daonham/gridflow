@@ -1,15 +1,9 @@
 import { useEffect } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import { createHigherOrderComponent } from '@wordpress/compose';
-import { applyFilters } from '@wordpress/hooks';
 
 import getStyle from '../inline-style';
-
-const inlineStyle = ( { name, attributes } ) => {
-	let output;
-
-	return applyFilters( `gridhub.inlineStyle.${ name }`, output, attributes );
-};
+import inlineStyle from '../inline-style/filter';
 
 const withInlineStyle = createHigherOrderComponent(
 	( WrappedComponent ) => ( props ) => {

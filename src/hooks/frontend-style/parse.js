@@ -1,7 +1,7 @@
 import { select } from '@wordpress/data';
-import { applyFilters } from '@wordpress/hooks';
 
 import getStyle from '../inline-style';
+import inlineStyle from '../inline-style/filter';
 
 function parseStyle( isPreview = false ) {
 	const allBlocks = select( 'core/block-editor' ).getBlocks();
@@ -15,7 +15,7 @@ function parseStyle( isPreview = false ) {
 		const blockName = name.split( '/' );
 
 		if ( blockName[ 0 ] === 'gridhub' && uniqueId ) {
-			const inline = typeof getStyleBlock !== 'undefined' ? getStyleBlock( blockName[ 1 ], attributes ) : undefined;
+			const inline = typeof inlineStyle !== 'undefined' ? inlineStyle( { name: blockName[ 1 ], attributes } ) : undefined;
 
 			if ( inline ) {
 				styles += getStyle( inline.desktop, uniqueId );
@@ -55,9 +55,3 @@ const gridhubApi = async ( postId, css, isPreview ) => {
 		console.log( message );
 	}
 };
-
-function getStyleBlock( name, attributes ) {
-	let output;
-
-	return applyFilters( `gridhub.inlineStyle.${ name }`, output, attributes );
-}
