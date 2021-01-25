@@ -63,6 +63,7 @@
 		"postcss-color-function": "^4.1.0",
 		"postcss-loader": "^3.0.0",
 		"react-flickity-component": "^3.4.0",
+		"react-google-font-loader": "^1.1.0",
 		"react-google-maps": "^9.4.5",
 		"react-masonry-component": "^6.2.1",
 		"rtlcss-webpack-plugin": "^4.0.3",

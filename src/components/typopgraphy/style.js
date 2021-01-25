@@ -8,6 +8,6 @@ export default function GridHubStyleTypography( { font, fontSize, lineHeight, fo
 		'text-decoration': decoration || undefined,
 		'text-transform': transform || undefined,
 		'font-style': fontStyle || undefined,
-		'letter-spacing': ( letterSpacing && letterSpacing[ device ] !== null ) ? `${letterSpacing[ device ]}px` : undefined,
+		'letter-spacing': ( letterSpacing && letterSpacing[ device ] !== undefined && letterSpacing[ device ] !== null ) ? `${letterSpacing[ device ]}px` : undefined,
 	};
 }

@@ -1,6 +1,7 @@
 import { useState } from '@wordpress/element';
 import { useDispatch } from '@wordpress/data';
 import classnames from 'classnames';
+import { startCase, toLower } from 'lodash';
 
 import { allDevice } from './utils';
 
@@ -36,7 +37,7 @@ const ResponsiveControl = ( { device, setDevice } ) => {
 									setVisible( false );
 									setDevice( val.name );
 									setOption( i );
-									setPreviewDeviceType( val.name.replace( /\b\w/g, ( l ) => l.toUpperCase() ) );
+									setPreviewDeviceType( startCase( toLower( val.name ) ) );
 								}
 							} }
 							dangerouslySetInnerHTML={ { __html: val.icon } }
