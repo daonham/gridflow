@@ -33,6 +33,15 @@
 		"font": {
 			"type": "string"
 		},
+		"gridhubFont": {
+			"type": "object",
+			"default": {
+				"1": {
+					"name": "font",
+					"weight": "fontWeight"
+				}
+			}
+		},
 		"fontSize": {
 			"type": "object"
 		},

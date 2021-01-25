@@ -1,6 +1,8 @@
-import { useEffect } from '@wordpress/element';
+import { useEffect, useState } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import { createHigherOrderComponent } from '@wordpress/compose';
+
+import GoogleFontLoader from 'react-google-font-loader';
 
 import getStyle from '../inline-style';
 import inlineStyle from '../inline-style/filter';
@@ -8,6 +10,7 @@ import inlineStyle from '../inline-style/filter';
 const withInlineStyle = createHigherOrderComponent(
 	( WrappedComponent ) => ( props ) => {
 		const { attributes, setAttributes, clientId, name } = props;
+		const [ ggFont, setGGFont ] = useState( [] );
 
 		const { uniqueId } = attributes;
 
@@ -19,8 +22,37 @@ const withInlineStyle = createHigherOrderComponent(
 			return __experimentalGetPreviewDeviceType ? __experimentalGetPreviewDeviceType() : false;
 		}, [] );
 
+		const getFonts = () => {
+			if ( attributes.gridhubFont ) {
+				const { gridhubFont } = attributes;
+
+				const fonts = [];
+
+				Object.values( gridhubFont ).map( ( font ) => {
+					let weight = 'regular';
+
+					if ( attributes[ font.weight ] ) {
+						if ( attributes[ font.weight ] !== 'regular' ) {
+							weight = `${ attributes[ font.weight ] },${ attributes[ font.weight ] }i`;
+						}
+					}
+
+					if ( attributes[ font.name ] ) {
+						fonts.push( {
+							font: attributes[ font.name ],
+							weights: [ weight ],
+						} );
+					}
+				} );
+
+				setGGFont( fonts );
+			}
+		};
+
 		useEffect( () => {
 			const id = `gridhub-block-${ clientId.substr( 0, 8 ) }`;
+
+			getFonts();
 
 			if ( ! uniqueId ) {
 				setAttributes( { uniqueId: id } );
@@ -63,7 +95,14 @@ const withInlineStyle = createHigherOrderComponent(
 		}, [ attributes, getPreviewDeviceType ] );
 
 		return (
-			<WrappedComponent { ...props } />
+			<>
+				{ ggFont.length > 0 && (
+					<GoogleFontLoader
+						fonts={ ggFont }
+					/>
+				) }
+				<WrappedComponent { ...props } />
+			</>
 		);
 	},
 	'withInlineStyle'
