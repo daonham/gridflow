@@ -47,9 +47,9 @@ class Assets {
 	}
 
 	public function editor() {
-		$url    = $this->url();
-		$url_js = $url . 'gridhub';
-		$is_rtl = is_rtl() ? '-rtl' : '';
+		$url     = $this->url();
+		$url_js  = $url . 'gridhub';
+		$is_rtl  = is_rtl() ? '-rtl' : '';
 		$js_file = $this->get_asset_info( $url_js );
 
 		// Styles.
@@ -59,7 +59,16 @@ class Assets {
 		wp_enqueue_script( 'gridhub-editor', $url_js . '.js', array_merge( $js_file['dependencies'], array( 'wp-api' ) ), GRIDHUB_VERSION, true );
 
 		// Localize.
-		wp_localize_script( 'gridhub-editor', 'gridHubEditorData', apply_filters( 'gridhub_localize_editor', array() ) );
+		wp_localize_script(
+			'gridhub-editor',
+			'gridHubEditorData',
+			apply_filters(
+				'gridhub_localize_editor',
+				array(
+					'systemFont' => array( 'Arial', 'Tahoma', 'Verdana', 'Helvetica', 'Time New Roman', 'Georgia' ),
+				)
+			)
+		);
 	}
 
 	public function get_asset_info( $url ) {
@@ -70,7 +79,7 @@ class Assets {
 		} else {
 			return array(
 				'dependencies' => array(),
-				'version' => self::$version
+				'version'      => self::$version,
 			);
 		}
 	}

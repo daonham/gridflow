@@ -37,7 +37,7 @@ const withInlineStyle = createHigherOrderComponent(
 						}
 					}
 
-					if ( attributes[ font.name ] ) {
+					if ( attributes[ font.name ] && gridHubEditorData.systemFont && ! ( gridHubEditorData.systemFont ).includes( attributes[ font.name ] ) ) {
 						fonts.push( {
 							font: attributes[ font.name ],
 							weights: [ weight ],

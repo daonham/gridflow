@@ -44,6 +44,7 @@ const Typhography = ( {
 	const [ fonts, setFonts ] = useState( null );
 	const [ variants, setVariants ] = useState( null );
 	const [ search, setSearch ] = useState( '' );
+	const [ systemFont, setSystemFont ] = useState( [] );
 
 	useEffect( () => {
 		setFonts( ggFonts.items );
@@ -66,16 +67,20 @@ const Typhography = ( {
 				return null;
 			} );
 		}
-	}, [] );
 
-	const systemFont = [
-		{ value: 'Arial', label: 'Arial' },
-		{ value: 'Tahoma', label: 'Tahoma' },
-		{ value: 'Verdana', label: 'Verdana' },
-		{ value: 'Helvetica', label: 'Helvetica' },
-		{ value: 'Time New Roman', label: 'Time New Roman' },
-		{ value: 'Georgia', label: 'Georgia' },
-	];
+		if ( gridHubEditorData.systemFont ) {
+			const output = [];
+
+			gridHubEditorData.systemFont.map( ( ele ) => {
+				return output.push( {
+					value: ele,
+					label: ele,
+				} );
+			} );
+
+			return setSystemFont( output );
+		}
+	}, [] );
 
 	return (
 		<>

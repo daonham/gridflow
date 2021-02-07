@@ -9,6 +9,7 @@ class Styles {
 	public function init() {
 		add_action( 'rest_api_init', array( $this, 'register_endpoints' ) );
 		add_action( 'gridhub/enqueue/style/uploads', array( $this, 'enqueue_style' ) );
+		add_action( 'wp_head', array( $this, 'enqueue_google_fonts' ) );
 	}
 
 	public function register_endpoints() {
@@ -23,6 +24,62 @@ class Styles {
 				},
 			)
 		);
+	}
+
+	public function enqueue_google_fonts() {
+		$post_id = get_the_ID();
+
+		if ( ! $post_id ) {
+			return false;
+		}
+
+		$fonts = get_post_meta( $post_id, 'gridhub_google_fonts', true );
+
+		if ( empty( $fonts ) || ! is_array( $fonts ) ) {
+			return;
+		}
+
+		$output = array();
+
+		$base_url = '//fonts.googleapis.com/css';
+
+		foreach ( $fonts as $font ) {
+			$item = trim( $font['font'] );
+
+			if ( ! empty( $font['weights'] ) ) {
+				if ( is_array( $font['weights'] ) ) {
+					$item .= ':' . implode( ',', array_values( $font['weights'] ) );
+				}
+			}
+
+			array_push( $output, $item );
+		}
+
+		$query_args = array(
+			'family'  => implode( '|', $output ),
+			'display' => 'swap',
+		);
+
+		$subsets = array(
+			'ru_RU' => 'cyrillic',
+			'bg_BG' => 'cyrillic',
+			'he_IL' => 'hebrew',
+			'el'    => 'greek',
+			'vi'    => 'vietnamese',
+			'uk'    => 'cyrillic',
+			'cs_CZ' => 'latin-ext',
+			'ro_RO' => 'latin-ext',
+			'pl_PL' => 'latin-ext',
+		);
+		$locale  = get_locale();
+
+		if ( isset( $subsets[ $locale ] ) ) {
+			$query_args['subset'] = rawurlencode( $subsets[ $locale ] );
+		}
+
+		$url = add_query_arg( $query_args, $base_url );
+
+		echo '<link rel="stylesheet" href="' . esc_url( $url ) . '" media="all">';
 	}
 
 	public function enqueue_style( $version ) {
@@ -63,6 +120,10 @@ class Styles {
 			$post_id    = absint( wp_unslash( $params['postId'] ) );
 			$post_css   = isset( $params['css'] ) ? wp_unslash( $params['css'] ) : '';
 			$is_preview = isset( $params['isPreview'] ) ? wp_unslash( $params['isPreview'] ) : false;
+
+			if ( ! empty( $params['fonts'] ) && ! empty( $post_id ) ) {
+				update_post_meta( $post_id, 'gridhub_google_fonts', $params['fonts'] );
+			}
 
 			if ( empty( $post_css ) ) {
 				throw new \Exception( esc_html__( 'Gridhub no content for save!', 'gridhub' ) );
