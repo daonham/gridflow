@@ -30,7 +30,7 @@ export default function getStyle( selectors, uniqueId, isResponsive = false, res
 		}
 
 		if ( css.length !== 0 ) {
-			generalStyle += `body .${ uniqueId }`;
+			generalStyle += `body.gridhub-styles .${ uniqueId }`;
 			generalStyle += i + '{';
 			generalStyle += css;
 			generalStyle += '}';

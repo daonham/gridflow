@@ -9,7 +9,6 @@ export const DEFAULT_VALUES = {
 
 export function isValuesDefined( values ) {
 	return (
-		values !== undefined &&
-		! isEmpty( Object.values( values ).filter( Boolean ) )
+		values !== undefined && ! isEmpty( Object.values( values ).filter( Boolean ) )
 	);
 }

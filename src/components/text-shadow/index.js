@@ -96,7 +96,7 @@ const GridHubTextShadow = ( {
 					align="flex-start"
 				>
 					<UnitControl
-						label={ 'Horizontal' }
+						label={ 'X offset' }
 						labelPosition="bottom"
 						value={ inputValues.horizontal }
 						onChange={ createHandleOnChange( 'horizontal' ) }
@@ -106,7 +106,7 @@ const GridHubTextShadow = ( {
 						max={ 100 }
 					/>
 					<UnitControl
-						label={ 'Vertical' }
+						label={ 'Y offset' }
 						labelPosition="bottom"
 						value={ inputValues.vertical }
 						onChange={ createHandleOnChange( 'vertical' ) }
@@ -127,7 +127,7 @@ const GridHubTextShadow = ( {
 					/>
 					<GridHubColorPicker
 						label={ null }
-						value={ inputValues.color }
+						value={ inputValues.color || 'rgba(0, 0, 0, 0.5)' }
 						onChange={ createHandleOnChange( 'color' ) }
 						alpha={ true }
 						hint={ __( 'Shadow Color', 'gridhub' ) }

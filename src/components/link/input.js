@@ -86,7 +86,7 @@ const TextInputControl = ( {
 							label={ __( 'Custom Attributes', 'gridhub' ) }
 							value={ values.attr }
 							onChange={ createHandleOnChange( 'attr' ) }
-							placeholder={ __( 'rel="noreferrer noopener", data="id"', 'gridhub' ) }
+							placeholder={ __( 'rel="noreferrer noopener"', 'gridhub' ) }
 						/>
 					</>
 				) }

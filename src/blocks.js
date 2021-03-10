@@ -6,6 +6,9 @@ import './utils/category';
 // Register custom Hooks.
 import './hooks';
 
+// Utils.
+import './utils';
+
 // Register Components.
 import './components';
 
