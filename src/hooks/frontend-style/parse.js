@@ -21,18 +21,18 @@ function parseStyle( isPreview = false ) {
 				const { gridhubFont } = attributes;
 
 				Object.values( gridhubFont ).map( ( font ) => {
-					let weight = 'regular';
+					let weight = [ '400', '400i' ];
 
 					if ( attributes[ font.weight ] ) {
 						if ( attributes[ font.weight ] !== 'regular' ) {
-							weight = `${ attributes[ font.weight ] },${ attributes[ font.weight ] }i`;
+							weight = [ attributes[ font.weight ], `${ attributes[ font.weight ] }i` ];
 						}
 					}
 
 					if ( attributes[ font.name ] && gridHubEditorData.systemFont && ! ( gridHubEditorData.systemFont ).includes( attributes[ font.name ] ) ) {
 						fonts.push( {
 							font: attributes[ font.name ],
-							weights: [ weight ],
+							weights: weight,
 						} );
 					}
 				} );

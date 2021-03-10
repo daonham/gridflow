@@ -2,6 +2,7 @@
 namespace GridHub;
 
 class Styles {
+
 	protected $folder_name = 'gridhub';
 
 	protected static $instance = null;
@@ -43,12 +44,12 @@ class Styles {
 
 		$base_url = '//fonts.googleapis.com/css';
 
-		foreach ( $fonts as $font ) {
-			$item = trim( $font['font'] );
+		foreach ( $fonts as $name => $weight ) {
+			$item = trim( $name );
 
-			if ( ! empty( $font['weights'] ) ) {
-				if ( is_array( $font['weights'] ) ) {
-					$item .= ':' . implode( ',', array_values( $font['weights'] ) );
+			if ( ! empty( $weight ) ) {
+				if ( is_array( $weight ) ) {
+					$item .= ':' . implode( ',', $weight );
 				}
 			}
 
@@ -122,7 +123,17 @@ class Styles {
 			$is_preview = isset( $params['isPreview'] ) ? wp_unslash( $params['isPreview'] ) : false;
 
 			if ( ! empty( $params['fonts'] ) && ! empty( $post_id ) ) {
-				update_post_meta( $post_id, 'gridhub_google_fonts', $params['fonts'] );
+				$save_fonts = array();
+
+				foreach ( $params['fonts'] as $font ) {
+					if ( isset( $save_fonts[ $font['font'] ] ) && ! empty( $font['weights'] ) ) {
+						$save_fonts[ $font['font'] ] = array_merge( $save_fonts[ $font['font'] ], $font['weights'] );
+					} else {
+						$save_fonts[ $font['font'] ] = $font['weights'];
+					}
+				}
+
+				update_post_meta( $post_id, 'gridhub_google_fonts', $save_fonts );
 			}
 
 			if ( empty( $post_css ) ) {
