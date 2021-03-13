@@ -33,10 +33,11 @@ const Inspector = ( { attributes, setAttributes } ) => {
 		fontStyle,
 		letterSpacing,
 		textShadow,
-		paddingss,
-		paddingsss,
+		padding,
+		margin,
+		border,
+		borderRadius,
 		boxShadow,
-		borderTests,
 		iconTest,
 	} = attributes;
 
@@ -113,26 +114,32 @@ const Inspector = ( { attributes, setAttributes } ) => {
 				<PanelBody title={ __( 'Spacing', 'gridhub' ) } initialOpen={ false }>
 					<GridHubBoxControl
 						label={ 'Padding' }
-						values={ paddingss }
-						onChange={ ( value ) => setAttributes( { paddingss: value } ) }
+						values={ padding }
+						onChange={ ( value ) => setAttributes( { padding: value } ) }
 					/>
 					<GridHubBoxControl
 						label={ 'Margin' }
-						values={ paddingsss }
-						onChange={ ( value ) => setAttributes( { paddingsss: value } ) }
+						values={ margin }
+						onChange={ ( value ) => setAttributes( { margin: value } ) }
 					/>
 				</PanelBody>
 
 				<PanelBody title={ __( 'Border', 'gridhub' ) } initialOpen={ false }>
+					<GridHubBorder
+						label={ 'Border' }
+						values={ border }
+						device={ true }
+						onChange={ ( value ) => setAttributes( { border: value } ) }
+					/>
+					<GridHubBoxControl
+						label={ 'Border Radius' }
+						values={ borderRadius }
+						onChange={ ( value ) => setAttributes( { borderRadius: value } ) }
+					/>
 					<GridHubBoxShadow
 						label={ __( 'Box Shadow', 'gridhub' ) }
 						value={ boxShadow }
 						onChange={ ( value ) => setAttributes( { boxShadow: value } ) }
-					/>
-					<GridHubBorder
-						label={ 'Border' }
-						values={ borderTests }
-						onChange={ ( value ) => setAttributes( { borderTests: value } ) }
 					/>
 				</PanelBody>
 			</InspectorControls>

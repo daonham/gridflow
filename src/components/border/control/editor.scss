@@ -1,0 +1,15 @@
+.gridhub-border-control {
+
+	&__content {
+
+		.components-base-control {
+			padding: 0 !important;
+			margin: 0 8px 0 0 !important;
+
+			&__field {
+				margin: 0 !important;
+				padding: 0 !important;
+			}
+		}
+	}
+}

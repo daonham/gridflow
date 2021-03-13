@@ -1,22 +1,54 @@
 import { useInstanceId } from '@wordpress/compose';
 
-import TextInputControl from './input';
+import Control from './input';
 import { noop } from 'lodash';
 
 import { useControlledState } from '../../utils/use-controlled-state';
 
-import { DEFAULT_VALUES } from './utils';
+const DEFAULT_VALUES = {
+	desktop: {
+		width: {
+			top: null,
+			right: null,
+			bottom: null,
+			left: null,
+		},
+		style: '',
+		color: undefined,
+	},
+	tablet: {
+		width: {
+			top: null,
+			right: null,
+			bottom: null,
+			left: null,
+		},
+		style: '',
+		color: undefined,
+	},
+	mobile: {
+		width: {
+			top: null,
+			right: null,
+			bottom: null,
+			left: null,
+		},
+		style: '',
+		color: undefined,
+	},
+};
 
 function useUniqueId( idProp ) {
-	const instanceId = useInstanceId( GridHubBorder, 'inspector-gridhub-textunit-control' );
+	const instanceId = useInstanceId( GridHubBorderDevice, 'inspector-gridhub-border-device-control' );
 
 	return idProp || instanceId;
 }
 
-const GridHubBorder = ( {
+const GridHubBorderDevice = ( {
 	id: idProp,
 	label,
 	values: valuesProp,
+	device = false,
 	onChange = noop,
 	...props
 } ) => {
@@ -40,13 +72,13 @@ const GridHubBorder = ( {
 		headingId,
 		onChange: handleOnChange,
 		values: inputValues,
-		min: 0,
+		device,
 		...props,
 	};
 
 	return (
-		<TextInputControl { ...inputControlProps } />
+		<Control { ...inputControlProps } />
 	);
 };
-export default GridHubBorder;
+export default GridHubBorderDevice;
 

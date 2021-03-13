@@ -85,14 +85,14 @@ const GridHubBoxShadow = ( {
 					renderContent={ () => (
 						<div className="gridhub-box-shadow-component__items">
 							<RangeControl
-								label={ __( 'Horizontal', 'gridhub' ) }
+								label={ __( 'X offset', 'gridhub' ) }
 								value={ inputValues.horizontal }
 								onChange={ createHandleOnChange( 'horizontal' ) }
 								min={ -100 }
 								max={ 100 }
 							/>
 							<RangeControl
-								label={ __( 'Vertical', 'gridhub' ) }
+								label={ __( 'Y offset', 'gridhub' ) }
 								value={ inputValues.vertical }
 								onChange={ createHandleOnChange( 'vertical' ) }
 								min={ -100 }
@@ -109,7 +109,7 @@ const GridHubBoxShadow = ( {
 								label={ __( 'Spread', 'gridhub' ) }
 								value={ inputValues.spread }
 								onChange={ createHandleOnChange( 'spread' ) }
-								min={ -100 }
+								min={ 0 }
 								max={ 100 }
 							/>
 						</div>

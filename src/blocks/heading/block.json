@@ -66,13 +66,19 @@
 		"textShadow": {
 			"type": "object"
 		},
-		"paddingss": {
+		"padding": {
 			"type": "object"
 		},
-		"paddingsss": {
+		"margin": {
 			"type": "object"
 		},
-		"borderTests": {
+		"border": {
+			"type": "object"
+		},
+		"borderRadius": {
+			"type": "object"
+		},
+		"boxShadow": {
 			"type": "object"
 		},
 		"iconTest": {
