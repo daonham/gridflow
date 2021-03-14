@@ -4,6 +4,9 @@ import GridHubBoxShadow from './box-shadow';
 import GridHubColorPicker from './color';
 import GridHubLinkControl from './link';
 import GridHubTextAlign from './text-align';
+import GridHubSelect from './select';
+import GridHubBackground from './background';
+import GridHubFocusPointPicker from './focus-point';
 
 // Style.
 import GridHubStyleTypography from './typopgraphy/style';
@@ -13,6 +16,9 @@ import { GridHubStyleBoxShadow } from './box-shadow/style';
 import { GridHubStyleBorder } from './border/style';
 
 wp.gridhubComponents = {
+	GridHubFocusPointPicker,
+	GridHubBackground,
+	GridHubSelect,
 	GridHubTyphography,
 	GridHubBorder,
 	GridHubBoxShadow,

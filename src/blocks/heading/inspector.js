@@ -11,6 +11,7 @@ import GridHubIconSelect from '../../components/icon';
 
 const {
 	GridHubTyphography,
+	GridHubBackground,
 } = wp.gridhubComponents;
 
 const {
@@ -39,12 +40,17 @@ const Inspector = ( { attributes, setAttributes } ) => {
 		borderRadius,
 		boxShadow,
 		iconTest,
+		bgTest,
 	} = attributes;
 
 	return (
 		<>
 			<InspectorControls>
 				<PanelBody title={ __( 'Settings', 'gridhub' ) } initialOpen={ true }>
+					<GridHubBackground
+						values={ bgTest }
+						onChange={ ( value ) => setAttributes( { bgTest: value } ) }
+					/>
 					<SelectControl
 						label={ __( 'HTML Tag', 'gridhub' ) }
 						value={ tagName }
