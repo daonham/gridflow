@@ -25,7 +25,7 @@ define( 'GRIDHUB_BLOCKS_DEV', true );
 
 if ( ! class_exists( 'GridHub' ) ) {
 	final class GridHub {
-		protected static $instance;
+		protected static $instance = null;
 
 		protected function init() {
 			add_action( 'plugins_loaded', array( $this, 'load_textdomain' ), 99 );
@@ -51,7 +51,7 @@ if ( ! class_exists( 'GridHub' ) ) {
 		}
 
 		public static function instance() {
-			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof GridHub ) ) {
+			if ( is_null( self::$instance ) && ! ( self::$instance instanceof GridHub ) ) {
 				self::$instance = new GridHub();
 				self::$instance->init();
 			}
