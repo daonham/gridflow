@@ -14,6 +14,7 @@ import { GridHubStyleTextShadow } from './text-shadow/style';
 import { GridHubStyleBox } from './box/style';
 import { GridHubStyleBoxShadow } from './box-shadow/style';
 import { GridHubStyleBorder } from './border/style';
+import { GridHubStyleBackground } from './background/style';
 
 wp.gridhubComponents = {
 	GridHubFocusPointPicker,
@@ -30,4 +31,5 @@ wp.gridhubComponents = {
 	GridHubStyleBox,
 	GridHubStyleBoxShadow,
 	GridHubStyleBorder,
+	GridHubStyleBackground,
 };

@@ -1,12 +1,15 @@
 import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, SelectControl } from '@wordpress/components';
+import {
+	PanelBody,
+	SelectControl,
+	Flex,
+	FlexItem,
+	__experimentalUnitControl as UnitControl,
+} from '@wordpress/components';
 
 import GridHubColorPicker from '../../components/color';
 import GridHubTextShadow from '../../components/text-shadow';
-import GridHubBoxControl from '../../components/box';
-import GridHubBoxShadow from '../../components/box-shadow';
-import GridHubBorder from '../../components/border';
 import GridHubIconSelect from '../../components/icon';
 
 const {
@@ -34,23 +37,16 @@ const Inspector = ( { attributes, setAttributes } ) => {
 		fontStyle,
 		letterSpacing,
 		textShadow,
-		padding,
-		margin,
-		border,
-		borderRadius,
-		boxShadow,
-		iconTest,
-		bgTest,
+		background,
+		icon,
+		iconPosition,
+		iconSpacing,
 	} = attributes;
 
 	return (
 		<>
 			<InspectorControls>
 				<PanelBody title={ __( 'Settings', 'gridhub' ) } initialOpen={ true }>
-					<GridHubBackground
-						values={ bgTest }
-						onChange={ ( value ) => setAttributes( { bgTest: value } ) }
-					/>
 					<SelectControl
 						label={ __( 'HTML Tag', 'gridhub' ) }
 						value={ tagName }
@@ -112,40 +108,38 @@ const Inspector = ( { attributes, setAttributes } ) => {
 				<PanelBody title={ __( 'Icon', 'gridhub' ) } initialOpen={ false }>
 					<GridHubIconSelect
 						label={ 'Icon' }
-						values={ iconTest }
-						onChange={ ( value ) => setAttributes( { iconTest: value } ) }
+						values={ icon }
+						onChange={ ( value ) => setAttributes( { icon: value } ) }
 					/>
+					<Flex gap={ 8 } justify={ 'flex-start' } align={ 'flex-start' }>
+						<FlexItem>
+							<SelectControl
+								label={ __( 'Icon Position', 'gridhub' ) }
+								value={ iconPosition }
+								options={ [
+									{ label: 'Left', value: 'left' },
+									{ label: 'Right', value: 'right' },
+								] }
+								onChange={ ( value ) => setAttributes( { iconPosition: value } ) }
+								style={ { width: 100 } }
+							/>
+						</FlexItem>
+						<FlexItem>
+							<UnitControl
+								label={ __( 'Icon Spacing', 'gridhub' ) }
+								value={ iconSpacing }
+								onChange={ ( value ) => setAttributes( { iconSpacing: value } ) }
+								min={ 0 }
+								style={ { maxWidth: 90 } }
+							/>
+						</FlexItem>
+					</Flex>
 				</PanelBody>
 
-				<PanelBody title={ __( 'Spacing', 'gridhub' ) } initialOpen={ false }>
-					<GridHubBoxControl
-						label={ 'Padding' }
-						values={ padding }
-						onChange={ ( value ) => setAttributes( { padding: value } ) }
-					/>
-					<GridHubBoxControl
-						label={ 'Margin' }
-						values={ margin }
-						onChange={ ( value ) => setAttributes( { margin: value } ) }
-					/>
-				</PanelBody>
-
-				<PanelBody title={ __( 'Border', 'gridhub' ) } initialOpen={ false }>
-					<GridHubBorder
-						label={ 'Border' }
-						values={ border }
-						device={ true }
-						onChange={ ( value ) => setAttributes( { border: value } ) }
-					/>
-					<GridHubBoxControl
-						label={ 'Border Radius' }
-						values={ borderRadius }
-						onChange={ ( value ) => setAttributes( { borderRadius: value } ) }
-					/>
-					<GridHubBoxShadow
-						label={ __( 'Box Shadow', 'gridhub' ) }
-						value={ boxShadow }
-						onChange={ ( value ) => setAttributes( { boxShadow: value } ) }
+				<PanelBody title={ __( 'Background', 'gridhub' ) } initialOpen={ false }>
+					<GridHubBackground
+						values={ background }
+						onChange={ ( value ) => setAttributes( { background: value } ) }
 					/>
 				</PanelBody>
 			</InspectorControls>

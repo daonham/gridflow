@@ -66,22 +66,17 @@
 		"textShadow": {
 			"type": "object"
 		},
-		"padding": {
+		"background": {
 			"type": "object"
 		},
-		"margin": {
+		"icon": {
 			"type": "object"
 		},
-		"border": {
-			"type": "object"
+		"iconPosition": {
+			"type": "string",
+			"default": "left"
 		},
-		"borderRadius": {
-			"type": "object"
-		},
-		"boxShadow": {
-			"type": "object"
-		},
-		"iconTest": {
+		"iconSpacing": {
 			"type": "string"
 		}
 	}

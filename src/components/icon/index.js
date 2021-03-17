@@ -76,6 +76,7 @@ const GridHubIconSelect = ( {
 		const nextValues = { ...DEFAULT_VALUES };
 
 		nextValues.icon = nextIcon;
+		nextValues.url = null;
 
 		handleOnChange( nextValues );
 	};
@@ -125,9 +126,35 @@ const GridHubIconSelect = ( {
 								<TextControl
 									value={ inputValues.icon || '' }
 									onChange={ ( e ) => onChangeIcon( e ) }
-									placeholder={ __( 'Icon class name', 'gridhub' ) }
+									placeholder={ 'far fa-star' }
 								/>
 							</FlexBlock>
+							<FlexItem>
+								<Button
+									isSecondary
+									label={ __( 'Icon Library', 'gridhub' ) }
+									icon={ <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="20" viewBox="0 0 24 24" width="20"><g><rect fill="none" height="24" width="24" /></g><g><path d="M14,10H3v2h11V10z M14,6H3v2h11V6z M18,14v-4h-2v4h-4v2h4v4h2v-4h4v-2H18z M3,16h7v-2H3V16z" /></g></svg> }
+									onClick={ openModal }
+									style={ { height: 30, minHeight: 30 } }
+								/>
+							</FlexItem>
+
+							<FlexItem>
+								<MediaUpload
+									value={ inputValues.id }
+									onSelect={ ( media ) => onSelectImage( media ) }
+									allowedTypes={ [ 'image' ] }
+									render={ ( { open } ) => (
+										<Button
+											label={ __( 'Upload SVG, PNG, JPG', 'gridhub' ) }
+											isSecondary
+											onClick={ open }
+											icon={ <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20"><path d="M0 0h24v24H0z" fill="none" /><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z" /></svg> }
+											style={ { height: 30, minHeight: 30 } }
+										/>
+									) }
+								/>
+							</FlexItem>
 
 							<FlexItem>
 								<Button
@@ -135,48 +162,13 @@ const GridHubIconSelect = ( {
 									isSecondary
 									label={ 'Reset' }
 									onClick={ () => handleOnReset() }
+									icon={ <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20"><path d="M0 0h24v24H0z" fill="none" /><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.42 0 8 3.58 8 8 0 1.85-.63 3.55-1.69 4.9z" /></svg> }
 									style={ { height: 30, minHeight: 30 } }
-								>
-									{ 'Reset' }
-								</Button>
+								/>
 							</FlexItem>
 						</Flex>
 					</div>
 				</div>
-
-				<Flex
-					className="gridhub-icon-component__content"
-					align="flex-start"
-					justify="flex-start"
-					gap={ 2 }
-				>
-					<FlexItem>
-						<Button
-							isSecondary
-							label={ __( 'Icon Library', 'gridhub' ) }
-							onClick={ openModal }
-						>
-							{ __( 'Icon Library', 'gridhub' ) }
-						</Button>
-					</FlexItem>
-
-					<FlexItem>
-						<MediaUpload
-							value={ inputValues.id }
-							onSelect={ ( media ) => onSelectImage( media ) }
-							allowedTypes={ [ 'image' ] }
-							render={ ( { open } ) => (
-								<Button
-									label={ __( 'Upload SVG, PNG, JPG', 'gridhub' ) }
-									isSecondary
-									onClick={ open }
-								>
-									{ __( 'Upload', 'gridhub' ) }
-								</Button>
-							) }
-						/>
-					</FlexItem>
-				</Flex>
 
 				{ isOpen && (
 					<Modal

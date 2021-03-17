@@ -1,12 +1,14 @@
 import { noop } from 'lodash';
 import { __ } from '@wordpress/i18n';
 import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+import { useSelect } from '@wordpress/data';
 import {
 	ButtonGroup,
 	Button,
 	TextControl,
 	FlexItem,
 	Flex,
+	__experimentalGradientPicker as GradientPicker,
 } from '@wordpress/components';
 
 import { useControlledState } from '../../utils/use-controlled-state';
@@ -20,12 +22,13 @@ const DEFAULT_VALUES = {
 	image: null,
 	position: undefined,
 	attachment: undefined,
-	repeat: null,
-	size: null,
+	repeat: undefined,
+	size: undefined,
 	gradient: undefined,
 };
 
 const GridHubBackground = ( {
+	label,
 	values: valuesProp,
 	onChange = noop,
 } ) => {
@@ -34,6 +37,11 @@ const GridHubBackground = ( {
 	} );
 
 	const inputValues = values || DEFAULT_VALUES;
+
+	const colorGradientSettings = useSelect( ( select ) => {
+		const settings = select( 'core/block-editor' ).getSettings();
+		return settings;
+	} );
 
 	const handleOnChange = ( nextValues ) => {
 		onChange( nextValues );
@@ -56,116 +64,132 @@ const GridHubBackground = ( {
 		handleOnChange( nextValues );
 	};
 
-	console.log( inputValues );
-
 	return (
 		<>
-			<ButtonGroup>
-				<Button
-					isSmall
-					isPrimary={ inputValues.type === 'classic' }
-					onClick={ () => onChangeType( 'type', 'classic' ) }
-				>
-					{ 'Classic' }
-				</Button>
-				<Button
-					isSmall
-					isPrimary={ inputValues.type === 'gradient' }
-					onClick={ () => onChangeType( 'type', 'gradient' ) }
-				>
-					{ 'Gradient' }
-				</Button>
-			</ButtonGroup>
+			<div className="gridhub-background-control">
+				<Flex style={ { marginBottom: 10 } }>
+					<FlexItem>
+						<p className="gridhub-control__label">{ label || __( 'Background type', 'gridhub' ) }</p>
+					</FlexItem>
+					<FlexItem>
+						<ButtonGroup>
+							<Button
+								isSmall
+								isPrimary={ inputValues.type === 'classic' }
+								onClick={ () => onChangeType( 'type', 'classic' ) }
+							>
+								{ __( 'Classic', 'gridhub' ) }
+							</Button>
+							<Button
+								isSmall
+								isPrimary={ inputValues.type === 'gradient' }
+								onClick={ () => onChangeType( 'type', 'gradient' ) }
+							>
+								{ __( 'Gradient', 'gridhub' ) }
+							</Button>
+						</ButtonGroup>
+					</FlexItem>
+				</Flex>
 
-			{ inputValues.type === 'classic' && (
-				<>
-					<GridHubColorPicker
-						label={ __( 'Color', 'gridhub' ) }
-						value={ inputValues.color }
-						alpha={ true }
-						onChange={ createHandleOnChange( 'color' ) }
-					/>
+				{ inputValues.type === 'classic' && (
+					<>
+						<GridHubColorPicker
+							label={ __( 'Color', 'gridhub' ) }
+							value={ inputValues.color }
+							alpha={ true }
+							onChange={ createHandleOnChange( 'color' ) }
+						/>
 
-					<p className="gridhub-control__label">{ __( 'Image', 'gridhub' ) }</p>
-					<Flex style={ { marginBottom: 10 } } align="flex-start">
-						<FlexItem>
-							<TextControl
-								label={ null }
-								value={ inputValues.image }
-								onChange={ createHandleOnChange( 'image' ) }
-								placeholder="https://"
-								style={ { marginBottom: 0 } }
-							/>
-						</FlexItem>
-						<FlexItem>
-							<MediaUploadCheck>
-								<MediaUpload
-									onSelect={ ( media ) => onChangeType( 'image', media.url ) }
-									allowedTypes={ [ 'image' ] }
+						<p className="gridhub-control__label">{ __( 'Image', 'gridhub' ) }</p>
+						<Flex style={ { marginBottom: 10 } } align="flex-start">
+							<FlexItem>
+								<TextControl
+									label={ null }
 									value={ inputValues.image }
-									render={ ( { open } ) => (
-										<Button onClick={ open } isSecondary style={ { height: 31 } }>
-											{ ! inputValues.image ? __( 'Upload', 'gridhub' ) : __( 'Replace', 'gridhub' ) }
-										</Button>
-									) }
+									onChange={ createHandleOnChange( 'image' ) }
+									placeholder="https://"
+									style={ { marginBottom: 0 } }
 								/>
-							</MediaUploadCheck>
-						</FlexItem>
-					</Flex>
-
-					{ inputValues.image && (
-						<>
-							<GridHubFocusPointPicker
-								label={ __( 'Position', 'gridhub' ) }
-								url={ inputValues.image }
-								value={ inputValues.position }
-								onChange={ createHandleOnChange( 'position' ) }
-							/>
-							<Flex gap={ 8 } justify={ 'flex-start' } align={ 'flex-start' }>
-								<FlexItem>
-									<GridHubSelect
-										label={ __( 'Attachment', 'gridhub' ) }
-										values={ inputValues.attachment }
-										options={ [
-											{ label: 'Default', value: '' },
-											{ label: 'Scroll', value: 'scroll' },
-											{ label: 'Fixed', value: 'fixed' },
-										] }
-										onChange={ createHandleOnChange( 'attachment' ) }
+							</FlexItem>
+							<FlexItem>
+								<MediaUploadCheck>
+									<MediaUpload
+										onSelect={ ( media ) => onChangeType( 'image', media.url ) }
+										allowedTypes={ [ 'image' ] }
+										value={ inputValues.image }
+										render={ ( { open } ) => (
+											<Button onClick={ open } isSecondary style={ { height: 31 } }>
+												{ ! inputValues.image ? __( 'Upload', 'gridhub' ) : __( 'Replace', 'gridhub' ) }
+											</Button>
+										) }
 									/>
-								</FlexItem>
-								<FlexItem>
-									<GridHubSelect
-										label={ __( 'Repeat', 'gridhub' ) }
-										values={ inputValues.repeat }
-										options={ [
-											{ label: 'Default', value: '' },
-											{ label: 'No Repeat', value: 'no-repeat' },
-											{ label: 'Repeat', value: 'repeat' },
-											{ label: 'Repeat', value: 'repeat' },
-											{ label: 'Repeat X', value: 'repeat-x' },
-											{ label: 'Repeat Y', value: 'repeat-y' },
-										] }
-										onChange={ createHandleOnChange( 'repeat' ) }
-									/>
-								</FlexItem>
-							</Flex>
+								</MediaUploadCheck>
+							</FlexItem>
+						</Flex>
 
-							<GridHubSelect
-								label={ __( 'Size', 'gridhub' ) }
-								values={ inputValues.size }
-								options={ [
-									{ label: 'Default', value: '' },
-									{ label: 'Auto', value: 'auto' },
-									{ label: 'Cover', value: 'cover' },
-									{ label: 'Contain', value: 'contain' },
-								] }
-								onChange={ createHandleOnChange( 'size' ) }
-							/>
-						</>
-					) }
-				</>
-			) }
+						{ inputValues.image && (
+							<>
+								<GridHubFocusPointPicker
+									label={ __( 'Position', 'gridhub' ) }
+									url={ inputValues.image }
+									value={ inputValues.position }
+									onChange={ createHandleOnChange( 'position' ) }
+								/>
+								<Flex gap={ 8 } justify={ 'flex-start' } align={ 'flex-start' }>
+									<FlexItem>
+										<GridHubSelect
+											label={ __( 'Attachment', 'gridhub' ) }
+											values={ inputValues.attachment }
+											options={ [
+												{ label: 'Default', value: '' },
+												{ label: 'Scroll', value: 'scroll' },
+												{ label: 'Fixed', value: 'fixed' },
+											] }
+											onChange={ createHandleOnChange( 'attachment' ) }
+										/>
+									</FlexItem>
+									<FlexItem>
+										<GridHubSelect
+											label={ __( 'Repeat', 'gridhub' ) }
+											values={ inputValues.repeat }
+											options={ [
+												{ label: 'Default', value: '' },
+												{ label: 'No Repeat', value: 'no-repeat' },
+												{ label: 'Repeat', value: 'repeat' },
+												{ label: 'Repeat', value: 'repeat' },
+												{ label: 'Repeat X', value: 'repeat-x' },
+												{ label: 'Repeat Y', value: 'repeat-y' },
+											] }
+											onChange={ createHandleOnChange( 'repeat' ) }
+										/>
+									</FlexItem>
+								</Flex>
+
+								<GridHubSelect
+									label={ __( 'Size', 'gridhub' ) }
+									values={ inputValues.size }
+									options={ [
+										{ label: 'Default', value: '' },
+										{ label: 'Auto', value: 'auto' },
+										{ label: 'Cover', value: 'cover' },
+										{ label: 'Contain', value: 'contain' },
+									] }
+									onChange={ createHandleOnChange( 'size' ) }
+								/>
+							</>
+						) }
+					</>
+				) }
+
+				{ inputValues.type === 'gradient' && (
+					<GradientPicker
+						value={ inputValues.gradient }
+						onChange={ createHandleOnChange( 'gradient' ) }
+						disableCustomGradients={ false }
+						{ ...colorGradientSettings }
+					/>
+				) }
+			</div>
 		</>
 	);
 };

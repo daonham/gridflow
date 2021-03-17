@@ -39,7 +39,7 @@ function Edit( {
 			) }
 
 			<div { ...useBlockProps( { className: classnames( 'gridhub-heading', uniqueId ) } ) }>
-				<div className={ classnames( 'gridhub-heading__inner' ) }>
+				<div className={ classnames( 'gridhub-heading__inner', 'gridhub-block-inner' ) }>
 					<RichText
 						className={ classnames( 'gridhub-heading__content' ) }
 						tagName={ tagName }

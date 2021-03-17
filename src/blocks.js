@@ -3,14 +3,17 @@ import { registerBlockType } from '@wordpress/blocks';
 // Register block category.
 import './utils/category';
 
-// Register custom Hooks.
-import './hooks';
-
 // Utils.
 import './utils';
 
+// Register custom Hooks.
+import './hooks';
+
 // Register Components.
 import './components';
+
+// Global Inspector.
+import './inspector';
 
 // Register Blocks.
 import * as heading from './blocks/heading';

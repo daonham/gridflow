@@ -13,7 +13,7 @@ export default function save( { attributes } ) {
 
 	return (
 		<div { ...useBlockProps.save( { className: classnames( 'gridhub-heading', uniqueId ) } ) }>
-			<div className={ classnames( 'gridhub-heading__inner' ) }>
+			<div className={ classnames( 'gridhub-heading__inner', 'gridhub-block-inner' ) }>
 				{ ! RichText.isEmpty( content ) && (
 					<RichText.Content
 						className={ classnames( 'gridhub-heading__content' ) }

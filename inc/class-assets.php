@@ -18,7 +18,7 @@ class Assets {
 			self::$version = GRIDHUB_VERSION;
 		}
 
-		add_action( 'enqueue_block_assets', array( $this, 'frontend' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'frontend' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'editor' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'vendor' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'vendor' ) );
