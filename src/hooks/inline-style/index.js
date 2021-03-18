@@ -4,9 +4,9 @@ export default function getStyle( selectors, uniqueId, isResponsive = false, res
 	let generalStyle = '';
 
 	if ( responsiveType === 'tablet' ) {
-		breakpoint = '767';
+		breakpoint = '1024';
 	} else if ( responsiveType === 'mobile' ) {
-		breakpoint = '575';
+		breakpoint = '767';
 	}
 
 	for ( const i in selectors ) {

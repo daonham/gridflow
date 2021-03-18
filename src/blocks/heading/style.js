@@ -1,5 +1,5 @@
 import { addFilter, hasFilter } from '@wordpress/hooks';
-const { GridHubStyleTypography, GridHubStyleTextShadow, GridHubStyleBox, GridHubStyleBorder, GridHubStyleBoxShadow, GridHubStyleBackground } = wp.gridhubComponents;
+const { GridHubStyleTypography, GridHubStyleTextShadow } = wp.gridhubComponents;
 const { gridHubDeviceValue } = wp.gridhubUtils;
 
 function inlineStyle( { attributes } ) {
@@ -15,16 +15,12 @@ function inlineStyle( { attributes } ) {
 		fontStyle,
 		letterSpacing,
 		textShadow,
-		background,
 	} = attributes;
 
 	const desktop = {
 		'': {
 			'text-transform': transform || undefined,
 			'text-align': gridHubDeviceValue( textAligns, 'desktop' ),
-		},
-		' .gridhub-heading__inner': {
-			...GridHubStyleBackground( background, 'desktop' ),
 		},
 		' .gridhub-heading__content': {
 			...GridHubStyleTypography( { font, fontSize, lineHeight, fontWeight, decoration, transform, fontStyle, letterSpacing, device: 'desktop' } ),
@@ -37,9 +33,6 @@ function inlineStyle( { attributes } ) {
 		'': {
 			'text-align': gridHubDeviceValue( textAligns, 'tablet' ),
 		},
-		' .gridhub-heading__inner': {
-			...GridHubStyleBackground( background, 'tablet' ),
-		},
 		' .gridhub-heading__content': {
 			...GridHubStyleTypography( { fontSize, lineHeight, letterSpacing, device: 'tablet' } ),
 		},
@@ -48,9 +41,6 @@ function inlineStyle( { attributes } ) {
 	const mobile = {
 		'': {
 			'text-align': gridHubDeviceValue( textAligns, 'mobile' ),
-		},
-		' .gridhub-heading__inner': {
-			...GridHubStyleBackground( background, 'mobile' ),
 		},
 		' .gridhub-heading__content': {
 			...GridHubStyleTypography( { fontSize, lineHeight, letterSpacing, device: 'mobile' } ),

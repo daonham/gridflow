@@ -37,7 +37,6 @@ const Inspector = ( { attributes, setAttributes } ) => {
 		fontStyle,
 		letterSpacing,
 		textShadow,
-		background,
 		icon,
 		iconPosition,
 		iconSpacing,
@@ -134,13 +133,6 @@ const Inspector = ( { attributes, setAttributes } ) => {
 							/>
 						</FlexItem>
 					</Flex>
-				</PanelBody>
-
-				<PanelBody title={ __( 'Background', 'gridhub' ) } initialOpen={ false }>
-					<GridHubBackground
-						values={ background }
-						onChange={ ( value ) => setAttributes( { background: value } ) }
-					/>
 				</PanelBody>
 			</InspectorControls>
 		</>

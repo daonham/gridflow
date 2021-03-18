@@ -66,9 +66,6 @@
 		"textShadow": {
 			"type": "object"
 		},
-		"background": {
-			"type": "object"
-		},
 		"icon": {
 			"type": "object"
 		},
