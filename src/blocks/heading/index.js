@@ -6,11 +6,10 @@ import { __ } from '@wordpress/i18n';
 import edit from './edit';
 import metadata from './block.json';
 import save from './save';
-import transforms from './transforms';
 
 import './style';
 
-const { name, category, attributes } = metadata;
+const { name } = metadata;
 
 const settings = {
 	title: __( 'Heading', 'gridhub' ),
@@ -25,9 +24,8 @@ const settings = {
 			content: __( 'Hello World!', 'gridhub' ),
 		},
 	},
-	transforms,
 	edit,
 	save,
 };
 
-export { name, category, metadata, settings, attributes };
+export { name, metadata, settings };

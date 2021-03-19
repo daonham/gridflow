@@ -23,9 +23,9 @@ const registerBlock = ( block ) => {
 		return;
 	}
 
-	const { name, category, attributes, settings } = block;
+	const { metadata, settings, name } = block;
 
-	registerBlockType( name, { category, attributes, ...settings } );
+	registerBlockType( name, { ...metadata, ...settings } );
 };
 
 /**
