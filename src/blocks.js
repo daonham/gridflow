@@ -3,9 +3,6 @@ import { registerBlockType } from '@wordpress/blocks';
 // Register block category.
 import './utils/category';
 
-// Utils.
-import './utils';
-
 // Register custom Hooks.
 import './hooks';
 

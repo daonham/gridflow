@@ -1,16 +1,14 @@
-const { gridHubDeviceValue } = wp.gridhubUtils;
-
 export const GridHubStyleBox = ( box, type, device ) => {
-	const spacing = gridHubDeviceValue( box, device );
+	const spacing = box?.[ device ];
 
 	if ( spacing === undefined || spacing === null ) {
 		return;
 	}
 
-	const top = gridHubDeviceValue( spacing, 'top' );
-	const right = gridHubDeviceValue( spacing, 'right' );
-	const bottom = gridHubDeviceValue( spacing, 'bottom' );
-	const left = gridHubDeviceValue( spacing, 'left' );
+	const top = spacing?.top;
+	const right = spacing?.right;
+	const bottom = spacing?.bottom;
+	const left = spacing?.left;
 
 	if ( top === right && right === bottom && bottom === left ) {
 		if ( type === 'margin' ) {

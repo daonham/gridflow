@@ -1,9 +1,6 @@
-const { gridHubDeviceValue } = wp.gridhubUtils;
-
 export const GridHubStyleBorder = ( border, device ) => {
 	if ( device ) {
-		const styles = gridHubDeviceValue( border, device );
-		return getBorder( styles );
+		return getBorder( border?.[device] );
 
 	} else {
 		return getBorder( border );
@@ -15,9 +12,9 @@ const getBorder = ( styles ) => {
 		return;
 	}
 
-	const width = gridHubDeviceValue( styles, 'width' );
-	const style = gridHubDeviceValue( styles, 'style' );
-	const color = gridHubDeviceValue( styles, 'color' );
+	const width = styles?.width;
+	const style = styles?.style;
+	const color = styles?.color;
 
 	if ( typeof width === 'string' && width !== undefined && width !== null ) {
 		return {
@@ -25,10 +22,10 @@ const getBorder = ( styles ) => {
 		}
 	} else {
 		return {
-			'border-top': gridHubDeviceValue( width, 'top' ),
-			'border-right': gridHubDeviceValue( width, 'right' ),
-			'border-bottom': gridHubDeviceValue( width, 'bottom' ),
-			'border-left': gridHubDeviceValue( width, 'left' ),
+			'border-top': width?.top,
+			'border-right': width?.right,
+			'border-bottom': width?.bottom,
+			'border-left': width?.left,
 			'border-style': style,
 			'border-color': color,
 		}

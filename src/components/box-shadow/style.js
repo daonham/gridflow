@@ -1,11 +1,9 @@
-const { gridHubDeviceValue } = wp.gridhubUtils;
-
 export const GridHubStyleBoxShadow = ( boxShadow ) => {
-	const X = gridHubDeviceValue( boxShadow, 'horizontal' );
-	const Y = gridHubDeviceValue( boxShadow, 'vertical' );
-	const blur = gridHubDeviceValue( boxShadow, 'blur' );
-	const spread = gridHubDeviceValue( boxShadow, 'spread' );
-	const color = gridHubDeviceValue( boxShadow, 'color' );
+	const X = boxShadow?.horizontal;
+	const Y = boxShadow?.vertical;
+	const blur = boxShadow?.blur;
+	const spread = boxShadow?.spread;
+	const color = boxShadow?.color;
 
 	if ( X == undefined && Y == undefined && blur == undefined && spread == undefined ) {
 		return;
