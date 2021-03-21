@@ -29,7 +29,11 @@ class Assets {
 		$name   = 'gridhub-style';
 		$is_rtl = is_rtl() ? '-rtl' : '';
 
+		// Style.
 		wp_enqueue_style( 'gridhub-frontend', $url . $name . $is_rtl . '.css', array(), self::$version );
+
+		// Script.
+		wp_enqueue_script( 'gridhub', $url . 'js/gridhub.js', array(), GRIDHUB_VERSION, true );
 
 		// Enqueue style in uploads.
 		do_action( 'gridhub/enqueue/style/uploads', self::$version );

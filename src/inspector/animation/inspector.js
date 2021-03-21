@@ -1,11 +1,11 @@
 import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, SelectControl, TextControl, Flex, FlexItem } from '@wordpress/components';
+import { PanelBody, SelectControl, Flex, FlexItem } from '@wordpress/components';
 
 import GridHubSelect from '../../components/select';
 
 const Inspector = ( { attributes, setAttributes } ) => {
-	const { gridhubAnimation, gridhubDuration, gridhubDelay } = attributes;
+	const { gridhubAnimation, gridhubSpeed, gridhubDelay } = attributes;
 
 	return (
 		<InspectorControls key="inspector">
@@ -16,11 +16,11 @@ const Inspector = ( { attributes, setAttributes } ) => {
 					onChange={ ( value ) => setAttributes( { gridhubAnimation: value } ) }
 					options={ [
 						{ label: 'None', value: '' },
-						{ label: 'Fade In', value: 'gridHubFadeIn' },
-						{ label: 'Fade In Down', value: 'gridhubFadeInDown' },
-						{ label: 'Fade In Left', value: 'gridhubFadeInLeft' },
-						{ label: 'Fade In Right', value: 'gridhubFadeInRight' },
-						{ label: 'Fade In Up', value: 'gridhubFadeInUp' },
+						{ label: 'Fade In', value: 'fadeIn' },
+						{ label: 'Fade In Down', value: 'fadeInDown' },
+						{ label: 'Fade In Left', value: 'fadeInLeft' },
+						{ label: 'Fade In Right', value: 'fadeInRight' },
+						{ label: 'Fade In Up', value: 'fadeInUp' },
 						{ label: 'bounce In', value: 'bounceIn' },
 						{ label: 'bounce In Down', value: 'bounceInDown' },
 						{ label: 'bounce In Left', value: 'bounceInLeft' },
@@ -44,27 +44,33 @@ const Inspector = ( { attributes, setAttributes } ) => {
 				<Flex>
 					<FlexItem style={ { width: '50%' } }>
 						<SelectControl
-							label={ __( 'Duration', 'gridhub' ) }
-							value={ gridhubDuration }
+							label={ __( 'Speed', 'gridhub' ) }
+							value={ gridhubSpeed }
 							options={ [
 								{ label: __( 'Default' ), value: '' },
-								{ label: __( 'Slow' ), value: '3' },
-								{ label: __( 'Slower' ), value: '3.5' },
-								{ label: __( 'Fast' ), value: '1' },
-								{ label: __( 'Faster' ), value: '0.5' },
+								{ label: __( 'Slow' ), value: 'slow' },
+								{ label: __( 'Slower' ), value: 'slower' },
+								{ label: __( 'Fast' ), value: 'fast' },
+								{ label: __( 'Faster' ), value: 'faster' },
 							] }
-							onChange={ ( value ) => setAttributes( { gridhubDuration: value } ) }
+							onChange={ ( value ) => setAttributes( { gridhubSpeed: value } ) }
 							style={ { width: '100%' } }
 						/>
 					</FlexItem>
-					<FlexItem>
-						<TextControl
-							label={ __( 'Delay (ms)', 'gridhub' ) }
-							type="number"
-							min={ 0 }
+					<FlexItem style={ { width: '50%' } }>
+						<SelectControl
+							label={ __( 'Delay', 'gridhub' ) }
 							value={ gridhubDelay }
-							placeholder={ 200 }
+							options={ [
+								{ label: __( 'Default' ), value: '' },
+								{ label: __( '1s' ), value: '1s' },
+								{ label: __( '2s' ), value: '2s' },
+								{ label: __( '3s' ), value: '3s' },
+								{ label: __( '4s' ), value: '4s' },
+								{ label: __( '5s' ), value: '5s' },
+							] }
 							onChange={ ( value ) => setAttributes( { gridhubDelay: value } ) }
+							style={ { width: '100%' } }
 						/>
 					</FlexItem>
 				</Flex>

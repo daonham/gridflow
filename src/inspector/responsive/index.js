@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 import assign from 'lodash/assign';
 
+import { useSelect } from '@wordpress/data';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { addFilter } from '@wordpress/hooks';
 
@@ -53,7 +54,44 @@ export function addSaveProps( extraProps, blockType, attributes ) {
 	return extraProps;
 }
 
+export const withDataResponsive = createHigherOrderComponent(
+	( BlockListBlock ) => ( props ) => {
+		const { hideDesktop, hideTablet, hideMobile } = props.attributes;
+
+		const getPreviewDeviceType = useSelect( ( select ) => {
+			const { __experimentalGetPreviewDeviceType } = select( 'core/edit-post' );
+
+			return __experimentalGetPreviewDeviceType ? __experimentalGetPreviewDeviceType() : false;
+		}, [] );
+
+		let style;
+
+		if ( getPreviewDeviceType === 'Desktop' && hideDesktop ) {
+			style = 'none';
+		} else if ( getPreviewDeviceType === 'Tablet' && hideTablet ) {
+			style = 'none';
+		} else if ( getPreviewDeviceType === 'Mobile' && hideMobile ) {
+			style = 'none';
+		}
+
+		const newProps = { ...props };
+
+		const { wrapperProps } = props;
+
+		newProps.wrapperProps = {
+			...wrapperProps,
+			style: {
+				display: style,
+				...props.wrapperProps?.style,
+			},
+		};
+
+		return <BlockListBlock { ...newProps } />;
+	}
+);
+
 addFilter( 'blocks.registerBlockType', 'gridhub/inspector/attributes', addAttributes );
-addFilter( 'editor.BlockEdit', 'gridhub/spacing', withInspectorControl );
+addFilter( 'editor.BlockEdit', 'gridhub/responsive', withInspectorControl );
 addFilter( 'blocks.getSaveContent.extraProps', 'gridhub/responsive/class', addSaveProps );
+addFilter( 'editor.BlockListBlock', 'gridhub/responsive/with-data-responsive', withDataResponsive );
 

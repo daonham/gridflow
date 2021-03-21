@@ -2,7 +2,7 @@ const gridhubAttributes = {
 	gridhubAnimation: {
 		type: 'object',
 	},
-	gridhubDuration: {
+	gridhubSpeed: {
 		type: 'string',
 		default: '',
 	},
