@@ -1,5 +1,5 @@
 const gridhubAnimate = () => {
-	const animates = [ ...document.querySelectorAll( '[data-animated]' ) ];
+	const animates = [ ...document.querySelectorAll( '[data-gridhub-animated]' ) ];
 
 	if ( animates.length > 0 ) {
 		if ( 'IntersectionObserver' in window ) {
@@ -7,7 +7,7 @@ const gridhubAnimate = () => {
 				entries.forEach( function( entry ) {
 					if ( entry.isIntersecting ) {
 						const animate = entry.target,
-							data = animate.dataset.animated;
+							data = animate.dataset.gridhubAnimated;
 
 						let	timeout = 0;
 

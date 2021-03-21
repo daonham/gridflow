@@ -44,7 +44,7 @@ export function addSaveProps( extraProps, blockType, attributes ) {
 			delay: gridhubDelay || '',
 		};
 
-		extraProps['data-animated'] = JSON.stringify( animated );
+		extraProps['data-gridhub-animated'] = JSON.stringify( animated );
 	}
 
 	return extraProps;
