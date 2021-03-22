@@ -3,25 +3,25 @@ import { InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, ToggleControl } from '@wordpress/components';
 
 const Inspector = ( { attributes, setAttributes } ) => {
-	const { hideDesktop, hideTablet, hideMobile } = attributes;
+	const { gridhubHideDesktop, gridhubHideTablet, gridhubHideMobile } = attributes;
 
 	return (
 		<InspectorControls key="inspector">
 			<PanelBody title={ __( 'Responsive', 'gridhub' ) } initialOpen={ false }>
 				<ToggleControl
 					label={ __( 'Hide in Desktop', 'gridhub' ) }
-					checked={ hideDesktop }
-					onChange={ () => setAttributes( { hideDesktop: ! hideDesktop } ) }
+					checked={ gridhubHideDesktop }
+					onChange={ () => setAttributes( { gridhubHideDesktop: ! gridhubHideDesktop } ) }
 				/>
 				<ToggleControl
 					label={ __( 'Hide in Tablet', 'gridhub' ) }
-					checked={ hideTablet }
-					onChange={ () => setAttributes( { hideTablet: ! hideTablet } ) }
+					checked={ gridhubHideTablet }
+					onChange={ () => setAttributes( { gridhubHideTablet: ! gridhubHideTablet } ) }
 				/>
 				<ToggleControl
 					label={ __( 'Hide in Mobile', 'gridhub' ) }
-					checked={ hideMobile }
-					onChange={ () => setAttributes( { hideMobile: ! hideMobile } ) }
+					checked={ gridhubHideMobile }
+					onChange={ () => setAttributes( { gridhubHideMobile: ! gridhubHideMobile } ) }
 				/>
 			</PanelBody>
 		</InspectorControls>

@@ -1,8 +1,8 @@
 const gridhubAttributes = {
-	margin: {
+	gridhubMargin: {
 		type: 'object',
 	},
-	padding: {
+	gridhubPadding: {
 		type: 'object',
 	},
 };

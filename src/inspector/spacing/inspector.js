@@ -4,20 +4,20 @@ import { PanelBody } from '@wordpress/components';
 import GridHubBoxControl from '../../components/box';
 
 const Inspector = ( { attributes, setAttributes } ) => {
-	const { margin, padding } = attributes;
+	const { gridhubMargin, gridhubPadding } = attributes;
 
 	return (
 		<InspectorControls key="inspector">
 			<PanelBody title={ __( 'Spacing', 'gridhub' ) } initialOpen={ false }>
 				<GridHubBoxControl
 					label={ __( 'Margin', 'gridhub' ) }
-					values={ margin }
-					onChange={ ( value ) => setAttributes( { margin: value } ) }
+					values={ gridhubMargin }
+					onChange={ ( value ) => setAttributes( { gridhubMargin: value } ) }
 				/>
 				<GridHubBoxControl
 					label={ __( 'Padding', 'gridhub' ) }
-					values={ padding }
-					onChange={ ( value ) => setAttributes( { padding: value } ) }
+					values={ gridhubPadding }
+					onChange={ ( value ) => setAttributes( { gridhubPadding: value } ) }
 				/>
 			</PanelBody>
 		</InspectorControls>

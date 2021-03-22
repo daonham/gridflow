@@ -1,5 +1,5 @@
 const gridhubAttributes = {
-	background: {
+	gridhubBackground: {
 		type: 'object',
 	},
 };

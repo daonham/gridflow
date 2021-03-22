@@ -1,13 +1,13 @@
 const gridhubAttributes = {
-	hideDesktop: {
+	gridhubHideDesktop: {
 		type: 'boolean',
 		default: false,
 	},
-	hideTablet: {
+	gridhubHideTablet: {
 		type: 'boolean',
 		default: false,
 	},
-	hideMobile: {
+	gridhubHideMobile: {
 		type: 'boolean',
 		default: false,
 	},

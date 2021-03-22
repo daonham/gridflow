@@ -7,26 +7,26 @@ import GridHubBorder from '../../components/border';
 import GridHubBoxShadow from '../../components/box-shadow';
 
 const Inspector = ( { attributes, setAttributes } ) => {
-	const { border, borderRadius, boxShadow } = attributes;
+	const { gridhubBorder, gridhubBorderRadius, gridhubBoxShadow } = attributes;
 
 	return (
 		<InspectorControls key="inspector">
 			<PanelBody title={ __( 'Border', 'gridhub' ) } initialOpen={ false }>
 				<GridHubBorder
-					label={ 'Border' }
-					values={ border }
+					label={ __( 'Border', 'gridhub' ) }
+					values={ gridhubBorder }
 					device={ true }
-					onChange={ ( value ) => setAttributes( { border: value } ) }
+					onChange={ ( value ) => setAttributes( { gridhubBorder: value } ) }
 				/>
 				<GridHubBoxControl
-					label={ 'Border Radius' }
-					values={ borderRadius }
-					onChange={ ( value ) => setAttributes( { borderRadius: value } ) }
+					label={ __( 'Border Radius', 'gridhub' ) }
+					values={ gridhubBorderRadius }
+					onChange={ ( value ) => setAttributes( { gridhubBorderRadius: value } ) }
 				/>
 				<GridHubBoxShadow
 					label={ __( 'Box Shadow', 'gridhub' ) }
-					value={ boxShadow }
-					onChange={ ( value ) => setAttributes( { boxShadow: value } ) }
+					value={ gridhubBoxShadow }
+					onChange={ ( value ) => setAttributes( { gridhubBoxShadow: value } ) }
 				/>
 			</PanelBody>
 		</InspectorControls>

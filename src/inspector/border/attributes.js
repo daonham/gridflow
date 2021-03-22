@@ -1,11 +1,11 @@
 const gridhubAttributes = {
-	border: {
+	gridhubBorder: {
 		type: 'object',
 	},
-	borderRadius: {
+	gridhubBorderRadius: {
 		type: 'object',
 	},
-	boxShadow: {
+	gridhubBoxShadow: {
 		type: 'object',
 	},
 };

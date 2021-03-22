@@ -12,10 +12,7 @@ import GridHubColorPicker from '../../components/color';
 import GridHubTextShadow from '../../components/text-shadow';
 import GridHubIconSelect from '../../components/icon';
 
-const {
-	GridHubTyphography,
-	GridHubBackground,
-} = wp.gridhubComponents;
+const { GridHubTyphography } = wp.gridhubComponents;
 
 const {
 	GridHubLinkControl,

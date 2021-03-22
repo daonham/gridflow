@@ -5,14 +5,14 @@ import { PanelBody } from '@wordpress/components';
 import GridHubBackground from '../../components/background';
 
 const Inspector = ( { attributes, setAttributes } ) => {
-	const { background } = attributes;
+	const { gridhubBackground } = attributes;
 
 	return (
 		<InspectorControls key="inspector">
 			<PanelBody title={ __( 'Background', 'gridhub' ) } initialOpen={ false }>
 				<GridHubBackground
-					values={ background }
-					onChange={ ( value ) => setAttributes( { background: value } ) }
+					values={ gridhubBackground }
+					onChange={ ( value ) => setAttributes( { gridhubBackground: value } ) }
 				/>
 			</PanelBody>
 		</InspectorControls>

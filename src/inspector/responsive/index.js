@@ -37,17 +37,17 @@ export const withInspectorControl = createHigherOrderComponent( ( BlockEdit ) =>
 }, 'withInspectorControl' );
 
 export function addSaveProps( extraProps, blockType, attributes ) {
-	const { hideDesktop, hideTablet, hideMobile } = attributes;
+	const { gridhubHideDesktop, gridhubHideTablet, gridhubHideMobile } = attributes;
 
-	if ( hideDesktop && ! extraProps.className.includes( 'gridhub-hidden-desktop' ) ) {
+	if ( gridhubHideDesktop && ! extraProps.className.includes( 'gridhub-hidden-desktop' ) ) {
 		extraProps.className = classnames( extraProps.className, 'gridhub-hidden-desktop' );
 	}
 
-	if ( hideTablet && ! extraProps.className.includes( 'gridhub-hidden-tablet' ) ) {
+	if ( gridhubHideTablet && ! extraProps.className.includes( 'gridhub-hidden-tablet' ) ) {
 		extraProps.className = classnames( extraProps.className, 'gridhub-hidden-tablet' );
 	}
 
-	if ( hideMobile && ! extraProps.className.includes( 'gridhub-hidden-mobile' ) ) {
+	if ( gridhubHideMobile && ! extraProps.className.includes( 'gridhub-hidden-mobile' ) ) {
 		extraProps.className = classnames( extraProps.className, 'gridhub-hidden-mobile' );
 	}
 
@@ -56,7 +56,7 @@ export function addSaveProps( extraProps, blockType, attributes ) {
 
 export const withDataResponsive = createHigherOrderComponent(
 	( BlockListBlock ) => ( props ) => {
-		const { hideDesktop, hideTablet, hideMobile } = props.attributes;
+		const { gridhubHideDesktop, gridhubHideTablet, gridhubHideMobile } = props.attributes;
 
 		const getPreviewDeviceType = useSelect( ( select ) => {
 			const { __experimentalGetPreviewDeviceType } = select( 'core/edit-post' );
@@ -66,11 +66,11 @@ export const withDataResponsive = createHigherOrderComponent(
 
 		let style;
 
-		if ( getPreviewDeviceType === 'Desktop' && hideDesktop ) {
+		if ( getPreviewDeviceType === 'Desktop' && gridhubHideDesktop ) {
 			style = 'none';
-		} else if ( getPreviewDeviceType === 'Tablet' && hideTablet ) {
+		} else if ( getPreviewDeviceType === 'Tablet' && gridhubHideTablet ) {
 			style = 'none';
-		} else if ( getPreviewDeviceType === 'Mobile' && hideMobile ) {
+		} else if ( getPreviewDeviceType === 'Mobile' && gridhubHideMobile ) {
 			style = 'none';
 		}
 
