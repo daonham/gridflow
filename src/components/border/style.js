@@ -1,4 +1,4 @@
-export const GridHubStyleBorder = ( border, device ) => {
+const GridHubStyleBorder = ( border, device ) => {
 	if ( device ) {
 		return getBorder( border?.[device] );
 
@@ -6,6 +6,7 @@ export const GridHubStyleBorder = ( border, device ) => {
 		return getBorder( border );
 	}
 };
+export default GridHubStyleBorder;
 
 const getBorder = ( styles ) => {
 	if ( styles === undefined || styles === null ) {

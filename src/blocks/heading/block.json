@@ -3,9 +3,6 @@
 	"name": "gridhub/heading",
 	"category": "gridhub",
 	"attributes": {
-		"uniqueId": {
-			"type": "string"
-		},
 		"content": {
 			"type": "string",
 			"source": "html",
@@ -19,17 +16,11 @@
 		"placeholder": {
 			"type": "string"
 		},
-		"textAlign": {
-			"type": "string"
-		},
 		"textAligns": {
 			"type": "object"
 		},
 		"color": {
 			"type": "string"
-		},
-		"links": {
-			"type": "object"
 		},
 		"font": {
 			"type": "string"
@@ -76,6 +67,36 @@
 		},
 		"iconSpacing": {
 			"type": "string"
+		},
+		"iconAlignment": {
+			"type": "string"
+		},
+		"iconWidth": {
+			"type": "object"
+		},
+		"iconFontSize": {
+			"type": "object"
+		},
+		"iconLineHeight": {
+			"type": "object"
+		},
+		"iconColor": {
+			"type": "string"
+		},
+		"iconBackgroundColor": {
+			"type": "string"
+		},
+		"iconPadding": {
+			"type": "object"
+		},
+		"iconBorder": {
+			"type": "object"
+		},
+		"iconBorderRadius": {
+			"type": "object"
+		},
+		"iconBoxShadow": {
+			"type": "object"
 		}
 	}
 }

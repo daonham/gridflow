@@ -57,7 +57,7 @@ class Styles {
 		}
 
 		$query_args = array(
-			'family'  => implode( '|', $output ),
+			'family'  => implode( '%7C', $output ),
 			'display' => 'swap',
 		);
 
@@ -134,6 +134,8 @@ class Styles {
 				}
 
 				update_post_meta( $post_id, 'gridhub_google_fonts', $save_fonts );
+			} else {
+				delete_post_meta( $post_id, 'gridhub_google_fonts' );
 			}
 
 			if ( empty( $post_css ) ) {

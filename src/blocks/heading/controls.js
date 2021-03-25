@@ -1,11 +1,11 @@
 import { __ } from '@wordpress/i18n';
-import { AlignmentToolbar, BlockControls } from '@wordpress/block-editor';
+import { BlockControls } from '@wordpress/block-editor';
 import { ToolbarGroup, DropdownMenu } from '@wordpress/components';
 
 import getTagIcon from './icons';
 
 const Controls = ( { attributes, setAttributes } ) => {
-	const { textAlign, tagName } = attributes;
+	const { tagName } = attributes;
 
 	const changeTag = ( value ) => {
 		setAttributes( { tagName: value } );
@@ -68,12 +68,6 @@ const Controls = ( { attributes, setAttributes } ) => {
 						] }
 					/>
 				</ToolbarGroup>
-				<AlignmentToolbar
-					value={ textAlign }
-					onChange={ ( nextAlign ) => {
-						setAttributes( { textAlign: nextAlign } );
-					} }
-				/>
 			</BlockControls>
 		</>
 	);

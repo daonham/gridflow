@@ -1,4 +1,4 @@
-export const GridHubStyleBackground = ( styles, device ) => {
+const GridHubStyleBackground = ( styles, device ) => {
 	const type = styles?.type;
 
 	if ( type === 'classic' ) {
@@ -20,3 +20,5 @@ export const GridHubStyleBackground = ( styles, device ) => {
 		background: styles?.gradient,
 	};
 };
+
+export default GridHubStyleBackground;

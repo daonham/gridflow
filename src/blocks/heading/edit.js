@@ -20,7 +20,7 @@ function Edit( {
 	attributes,
 	setAttributes,
 } ) {
-	const { content, placeholder, tagName, uniqueId } = attributes;
+	const { content, placeholder, tagName, uniqueId, icon, iconPosition } = attributes;
 
 	return (
 		<>
@@ -40,14 +40,38 @@ function Edit( {
 
 			<div { ...useBlockProps( { className: classnames( 'gridhub-heading', uniqueId ) } ) }>
 				<div className={ classnames( 'gridhub-heading__inner', 'gridhub-block-inner' ) }>
-					<RichText
-						className={ classnames( 'gridhub-heading__content' ) }
-						tagName={ tagName }
-						placeholder={ placeholder || __( 'Write heading...', 'gridhub' ) }
-						keepPlaceholderOnFocus
-						value={ content }
-						onChange={ ( value ) => setAttributes( { content: value } ) }
-					/>
+					<div className={ 'gridhub-heading__wrapper' }>
+						{ ( icon?.icon || icon?.url ) && iconPosition === 'left' && (
+							<span>
+								{ icon?.icon && (
+									<i className={ icon.icon }></i>
+								) }
+								{ icon?.url && (
+									<img src={ icon.url } alt={ icon?.alt ? icon.alt : '' } />
+								) }
+							</span>
+						) }
+
+						<RichText
+							className={ classnames( 'gridhub-heading__content' ) }
+							tagName={ tagName }
+							placeholder={ placeholder || __( 'Write heading...', 'gridhub' ) }
+							keepPlaceholderOnFocus
+							value={ content }
+							onChange={ ( value ) => setAttributes( { content: value } ) }
+						/>
+
+						{ ( icon?.icon || icon?.url ) && iconPosition === 'right' && (
+							<span>
+								{ icon?.icon && (
+									<i className={ icon.icon }></i>
+								) }
+								{ icon?.url && (
+									<img src={ icon.url } alt={ icon?.alt ? icon.alt : '' } />
+								) }
+							</span>
+						) }
+					</div>
 				</div>
 			</div>
 		</>

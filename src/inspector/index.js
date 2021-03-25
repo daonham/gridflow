@@ -3,3 +3,4 @@ import './border';
 import './background';
 import './responsive';
 import './animation';
+import './uniqueID';

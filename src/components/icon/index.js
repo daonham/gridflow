@@ -40,7 +40,7 @@ const DEFAULT_VALUES = {
 const GridHubIconSelect = ( {
 	id: idProp,
 	label = __( 'Icon' ),
-	value: valuesProp,
+	values: valuesProp,
 	onChange = noop,
 } ) => {
 	const id = useUniqueId( idProp );

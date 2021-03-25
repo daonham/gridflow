@@ -1,4 +1,4 @@
-export const GridHubStyleBoxShadow = ( boxShadow ) => {
+const GridHubStyleBoxShadow = ( boxShadow ) => {
 	const X = boxShadow?.horizontal;
 	const Y = boxShadow?.vertical;
 	const blur = boxShadow?.blur;
@@ -13,3 +13,5 @@ export const GridHubStyleBoxShadow = ( boxShadow ) => {
 		'box-shadow': `${X || 0}px ${Y || 0}px ${blur || 0}px ${spread || 0}px ${color || 'rgb(0 0 0 / 50%)' }`
 	}
 };
+
+export default GridHubStyleBoxShadow;

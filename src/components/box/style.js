@@ -1,4 +1,4 @@
-export const GridHubStyleBox = ( box, type, device ) => {
+const GridHubStyleBox = ( box, type, device ) => {
 	const spacing = box?.[ device ];
 
 	if ( spacing === undefined || spacing === null ) {
@@ -51,3 +51,4 @@ export const GridHubStyleBox = ( box, type, device ) => {
 		}
 	}
 };
+export default GridHubStyleBox;

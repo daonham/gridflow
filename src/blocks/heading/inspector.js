@@ -8,15 +8,16 @@ import {
 	__experimentalUnitControl as UnitControl,
 } from '@wordpress/components';
 
-import GridHubColorPicker from '../../components/color';
-import GridHubTextShadow from '../../components/text-shadow';
-import GridHubIconSelect from '../../components/icon';
-
-const { GridHubTyphography } = wp.gridhubComponents;
-
 const {
-	GridHubLinkControl,
+	GridHubTyphography,
+	GridHubBoxControl,
+	GridHubBorder,
+	GridHubBoxShadow,
 	GridHubTextAlign,
+	GridHubTextUnit,
+	GridHubTextShadow,
+	GridHubColorPicker,
+	GridHubIconSelect,
 } = wp.gridhubComponents;
 
 const Inspector = ( { attributes, setAttributes } ) => {
@@ -24,7 +25,6 @@ const Inspector = ( { attributes, setAttributes } ) => {
 		tagName,
 		textAligns,
 		color,
-		links,
 		font,
 		fontSize,
 		lineHeight,
@@ -37,6 +37,16 @@ const Inspector = ( { attributes, setAttributes } ) => {
 		icon,
 		iconPosition,
 		iconSpacing,
+		iconAlignment,
+		iconWidth,
+		iconFontSize,
+		iconLineHeight,
+		iconColor,
+		iconBackgroundColor,
+		iconPadding,
+		iconBorder,
+		iconBorderRadius,
+		iconBoxShadow,
 	} = attributes;
 
 	return (
@@ -68,10 +78,6 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						value={ color }
 						alpha={ true }
 						onChange={ ( value ) => setAttributes( { color: value } ) }
-					/>
-					<GridHubLinkControl
-						values={ links }
-						onChange={ ( value ) => setAttributes( { links: value } ) }
 					/>
 				</PanelBody>
 
@@ -113,8 +119,8 @@ const Inspector = ( { attributes, setAttributes } ) => {
 								label={ __( 'Icon Position', 'gridhub' ) }
 								value={ iconPosition }
 								options={ [
-									{ label: 'Left', value: 'left' },
-									{ label: 'Right', value: 'right' },
+									{ label: __( 'Left', 'gridhub' ), value: 'left' },
+									{ label: __( 'Right', 'gridhub' ), value: 'right' },
 								] }
 								onChange={ ( value ) => setAttributes( { iconPosition: value } ) }
 								style={ { width: 100 } }
@@ -130,6 +136,79 @@ const Inspector = ( { attributes, setAttributes } ) => {
 							/>
 						</FlexItem>
 					</Flex>
+					<SelectControl
+						label={ __( 'Vertical Alignment', 'gridhub' ) }
+						value={ iconAlignment }
+						options={ [
+							{ label: __( 'Top', 'gridhub' ), value: 'flex-start' },
+							{ label: __( 'Center', 'gridhub' ), value: 'center' },
+							{ label: __( 'Bottom', 'gridhub' ), value: 'flex-end' },
+						] }
+						onChange={ ( value ) => setAttributes( { iconAlignment: value } ) }
+					/>
+					{ icon.url && (
+						<GridHubTextUnit
+							label={ __( 'Width', 'gridhub' ) }
+							values={ iconWidth }
+							onChange={ ( value ) => setAttributes( { iconWidth: value } ) }
+						/>
+					) }
+					{ icon.icon && (
+						<>
+							<Flex gap={ 8 } justify={ 'flex-start' } align={ 'flex-start' }>
+								<FlexItem>
+									<GridHubTextUnit
+										label={ 'Font Size' }
+										values={ iconFontSize }
+										onChange={ ( value ) => setAttributes( { iconFontSize: value } ) }
+									/>
+								</FlexItem>
+
+								<FlexItem>
+									<GridHubTextUnit
+										label={ 'Line Height' }
+										values={ iconLineHeight }
+										onChange={ ( value ) => setAttributes( { iconLineHeight: value } ) }
+									/>
+								</FlexItem>
+							</Flex>
+							<GridHubColorPicker
+								label={ __( 'Color', 'gridhub' ) }
+								value={ iconColor }
+								alpha={ true }
+								gradients={ true }
+								onChange={ ( value ) => setAttributes( { iconColor: value } ) }
+							/>
+						</>
+					) }
+					<GridHubColorPicker
+						label={ __( 'Background Color', 'gridhub' ) }
+						value={ iconBackgroundColor }
+						alpha={ true }
+						gradients={ true }
+						onChange={ ( value ) => setAttributes( { iconBackgroundColor: value } ) }
+					/>
+					<GridHubBoxControl
+						label={ __( 'Padding', 'gridhub' ) }
+						values={ iconPadding }
+						onChange={ ( value ) => setAttributes( { iconPadding: value } ) }
+					/>
+					<GridHubBorder
+						label={ __( 'Border', 'gridhub' ) }
+						values={ iconBorder }
+						device={ true }
+						onChange={ ( value ) => setAttributes( { iconBorder: value } ) }
+					/>
+					<GridHubBoxControl
+						label={ __( 'Border Radius', 'gridhub' ) }
+						values={ iconBorderRadius }
+						onChange={ ( value ) => setAttributes( { iconBorderRadius: value } ) }
+					/>
+					<GridHubBoxShadow
+						label={ __( 'Box Shadow', 'gridhub' ) }
+						value={ iconBoxShadow }
+						onChange={ ( value ) => setAttributes( { iconBoxShadow: value } ) }
+					/>
 				</PanelBody>
 			</InspectorControls>
 		</>

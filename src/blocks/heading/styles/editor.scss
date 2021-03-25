@@ -1,9 +1,17 @@
 
 .gridhub-heading {
 
-	&__inner {
+	&__wrapper {
+		display: inline-flex;
+
+		> span {
+			line-height: 1;
+			margin: 0;
+			padding: 0;
+		}
 
 		> .gridhub-heading__content {
+			flex: 1;
 			padding: 0;
 			margin: 0;
 			line-height: 1;

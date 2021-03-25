@@ -1,4 +1,4 @@
-export const GridHubStyleTextShadow = ( textShadow ) => {
+const GridHubStyleTextShadow = ( textShadow ) => {
 	const X = textShadow?.horizontal;
 	const Y = textShadow?.vertical;
 	const blur = textShadow?.blur;
@@ -12,3 +12,4 @@ export const GridHubStyleTextShadow = ( textShadow ) => {
 		'text-shadow': `${X || 0} ${Y || 0} ${blur || 0} ${color || 'rgb(0 0 0 / 50%)' }`
 	}
 };
+export default GridHubStyleTextShadow;
