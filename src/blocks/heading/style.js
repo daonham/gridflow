@@ -36,7 +36,6 @@ function inlineStyle( { attributes } ) {
 
 	const desktop = {
 		'': {
-			'text-transform': transform || undefined,
 			'text-align': textAligns?.desktop,
 		},
 		' .gridhub-heading__content': {

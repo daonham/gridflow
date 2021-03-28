@@ -3,6 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 
+import icon from './icon';
 import edit from './edit';
 import metadata from './block.json';
 import save from './save';
@@ -19,6 +20,7 @@ const settings = {
 		__( 'heading', 'gridhub' ),
 		__( 'text', 'gridhub' ),
 	],
+	icon,
 	example: {
 		attributes: {
 			content: __( 'Hello World!', 'gridhub' ),

@@ -8,7 +8,7 @@ import { useControlledState } from '../../utils/use-controlled-state';
 const DEFAULT_VALUES = {
 	url: '',
 	target: false,
-	attr: '',
+	rel: '',
 };
 
 function useUniqueId( idProp ) {

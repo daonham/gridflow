@@ -10,6 +10,7 @@ import gridhubAttributes from './attributes';
 
 const allowedBlocks = [
 	'gridhub/heading',
+	'gridhub/button',
 ];
 
 export function addAttributes( settings ) {

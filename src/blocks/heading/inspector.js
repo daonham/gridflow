@@ -146,14 +146,14 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						] }
 						onChange={ ( value ) => setAttributes( { iconAlignment: value } ) }
 					/>
-					{ icon.url && (
+					{ icon?.url && (
 						<GridHubTextUnit
 							label={ __( 'Width', 'gridhub' ) }
 							values={ iconWidth }
 							onChange={ ( value ) => setAttributes( { iconWidth: value } ) }
 						/>
 					) }
-					{ icon.icon && (
+					{ icon?.icon && (
 						<>
 							<Flex gap={ 8 } justify={ 'flex-start' } align={ 'flex-start' }>
 								<FlexItem>

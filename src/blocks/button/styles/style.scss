@@ -1,0 +1,18 @@
+.gridhub-button {
+
+	&__link {
+		display: inline-flex;
+		padding: 12px 24px;
+		text-align: center;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.3s;
+		border: 2px solid #222;
+		color: #fff;
+		background-color: #222;
+		line-height: 1;
+		border-radius: 4px;
+		font-weight: 600;
+		text-decoration: none;
+	}
+}

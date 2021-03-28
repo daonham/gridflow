@@ -13,6 +13,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 					label={ __( 'Margin', 'gridhub' ) }
 					values={ gridhubMargin }
 					onChange={ ( value ) => setAttributes( { gridhubMargin: value } ) }
+					inputProps={ { min: undefined } }
 				/>
 				<GridHubBoxControl
 					label={ __( 'Padding', 'gridhub' ) }

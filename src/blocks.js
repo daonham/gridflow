@@ -14,6 +14,7 @@ import './inspector';
 
 // Register Blocks.
 import * as heading from './blocks/heading';
+import * as button from './blocks/button';
 
 const registerBlock = ( block ) => {
 	if ( ! block ) {
@@ -31,6 +32,7 @@ const registerBlock = ( block ) => {
 export const registerGridHubBlocks = () => {
 	[
 		heading,
+		button,
 	].forEach( registerBlock );
 };
 

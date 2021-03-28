@@ -22,6 +22,10 @@ const TextInputControl = ( {
 
 		if ( side === 'target' ) {
 			nextValues[ side ] = ! values.target;
+
+			if ( nextValues.target ) {
+				nextValues.rel = 'noreferrer noopener';
+			}
 		} else {
 			nextValues[ side ] = next;
 		}
@@ -30,7 +34,7 @@ const TextInputControl = ( {
 	};
 
 	const defaultLinked = () => {
-		if ( isEmpty( Object.values( values.attr ).filter( Boolean ) ) ) {
+		if ( isEmpty( Object.values( values.rel ).filter( Boolean ) ) ) {
 			return true;
 		}
 
@@ -83,10 +87,10 @@ const TextInputControl = ( {
 							onChange={ createHandleOnChange( 'target' ) }
 						/>
 						<TextControl
-							label={ __( 'Custom Attributes', 'gridhub' ) }
-							value={ values.attr }
-							onChange={ createHandleOnChange( 'attr' ) }
-							placeholder={ __( 'rel="noreferrer noopener"', 'gridhub' ) }
+							label={ __( 'Link rel', 'gridhub' ) }
+							value={ values.rel }
+							onChange={ createHandleOnChange( 'rel' ) }
+							placeholder={ __( 'noreferrer noopener', 'gridhub' ) }
 						/>
 					</>
 				) }

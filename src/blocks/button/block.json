@@ -1,14 +1,126 @@
 {
-	"name": "gridhub/buttons",
-	"category": "layout",
+	"apiVersion": 2,
+	"name": "gridhub/button",
+	"category": "gridhub",
 	"attributes": {
-		"items": {
-			"type": "number",
-			"default": "2"
+		"content": {
+			"type": "string",
+			"source": "html",
+			"selector": ".gridhub-button__text",
+			"default": ""
 		},
-		"contentAlign": {
+		"links": {
+			"type": "object"
+		},
+		"style": {
+			"type": "object"
+		},
+		"placeholder": {
+			"type": "string"
+		},
+		"textAligns": {
+			"type": "object"
+		},
+		"width": {
+			"type": "object"
+		},
+		"height": {
+			"type": "object"
+		},
+		"color": {
+			"type": "string"
+		},
+		"bgColor": {
+			"type": "string"
+		},
+		"padding": {
+			"type": "object"
+		},
+		"border": {
+			"type": "object"
+		},
+		"borderRadius": {
+			"type": "object"
+		},
+		"boxShadow": {
+			"type": "object"
+		},
+		"colorHover": {
+			"type": "string"
+		},
+		"bgColorHover": {
+			"type": "string"
+		},
+		"borderHover": {
+			"type": "object"
+		},
+		"borderRadiusHover": {
+			"type": "object"
+		},
+		"boxShadowHover": {
+			"type": "object"
+		},
+		"font": {
+			"type": "string"
+		},
+		"gridhubFont": {
+			"type": "object",
+			"default": {
+				"1": {
+					"name": "font",
+					"weight": "fontWeight"
+				}
+			}
+		},
+		"fontSize": {
+			"type": "object"
+		},
+		"lineHeight": {
+			"type": "object"
+		},
+		"fontWeight": {
+			"type": "string"
+		},
+		"decoration": {
+			"type": "string"
+		},
+		"transform": {
+			"type": "string"
+		},
+		"fontStyle": {
+			"type": "string"
+		},
+		"letterSpacing": {
+			"type": "object"
+		},
+		"textShadow": {
+			"type": "object"
+		},
+		"icon": {
+			"type": "object"
+		},
+		"iconPosition": {
 			"type": "string",
 			"default": "left"
+		},
+		"iconSpacing": {
+			"type": "string"
+		},
+		"iconWidth": {
+			"type": "object"
+		},
+		"iconFontSize": {
+			"type": "object"
+		},
+		"iconLineHeight": {
+			"type": "object"
+		},
+		"iconColor": {
+			"type": "string"
+		},
+		"iconColorHover": {
+			"type": "string"
 		}
-	}
+	},
+	"style": "gridhub-button"
 }

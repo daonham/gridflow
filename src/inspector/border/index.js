@@ -9,6 +9,7 @@ import './style';
 
 const allowedBlocks = [
 	'gridhub/heading',
+	'gridhub/button',
 ];
 
 export function addAttributes( settings ) {
