@@ -1,6 +1,6 @@
 import { __ } from '@wordpress/i18n';
 import { BlockControls } from '@wordpress/block-editor';
-import { ToolbarGroup, DropdownMenu } from '@wordpress/components';
+import { ToolbarGroup } from '@wordpress/components';
 
 const Controls = ( { attributes, setAttributes } ) => {
 	return (

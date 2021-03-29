@@ -23,8 +23,10 @@ const settings = {
 		},
 	},
 	styles: [
-		{ name: 'fill', label: __( 'Fill', 'gridhub' ), isDefault: true },
+		{ name: 'simple', label: __( 'Simple', 'gridhub' ), isDefault: true },
+		{ name: 'link', label: __( 'Link', 'gridhub' ) },
 		{ name: 'outline', label: __( 'Outline', 'gridhub' ) },
+		{ name: 'elevated', label: __( 'Elevated', 'gridhub' ) },
 	],
 	edit,
 	save,

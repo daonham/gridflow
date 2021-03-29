@@ -22,6 +22,13 @@ function Edit( {
 } ) {
 	const { content, placeholder, links, uniqueId, icon, iconPosition } = attributes;
 
+	let rel = links?.rel;
+	const target = links?.target ? '_blank' : undefined;
+
+	if ( target && ! rel.includes( 'noreferrer' ) ) {
+		rel = rel ? `noreferrer noopener ${ rel }` : 'noreferrer noopener';
+	}
+
 	return (
 		<>
 			{ isSelected && (
@@ -40,7 +47,7 @@ function Edit( {
 
 			<div { ...useBlockProps( { className: classnames( 'gridhub-button', uniqueId ) } ) }>
 				<div className={ classnames( 'gridhub-button__inner', 'gridhub-block-inner' ) }>
-					<a className={ 'gridhub-button__link' } href={ links?.url } target={ links?.target } rel={ links?.rel }>
+					<a className={ 'gridhub-button__link' } href={ links?.url } onClick={ ( e ) => e.preventDefault() } target={ target } rel={ rel }>
 						{ ( icon?.icon || icon?.url ) && iconPosition === 'left' && (
 							<span className="gridhub-button__icon">
 								{ icon?.icon && (
