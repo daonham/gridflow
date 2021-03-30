@@ -2,8 +2,8 @@
 <ruleset name="GridHub ruleset">
     <description>GridHub rules for PHP_CodeSniffer</description>
 
+	<arg value="ps"/>
     <arg name="extensions" value="php"/>
-	<arg name="basepath" value="./" />
 
     <file>./</file>
 
@@ -12,10 +12,8 @@
     <exclude-pattern>*/vendor/*</exclude-pattern>
     <exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/wordpress*/*</exclude-pattern>
-    <exclude-pattern>*/\.*</exclude-pattern>
+    <exclude-pattern>*/.tool/*</exclude-pattern>
     <exclude-pattern>*/.dev/*</exclude-pattern>
-
-	<arg value="ps"/>
 
     <rule ref="WordPress-Core">
         <exclude name="WordPress.PHP.YodaConditions.NotYoda"/>

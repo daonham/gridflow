@@ -7,11 +7,6 @@ class Assets {
 	public static $version = null;
 
 	public function init() {
-		if ( ! defined( 'GRIDHUB_VERSION' ) ) {
-			define( 'GRIDHUB_VERSION', '1.0.0' );
-			define( 'GRIDHUB_BLOCKS_DEV', false );
-		}
-
 		if ( GRIDHUB_BLOCKS_DEV ) {
 			self::$version = time();
 		} else {
@@ -19,9 +14,9 @@ class Assets {
 		}
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontend' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'vendor' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'editor' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'vendor' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'vendor' ) );
 	}
 
 	public function frontend() {
@@ -33,7 +28,7 @@ class Assets {
 		wp_enqueue_style( 'gridhub-frontend', $url . $name . $is_rtl . '.css', array(), self::$version );
 
 		// Script.
-		wp_enqueue_script( 'gridhub', $url . 'js/gridhub.js', array(), GRIDHUB_VERSION, true );
+		wp_enqueue_script( 'gridhub', $url . 'js/gridhub.js', array(), self::$version, true );
 
 		// Enqueue style in uploads.
 		do_action( 'gridhub/enqueue/style/uploads', self::$version );
@@ -57,10 +52,10 @@ class Assets {
 		$js_file = $this->get_asset_info( $url_js );
 
 		// Styles.
-		wp_enqueue_style( 'gridhub-editor', $url . 'gridhub-editor' . $is_rtl . '.css', array(), GRIDHUB_VERSION );
+		wp_enqueue_style( 'gridhub-editor', $url . 'gridhub-editor' . $is_rtl . '.css', array(), self::$version );
 
 		// Scripts.
-		wp_enqueue_script( 'gridhub-editor', $url_js . '.js', array_merge( $js_file['dependencies'], array( 'wp-api' ) ), GRIDHUB_VERSION, true );
+		wp_enqueue_script( 'gridhub-editor', $url_js . '.js', array_merge( $js_file['dependencies'], array( 'wp-api' ) ), self::$version, true );
 
 		// Localize.
 		wp_localize_script(
