@@ -1,0 +1,27 @@
+{
+	"apiVersion": 2,
+	"name": "gridhub/image",
+	"category": "gridhub",
+	"attributes": {
+		"url": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "src"
+		},
+		"alt": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "alt",
+			"default": ""
+		},
+		"id": {
+			"type": "number"
+		},
+		"links": {
+			"type": "object"
+		}
+	},
+	"style": "gridhub-button"
+}

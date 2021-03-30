@@ -11,12 +11,6 @@
 	}
 }
 
-.gridhub-enable-reponsive-component {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-}
-
 .gridhub-reponsive-component {
 	margin: 0 !important;
 	position: relative;
@@ -78,35 +72,6 @@
 				outline: none;
 				width: 10px !important;
 			}
-		}
-	}
-}
-
-.gridhub-unit-component {
-	margin: 0;
-	margin-left: auto !important;
-
-	select {
-		width: 52px !important;
-		height: 24px !important;
-		min-height: 24px !important;
-		min-width: 24px !important;
-		line-height: 22px !important;
-		padding: 0 6px !important;
-		background-size: 12px 11px !important;
-		background-color: #ddd !important;
-		border: none !important;
-		border-radius: 4px !important;
-		box-shadow: none !important;
-		color: #333 !important;
-		margin: 0 !important;
-		font-size: 10px !important;
-		font-weight: 500 !important;
-
-		&:focus {
-			box-shadow: none !important;
-			outline: none !important;
-			border: none !important;
 		}
 	}
 }

@@ -15,6 +15,7 @@ import './inspector';
 // Register Blocks.
 import * as heading from './blocks/heading';
 import * as button from './blocks/button';
+import * as image from './blocks/image';
 
 const registerBlock = ( block ) => {
 	if ( ! block ) {
@@ -27,12 +28,13 @@ const registerBlock = ( block ) => {
 };
 
 /**
- * Function to register blocks provided by CoBlocks.
+ * Function to register blocks.
  */
 export const registerGridHubBlocks = () => {
 	[
 		heading,
 		button,
+		image,
 	].forEach( registerBlock );
 };
 
