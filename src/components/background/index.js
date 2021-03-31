@@ -132,7 +132,7 @@ const GridHubBackground = ( {
 								<GridHubFocusPointPicker
 									label={ __( 'Position', 'gridhub' ) }
 									url={ inputValues.image }
-									value={ inputValues.position }
+									values={ inputValues.position }
 									onChange={ createHandleOnChange( 'position' ) }
 								/>
 								<Flex gap={ 8 } justify={ 'flex-start' } align={ 'flex-start' }>
