@@ -5,8 +5,10 @@ import {
 	SelectControl,
 	Flex,
 	FlexItem,
-	__experimentalUnitControl as UnitControl,
+	RangeControl,
 	TabPanel,
+	TextareaControl,
+	ToggleControl,
 } from '@wordpress/components';
 
 const {
@@ -17,29 +19,33 @@ const {
 	GridHubTextAlign,
 	GridHubTextUnit,
 	GridHubColorPicker,
-	GridHubIconSelect,
+	GridHubFocusPointPicker,
 	GridHubLinkControl,
+	GridHubSelect,
 } = wp.gridhubComponents;
 
 const Inspector = ( { attributes, setAttributes } ) => {
 	const {
+		url,
+		alt,
+		linkType,
 		links,
+		enableCaption,
 		textAligns,
 		width,
 		height,
-
-		color,
-		bgColor,
-		padding,
+		objectFit,
+		objectPosition,
+		overlay,
+		bgOverlay,
 		border,
 		borderRadius,
 		boxShadow,
 
-		colorHover,
-		bgColorHover,
-		borderHover,
-		borderRadiusHover,
-		boxShadowHover,
+		overlayHover,
+		bgOverlayHover,
+		transition,
+		hoverEffect,
 
 		font,
 		fontSize,
@@ -49,41 +55,40 @@ const Inspector = ( { attributes, setAttributes } ) => {
 		transform,
 		fontStyle,
 		letterSpacing,
-		icon,
-		iconPosition,
-		iconSpacing,
-		iconWidth,
-		iconFontSize,
-		iconLineHeight,
-		iconColor,
-		iconColorHover,
+		captionTextAligns,
+		captionSpacing,
 	} = attributes;
 
 	return (
 		<>
 			<InspectorControls>
 				<PanelBody title={ __( 'Settings', 'gridhub' ) } initialOpen={ true }>
-					<GridHubLinkControl
-						values={ links }
-						onChange={ ( value ) => setAttributes( { links: value } ) }
+					<TextareaControl
+						label={ __( 'Alt text (alternative text)', 'gridhub' ) }
+						value={ alt }
+						onChange={ ( value ) => setAttributes( { alt: value } ) }
 					/>
-					<Flex gap={ 8 } justify={ 'flex-start' } align={ 'flex-start' }>
-						<FlexItem>
-							<GridHubTextUnit
-								label={ __( 'Width', 'gridhub' ) }
-								values={ width }
-								onChange={ ( value ) => setAttributes( { width: value } ) }
-							/>
-						</FlexItem>
-
-						<FlexItem>
-							<GridHubTextUnit
-								label={ __( 'Height', 'gridhub' ) }
-								values={ height }
-								onChange={ ( value ) => setAttributes( { height: value } ) }
-							/>
-						</FlexItem>
-					</Flex>
+					<ToggleControl
+						label={ __( 'Enable Caption', 'gridhub' ) }
+						checked={ enableCaption }
+						onChange={ () => setAttributes( { enableCaption: ! enableCaption } ) }
+					/>
+					<SelectControl
+						label={ __( 'Link', 'gridhub' ) }
+						value={ linkType }
+						onChange={ ( value ) => setAttributes( { linkType: value } ) }
+						options={ [
+							{ label: __( 'None', 'gridhub' ), value: '' },
+							{ label: __( 'Media File', 'gridhub' ), value: 'media' },
+							{ label: __( 'Custom Link', 'gridhub' ), value: 'custom' },
+						] }
+					/>
+					{ linkType === 'custom' && (
+						<GridHubLinkControl
+							values={ links }
+							onChange={ ( value ) => setAttributes( { links: value } ) }
+						/>
+					) }
 					<GridHubTextAlign
 						label={ __( 'Alignment', 'gridhub' ) }
 						values={ textAligns }
@@ -91,7 +96,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 					/>
 				</PanelBody>
 
-				<PanelBody title={ __( 'Button', 'gridhub' ) } initialOpen={ false }>
+				<PanelBody title={ __( 'Image', 'gridhub' ) } initialOpen={ false }>
 					<TabPanel
 						tabs={ [
 							{
@@ -108,23 +113,56 @@ const Inspector = ( { attributes, setAttributes } ) => {
 								if ( tab.name === 'normal' ) {
 									return (
 										<>
-											<GridHubColorPicker
-												label={ __( 'Color', 'gridhub' ) }
-												value={ color }
-												alpha={ true }
-												onChange={ ( value ) => setAttributes( { color: value } ) }
+											<Flex gap={ 8 } justify={ 'flex-start' } align={ 'flex-start' } style={ { marginTop: 10 } }>
+												<FlexItem>
+													<GridHubTextUnit
+														label={ __( 'Width', 'gridhub' ) }
+														values={ width }
+														onChange={ ( value ) => setAttributes( { width: value } ) }
+													/>
+												</FlexItem>
+
+												<FlexItem>
+													<GridHubTextUnit
+														label={ __( 'Height', 'gridhub' ) }
+														values={ height }
+														onChange={ ( value ) => setAttributes( { height: value } ) }
+													/>
+												</FlexItem>
+											</Flex>
+											<GridHubSelect
+												label={ __( 'Object Fit', 'gridhub' ) }
+												values={ objectFit }
+												onChange={ ( value ) => setAttributes( { objectFit: value } ) }
+												options={ [
+													{ label: __( 'Default', 'gridhub' ), value: '' },
+													{ label: __( 'Contain', 'gridhub' ), value: 'contain' },
+													{ label: __( 'Cover', 'gridhub' ), value: 'cover' },
+													{ label: __( 'Scale down', 'gridhub' ), value: 'scale-down' },
+													{ label: __( 'None', 'gridhub' ), value: 'none' },
+												] }
+											/>
+											{ url && (
+												<GridHubFocusPointPicker
+													label={ __( 'Object Position', 'gridhub' ) }
+													url={ url }
+													values={ objectPosition }
+													onChange={ ( value ) => setAttributes( { objectPosition: value } ) }
+												/>
+											) }
+											<RangeControl
+												label={ __( 'Overlay', 'gridhub' ) }
+												value={ overlay }
+												onChange={ ( value ) => setAttributes( { overlay: value } ) }
+												min={ 0 }
+												max={ 100 }
 											/>
 											<GridHubColorPicker
-												label={ __( 'Background Color', 'gridhub' ) }
-												value={ bgColor }
-												alpha={ true }
+												label={ __( 'Background Overlay', 'gridhub' ) }
+												value={ bgOverlay }
+												alpha={ false }
 												gradients={ true }
-												onChange={ ( value ) => setAttributes( { bgColor: value } ) }
-											/>
-											<GridHubBoxControl
-												label={ __( 'Padding', 'gridhub' ) }
-												values={ padding }
-												onChange={ ( value ) => setAttributes( { padding: value } ) }
+												onChange={ ( value ) => setAttributes( { bgOverlay: value } ) }
 											/>
 											<GridHubBorder
 												label={ __( 'Border', 'gridhub' ) }
@@ -149,34 +187,35 @@ const Inspector = ( { attributes, setAttributes } ) => {
 								if ( tab.name === 'hover' ) {
 									return (
 										<>
-											<GridHubColorPicker
-												label={ __( 'Color', 'gridhub' ) }
-												value={ colorHover }
-												alpha={ true }
-												onChange={ ( value ) => setAttributes( { colorHover: value } ) }
+											<RangeControl
+												label={ __( 'Overlay', 'gridhub' ) }
+												value={ overlayHover }
+												onChange={ ( value ) => setAttributes( { overlayHover: value } ) }
+												min={ 0 }
+												max={ 100 }
 											/>
 											<GridHubColorPicker
-												label={ __( 'Background Color', 'gridhub' ) }
-												value={ bgColorHover }
-												alpha={ true }
+												label={ __( 'Background Overlay', 'gridhub' ) }
+												value={ bgOverlayHover }
+												alpha={ false }
 												gradients={ true }
-												onChange={ ( value ) => setAttributes( { bgColorHover: value } ) }
+												onChange={ ( value ) => setAttributes( { bgOverlayHover: value } ) }
 											/>
-											<GridHubBorder
-												label={ __( 'Border', 'gridhub' ) }
-												values={ borderHover }
-												device={ true }
-												onChange={ ( value ) => setAttributes( { borderHover: value } ) }
+											<RangeControl
+												label={ __( 'Transition Duration', 'gridhub' ) }
+												value={ transition }
+												onChange={ ( value ) => setAttributes( { transition: value } ) }
+												min={ 0 }
+												max={ 3 }
+												step={ 0.1 }
 											/>
-											<GridHubBoxControl
-												label={ __( 'Border Radius', 'gridhub' ) }
-												values={ borderRadiusHover }
-												onChange={ ( value ) => setAttributes( { borderRadiusHover: value } ) }
-											/>
-											<GridHubBoxShadow
-												label={ __( 'Box Shadow', 'gridhub' ) }
-												value={ boxShadowHover }
-												onChange={ ( value ) => setAttributes( { boxShadowHover: value } ) }
+											<SelectControl
+												label={ __( 'Hover Effect', 'gridhub' ) }
+												value={ hoverEffect }
+												onChange={ ( value ) => setAttributes( { hoverEffect: value } ) }
+												options={ [
+													{ label: __( 'None', 'gridhub' ), value: '' },
+												] }
 											/>
 										</>
 									);
@@ -185,129 +224,38 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						}
 					</TabPanel>
 				</PanelBody>
-
-				<PanelBody title={ __( 'Text', 'gridhub' ) } initialOpen={ false }>
-					<GridHubTyphography
-						font={ font }
-						onChangeFont={ ( value ) => setAttributes( { font: value } ) }
-						fontSize={ fontSize }
-						onChangeFontSize={ ( value ) => setAttributes( { fontSize: value } ) }
-						lineHeight={ lineHeight }
-						onChangeLineHeight={ ( value ) => setAttributes( { lineHeight: value } ) }
-						fontWeight={ fontWeight }
-						onChangeFontWeight={ ( value ) => setAttributes( { fontWeight: value } ) }
-						decoration={ decoration }
-						onChangeDecoration={ ( value ) => setAttributes( { decoration: value } ) }
-						transform={ transform }
-						onChangeTransform={ ( value ) => setAttributes( { transform: value } ) }
-						fontStyle={ fontStyle }
-						onChangeFontStyle={ ( value ) => setAttributes( { fontStyle: value } ) }
-						letterSpacing={ letterSpacing }
-						onChangeLetterSpacing={ ( value ) => setAttributes( { letterSpacing: value } ) }
-					/>
-				</PanelBody>
-
-				<PanelBody title={ __( 'Icon', 'gridhub' ) } initialOpen={ false }>
-					<GridHubIconSelect
-						label={ 'Icon' }
-						values={ icon }
-						onChange={ ( value ) => setAttributes( { icon: value } ) }
-					/>
-					<Flex gap={ 8 } justify={ 'flex-start' } align={ 'flex-start' }>
-						<FlexItem>
-							<SelectControl
-								label={ __( 'Icon Position', 'gridhub' ) }
-								value={ iconPosition }
-								options={ [
-									{ label: __( 'Left', 'gridhub' ), value: 'left' },
-									{ label: __( 'Right', 'gridhub' ), value: 'right' },
-								] }
-								onChange={ ( value ) => setAttributes( { iconPosition: value } ) }
-								style={ { width: 100 } }
-							/>
-						</FlexItem>
-						<FlexItem>
-							<UnitControl
-								label={ __( 'Icon Spacing', 'gridhub' ) }
-								value={ iconSpacing }
-								onChange={ ( value ) => setAttributes( { iconSpacing: value } ) }
-								min={ 0 }
-								style={ { maxWidth: 90 } }
-							/>
-						</FlexItem>
-					</Flex>
-					{ icon?.url && (
-						<GridHubTextUnit
-							label={ __( 'Width', 'gridhub' ) }
-							values={ iconWidth }
-							onChange={ ( value ) => setAttributes( { iconWidth: value } ) }
+				{ enableCaption && (
+					<PanelBody title={ __( 'Caption', 'gridhub' ) } initialOpen={ false }>
+						<GridHubTextAlign
+							label={ __( 'Alignment', 'gridhub' ) }
+							values={ captionTextAligns }
+							onChange={ ( value ) => setAttributes( { captionTextAligns: value } ) }
 						/>
-					) }
-					{ icon?.icon && (
-						<>
-							<Flex gap={ 8 } justify={ 'flex-start' } align={ 'flex-start' }>
-								<FlexItem>
-									<GridHubTextUnit
-										label={ 'Font Size' }
-										values={ iconFontSize }
-										onChange={ ( value ) => setAttributes( { iconFontSize: value } ) }
-									/>
-								</FlexItem>
-
-								<FlexItem>
-									<GridHubTextUnit
-										label={ 'Line Height' }
-										values={ iconLineHeight }
-										onChange={ ( value ) => setAttributes( { iconLineHeight: value } ) }
-									/>
-								</FlexItem>
-							</Flex>
-						</>
-					) }
-					<TabPanel
-						tabs={ [
-							{
-								name: 'normal',
-								title: __( 'Normal', 'gridhub' ),
-							},
-							{
-								name: 'hover',
-								title: __( 'Hover', 'gridhub' ),
-							},
-						] }>
-						{
-							( tab ) => {
-								if ( tab.name === 'normal' ) {
-									return (
-										<>
-											<GridHubColorPicker
-												label={ __( 'Color', 'gridhub' ) }
-												value={ iconColor }
-												alpha={ true }
-												gradients={ true }
-												onChange={ ( value ) => setAttributes( { iconColor: value } ) }
-											/>
-										</>
-									);
-								}
-
-								if ( tab.name === 'hover' ) {
-									return (
-										<>
-											<GridHubColorPicker
-												label={ __( 'Color', 'gridhub' ) }
-												value={ iconColorHover }
-												alpha={ true }
-												gradients={ true }
-												onChange={ ( value ) => setAttributes( { iconColorHover: value } ) }
-											/>
-										</>
-									);
-								}
-							}
-						}
-					</TabPanel>
-				</PanelBody>
+						<GridHubTyphography
+							font={ font }
+							onChangeFont={ ( value ) => setAttributes( { font: value } ) }
+							fontSize={ fontSize }
+							onChangeFontSize={ ( value ) => setAttributes( { fontSize: value } ) }
+							lineHeight={ lineHeight }
+							onChangeLineHeight={ ( value ) => setAttributes( { lineHeight: value } ) }
+							fontWeight={ fontWeight }
+							onChangeFontWeight={ ( value ) => setAttributes( { fontWeight: value } ) }
+							decoration={ decoration }
+							onChangeDecoration={ ( value ) => setAttributes( { decoration: value } ) }
+							transform={ transform }
+							onChangeTransform={ ( value ) => setAttributes( { transform: value } ) }
+							fontStyle={ fontStyle }
+							onChangeFontStyle={ ( value ) => setAttributes( { fontStyle: value } ) }
+							letterSpacing={ letterSpacing }
+							onChangeLetterSpacing={ ( value ) => setAttributes( { letterSpacing: value } ) }
+						/>
+						<GridHubBoxControl
+							label={ __( 'Caption Spacing', 'gridhub' ) }
+							value={ captionSpacing }
+							onChange={ ( value ) => setAttributes( { captionSpacing: value } ) }
+						/>
+					</PanelBody>
+				) }
 			</InspectorControls>
 		</>
 	);

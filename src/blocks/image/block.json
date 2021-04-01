@@ -16,10 +16,103 @@
 			"attribute": "alt",
 			"default": ""
 		},
+		"caption": {
+			"type": "string",
+			"source": "html",
+			"selector": "figcaption"
+		},
 		"id": {
 			"type": "number"
 		},
+		"enableCaption": {
+			"type": "boolean",
+			"default": false
+		},
+		"linkType": {
+			"type": "string"
+		},
 		"links": {
+			"type": "object"
+		},
+		"textAligns": {
+			"type": "object"
+		},
+		"width": {
+			"type": "object"
+		},
+		"height": {
+			"type": "object"
+		},
+		"objectFit": {
+			"type": "object"
+		},
+		"objectPosition": {
+			"type": "object"
+		},
+		"overlay": {
+			"type": "number"
+		},
+		"bgOverlay": {
+			"type": "string"
+		},
+		"border": {
+			"type": "object"
+		},
+		"borderRadius": {
+			"type": "object"
+		},
+		"boxShadow": {
+			"type": "object"
+		},
+		"overlayHover": {
+			"type": "number"
+		},
+		"bgOverlayHover": {
+			"type": "string"
+		},
+		"transition": {
+			"type": "number"
+		},
+		"hoverEffect": {
+			"type": "string"
+		},
+		"font": {
+			"type": "string"
+		},
+		"gridhubFont": {
+			"type": "object",
+			"default": {
+				"1": {
+					"name": "font",
+					"weight": "fontWeight"
+				}
+			}
+		},
+		"fontSize": {
+			"type": "object"
+		},
+		"lineHeight": {
+			"type": "object"
+		},
+		"fontWeight": {
+			"type": "string"
+		},
+		"decoration": {
+			"type": "string"
+		},
+		"transform": {
+			"type": "string"
+		},
+		"fontStyle": {
+			"type": "string"
+		},
+		"letterSpacing": {
+			"type": "object"
+		},
+		"captionTextAligns": {
+			"type": "object"
+		},
+		"captionSpacing": {
 			"type": "object"
 		}
 	},

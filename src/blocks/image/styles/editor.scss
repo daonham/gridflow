@@ -1,0 +1,55 @@
+.gridhub-image {
+
+	&__wrapper {
+		display: inline-block;
+		width: auto;
+		height: auto;
+		margin: 0;
+		padding: 0;
+		max-width: none;
+		overflow: hidden;
+
+		&--overlay {
+			position: relative;
+			visibility: visible;
+
+			&::after {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+
+	a.gridhub-image__wrapper {
+		vertical-align: middle;
+	}
+
+	&__caption {
+		display: inline-block;
+		width: auto;
+		height: auto;
+		margin: 0;
+		padding: 0;
+		max-width: none;
+
+		&__text {
+			font-size: 1rem;
+			line-height: 1;
+			text-align: center;
+			margin-top: 10px;
+			margin-bottom: 20px;
+		}
+	}
+
+	img {
+		height: auto;
+		max-width: 100%;
+		border: none;
+		border-radius: 0;
+		object-fit: cover;
+	}
+}

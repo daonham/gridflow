@@ -8,10 +8,9 @@ import classnames from 'classnames';
  */
 import { __ } from '@wordpress/i18n';
 import { compose } from '@wordpress/compose';
-import { useDispatch } from '@wordpress/data';
 import { image as icon } from '@wordpress/icons';
-import { useBlockProps, BlockIcon, MediaPlaceholder, store as blockEditorStore } from '@wordpress/block-editor';
-import { ResizableBox } from '@wordpress/components';
+import { useState } from '@wordpress/element';
+import { useBlockProps, BlockIcon, MediaPlaceholder, RichText } from '@wordpress/block-editor';
 
 import Controls from './controls';
 import Inspector from './inspector';
@@ -25,7 +24,9 @@ function Edit( {
 	noticeUI,
 	noticeOperations,
 } ) {
-	const { uniqueId, url, id, alt, width, height } = attributes;
+	const { uniqueId, url, id, alt, linkType, links, overlay, overlayHover, enableCaption, caption } = attributes;
+
+	const [ captionFocused, setCaptionFocused ] = useState( false );
 
 	function onSelectImage( media ) {
 		if ( media && media.url ) {
@@ -60,14 +61,40 @@ function Edit( {
 		/>
 	);
 
-	const { toggleSelection } = useDispatch( blockEditorStore );
+	let href, target, rel;
 
-	function onResizeStart() {
-		toggleSelection( false );
+	if ( linkType === 'media' ) {
+		href = url;
+	} else if ( linkType === 'custom' ) {
+		href = links?.url;
+		target = links?.target && '_blank';
+		rel = links?.rel;
+
+		if ( links?.target && ! rel.includes( 'noreferrer' ) ) {
+			rel = rel ? `noreferrer noopener ${ rel }` : 'noreferrer noopener';
+		}
 	}
 
-	function onResizeStop() {
-		toggleSelection( true );
+	function onFocusCaption() {
+		if ( ! captionFocused ) {
+			setCaptionFocused( true );
+		}
+	}
+
+	function contentLink() {
+		return (
+			<>
+				{ linkType ? (
+					<a className={ classnames( 'gridhub-image__wrapper', { 'gridhub-image__wrapper--overlay': overlay || overlayHover } ) } href={ href } target={ target } rel={ rel } onClick={ ( e ) => e.preventDefault() }>
+						<img src={ url } alt={ alt || '' } />
+					</a>
+				) : (
+					<div className={ classnames( 'gridhub-image__wrapper', { 'gridhub-image__wrapper--overlay': overlay || overlayHover } ) }>
+						<img src={ url } alt={ alt || '' } />
+					</div>
+				) }
+			</>
+		);
 	}
 
 	return (
@@ -89,30 +116,29 @@ function Edit( {
 			<div { ...useBlockProps( { className: classnames( 'gridhub-image', uniqueId ) } ) }>
 				{ url ? (
 					<div className={ classnames( 'gridhub-image__inner', 'gridhub-block-inner' ) }>
-						<div className={ 'gridhub-image__wrapper' }>
-							<ResizableBox
-								size={ { width, height } }
-								showHandle={ isSelected }
-								lockAspectRatio
-								enable={ {
-									top: false,
-									right: true,
-									bottom: true,
-									left: false,
-								} }
-								onResizeStart={ onResizeStart }
-								onResizeStop={ ( event, direction, elt, delta ) => {
-									onResizeStop();
+						{ enableCaption ? (
+							<figure className={ 'gridhub-image__caption' }>
+								{ contentLink() }
 
-									setAttributes( {
-										width: parseInt( width + delta.width, 10 ),
-										height: parseInt( height + delta.height, 10 ),
-									} );
-								} }
-							>
-								<img src={ url } alt={ alt } />
-							</ResizableBox>
-						</div>
+								{ ( ! RichText.isEmpty( caption ) || isSelected ) && (
+									<RichText
+										tagName="figcaption"
+										className={ 'gridhub-image__caption__text' }
+										aria-label={ __( 'Image caption text' ) }
+										placeholder={ __( 'Write caption…' ) }
+										unstableOnFocus={ onFocusCaption }
+										value={ caption }
+										onChange={ ( value ) =>
+											setAttributes( { caption: value } )
+										}
+										isSelected={ captionFocused }
+										inlineToolbar
+									/>
+								) }
+							</figure>
+						) : (
+							contentLink()
+						) }
 					</div>
 				) : (
 					<MediaPlaceholder

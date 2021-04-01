@@ -1,9 +1,9 @@
 import { addFilter, hasFilter } from '@wordpress/hooks';
 const {
-	GridHubStyleTypography,
 	GridHubStyleBox,
 	GridHubStyleBorder,
 	GridHubStyleBoxShadow,
+	GridHubStyleTypography
 } = wp.gridhubComponents;
 
 function inlineStyle( { attributes } ) {
@@ -11,19 +11,17 @@ function inlineStyle( { attributes } ) {
 		textAligns,
 		width,
 		height,
-
-		color,
-		bgColor,
-		padding,
+		objectFit,
+		objectPosition,
+		overlay,
+		bgOverlay,
 		border,
 		borderRadius,
 		boxShadow,
 
-		colorHover,
-		bgColorHover,
-		borderHover,
-		borderRadiusHover,
-		boxShadowHover,
+		overlayHover,
+		bgOverlayHover,
+		transition,
 
 		font,
 		fontSize,
@@ -33,115 +31,88 @@ function inlineStyle( { attributes } ) {
 		transform,
 		fontStyle,
 		letterSpacing,
-		iconPosition,
-		iconSpacing,
-		iconWidth,
-		iconFontSize,
-		iconLineHeight,
-		iconColor,
-		iconColorHover,
+		captionTextAligns,
+		captionSpacing,
 	} = attributes;
 
 	const desktop = {
 		'': {
 			'text-align': textAligns?.desktop,
 		},
-		' .gridhub-button__inner > a.gridhub-button__link': {
-			width: width?.desktop,
-			height: height?.desktop,
-			color: color || undefined,
-			background: bgColor || undefined,
-			...GridHubStyleBox( padding, 'padding', 'desktop' ),
+		' .gridhub-image__wrapper': {
 			...GridHubStyleBorder( border, 'desktop' ),
 			...GridHubStyleBox( borderRadius, 'border-radius', 'desktop' ),
 			...GridHubStyleBoxShadow( boxShadow ),
 		},
-		' .gridhub-button__inner > a.gridhub-button__link:hover': {
-			color: colorHover || undefined,
-			background: bgColorHover || undefined,
-			...GridHubStyleBorder( borderHover, 'desktop' ),
-			...GridHubStyleBox( borderRadiusHover, 'border-radius', 'desktop' ),
-			...GridHubStyleBoxShadow( boxShadowHover ),
+		' .gridhub-image__wrapper img': {
+			width: width?.desktop,
+			height: height?.desktop,
+			'object-fit': objectFit?.desktop || undefined,
+			'object-position': objectPosition?.desktop?.x && objectPosition?.desktop?.y ? `${objectPosition?.desktop?.x * 100}% ${objectPosition?.desktop?.y * 100}%` : undefined,
 		},
-		' a.gridhub-button__link > .gridhub-button__text': {
+		' .gridhub-image__wrapper--overlay:after': {
+			opacity: overlay ? overlay*0.01 : undefined,
+			background: bgOverlay,
+			transition: `all ${transition}s`
+		},
+		' .gridhub-image__wrapper--overlay:hover:after': {
+			opacity: overlayHover ? overlayHover*0.01 : undefined,
+			background: bgOverlayHover,
+		},
+		' .gridhub-image__caption__text': {
+			'text-align': captionTextAligns?.desktop,
+			...GridHubStyleBox( captionSpacing, 'margin', 'desktop' ),
 			...GridHubStyleTypography( { font, fontSize, lineHeight, fontWeight, decoration, transform, fontStyle, letterSpacing, device: 'desktop' } ),
-		},
-		' a.gridhub-button__link > .gridhub-button__icon': {
-			'margin-right': iconPosition === 'left' && iconSpacing ? iconSpacing : undefined,
-			'margin-left': iconPosition === 'right' && iconSpacing ? iconSpacing : undefined,
-		},
-		' a.gridhub-button__link > .gridhub-button__icon > img': {
-			width: iconWidth?.desktop || undefined,
-		},
-		' a.gridhub-button__link > .gridhub-button__icon > i': {
-			'font-size': iconFontSize?.desktop,
-			'line-height': iconLineHeight?.desktop,
-			color: iconColor || undefined,
-		},
-		' a.gridhub-button__link:hover .gridhub-button__icon > i': {
-			color: iconColorHover || undefined,
-		},
+		}
 	};
 
 	const tablet = {
 		'': {
 			'text-align': textAligns?.tablet,
 		},
-		' .gridhub-button__inner > a.gridhub-button__link': {
-			width: width?.tablet,
-			height: height?.tablet,
-			...GridHubStyleBox( padding, 'padding', 'tablet' ),
+		' .gridhub-image__wrapper': {
 			...GridHubStyleBorder( border, 'tablet' ),
 			...GridHubStyleBox( borderRadius, 'border-radius', 'tablet' ),
 		},
-		' .gridhub-button__inner > a.gridhub-button__link:hover': {
-			...GridHubStyleBorder( borderHover, 'tablet' ),
-			...GridHubStyleBox( borderRadiusHover, 'border-radius', 'tablet' ),
+		' .gridhub-image__wrapper img': {
+			width: width?.tablet,
+			height: height?.tablet,
+			'object-fit': objectFit?.tablet || undefined,
+			'object-position': objectPosition?.tablet?.x && objectPosition?.tablet?.y ? `${objectPosition?.tablet?.x * 100}% ${objectPosition?.tablet?.y * 100}%` : undefined,
 		},
-		' a.gridhub-button__link > .gridhub-button__text': {
-			...GridHubStyleTypography( { fontSize, lineHeight, letterSpacing, device: 'tablet' } ),
-		},
-		' a.gridhub-button__link > .gridhub-button__icon > img': {
-			width: iconWidth?.tablet || undefined,
-		},
-		' a.gridhub-button__link > .gridhub-button__icon > i': {
-			'font-size': iconFontSize?.tablet,
-			'line-height': iconLineHeight?.tablet,
-		},
+		' .gridhub-image__caption__text': {
+			'text-align': captionTextAligns?.tablet,
+			...GridHubStyleBox( captionSpacing, 'margin', 'tablet' ),
+			...GridHubStyleTypography( { font, fontSize, lineHeight, fontWeight, decoration, transform, fontStyle, letterSpacing, device: 'tablet' } ),
+		}
 	};
 
 	const mobile = {
 		'': {
 			'text-align': textAligns?.mobile,
 		},
-		' .gridhub-button__inner > a.gridhub-button__link': {
-			width: width?.mobile,
-			height: height?.mobile,
-			...GridHubStyleBox( padding, 'padding', 'mobile' ),
+		' .gridhub-image__wrapper': {
 			...GridHubStyleBorder( border, 'mobile' ),
 			...GridHubStyleBox( borderRadius, 'border-radius', 'mobile' ),
 		},
-		' .gridhub-button__inner > a.gridhub-button__link:hover': {
-			...GridHubStyleBorder( borderHover, 'mobile' ),
-			...GridHubStyleBox( borderRadiusHover, 'border-radius', 'mobile' ),
+		' .gridhub-image__wrapper img': {
+			width: width?.mobile,
+			height: height?.mobile,
+			'object-fit': objectFit?.mobile || undefined,
+			'object-position': objectPosition?.mobile?.x && objectPosition?.mobile?.y ? `${objectPosition?.mobile?.x * 100}% ${objectPosition?.mobile?.y * 100}%` : undefined,
 		},
-		' a.gridhub-button__link > .gridhub-button__text': {
-			...GridHubStyleTypography( { fontSize, lineHeight, letterSpacing, device: 'mobile' } ),
-		},
-		' a.gridhub-button__link > .gridhub-button__icon > img': {
-			width: iconWidth?.mobile || undefined,
-		},
-		' a.gridhub-button__link > .gridhub-button__icon > i': {
-			'font-size': iconFontSize?.mobile,
-			'line-height': iconLineHeight?.mobile,
-		},
+		' .gridhub-image__caption__text': {
+			'text-align': captionTextAligns?.mobile,
+			...GridHubStyleBox( captionSpacing, 'margin', 'mobile' ),
+			...GridHubStyleTypography( { font, fontSize, lineHeight, fontWeight, decoration, transform, fontStyle, letterSpacing, device: 'mobile' } ),
+		}
 	};
 
 	return { desktop, tablet, mobile };
 }
 
-if ( ! hasFilter( 'gridhub.inlineStyle.button', 'gridhub/inline/styles' ) ) {
-	addFilter( 'gridhub.inlineStyle.button', 'gridhub/inline/styles', function( attributes ) {
+if ( ! hasFilter( 'gridhub.inlineStyle.image', 'gridhub/inline/styles' ) ) {
+	addFilter( 'gridhub.inlineStyle.image', 'gridhub/inline/styles', function( attributes ) {
 		return inlineStyle( { attributes } );
 	} );
 }
