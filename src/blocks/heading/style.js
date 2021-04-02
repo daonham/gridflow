@@ -1,11 +1,11 @@
 import { addFilter, hasFilter } from '@wordpress/hooks';
 const {
-	GridHubStyleTypography,
-	GridHubStyleTextShadow,
-	GridHubStyleBox,
-	GridHubStyleBorder,
-	GridHubStyleBoxShadow,
-} = wp.gridhubComponents;
+	GridFlowStyleTypography,
+	GridFlowStyleTextShadow,
+	GridFlowStyleBox,
+	GridFlowStyleBorder,
+	GridFlowStyleBoxShadow,
+} = wp.gridflowComponents;
 
 function inlineStyle( { attributes } ) {
 	const {
@@ -38,25 +38,41 @@ function inlineStyle( { attributes } ) {
 		'': {
 			'text-align': textAligns?.desktop,
 		},
-		' .gridhub-heading__content': {
-			...GridHubStyleTypography( { font, fontSize, lineHeight, fontWeight, decoration, transform, fontStyle, letterSpacing, device: 'desktop' } ),
+		' .gridflow-heading__content': {
+			...GridFlowStyleTypography( {
+				font,
+				fontSize,
+				lineHeight,
+				fontWeight,
+				decoration,
+				transform,
+				fontStyle,
+				letterSpacing,
+				device: 'desktop',
+			} ),
 			color: color || undefined,
-			...GridHubStyleTextShadow( textShadow ),
+			...GridFlowStyleTextShadow( textShadow ),
 		},
-		' .gridhub-heading__wrapper > span': {
-			'margin-right': iconPosition === 'left' && iconSpacing ? iconSpacing : undefined,
-			'margin-left': iconPosition === 'right' && iconSpacing ? iconSpacing : undefined,
+		' .gridflow-heading__wrapper > span': {
+			'margin-right':
+				iconPosition === 'left' && iconSpacing
+					? iconSpacing
+					: undefined,
+			'margin-left':
+				iconPosition === 'right' && iconSpacing
+					? iconSpacing
+					: undefined,
 			'align-self': iconAlignment || undefined,
 			background: iconBackgroundColor || undefined,
-			...GridHubStyleBox( iconPadding, 'padding', 'desktop' ),
-			...GridHubStyleBorder( iconBorder, 'desktop' ),
-			...GridHubStyleBox( iconBorderRadius, 'border-radius', 'desktop' ),
-			...GridHubStyleBoxShadow( iconBoxShadow ),
+			...GridFlowStyleBox( iconPadding, 'padding', 'desktop' ),
+			...GridFlowStyleBorder( iconBorder, 'desktop' ),
+			...GridFlowStyleBox( iconBorderRadius, 'border-radius', 'desktop' ),
+			...GridFlowStyleBoxShadow( iconBoxShadow ),
 		},
-		' .gridhub-heading__wrapper > span > img': {
+		' .gridflow-heading__wrapper > span > img': {
 			width: iconWidth?.desktop || undefined,
 		},
-		' .gridhub-heading__wrapper > span > i': {
+		' .gridflow-heading__wrapper > span > i': {
 			'font-size': iconFontSize?.desktop,
 			'line-height': iconLineHeight?.desktop,
 			color: iconColor || undefined,
@@ -67,19 +83,24 @@ function inlineStyle( { attributes } ) {
 		'': {
 			'text-align': textAligns?.tablet,
 		},
-		' .gridhub-heading__content': {
-			...GridHubStyleTypography( { fontSize, lineHeight, letterSpacing, device: 'tablet' } ),
+		' .gridflow-heading__content': {
+			...GridFlowStyleTypography( {
+				fontSize,
+				lineHeight,
+				letterSpacing,
+				device: 'tablet',
+			} ),
 		},
-		' .gridhub-heading__wrapper > span': {
-			...GridHubStyleBox( iconPadding, 'padding', 'tablet' ),
-			...GridHubStyleBorder( iconBorder, 'tablet' ),
-			...GridHubStyleBox( iconBorderRadius, 'border-radius', 'tablet' ),
-			...GridHubStyleBoxShadow( iconBoxShadow ),
+		' .gridflow-heading__wrapper > span': {
+			...GridFlowStyleBox( iconPadding, 'padding', 'tablet' ),
+			...GridFlowStyleBorder( iconBorder, 'tablet' ),
+			...GridFlowStyleBox( iconBorderRadius, 'border-radius', 'tablet' ),
+			...GridFlowStyleBoxShadow( iconBoxShadow ),
 		},
-		' .gridhub-heading__wrapper > span > img': {
+		' .gridflow-heading__wrapper > span > img': {
 			width: iconWidth?.tablet || undefined,
 		},
-		' .gridhub-heading__wrapper > span > i': {
+		' .gridflow-heading__wrapper > span > i': {
 			'font-size': iconFontSize?.tablet,
 			'line-height': iconLineHeight?.tablet,
 		},
@@ -89,19 +110,24 @@ function inlineStyle( { attributes } ) {
 		'': {
 			'text-align': textAligns?.mobile,
 		},
-		' .gridhub-heading__content': {
-			...GridHubStyleTypography( { fontSize, lineHeight, letterSpacing, device: 'mobile' } ),
+		' .gridflow-heading__content': {
+			...GridFlowStyleTypography( {
+				fontSize,
+				lineHeight,
+				letterSpacing,
+				device: 'mobile',
+			} ),
 		},
-		' .gridhub-heading__wrapper > span': {
-			...GridHubStyleBox( iconPadding, 'padding', 'mobile' ),
-			...GridHubStyleBorder( iconBorder, 'mobile' ),
-			...GridHubStyleBox( iconBorderRadius, 'border-radius', 'mobile' ),
-			...GridHubStyleBoxShadow( iconBoxShadow ),
+		' .gridflow-heading__wrapper > span': {
+			...GridFlowStyleBox( iconPadding, 'padding', 'mobile' ),
+			...GridFlowStyleBorder( iconBorder, 'mobile' ),
+			...GridFlowStyleBox( iconBorderRadius, 'border-radius', 'mobile' ),
+			...GridFlowStyleBoxShadow( iconBoxShadow ),
 		},
-		' .gridhub-heading__wrapper > span > img': {
+		' .gridflow-heading__wrapper > span > img': {
 			width: iconWidth?.mobile || undefined,
 		},
-		' .gridhub-heading__wrapper > span > i': {
+		' .gridflow-heading__wrapper > span > i': {
 			'font-size': iconFontSize?.mobile,
 			'line-height': iconLineHeight?.mobile,
 		},
@@ -110,8 +136,10 @@ function inlineStyle( { attributes } ) {
 	return { desktop, tablet, mobile };
 }
 
-if ( ! hasFilter( 'gridhub.inlineStyle.heading', 'gridhub/inline/styles' ) ) {
-	addFilter( 'gridhub.inlineStyle.heading', 'gridhub/inline/styles', function( attributes ) {
+if ( ! hasFilter( 'gridflow.inlineStyle.heading', 'gridflow/inline/styles' ) ) {
+	addFilter( 'gridflow.inlineStyle.heading', 'gridflow/inline/styles', function(
+		attributes
+	) {
 		return inlineStyle( { attributes } );
 	} );
 }

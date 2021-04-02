@@ -30,7 +30,7 @@ const registerBlock = ( block ) => {
 /**
  * Function to register blocks.
  */
-export const registerGridHubBlocks = () => {
+export const registerGridFlowBlocks = () => {
 	[
 		heading,
 		button,
@@ -38,4 +38,4 @@ export const registerGridHubBlocks = () => {
 	].forEach( registerBlock );
 };
 
-registerGridHubBlocks();
+registerGridFlowBlocks();

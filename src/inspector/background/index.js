@@ -4,17 +4,17 @@ import { createHigherOrderComponent } from '@wordpress/compose';
 import { addFilter } from '@wordpress/hooks';
 
 import Inspector from './inspector';
-import gridhubAttributes from './attributes';
+import gridflowAttributes from './attributes';
 import './style';
 
 const allowedBlocks = [
-	'gridhub/heading',
-	'gridhub/button',
+	'gridflow/heading',
+	'gridflow/button',
 ];
 
 export function addAttributes( settings ) {
 	if ( allowedBlocks.includes( settings.name ) ) {
-		settings.attributes = assign( settings.attributes, gridhubAttributes );
+		settings.attributes = assign( settings.attributes, gridflowAttributes );
 	}
 
 	return settings;
@@ -36,6 +36,6 @@ export const withInspectorControl = createHigherOrderComponent( ( BlockEdit ) =>
 	};
 }, 'withInspectorControl' );
 
-addFilter( 'blocks.registerBlockType', 'gridhub/inspector/attributes', addAttributes );
-addFilter( 'editor.BlockEdit', 'gridhub/spacing', withInspectorControl );
+addFilter( 'blocks.registerBlockType', 'gridflow/inspector/attributes', addAttributes );
+addFilter( 'editor.BlockEdit', 'gridflow/spacing', withInspectorControl );
 

@@ -8,12 +8,15 @@ import { useControlledState } from '../../utils/use-controlled-state';
 import { DEFAULT_VALUES } from '../../utils/utils';
 
 function useUniqueId( idProp ) {
-	const instanceId = useInstanceId( GridHubTextUnit, 'inspector-gridhub-textunit-control' );
+	const instanceId = useInstanceId(
+		GridFlowTextUnit,
+		'inspector-gridflow-textunit-control'
+	);
 
 	return idProp || instanceId;
 }
 
-const GridHubTextUnit = ( {
+const GridFlowTextUnit = ( {
 	id: idProp,
 	label,
 	values: valuesProp,
@@ -44,9 +47,6 @@ const GridHubTextUnit = ( {
 		...props,
 	};
 
-	return (
-		<TextInputControl { ...inputControlProps } />
-	);
+	return <TextInputControl { ...inputControlProps } />;
 };
-export default GridHubTextUnit;
-
+export default GridFlowTextUnit;

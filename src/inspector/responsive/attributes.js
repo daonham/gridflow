@@ -1,15 +1,15 @@
-const gridhubAttributes = {
-	gridhubHideDesktop: {
+const gridflowAttributes = {
+	gridflowHideDesktop: {
 		type: 'boolean',
 		default: false,
 	},
-	gridhubHideTablet: {
+	gridflowHideTablet: {
 		type: 'boolean',
 		default: false,
 	},
-	gridhubHideMobile: {
+	gridflowHideMobile: {
 		type: 'boolean',
 		default: false,
 	},
 };
-export default gridhubAttributes;
+export default gridflowAttributes;

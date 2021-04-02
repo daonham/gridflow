@@ -1,30 +1,37 @@
 import { addFilter } from '@wordpress/hooks';
 
-const { GridHubStyleBox, GridHubStyleBorder, GridHubStyleBoxShadow } = wp.gridhubComponents;
+const {
+	GridFlowStyleBox,
+	GridFlowStyleBorder,
+	GridFlowStyleBoxShadow,
+} = wp.gridflowComponents;
 
-addFilter( 'gridhub.style.border', 'gridhub/inline/border', function( gridhubBorder, gridhubBorderRadius, gridhubBoxShadow ) {
+addFilter( 'gridflow.style.border', 'gridflow/inline/border', function(
+	gridflowBorder,
+	gridflowBorderRadius,
+	gridflowBoxShadow
+) {
 	const desktop = {
-		' .gridhub-block-inner': {
-			...GridHubStyleBorder( gridhubBorder, 'desktop' ),
-			...GridHubStyleBox( gridhubBorderRadius, 'border-radius', 'desktop' ),
-			...GridHubStyleBoxShadow( gridhubBoxShadow ),
+		' .gridflow-block-inner': {
+			...GridFlowStyleBorder( gridflowBorder, 'desktop' ),
+			...GridFlowStyleBox( gridflowBorderRadius, 'border-radius', 'desktop' ),
+			...GridFlowStyleBoxShadow( gridflowBoxShadow ),
 		},
 	};
 
 	const tablet = {
-		' .gridhub-block-inner': {
-			...GridHubStyleBorder( gridhubBorder, 'tablet' ),
-			...GridHubStyleBox( gridhubBorderRadius, 'border-radius', 'tablet' ),
+		' .gridflow-block-inner': {
+			...GridFlowStyleBorder( gridflowBorder, 'tablet' ),
+			...GridFlowStyleBox( gridflowBorderRadius, 'border-radius', 'tablet' ),
 		},
 	};
 
 	const mobile = {
-		' .gridhub-block-inner': {
-			...GridHubStyleBorder( gridhubBorder, 'mobile' ),
-			...GridHubStyleBox( gridhubBorderRadius, 'border-radius', 'mobile' ),
+		' .gridflow-block-inner': {
+			...GridFlowStyleBorder( gridflowBorder, 'mobile' ),
+			...GridFlowStyleBox( gridflowBorderRadius, 'border-radius', 'mobile' ),
 		},
 	};
 
 	return { desktop, tablet, mobile };
 } );
-

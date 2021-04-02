@@ -9,16 +9,16 @@ import {
 } from '@wordpress/components';
 
 const {
-	GridHubTyphography,
-	GridHubBoxControl,
-	GridHubBorder,
-	GridHubBoxShadow,
-	GridHubTextAlign,
-	GridHubTextUnit,
-	GridHubTextShadow,
-	GridHubColorPicker,
-	GridHubIconSelect,
-} = wp.gridhubComponents;
+	GridFlowTyphography,
+	GridFlowBoxControl,
+	GridFlowBorder,
+	GridFlowBoxShadow,
+	GridFlowTextAlign,
+	GridFlowTextUnit,
+	GridFlowTextShadow,
+	GridFlowColorPicker,
+	GridFlowIconSelect,
+} = wp.gridflowComponents;
 
 const Inspector = ( { attributes, setAttributes } ) => {
 	const {
@@ -52,9 +52,9 @@ const Inspector = ( { attributes, setAttributes } ) => {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={ __( 'Settings', 'gridhub' ) } initialOpen={ true }>
+				<PanelBody title={ __( 'Settings', 'gridflow' ) } initialOpen={ true }>
 					<SelectControl
-						label={ __( 'HTML Tag', 'gridhub' ) }
+						label={ __( 'HTML Tag', 'gridflow' ) }
 						value={ tagName }
 						options={ [
 							{ label: 'H1', value: 'h1' },
@@ -69,46 +69,60 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						] }
 						onChange={ ( value ) => setAttributes( { tagName: value } ) }
 					/>
-					<GridHubTextAlign
+					<GridFlowTextAlign
 						values={ textAligns }
 						onChange={ ( value ) => setAttributes( { textAligns: value } ) }
 					/>
-					<GridHubColorPicker
-						label={ __( 'Color', 'gridhub' ) }
+					<GridFlowColorPicker
+						label={ __( 'Color', 'gridflow' ) }
 						value={ color }
 						alpha={ true }
 						onChange={ ( value ) => setAttributes( { color: value } ) }
 					/>
 				</PanelBody>
 
-				<PanelBody title={ __( 'Text', 'gridhub' ) } initialOpen={ false }>
-					<GridHubTyphography
+				<PanelBody title={ __( 'Text', 'gridflow' ) } initialOpen={ false }>
+					<GridFlowTyphography
 						font={ font }
 						onChangeFont={ ( value ) => setAttributes( { font: value } ) }
 						fontSize={ fontSize }
-						onChangeFontSize={ ( value ) => setAttributes( { fontSize: value } ) }
+						onChangeFontSize={ ( value ) =>
+							setAttributes( { fontSize: value } )
+						}
 						lineHeight={ lineHeight }
-						onChangeLineHeight={ ( value ) => setAttributes( { lineHeight: value } ) }
+						onChangeLineHeight={ ( value ) =>
+							setAttributes( { lineHeight: value } )
+						}
 						fontWeight={ fontWeight }
-						onChangeFontWeight={ ( value ) => setAttributes( { fontWeight: value } ) }
+						onChangeFontWeight={ ( value ) =>
+							setAttributes( { fontWeight: value } )
+						}
 						decoration={ decoration }
-						onChangeDecoration={ ( value ) => setAttributes( { decoration: value } ) }
+						onChangeDecoration={ ( value ) =>
+							setAttributes( { decoration: value } )
+						}
 						transform={ transform }
-						onChangeTransform={ ( value ) => setAttributes( { transform: value } ) }
+						onChangeTransform={ ( value ) =>
+							setAttributes( { transform: value } )
+						}
 						fontStyle={ fontStyle }
-						onChangeFontStyle={ ( value ) => setAttributes( { fontStyle: value } ) }
+						onChangeFontStyle={ ( value ) =>
+							setAttributes( { fontStyle: value } )
+						}
 						letterSpacing={ letterSpacing }
-						onChangeLetterSpacing={ ( value ) => setAttributes( { letterSpacing: value } ) }
+						onChangeLetterSpacing={ ( value ) =>
+							setAttributes( { letterSpacing: value } )
+						}
 					/>
-					<GridHubTextShadow
-						label={ __( 'Text Shadow', 'gridhub' ) }
+					<GridFlowTextShadow
+						label={ __( 'Text Shadow', 'gridflow' ) }
 						value={ textShadow }
 						onChange={ ( value ) => setAttributes( { textShadow: value } ) }
 					/>
 				</PanelBody>
 
-				<PanelBody title={ __( 'Icon', 'gridhub' ) } initialOpen={ false }>
-					<GridHubIconSelect
+				<PanelBody title={ __( 'Icon', 'gridflow' ) } initialOpen={ false }>
+					<GridFlowIconSelect
 						label={ 'Icon' }
 						values={ icon }
 						onChange={ ( value ) => setAttributes( { icon: value } ) }
@@ -116,98 +130,140 @@ const Inspector = ( { attributes, setAttributes } ) => {
 					<Flex gap={ 8 } justify={ 'flex-start' } align={ 'flex-start' }>
 						<FlexItem>
 							<SelectControl
-								label={ __( 'Icon Position', 'gridhub' ) }
+								label={ __( 'Icon Position', 'gridflow' ) }
 								value={ iconPosition }
 								options={ [
-									{ label: __( 'Left', 'gridhub' ), value: 'left' },
-									{ label: __( 'Right', 'gridhub' ), value: 'right' },
+									{
+										label: __( 'Left', 'gridflow' ),
+										value: 'left',
+									},
+									{
+										label: __( 'Right', 'gridflow' ),
+										value: 'right',
+									},
 								] }
-								onChange={ ( value ) => setAttributes( { iconPosition: value } ) }
+								onChange={ ( value ) =>
+									setAttributes( { iconPosition: value } )
+								}
 								style={ { width: 100 } }
 							/>
 						</FlexItem>
 						<FlexItem>
 							<UnitControl
-								label={ __( 'Icon Spacing', 'gridhub' ) }
+								label={ __( 'Icon Spacing', 'gridflow' ) }
 								value={ iconSpacing }
-								onChange={ ( value ) => setAttributes( { iconSpacing: value } ) }
+								onChange={ ( value ) =>
+									setAttributes( { iconSpacing: value } )
+								}
 								min={ 0 }
 								style={ { maxWidth: 90 } }
 							/>
 						</FlexItem>
 					</Flex>
 					<SelectControl
-						label={ __( 'Vertical Alignment', 'gridhub' ) }
+						label={ __( 'Vertical Alignment', 'gridflow' ) }
 						value={ iconAlignment }
 						options={ [
-							{ label: __( 'Top', 'gridhub' ), value: 'flex-start' },
-							{ label: __( 'Center', 'gridhub' ), value: 'center' },
-							{ label: __( 'Bottom', 'gridhub' ), value: 'flex-end' },
+							{
+								label: __( 'Top', 'gridflow' ),
+								value: 'flex-start',
+							},
+							{ label: __( 'Center', 'gridflow' ), value: 'center' },
+							{
+								label: __( 'Bottom', 'gridflow' ),
+								value: 'flex-end',
+							},
 						] }
-						onChange={ ( value ) => setAttributes( { iconAlignment: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { iconAlignment: value } )
+						}
 					/>
 					{ icon?.url && (
-						<GridHubTextUnit
-							label={ __( 'Width', 'gridhub' ) }
+						<GridFlowTextUnit
+							label={ __( 'Width', 'gridflow' ) }
 							values={ iconWidth }
-							onChange={ ( value ) => setAttributes( { iconWidth: value } ) }
+							onChange={ ( value ) =>
+								setAttributes( { iconWidth: value } )
+							}
 						/>
 					) }
 					{ icon?.icon && (
 						<>
-							<Flex gap={ 8 } justify={ 'flex-start' } align={ 'flex-start' }>
+							<Flex
+								gap={ 8 }
+								justify={ 'flex-start' }
+								align={ 'flex-start' }
+							>
 								<FlexItem>
-									<GridHubTextUnit
+									<GridFlowTextUnit
 										label={ 'Font Size' }
 										values={ iconFontSize }
-										onChange={ ( value ) => setAttributes( { iconFontSize: value } ) }
+										onChange={ ( value ) =>
+											setAttributes( {
+												iconFontSize: value,
+											} )
+										}
 									/>
 								</FlexItem>
 
 								<FlexItem>
-									<GridHubTextUnit
+									<GridFlowTextUnit
 										label={ 'Line Height' }
 										values={ iconLineHeight }
-										onChange={ ( value ) => setAttributes( { iconLineHeight: value } ) }
+										onChange={ ( value ) =>
+											setAttributes( {
+												iconLineHeight: value,
+											} )
+										}
 									/>
 								</FlexItem>
 							</Flex>
-							<GridHubColorPicker
-								label={ __( 'Color', 'gridhub' ) }
+							<GridFlowColorPicker
+								label={ __( 'Color', 'gridflow' ) }
 								value={ iconColor }
 								alpha={ true }
 								gradients={ true }
-								onChange={ ( value ) => setAttributes( { iconColor: value } ) }
+								onChange={ ( value ) =>
+									setAttributes( { iconColor: value } )
+								}
 							/>
 						</>
 					) }
-					<GridHubColorPicker
-						label={ __( 'Background Color', 'gridhub' ) }
+					<GridFlowColorPicker
+						label={ __( 'Background Color', 'gridflow' ) }
 						value={ iconBackgroundColor }
 						alpha={ true }
 						gradients={ true }
-						onChange={ ( value ) => setAttributes( { iconBackgroundColor: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { iconBackgroundColor: value } )
+						}
 					/>
-					<GridHubBoxControl
-						label={ __( 'Padding', 'gridhub' ) }
+					<GridFlowBoxControl
+						label={ __( 'Padding', 'gridflow' ) }
 						values={ iconPadding }
-						onChange={ ( value ) => setAttributes( { iconPadding: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { iconPadding: value } )
+						}
 					/>
-					<GridHubBorder
-						label={ __( 'Border', 'gridhub' ) }
+					<GridFlowBorder
+						label={ __( 'Border', 'gridflow' ) }
 						values={ iconBorder }
 						device={ true }
 						onChange={ ( value ) => setAttributes( { iconBorder: value } ) }
 					/>
-					<GridHubBoxControl
-						label={ __( 'Border Radius', 'gridhub' ) }
+					<GridFlowBoxControl
+						label={ __( 'Border Radius', 'gridflow' ) }
 						values={ iconBorderRadius }
-						onChange={ ( value ) => setAttributes( { iconBorderRadius: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { iconBorderRadius: value } )
+						}
 					/>
-					<GridHubBoxShadow
-						label={ __( 'Box Shadow', 'gridhub' ) }
+					<GridFlowBoxShadow
+						label={ __( 'Box Shadow', 'gridflow' ) }
 						value={ iconBoxShadow }
-						onChange={ ( value ) => setAttributes( { iconBoxShadow: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { iconBoxShadow: value } )
+						}
 					/>
 				</PanelBody>
 			</InspectorControls>
@@ -215,4 +271,3 @@ const Inspector = ( { attributes, setAttributes } ) => {
 	);
 };
 export default Inspector;
-

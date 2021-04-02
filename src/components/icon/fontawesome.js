@@ -23,7 +23,7 @@ const FontAwesome = ( { search, onChange, closeModal } ) => {
 				regular.icons.map( ( icon ) => {
 					if ( ! search || icon.toLowerCase().includes( search.toLowerCase() ) ) {
 						return (
-							<div className="gridhub-icon-component__icon" key={ icon }>
+							<div className="gridflow-icon-component__icon" key={ icon }>
 								<button onClick={ () => {
 									onChange( `far fa-${ icon }` );
 									closeModal();
@@ -43,7 +43,7 @@ const FontAwesome = ( { search, onChange, closeModal } ) => {
 				solid.icons.map( ( icon ) => {
 					if ( ! search || icon.toLowerCase().includes( search.toLowerCase() ) ) {
 						return (
-							<div className="gridhub-icon-component__icon" key={ icon }>
+							<div className="gridflow-icon-component__icon" key={ icon }>
 								<button onClick={ () => {
 									onChange( `fas fa-${ icon }` );
 									closeModal();
@@ -63,7 +63,7 @@ const FontAwesome = ( { search, onChange, closeModal } ) => {
 				brands.icons.map( ( icon ) => {
 					if ( ! search || icon.toLowerCase().includes( search.toLowerCase() ) ) {
 						return (
-							<div className="gridhub-icon-component__icon" key={ icon }>
+							<div className="gridflow-icon-component__icon" key={ icon }>
 								<button onClick={ () => {
 									onChange( `fab fa-${ icon }` );
 									closeModal();
@@ -88,24 +88,24 @@ const FontAwesome = ( { search, onChange, closeModal } ) => {
 	const tabs = [
 		{
 			name: 'all',
-			title: __( 'All', 'gridhub' ),
+			title: __( 'All', 'gridflow' ),
 		},
 		{
 			name: 'regular',
-			title: __( 'Regular', 'gridhub' ),
+			title: __( 'Regular', 'gridflow' ),
 		},
 		{
 			name: 'solid',
-			title: __( 'Solid', 'gridhub' ),
+			title: __( 'Solid', 'gridflow' ),
 		},
 		{
 			name: 'brands',
-			title: __( 'Brands', 'gridhub' ),
+			title: __( 'Brands', 'gridflow' ),
 		},
 	];
 
 	return (
-		<TabPanel className="gridhub-icon-tab-panel"
+		<TabPanel className="gridflow-icon-tab-panel"
 			activeClass="is-active"
 			orientation="horizontal"
 			tabs={ tabs }
@@ -118,15 +118,15 @@ const FontAwesome = ( { search, onChange, closeModal } ) => {
 							<Spinner />
 						) : (
 							<>
-								<div className="gridhub-icon-component__icons" style={ { display: ( tab.name === 'all' || tab.name === 'regular' ) || 'none' } }>
+								<div className="gridflow-icon-component__icons" style={ { display: ( tab.name === 'all' || tab.name === 'regular' ) || 'none' } }>
 									{ renderRegular }
 								</div>
 
-								<div className="gridhub-icon-component__icons" style={ { display: ( tab.name === 'all' || tab.name === 'solid' ) || 'none' } }>
+								<div className="gridflow-icon-component__icons" style={ { display: ( tab.name === 'all' || tab.name === 'solid' ) || 'none' } }>
 									{ renderSolid }
 								</div>
 
-								<div className="gridhub-icon-component__icons" style={ { display: ( tab.name === 'all' || tab.name === 'brands' ) || 'none' } }>
+								<div className="gridflow-icon-component__icons" style={ { display: ( tab.name === 'all' || tab.name === 'brands' ) || 'none' } }>
 									{ renderBrands }
 								</div>
 							</>

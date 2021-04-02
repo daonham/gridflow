@@ -6,7 +6,10 @@ import { noop } from 'lodash';
 import { useControlledState } from '../../utils/use-controlled-state';
 
 function useUniqueId( idProp ) {
-	const instanceId = useInstanceId( GridHubSelect, 'inspector-gridhub-select-control' );
+	const instanceId = useInstanceId(
+		GridFlowSelect,
+		'inspector-gridflow-select-control'
+	);
 
 	return idProp || instanceId;
 }
@@ -17,7 +20,7 @@ const DEFAULT_VALUES = {
 	mobile: '',
 };
 
-const GridHubSelect = ( {
+const GridFlowSelect = ( {
 	id: idProp,
 	label,
 	values: valuesProp,
@@ -49,9 +52,6 @@ const GridHubSelect = ( {
 		...props,
 	};
 
-	return (
-		<Control { ...inputControlProps } />
-	);
+	return <Control { ...inputControlProps } />;
 };
-export default GridHubSelect;
-
+export default GridFlowSelect;

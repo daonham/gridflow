@@ -1,26 +1,27 @@
 import { addFilter } from '@wordpress/hooks';
 
-const { GridHubStyleBackground } = wp.gridhubComponents;
+const { GridFlowStyleBackground } = wp.gridflowComponents;
 
-addFilter( 'gridhub.style.background', 'gridhub/inline/background', function( gridhubBackground ) {
+addFilter( 'gridflow.style.background', 'gridflow/inline/background', function(
+	gridflowBackground
+) {
 	const desktop = {
-		' .gridhub-block-inner': {
-			...GridHubStyleBackground( gridhubBackground, 'desktop' ),
+		' .gridflow-block-inner': {
+			...GridFlowStyleBackground( gridflowBackground, 'desktop' ),
 		},
 	};
 
 	const tablet = {
-		' .gridhub-block-inner': {
-			...GridHubStyleBackground( gridhubBackground, 'tablet' ),
+		' .gridflow-block-inner': {
+			...GridFlowStyleBackground( gridflowBackground, 'tablet' ),
 		},
 	};
 
 	const mobile = {
-		' .gridhub-block-inner': {
-			...GridHubStyleBackground( gridhubBackground, 'mobile' ),
+		' .gridflow-block-inner': {
+			...GridFlowStyleBackground( gridflowBackground, 'mobile' ),
 		},
 	};
 
 	return { desktop, tablet, mobile };
 } );
-

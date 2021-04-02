@@ -38,13 +38,13 @@ const TextInputControl = ( {
 
 	return (
 		<>
-			<div id={ id } className="gridhub-control gridhub-box-control" role="region" aria-labelledby={ headingId }>
+			<div id={ id } className="gridflow-control gridflow-box-control" role="region" aria-labelledby={ headingId }>
 				<Flex
-					className="gridhub-control__header gridhub-box-control__header"
+					className="gridflow-control__header gridflow-box-control__header"
 					justify="flex-start"
 				>
 					<FlexItem>
-						<p id={ headingId } className="gridhub-control__label gridhub-box-control__label">{ label }</p>
+						<p id={ headingId } className="gridflow-control__label gridflow-box-control__label">{ label }</p>
 					</FlexItem>
 
 					<FlexItem>

@@ -1,20 +1,20 @@
 @media (min-width: 767px) {
 
-	.gridhub-hidden-desktop {
+	.gridflow-hidden-desktop {
 		display: none !important;
 	}
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
 
-	.gridhub-hidden-tablet {
+	.gridflow-hidden-tablet {
 		display: none !important;
 	}
 }
 
 @media (max-width: 1025px) {
 
-	.gridhub-hidden-mobile {
+	.gridflow-hidden-mobile {
 		display: none !important;
 	}
 }

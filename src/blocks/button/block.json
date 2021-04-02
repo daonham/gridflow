@@ -1,12 +1,12 @@
 {
 	"apiVersion": 2,
-	"name": "gridhub/button",
-	"category": "gridhub",
+	"name": "gridflow/button",
+	"category": "gridflow",
 	"attributes": {
 		"content": {
 			"type": "string",
 			"source": "html",
-			"selector": ".gridhub-button__text",
+			"selector": ".gridflow-button__text",
 			"default": ""
 		},
 		"links": {
@@ -63,7 +63,7 @@
 		"font": {
 			"type": "string"
 		},
-		"gridhubFont": {
+		"gridflowFont": {
 			"type": "object",
 			"default": {
 				"1": {
@@ -122,5 +122,5 @@
 			"type": "string"
 		}
 	},
-	"style": "gridhub-button"
+	"style": "gridflow-button"
 }

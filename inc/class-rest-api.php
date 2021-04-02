@@ -1,21 +1,21 @@
 <?php
-namespace GridHub;
+namespace GridFlow;
 
 class Styles {
 
-	protected $folder_name = 'gridhub';
+	protected $folder_name = 'gridflow';
 
 	protected static $instance = null;
 
 	public function init() {
 		add_action( 'rest_api_init', array( $this, 'register_endpoints' ) );
-		add_action( 'gridhub/enqueue/style/uploads', array( $this, 'enqueue_style' ) );
+		add_action( 'gridflow/enqueue/style/uploads', array( $this, 'enqueue_style' ) );
 		add_action( 'wp_head', array( $this, 'enqueue_google_fonts' ) );
 	}
 
 	public function register_endpoints() {
 		register_rest_route(
-			'gridhub/v1/style',
+			'gridflow/v1/style',
 			'/save/',
 			array(
 				'methods'             => \WP_REST_Server::CREATABLE,
@@ -34,7 +34,7 @@ class Styles {
 			return false;
 		}
 
-		$fonts = get_post_meta( $post_id, 'gridhub_google_fonts', true );
+		$fonts = get_post_meta( $post_id, 'gridflow_google_fonts', true );
 
 		if ( empty( $fonts ) || ! is_array( $fonts ) ) {
 			return;
@@ -101,10 +101,10 @@ class Styles {
 		if ( isset( $_GET['preview'] ) && $_GET['preview'] == true ) {
 			if ( file_exists( $upload_dir . 'post-preview-' . $post_id . '.css' ) ) {
 				$file_url = $upload_url . 'post-preview-' . $post_id . '.css';
-				wp_enqueue_style( "gridhub-post-preview-style-{$post_id}", $file_url, false, $version );
+				wp_enqueue_style( "gridflow-post-preview-style-{$post_id}", $file_url, false, $version );
 			}
 		} elseif ( file_exists( $file_path ) ) {
-			wp_enqueue_style( "gridhub-post-style-{$post_id}", $file_url, false, $version );
+			wp_enqueue_style( "gridflow-post-style-{$post_id}", $file_url, false, $version );
 		}
 	}
 
@@ -133,13 +133,13 @@ class Styles {
 					}
 				}
 
-				update_post_meta( $post_id, 'gridhub_google_fonts', $save_fonts );
+				update_post_meta( $post_id, 'gridflow_google_fonts', $save_fonts );
 			} else {
-				delete_post_meta( $post_id, 'gridhub_google_fonts' );
+				delete_post_meta( $post_id, 'gridflow_google_fonts' );
 			}
 
 			if ( empty( $post_css ) ) {
-				throw new \Exception( esc_html__( 'Gridhub no content for save!', 'gridhub' ) );
+				throw new \Exception( esc_html__( 'Gridhub no content for save!', 'gridflow' ) );
 			}
 
 			$file_name = 'post-' . $post_id . '.css';
@@ -154,7 +154,7 @@ class Styles {
 			$file_path     = $upload_dir . $file_name;
 
 			if ( ! $wp_filesystem->is_writable( $wp_upload_dir['basedir'] ) ) {
-				throw new \Exception( esc_html__( 'Gridhub can\'t write in upload folder!', 'gridhub' ) );
+				throw new \Exception( esc_html__( 'Gridhub can\'t write in upload folder!', 'gridflow' ) );
 			}
 
 			if ( ! $target_dir ) {
@@ -164,13 +164,13 @@ class Styles {
 			$put_content = $wp_filesystem->put_contents( $file_path, $post_css, FS_CHMOD_FILE );
 
 			if ( ! $put_content ) {
-				throw new \Exception( esc_html__( 'Gridhub can\'t put content style!', 'gridhub' ) );
+				throw new \Exception( esc_html__( 'Gridhub can\'t put content style!', 'gridflow' ) );
 			}
 
 			return rest_ensure_response(
 				array(
 					'status'  => 'success',
-					'message' => esc_html__( 'Gridhub save style successfully!', 'gridhub' ),
+					'message' => esc_html__( 'Gridhub save style successfully!', 'gridflow' ),
 				)
 			);
 		} catch ( \Exception $e ) {

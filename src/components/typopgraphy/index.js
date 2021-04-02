@@ -13,8 +13,8 @@ import {
 	Flex,
 } from '@wordpress/components';
 
-import GridHubRangeControl from '../range';
-import GridHubTextUnit from '../text';
+import GridFlowRangeControl from '../range';
+import GridFlowTextUnit from '../text';
 
 import ggFonts from './google-fonts.json';
 
@@ -68,10 +68,10 @@ const Typhography = ( {
 			} );
 		}
 
-		if ( gridHubEditorData.systemFont ) {
+		if ( gridFlowEditorData.systemFont ) {
 			const output = [];
 
-			gridHubEditorData.systemFont.map( ( ele ) => {
+			gridFlowEditorData.systemFont.map( ( ele ) => {
 				return output.push( {
 					value: ele,
 					label: ele,
@@ -87,16 +87,31 @@ const Typhography = ( {
 			<BaseControl id={ null } label={ 'Font Family' }>
 				<Dropdown
 					position="bottom center"
-					contentClassName="gridhub-text-component__popover"
-					className={ classnames( 'gridhub-text-component__family', 'gridhub-button-component' ) }
+					contentClassName="gridflow-text-component__popover"
+					className={ classnames(
+						'gridflow-text-component__family',
+						'gridflow-button-component'
+					) }
 					renderToggle={ ( { isOpen, onToggle } ) => (
 						<button
-							className={ classnames( 'gridhub-text-component__family--select' ) }
+							className={ classnames(
+								'gridflow-text-component__family--select'
+							) }
 							onClick={ onToggle }
 							aria-expanded={ isOpen }
 						>
-							{ font || __( 'Default', 'gridhub' ) }
-							<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24" role="img" aria-hidden="true" focusable="false"><path d="M17.5 11.6L12 16l-5.5-4.4.9-1.2L12 14l4.5-3.6 1 1.2z"></path></svg>
+							{ font || __( 'Default', 'gridflow' ) }
+							<svg
+								viewBox="0 0 24 24"
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								role="img"
+								aria-hidden="true"
+								focusable="false"
+							>
+								<path d="M17.5 11.6L12 16l-5.5-4.4.9-1.2L12 14l4.5-3.6 1 1.2z"></path>
+							</svg>
 						</button>
 					) }
 					renderContent={ ( { onToggle } ) => (
@@ -114,15 +129,22 @@ const Typhography = ( {
 									setSearch( '' );
 								} }
 							>
-								{ __( 'Default', 'gridhub' ) }
+								{ __( 'Default', 'gridflow' ) }
 							</MenuItem>
-							<MenuGroup label={ __( 'System Fonts', 'gridhub' ) }>
+							<MenuGroup label={ __( 'System Fonts', 'gridflow' ) }>
 								{ systemFont.map( ( system ) => {
-									if ( ! search || system.label.toLowerCase().includes( search.toLowerCase() ) ) {
+									if (
+										! search ||
+										system.label
+											.toLowerCase()
+											.includes( search.toLowerCase() )
+									) {
 										return (
 											<MenuItem
 												key={ system.value }
-												isSelected={ system.value === font }
+												isSelected={
+													system.value === font
+												}
 												onClick={ () => {
 													onToggle();
 													onChangeFont( system.value );
@@ -140,24 +162,48 @@ const Typhography = ( {
 								} ) }
 							</MenuGroup>
 
-							<MenuGroup label={ __( 'Google Fonts', 'gridhub' ) }>
+							<MenuGroup label={ __( 'Google Fonts', 'gridflow' ) }>
 								{ fonts.map( ( i ) => {
-									if ( ! search || i.family.toLowerCase().includes( search.toLowerCase() ) ) {
+									if (
+										! search ||
+										i.family
+											.toLowerCase()
+											.includes( search.toLowerCase() )
+									) {
 										return (
 											<MenuItem
 												key={ i.family }
-												className={ classnames( { 'is-selected': i.family === font } ) }
+												className={ classnames( {
+													'is-selected':
+														i.family === font,
+												} ) }
 												onClick={ () => {
 													onToggle();
 													onChangeFont( i.family );
-													onChangeFontWeight( 'regular' );
+													onChangeFontWeight(
+														'regular'
+													);
 
 													const getVariants = i.variants
-														.filter( ( o ) => false === o.includes( 'italic' ) )
+														.filter(
+															( o ) =>
+																false ===
+																o.includes(
+																	'italic'
+																)
+														)
 														.map( ( o ) => {
 															return ( o = {
-																label: o === 'regular' ? '400' : o,
-																value: o === 'regular' ? '400' : o,
+																label:
+																	o ===
+																	'regular'
+																		? '400'
+																		: o,
+																value:
+																	o ===
+																	'regular'
+																		? '400'
+																		: o,
 															} );
 														} );
 
@@ -172,7 +218,6 @@ const Typhography = ( {
 
 									return null;
 								} ) }
-
 							</MenuGroup>
 						</>
 					) }
@@ -181,7 +226,7 @@ const Typhography = ( {
 
 			<Flex gap={ 8 } justify={ 'flex-start' } align={ 'flex-start' }>
 				<FlexItem>
-					<GridHubTextUnit
+					<GridFlowTextUnit
 						label={ 'Font Size' }
 						values={ fontSize }
 						onChange={ onChangeFontSize }
@@ -231,7 +276,7 @@ const Typhography = ( {
 				</FlexItem>
 
 				<FlexItem>
-					<GridHubTextUnit
+					<GridFlowTextUnit
 						label={ 'Line Height' }
 						values={ lineHeight }
 						onChange={ onChangeLineHeight }
@@ -245,7 +290,10 @@ const Typhography = ( {
 								{ label: 'Default', value: '' },
 								{ label: 'Underline', value: 'underline' },
 								{ label: 'Overline', value: 'overline' },
-								{ label: 'Line Through', value: 'line-through' },
+								{
+									label: 'Line Through',
+									value: 'line-through',
+								},
 								{ label: 'None', value: 'none' },
 							] }
 							onChange={ onChangeDecoration }
@@ -269,7 +317,7 @@ const Typhography = ( {
 			</Flex>
 
 			{ hideLetterSpacing || (
-				<GridHubRangeControl
+				<GridFlowRangeControl
 					label={ 'Letter Spacing' }
 					values={ letterSpacing }
 					onChange={ onChangeLetterSpacing }

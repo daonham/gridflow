@@ -1,5 +1,5 @@
 <?php
-namespace GridHub;
+namespace GridFlow;
 
 class Init {
 	protected static $instance = null;
@@ -14,15 +14,15 @@ class Init {
 			$categories,
 			array(
 				array(
-					'slug'  => 'gridhub',
-					'title' => 'GridHub',
+					'slug'  => 'gridflow',
+					'title' => 'GridFlow',
 				),
 			)
 		);
 	}
 
 	public function body_class( $classes ) {
-		$classes[] = 'gridhub-styles';
+		$classes[] = 'gridflow-styles';
 
 		return $classes;
 	}

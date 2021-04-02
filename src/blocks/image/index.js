@@ -10,12 +10,12 @@ import './style';
 const { name } = metadata;
 
 const settings = {
-	title: __( 'Image', 'gridhub' ),
-	description: __( 'Advanced image for Editor.', 'gridhub' ),
+	title: __( 'Image', 'gridflow' ),
+	description: __( 'Advanced image for Editor.', 'gridflow' ),
 	icon,
 	keywords: [
-		'gridhub',
-		__( 'image', 'gridhub' ),
+		'gridflow',
+		__( 'image', 'gridflow' ),
 	],
 	edit,
 	save,

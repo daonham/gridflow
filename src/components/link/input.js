@@ -49,22 +49,22 @@ const TextInputControl = ( {
 
 	return (
 		<>
-			<div id={ id } className="gridhub-control gridhub-link-control" role="region" aria-labelledby={ headingId }>
+			<div id={ id } className="gridflow-control gridflow-link-control" role="region" aria-labelledby={ headingId }>
 
 				<p
 					id={ headingId }
-					className="gridhub-control__label gridhub-link-control__label"
+					className="gridflow-control__label gridflow-link-control__label"
 					style={ { marginBottom: 8 } }
 				>
-					{ label || __( 'Link', 'gridhub' ) }
+					{ label || __( 'Link', 'gridflow' ) }
 				</p>
 
-				<Flex className="gridhub-control__header gridhub-link-control__content" align="flex-start">
+				<Flex className="gridflow-control__header gridflow-link-control__content" align="flex-start">
 					<FlexBlock>
 						<TextControl
 							value={ values.url }
 							onChange={ createHandleOnChange( 'url' ) }
-							placeholder={ __( 'Enter for URL', 'gridhub' ) }
+							placeholder={ __( 'Enter for URL', 'gridflow' ) }
 							style={ { height: 31 } }
 							{ ...props }
 						/>
@@ -82,15 +82,15 @@ const TextInputControl = ( {
 				{ ! isLinked && (
 					<>
 						<ToggleControl
-							label={ __( 'Open in new tab', 'gridhub' ) }
+							label={ __( 'Open in new tab', 'gridflow' ) }
 							checked={ values.target }
 							onChange={ createHandleOnChange( 'target' ) }
 						/>
 						<TextControl
-							label={ __( 'Link rel', 'gridhub' ) }
+							label={ __( 'Link rel', 'gridflow' ) }
 							value={ values.rel }
 							onChange={ createHandleOnChange( 'rel' ) }
-							placeholder={ __( 'noreferrer noopener', 'gridhub' ) }
+							placeholder={ __( 'noreferrer noopener', 'gridflow' ) }
 						/>
 					</>
 				) }

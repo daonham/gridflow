@@ -1,29 +1,31 @@
 import { addFilter } from '@wordpress/hooks';
 
-const { GridHubStyleBox } = wp.gridhubComponents;
+const { GridFlowStyleBox } = wp.gridflowComponents;
 
-addFilter( 'gridhub.style.spacing', 'gridhub/inline/spacing', function( margin, padding ) {
+addFilter( 'gridflow.style.spacing', 'gridflow/inline/spacing', function(
+	margin,
+	padding
+) {
 	const desktop = {
-		' .gridhub-block-inner': {
-			...GridHubStyleBox( padding, 'padding', 'desktop' ),
-			...GridHubStyleBox( margin, 'margin', 'desktop' ),
+		' .gridflow-block-inner': {
+			...GridFlowStyleBox( padding, 'padding', 'desktop' ),
+			...GridFlowStyleBox( margin, 'margin', 'desktop' ),
 		},
 	};
 
 	const tablet = {
-		' .gridhub-block-inner': {
-			...GridHubStyleBox( padding, 'padding', 'tablet' ),
-			...GridHubStyleBox( margin, 'margin', 'tablet' ),
+		' .gridflow-block-inner': {
+			...GridFlowStyleBox( padding, 'padding', 'tablet' ),
+			...GridFlowStyleBox( margin, 'margin', 'tablet' ),
 		},
 	};
 
 	const mobile = {
-		' .gridhub-block-inner': {
-			...GridHubStyleBox( padding, 'padding', 'mobile' ),
-			...GridHubStyleBox( margin, 'margin', 'mobile' ),
+		' .gridflow-block-inner': {
+			...GridFlowStyleBox( padding, 'padding', 'mobile' ),
+			...GridFlowStyleBox( margin, 'margin', 'mobile' ),
 		},
 	};
 
 	return { desktop, tablet, mobile };
 } );
-

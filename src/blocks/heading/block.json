@@ -1,12 +1,12 @@
 {
 	"apiVersion": 2,
-	"name": "gridhub/heading",
-	"category": "gridhub",
+	"name": "gridflow/heading",
+	"category": "gridflow",
 	"attributes": {
 		"content": {
 			"type": "string",
 			"source": "html",
-			"selector": ".gridhub-heading__content",
+			"selector": ".gridflow-heading__content",
 			"default": ""
 		},
 		"tagName": {
@@ -25,7 +25,7 @@
 		"font": {
 			"type": "string"
 		},
-		"gridhubFont": {
+		"gridflowFont": {
 			"type": "object",
 			"default": {
 				"1": {

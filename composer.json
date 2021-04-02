@@ -1,6 +1,6 @@
 {
-	"name": "gridhub/gridhub",
-	"description": "gridhub",
+	"name": "gridflow/gridflow",
+	"description": "gridflow",
 	"type": "library",
 	"license": "GPL-2.0-only",
 	"require": {

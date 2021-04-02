@@ -13,17 +13,17 @@ import './style';
 const { name } = metadata;
 
 const settings = {
-	title: __( 'Heading', 'gridhub' ),
-	description: __( 'Advanced heading for Editor.', 'gridhub' ),
+	title: __( 'Heading', 'gridflow' ),
+	description: __( 'Advanced heading for Editor.', 'gridflow' ),
 	keywords: [
-		'gridhub',
-		__( 'heading', 'gridhub' ),
-		__( 'text', 'gridhub' ),
+		'gridflow',
+		__( 'heading', 'gridflow' ),
+		__( 'text', 'gridflow' ),
 	],
 	icon,
 	example: {
 		attributes: {
-			content: __( 'Hello World!', 'gridhub' ),
+			content: __( 'Hello World!', 'gridflow' ),
 		},
 	},
 	edit,

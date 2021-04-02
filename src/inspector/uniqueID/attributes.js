@@ -1,6 +1,6 @@
-const gridhubAttributes = {
+const gridflowAttributes = {
 	uniqueId: {
 		type: 'string',
 	},
 };
-export default gridhubAttributes;
+export default gridflowAttributes;

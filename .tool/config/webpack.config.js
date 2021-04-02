@@ -13,11 +13,11 @@ module.exports = {
 	...defaultConfig,
 
 	entry: {
-		gridhub: path.resolve( process.cwd(), 'src/blocks.js' ),
-		'gridhub-editor': path.resolve( process.cwd(), 'src/styles/editor.scss' ),
-		'gridhub-style': path.resolve( process.cwd(), 'src/styles/style.scss' ),
+		gridflow: path.resolve( process.cwd(), 'src/blocks.js' ),
+		'gridflow-editor': path.resolve( process.cwd(), 'src/styles/editor.scss' ),
+		'gridflow-style': path.resolve( process.cwd(), 'src/styles/style.scss' ),
 
-		'js/gridhub': path.resolve( process.cwd(), 'src/public/index.js' ),
+		'js/gridflow': path.resolve( process.cwd(), 'src/public/index.js' ),
 
 		'js/vendors/flickity': path.resolve( process.cwd(), 'node_modules/flickity/dist/flickity.pkgd.js' ),
 	},

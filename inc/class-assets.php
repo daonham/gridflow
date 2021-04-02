@@ -1,5 +1,5 @@
 <?php
-namespace GridHub;
+namespace GridFlow;
 
 class Assets {
 	protected static $instance = null;
@@ -7,10 +7,10 @@ class Assets {
 	public static $version = null;
 
 	public function init() {
-		if ( GRIDHUB_BLOCKS_DEV ) {
+		if ( GRIDFLOW_BLOCKS_DEV ) {
 			self::$version = time();
 		} else {
-			self::$version = GRIDHUB_VERSION;
+			self::$version = GRIDFLOW_VERSION;
 		}
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontend' ) );
@@ -21,17 +21,17 @@ class Assets {
 
 	public function frontend() {
 		$url    = $this->url();
-		$name   = 'gridhub-style';
+		$name   = 'gridflow-style';
 		$is_rtl = is_rtl() ? '-rtl' : '';
 
 		// Style.
-		wp_enqueue_style( 'gridhub-frontend', $url . $name . $is_rtl . '.css', array(), self::$version );
+		wp_enqueue_style( 'gridflow-frontend', $url . $name . $is_rtl . '.css', array(), self::$version );
 
 		// Script.
-		wp_enqueue_script( 'gridhub', $url . 'js/gridhub.js', array(), self::$version, true );
+		wp_enqueue_script( 'gridflow', $url . 'js/gridflow.js', array(), self::$version, true );
 
 		// Enqueue style in uploads.
-		do_action( 'gridhub/enqueue/style/uploads', self::$version );
+		do_action( 'gridflow/enqueue/style/uploads', self::$version );
 	}
 
 	public function vendor() {
@@ -39,30 +39,30 @@ class Assets {
 		$url_vendor = $this->url( true );
 
 		// Script.
-		wp_enqueue_script( 'gridhub-flickity', $url_vendor . 'flickity.js', array(), GRIDHUB_VERSION, true );
+		wp_enqueue_script( 'gridflow-flickity', $url_vendor . 'flickity.js', array(), GRIDFLOW_VERSION, true );
 
 		// Style.
-		wp_enqueue_style( 'gridhub-font-awesome', $url . 'lib/font-awesome/css/all.css', array(), '5.12.0' );
+		wp_enqueue_style( 'gridflow-font-awesome', $url . 'lib/font-awesome/css/all.css', array(), '5.12.0' );
 	}
 
 	public function editor() {
 		$url     = $this->url();
-		$url_js  = $url . 'gridhub';
+		$url_js  = $url . 'gridflow';
 		$is_rtl  = is_rtl() ? '-rtl' : '';
 		$js_file = $this->get_asset_info( $url_js );
 
 		// Styles.
-		wp_enqueue_style( 'gridhub-editor', $url . 'gridhub-editor' . $is_rtl . '.css', array(), self::$version );
+		wp_enqueue_style( 'gridflow-editor', $url . 'gridflow-editor' . $is_rtl . '.css', array(), self::$version );
 
 		// Scripts.
-		wp_enqueue_script( 'gridhub-editor', $url_js . '.js', array_merge( $js_file['dependencies'], array( 'wp-api' ) ), self::$version, true );
+		wp_enqueue_script( 'gridflow-editor', $url_js . '.js', array_merge( $js_file['dependencies'], array( 'wp-api' ) ), self::$version, true );
 
 		// Localize.
 		wp_localize_script(
-			'gridhub-editor',
-			'gridHubEditorData',
+			'gridflow-editor',
+			'gridFlowEditorData',
 			apply_filters(
-				'gridhub_localize_editor',
+				'gridflow_localize_editor',
 				array(
 					'systemFont' => array( 'Arial', 'Tahoma', 'Verdana', 'Helvetica', 'Time New Roman', 'Georgia' ),
 				)
@@ -71,7 +71,7 @@ class Assets {
 	}
 
 	public function get_asset_info( $url ) {
-		$path = GRIDHUB_PLUGIN_DIR . $url . '.asset.php';
+		$path = GRIDFLOW_PLUGIN_DIR . $url . '.asset.php';
 
 		if ( file_exists( $path ) ) {
 			include $path;
@@ -85,9 +85,9 @@ class Assets {
 
 	public function url( $vendor = false ) {
 		if ( $vendor ) {
-			$url = GRIDHUB_PLUGIN_URL . 'dist/js/vendors/';
+			$url = GRIDFLOW_PLUGIN_URL . 'dist/js/vendors/';
 		} else {
-			$url = GRIDHUB_PLUGIN_URL . 'dist/';
+			$url = GRIDFLOW_PLUGIN_URL . 'dist/';
 		}
 
 		return $url;

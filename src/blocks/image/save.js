@@ -23,11 +23,11 @@ export default function save( { attributes } ) {
 		return (
 			<>
 				{ linkType ? (
-					<a className={ classnames( 'gridhub-image__wrapper', { 'gridhub-image__wrapper--overlay': overlay || overlayHover } ) } href={ href } target={ target } rel={ rel }>
+					<a className={ classnames( 'gridflow-image__wrapper', { 'gridflow-image__wrapper--overlay': overlay || overlayHover } ) } href={ href } target={ target } rel={ rel }>
 						<img className={ id && `wp-image-${ id }` } src={ url } alt={ alt || '' } />
 					</a>
 				) : (
-					<div className={ classnames( 'gridhub-image__wrapper', { 'gridhub-image__wrapper--overlay': overlay || overlayHover } ) }>
+					<div className={ classnames( 'gridflow-image__wrapper', { 'gridflow-image__wrapper--overlay': overlay || overlayHover } ) }>
 						<img className={ id && `wp-image-${ id }` } src={ url } alt={ alt || '' } />
 					</div>
 				) }
@@ -36,14 +36,14 @@ export default function save( { attributes } ) {
 	}
 
 	return (
-		<div { ...useBlockProps.save( { className: classnames( 'gridhub-image', uniqueId ) } ) }>
+		<div { ...useBlockProps.save( { className: classnames( 'gridflow-image', uniqueId ) } ) }>
 			{ url && (
-				<div className={ classnames( 'gridhub-image__inner', 'gridhub-block-inner' ) }>
+				<div className={ classnames( 'gridflow-image__inner', 'gridflow-block-inner' ) }>
 					{ enableCaption && ! RichText.isEmpty( caption ) ? (
-						<figure className={ 'gridhub-image__caption' }>
+						<figure className={ 'gridflow-image__caption' }>
 							{ contentLink() }
 
-							<RichText.Content tagName="figcaption" value={ caption } className={ 'gridhub-image__caption__text' } />
+							<RichText.Content tagName="figcaption" value={ caption } className={ 'gridflow-image__caption__text' } />
 						</figure>
 					) : (
 						contentLink()

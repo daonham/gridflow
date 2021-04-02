@@ -12,9 +12,9 @@ import {
 } from '@wordpress/components';
 
 import { useControlledState } from '../../utils/use-controlled-state';
-import GridHubSelect from '../select';
-import GridHubColorPicker from '../color';
-import GridHubFocusPointPicker from '../focus-point';
+import GridFlowSelect from '../select';
+import GridFlowColorPicker from '../color';
+import GridFlowFocusPointPicker from '../focus-point';
 
 const DEFAULT_VALUES = {
 	type: 'classic',
@@ -27,11 +27,7 @@ const DEFAULT_VALUES = {
 	gradient: undefined,
 };
 
-const GridHubBackground = ( {
-	label,
-	values: valuesProp,
-	onChange = noop,
-} ) => {
+const GridFlowBackground = ( { label, values: valuesProp, onChange = noop } ) => {
 	const [ values, setValues ] = useControlledState( valuesProp, {
 		fallback: DEFAULT_VALUES,
 	} );
@@ -66,10 +62,12 @@ const GridHubBackground = ( {
 
 	return (
 		<>
-			<div className="gridhub-background-control">
+			<div className="gridflow-background-control">
 				<Flex style={ { marginBottom: 10 } }>
 					<FlexItem>
-						<p className="gridhub-control__label">{ label || __( 'Background type', 'gridhub' ) }</p>
+						<p className="gridflow-control__label">
+							{ label || __( 'Background type', 'gridflow' ) }
+						</p>
 					</FlexItem>
 					<FlexItem>
 						<ButtonGroup>
@@ -78,14 +76,14 @@ const GridHubBackground = ( {
 								isPrimary={ inputValues.type === 'classic' }
 								onClick={ () => onChangeType( 'type', 'classic' ) }
 							>
-								{ __( 'Classic', 'gridhub' ) }
+								{ __( 'Classic', 'gridflow' ) }
 							</Button>
 							<Button
 								isSmall
 								isPrimary={ inputValues.type === 'gradient' }
 								onClick={ () => onChangeType( 'type', 'gradient' ) }
 							>
-								{ __( 'Gradient', 'gridhub' ) }
+								{ __( 'Gradient', 'gridflow' ) }
 							</Button>
 						</ButtonGroup>
 					</FlexItem>
@@ -93,14 +91,16 @@ const GridHubBackground = ( {
 
 				{ inputValues.type === 'classic' && (
 					<>
-						<GridHubColorPicker
-							label={ __( 'Color', 'gridhub' ) }
+						<GridFlowColorPicker
+							label={ __( 'Color', 'gridflow' ) }
 							value={ inputValues.color }
 							alpha={ true }
 							onChange={ createHandleOnChange( 'color' ) }
 						/>
 
-						<p className="gridhub-control__label">{ __( 'Image', 'gridhub' ) }</p>
+						<p className="gridflow-control__label">
+							{ __( 'Image', 'gridflow' ) }
+						</p>
 						<Flex style={ { marginBottom: 10 } } align="flex-start">
 							<FlexItem>
 								<TextControl
@@ -114,12 +114,20 @@ const GridHubBackground = ( {
 							<FlexItem>
 								<MediaUploadCheck>
 									<MediaUpload
-										onSelect={ ( media ) => onChangeType( 'image', media.url ) }
+										onSelect={ ( media ) =>
+											onChangeType( 'image', media.url )
+										}
 										allowedTypes={ [ 'image' ] }
 										value={ inputValues.image }
 										render={ ( { open } ) => (
-											<Button onClick={ open } isSecondary style={ { height: 31 } }>
-												{ ! inputValues.image ? __( 'Upload', 'gridhub' ) : __( 'Replace', 'gridhub' ) }
+											<Button
+												onClick={ open }
+												isSecondary
+												style={ { height: 31 } }
+											>
+												{ ! inputValues.image
+													? __( 'Upload', 'gridflow' )
+													: __( 'Replace', 'gridflow' ) }
 											</Button>
 										) }
 									/>
@@ -129,44 +137,73 @@ const GridHubBackground = ( {
 
 						{ inputValues.image && (
 							<>
-								<GridHubFocusPointPicker
-									label={ __( 'Position', 'gridhub' ) }
+								<GridFlowFocusPointPicker
+									label={ __( 'Position', 'gridflow' ) }
 									url={ inputValues.image }
 									values={ inputValues.position }
 									onChange={ createHandleOnChange( 'position' ) }
 								/>
-								<Flex gap={ 8 } justify={ 'flex-start' } align={ 'flex-start' }>
+								<Flex
+									gap={ 8 }
+									justify={ 'flex-start' }
+									align={ 'flex-start' }
+								>
 									<FlexItem>
-										<GridHubSelect
-											label={ __( 'Attachment', 'gridhub' ) }
+										<GridFlowSelect
+											label={ __( 'Attachment', 'gridflow' ) }
 											values={ inputValues.attachment }
 											options={ [
 												{ label: 'Default', value: '' },
-												{ label: 'Scroll', value: 'scroll' },
-												{ label: 'Fixed', value: 'fixed' },
+												{
+													label: 'Scroll',
+													value: 'scroll',
+												},
+												{
+													label: 'Fixed',
+													value: 'fixed',
+												},
 											] }
-											onChange={ createHandleOnChange( 'attachment' ) }
+											onChange={ createHandleOnChange(
+												'attachment'
+											) }
 										/>
 									</FlexItem>
 									<FlexItem>
-										<GridHubSelect
-											label={ __( 'Repeat', 'gridhub' ) }
+										<GridFlowSelect
+											label={ __( 'Repeat', 'gridflow' ) }
 											values={ inputValues.repeat }
 											options={ [
 												{ label: 'Default', value: '' },
-												{ label: 'No Repeat', value: 'no-repeat' },
-												{ label: 'Repeat', value: 'repeat' },
-												{ label: 'Repeat', value: 'repeat' },
-												{ label: 'Repeat X', value: 'repeat-x' },
-												{ label: 'Repeat Y', value: 'repeat-y' },
+												{
+													label: 'No Repeat',
+													value: 'no-repeat',
+												},
+												{
+													label: 'Repeat',
+													value: 'repeat',
+												},
+												{
+													label: 'Repeat',
+													value: 'repeat',
+												},
+												{
+													label: 'Repeat X',
+													value: 'repeat-x',
+												},
+												{
+													label: 'Repeat Y',
+													value: 'repeat-y',
+												},
 											] }
-											onChange={ createHandleOnChange( 'repeat' ) }
+											onChange={ createHandleOnChange(
+												'repeat'
+											) }
 										/>
 									</FlexItem>
 								</Flex>
 
-								<GridHubSelect
-									label={ __( 'Size', 'gridhub' ) }
+								<GridFlowSelect
+									label={ __( 'Size', 'gridflow' ) }
 									values={ inputValues.size }
 									options={ [
 										{ label: 'Default', value: '' },
@@ -193,4 +230,4 @@ const GridHubBackground = ( {
 		</>
 	);
 };
-export default GridHubBackground;
+export default GridFlowBackground;

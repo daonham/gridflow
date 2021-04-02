@@ -1,5 +1,5 @@
-const gridhubAnimate = () => {
-	const animates = [ ...document.querySelectorAll( '[data-gridhub-animated]' ) ];
+const gridflowAnimate = () => {
+	const animates = [ ...document.querySelectorAll( '[data-gridflow-animated]' ) ];
 
 	if ( animates.length > 0 ) {
 		if ( 'IntersectionObserver' in window ) {
@@ -7,7 +7,7 @@ const gridhubAnimate = () => {
 				entries.forEach( function( entry ) {
 					if ( entry.isIntersecting ) {
 						const animate = entry.target,
-							data = animate.dataset.gridhubAnimated;
+							data = animate.dataset.gridflowAnimated;
 
 						let	timeout = 0;
 
@@ -15,12 +15,12 @@ const gridhubAnimate = () => {
 
 						if ( type ) {
 							if ( delay ) {
-								animate.classList.add( `gridhub_animated__delay-${ delay }` );
+								animate.classList.add( `gridflow_animated__delay-${ delay }` );
 								timeout += parseInt( delay ) * 1000;
 							}
 
 							if ( speed ) {
-								animate.classList.add( `gridhub_animated__${ speed }` );
+								animate.classList.add( `gridflow_animated__${ speed }` );
 
 								if ( speed === 'slower' ) {
 									timeout += 3000;
@@ -40,22 +40,22 @@ const gridhubAnimate = () => {
 							const width = window.innerWidth;
 
 							if ( desktop ) {
-								animate.classList.add( 'gridhub__animated', `gridhub-animate__${ desktop }` );
+								animate.classList.add( 'gridflow__animated', `gridflow-animate__${ desktop }` );
 							}
 
 							if ( tablet && width <= 1024 ) {
-								animate.classList.remove( 'gridhub__animated', `gridhub-animate__${ desktop }` );
-								animate.classList.add( 'gridhub__animated', `gridhub-animate__${ tablet }` );
+								animate.classList.remove( 'gridflow__animated', `gridflow-animate__${ desktop }` );
+								animate.classList.add( 'gridflow__animated', `gridflow-animate__${ tablet }` );
 							}
 
 							if ( mobile && width <= 767 ) {
-								animate.classList.remove( 'gridhub__animated', `gridhub-animate__${ desktop }` );
-								animate.classList.remove( 'gridhub__animated', `gridhub-animate__${ tablet }` );
-								animate.classList.add( 'gridhub__animated', `gridhub-animate__${ mobile }` );
+								animate.classList.remove( 'gridflow__animated', `gridflow-animate__${ desktop }` );
+								animate.classList.remove( 'gridflow__animated', `gridflow-animate__${ tablet }` );
+								animate.classList.add( 'gridflow__animated', `gridflow-animate__${ mobile }` );
 							}
 
 							setTimeout( function() {
-								animate.classList.remove( 'gridhub__animated', `gridhub-animate__${ desktop }`, `gridhub-animate__${ tablet }`, `gridhub-animate__${ mobile }`, `gridhub_animated__delay-${ delay }`, `gridhub_animated__${ speed }` );
+								animate.classList.remove( 'gridflow__animated', `gridflow-animate__${ desktop }`, `gridflow-animate__${ tablet }`, `gridflow-animate__${ mobile }`, `gridflow_animated__delay-${ delay }`, `gridflow_animated__${ speed }` );
 							}, timeout );
 						}
 
@@ -70,4 +70,4 @@ const gridhubAnimate = () => {
 		}
 	}
 };
-export default gridhubAnimate;
+export default gridflowAnimate;

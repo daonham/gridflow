@@ -1,8 +1,8 @@
-body.gridhub-styles {
+body.gridflow-styles {
 
-	.gridhub-button {
+	.gridflow-button {
 
-		a.gridhub-button__link {
+		a.gridflow-button__link {
 			display: inline-flex;
 			padding: 12px 24px;
 			text-align: center;
@@ -20,7 +20,7 @@ body.gridhub-styles {
 
 		&.is-style-link {
 
-			.gridhub-button__link {
+			.gridflow-button__link {
 				padding: 0;
 				background: transparent;
 				border: none;
@@ -37,7 +37,7 @@ body.gridhub-styles {
 
 		&.is-style-outline {
 
-			.gridhub-button__link {
+			.gridflow-button__link {
 				background: transparent;
 				color: #222;
 				border: 2px solid #222;
@@ -46,7 +46,7 @@ body.gridhub-styles {
 
 		&.is-style-elevated {
 
-			.gridhub-button__link {
+			.gridflow-button__link {
 				background: #fff;
 				color: #222;
 				border: 1px solid rgba(0, 0, 0, 0.25);

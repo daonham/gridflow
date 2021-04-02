@@ -1,14 +1,14 @@
 import { applyFilters } from '@wordpress/hooks';
 
 export default function inlineStyle( { name, attributes } ) {
-	const { gridhubMargin, gridhubPadding, gridhubBorder, gridhubBorderRadius, gridhubBoxShadow, gridhubBackground } = attributes;
+	const { gridflowMargin, gridflowPadding, gridflowBorder, gridflowBorderRadius, gridflowBoxShadow, gridflowBackground } = attributes;
 
-	const blockStyle = applyFilters( `gridhub.inlineStyle.${ name }`, attributes );
-	const spacing = applyFilters( 'gridhub.style.spacing', gridhubMargin, gridhubPadding );
-	const borderStyle = applyFilters( 'gridhub.style.border', gridhubBorder, gridhubBorderRadius, gridhubBoxShadow );
-	const backgroundStyle = applyFilters( 'gridhub.style.background', gridhubBackground );
+	const blockStyle = applyFilters( `gridflow.inlineStyle.${ name }`, attributes );
+	const spacing = applyFilters( 'gridflow.style.spacing', gridflowMargin, gridflowPadding );
+	const borderStyle = applyFilters( 'gridflow.style.border', gridflowBorder, gridflowBorderRadius, gridflowBoxShadow );
+	const backgroundStyle = applyFilters( 'gridflow.style.background', gridflowBackground );
 
-	const inner = ' .gridhub-block-inner';
+	const inner = ' .gridflow-block-inner';
 
 	if ( blockStyle.desktop ) {
 		blockStyle.desktop[ inner ] = {

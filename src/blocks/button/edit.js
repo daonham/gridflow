@@ -13,7 +13,7 @@ import { compose } from '@wordpress/compose';
 import Controls from './controls';
 import Inspector from './inspector';
 
-const { withInlineStyle } = wp.gridhubCompose;
+const { withInlineStyle } = wp.gridflowCompose;
 
 function Edit( {
 	isSelected,
@@ -45,11 +45,11 @@ function Edit( {
 				/>
 			) }
 
-			<div { ...useBlockProps( { className: classnames( 'gridhub-button', uniqueId ) } ) }>
-				<div className={ classnames( 'gridhub-button__inner', 'gridhub-block-inner' ) }>
-					<a className={ 'gridhub-button__link' } href={ links?.url } onClick={ ( e ) => e.preventDefault() } target={ target } rel={ rel }>
+			<div { ...useBlockProps( { className: classnames( 'gridflow-button', uniqueId ) } ) }>
+				<div className={ classnames( 'gridflow-button__inner', 'gridflow-block-inner' ) }>
+					<a className={ 'gridflow-button__link' } href={ links?.url } onClick={ ( e ) => e.preventDefault() } target={ target } rel={ rel }>
 						{ ( icon?.icon || icon?.url ) && iconPosition === 'left' && (
-							<span className="gridhub-button__icon">
+							<span className="gridflow-button__icon">
 								{ icon?.icon && (
 									<i className={ icon.icon }></i>
 								) }
@@ -61,15 +61,15 @@ function Edit( {
 
 						<RichText
 							tagName={ 'span' }
-							className={ 'gridhub-button__text' }
-							placeholder={ placeholder || __( 'Add text...', 'gridhub' ) }
+							className={ 'gridflow-button__text' }
+							placeholder={ placeholder || __( 'Add text...', 'gridflow' ) }
 							keepPlaceholderOnFocus
 							value={ content }
 							onChange={ ( value ) => setAttributes( { content: value } ) }
 						/>
 
 						{ ( icon?.icon || icon?.url ) && iconPosition === 'right' && (
-							<span className="gridhub-button__icon">
+							<span className="gridflow-button__icon">
 								{ icon?.icon && (
 									<i className={ icon.icon }></i>
 								) }

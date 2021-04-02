@@ -12,12 +12,15 @@ const DEFAULT_VALUES = {
 };
 
 function useUniqueId( idProp ) {
-	const instanceId = useInstanceId( GridHubLinkControl, 'inspector-gridhub-link-control' );
+	const instanceId = useInstanceId(
+		GridFlowLinkControl,
+		'inspector-gridflow-link-control'
+	);
 
 	return idProp || instanceId;
 }
 
-const GridHubLinkControl = ( {
+const GridFlowLinkControl = ( {
 	id: idProp,
 	label,
 	values: valuesProp,
@@ -47,9 +50,6 @@ const GridHubLinkControl = ( {
 		...props,
 	};
 
-	return (
-		<TextInputControl { ...inputControlProps } />
-	);
+	return <TextInputControl { ...inputControlProps } />;
 };
-export default GridHubLinkControl;
-
+export default GridFlowLinkControl;

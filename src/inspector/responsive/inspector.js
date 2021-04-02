@@ -3,25 +3,25 @@ import { InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, ToggleControl } from '@wordpress/components';
 
 const Inspector = ( { attributes, setAttributes } ) => {
-	const { gridhubHideDesktop, gridhubHideTablet, gridhubHideMobile } = attributes;
+	const { gridflowHideDesktop, gridflowHideTablet, gridflowHideMobile } = attributes;
 
 	return (
 		<InspectorControls key="inspector">
-			<PanelBody title={ __( 'Responsive', 'gridhub' ) } initialOpen={ false }>
+			<PanelBody title={ __( 'Responsive', 'gridflow' ) } initialOpen={ false }>
 				<ToggleControl
-					label={ __( 'Hide in Desktop', 'gridhub' ) }
-					checked={ gridhubHideDesktop }
-					onChange={ () => setAttributes( { gridhubHideDesktop: ! gridhubHideDesktop } ) }
+					label={ __( 'Hide in Desktop', 'gridflow' ) }
+					checked={ gridflowHideDesktop }
+					onChange={ () => setAttributes( { gridflowHideDesktop: ! gridflowHideDesktop } ) }
 				/>
 				<ToggleControl
-					label={ __( 'Hide in Tablet', 'gridhub' ) }
-					checked={ gridhubHideTablet }
-					onChange={ () => setAttributes( { gridhubHideTablet: ! gridhubHideTablet } ) }
+					label={ __( 'Hide in Tablet', 'gridflow' ) }
+					checked={ gridflowHideTablet }
+					onChange={ () => setAttributes( { gridflowHideTablet: ! gridflowHideTablet } ) }
 				/>
 				<ToggleControl
-					label={ __( 'Hide in Mobile', 'gridhub' ) }
-					checked={ gridhubHideMobile }
-					onChange={ () => setAttributes( { gridhubHideMobile: ! gridhubHideMobile } ) }
+					label={ __( 'Hide in Mobile', 'gridflow' ) }
+					checked={ gridflowHideMobile }
+					onChange={ () => setAttributes( { gridflowHideMobile: ! gridflowHideMobile } ) }
 				/>
 			</PanelBody>
 		</InspectorControls>

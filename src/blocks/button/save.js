@@ -13,11 +13,11 @@ export default function save( { attributes } ) {
 	}
 
 	return (
-		<div { ...useBlockProps.save( { className: classnames( 'gridhub-button', uniqueId ) } ) }>
-			<div className={ classnames( 'gridhub-button__inner', 'gridhub-block-inner' ) }>
-				<a className={ 'gridhub-button__link' } href={ links?.url } target={ target } rel={ rel }>
+		<div { ...useBlockProps.save( { className: classnames( 'gridflow-button', uniqueId ) } ) }>
+			<div className={ classnames( 'gridflow-button__inner', 'gridflow-block-inner' ) }>
+				<a className={ 'gridflow-button__link' } href={ links?.url } target={ target } rel={ rel }>
 					{ ( icon?.icon || icon?.url ) && iconPosition === 'left' && (
-						<span className="gridhub-button__icon">
+						<span className="gridflow-button__icon">
 							{ icon?.icon && (
 								<i className={ icon.icon }></i>
 							) }
@@ -30,13 +30,13 @@ export default function save( { attributes } ) {
 					{ ! RichText.isEmpty( content ) && (
 						<RichText.Content
 							tagName={ 'span' }
-							className={ classnames( 'gridhub-button__text' ) }
+							className={ classnames( 'gridflow-button__text' ) }
 							value={ content }
 						/>
 					) }
 
 					{ ( icon?.icon || icon?.url ) && iconPosition === 'right' && (
-						<span className="gridhub-button__icon">
+						<span className="gridflow-button__icon">
 							{ icon?.icon && (
 								<i className={ icon.icon }></i>
 							) }

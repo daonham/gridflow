@@ -2,11 +2,17 @@ import { noop, isEmpty } from 'lodash';
 
 import { __ } from '@wordpress/i18n';
 import { useState } from '@wordpress/element';
-import { __experimentalUnitControl as UnitControl, FlexItem, Flex, SelectControl, Button } from '@wordpress/components';
+import {
+	__experimentalUnitControl as UnitControl,
+	FlexItem,
+	Flex,
+	SelectControl,
+	Button,
+} from '@wordpress/components';
 
 import ResponsiveControl from '../../../utils/responsive';
 
-import GridHubColorPicker from '../../color';
+import GridFlowColorPicker from '../../color';
 import LinkedButton from './linked-button';
 import { DEFAULT_VALUES } from './utils';
 
@@ -48,7 +54,9 @@ const TextInputControl = ( {
 		width[ side ] = next;
 
 		const everyValue = Object.values( width );
-		const checkValue = everyValue.every( ( v ) => v === everyValue[ 0 ] ) ? everyValue[ 0 ] : null;
+		const checkValue = everyValue.every( ( v ) => v === everyValue[ 0 ] )
+			? everyValue[ 0 ]
+			: null;
 
 		nextValues.width = checkValue || width;
 
@@ -64,7 +72,10 @@ const TextInputControl = ( {
 	};
 
 	const defaultLinked = () => {
-		if ( typeof values.width === 'string' || isEmpty( Object.values( values.width ).filter( Boolean ) ) ) {
+		if (
+			typeof values.width === 'string' ||
+			isEmpty( Object.values( values.width ).filter( Boolean ) )
+		) {
 			return true;
 		}
 
@@ -86,9 +97,14 @@ const TextInputControl = ( {
 
 	return (
 		<>
-			<Flex className="gridhub-control__header gridhub-border-control__header" >
+			<Flex className="gridflow-control__header gridflow-border-control__header">
 				<FlexItem>
-					<p id={ headingId } className="gridhub-control__label gridhub-border-control__label">{ label }</p>
+					<p
+						id={ headingId }
+						className="gridflow-control__label gridflow-border-control__label"
+					>
+						{ label }
+					</p>
 				</FlexItem>
 
 				{ device && (
@@ -102,7 +118,7 @@ const TextInputControl = ( {
 
 				<FlexItem>
 					<Button
-						className="gridhub-border-control__reset"
+						className="gridflow-border-control__reset"
 						isSmall
 						isSecondary
 						label={ 'Reset' }
@@ -114,12 +130,11 @@ const TextInputControl = ( {
 			</Flex>
 
 			<Flex
-				className="gridhub-border-control__content"
+				className="gridflow-border-control__content"
 				justify="flex-start"
 			>
-
 				<UnitControl
-					className="gridhub-border-control__width"
+					className="gridflow-border-control__width"
 					value={ values.width }
 					onChange={ createHandleOnChange( 'width' ) }
 					style={ { maxWidth: 60 } }
@@ -128,7 +143,7 @@ const TextInputControl = ( {
 				/>
 
 				<SelectControl
-					className="gridhub-border-control__select"
+					className="gridflow-border-control__select"
 					label={ null }
 					value={ values.style }
 					options={ [
@@ -144,18 +159,15 @@ const TextInputControl = ( {
 					onChange={ createHandleOnChange( 'style' ) }
 				/>
 
-				<GridHubColorPicker
+				<GridFlowColorPicker
 					label={ null }
 					value={ values.color }
 					onChange={ createHandleOnChange( 'color' ) }
 					alpha={ true }
-					hint={ __( 'Border Color', 'gridhub' ) }
+					hint={ __( 'Border Color', 'gridflow' ) }
 				/>
 
-				<LinkedButton
-					onClick={ toggleLinked }
-					isLinked={ isLinked }
-				/>
+				<LinkedButton onClick={ toggleLinked } isLinked={ isLinked } />
 			</Flex>
 
 			{ ! isLinked && (

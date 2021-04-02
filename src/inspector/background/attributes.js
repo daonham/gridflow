@@ -1,6 +1,6 @@
-const gridhubAttributes = {
-	gridhubBackground: {
+const gridflowAttributes = {
+	gridflowBackground: {
 		type: 'object',
 	},
 };
-export default gridhubAttributes;
+export default gridflowAttributes;

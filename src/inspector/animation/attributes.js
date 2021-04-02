@@ -1,14 +1,14 @@
-const gridhubAttributes = {
-	gridhubAnimation: {
+const gridflowAttributes = {
+	gridflowAnimation: {
 		type: 'object',
 	},
-	gridhubSpeed: {
+	gridflowSpeed: {
 		type: 'string',
 		default: '',
 	},
-	gridhubDelay: {
+	gridflowDelay: {
 		type: 'string',
 		default: '',
 	},
 };
-export default gridhubAttributes;
+export default gridflowAttributes;

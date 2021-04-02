@@ -1,4 +1,3 @@
-
 /**
  * WordPress dependencies
  */
@@ -6,12 +5,11 @@ import { getCategories, setCategories } from '@wordpress/blocks';
 
 const categories = [
 	{
-		slug: 'gridhub',
-		title: 'GridHub',
+		slug: 'gridflow',
+		title: 'GridFlow',
 		icon: 'dashicons-tag',
 	},
-	...getCategories().filter( ( { slug } ) => slug !== 'gridhub' ),
+	...getCategories().filter( ( { slug } ) => slug !== 'gridflow' ),
 ];
 
 setCategories( categories );
-

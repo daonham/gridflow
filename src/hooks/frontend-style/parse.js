@@ -2,7 +2,7 @@ import { select } from '@wordpress/data';
 
 import getStyle from '../inline-style';
 import inlineStyle from '../inline-style/filter';
-import gridhubApi from './api';
+import gridflowApi from './api';
 
 function parseStyle( isPreview = false ) {
 	const allBlocks = select( 'core/block-editor' ).getBlocks();
@@ -16,11 +16,11 @@ function parseStyle( isPreview = false ) {
 		const { uniqueId } = attributes;
 		const blockName = name.split( '/' );
 
-		if ( blockName[ 0 ] === 'gridhub' && uniqueId ) {
-			if ( attributes.gridhubFont ) {
-				const { gridhubFont } = attributes;
+		if ( blockName[ 0 ] === 'gridflow' && uniqueId ) {
+			if ( attributes.gridflowFont ) {
+				const { gridflowFont } = attributes;
 
-				Object.values( gridhubFont ).map( ( font ) => {
+				Object.values( gridflowFont ).map( ( font ) => {
 					let weight = [ '400', '400i' ];
 
 					if ( attributes[ font.weight ] ) {
@@ -29,7 +29,7 @@ function parseStyle( isPreview = false ) {
 						}
 					}
 
-					if ( attributes[ font.name ] && gridHubEditorData.systemFont && ! ( gridHubEditorData.systemFont ).includes( attributes[ font.name ] ) ) {
+					if ( attributes[ font.name ] && gridFlowEditorData.systemFont && ! ( gridFlowEditorData.systemFont ).includes( attributes[ font.name ] ) ) {
 						fonts.push( {
 							font: attributes[ font.name ],
 							weights: weight,
@@ -54,8 +54,8 @@ function parseStyle( isPreview = false ) {
 	} );
 
 	if ( styles ) {
-		gridhubApi( {
-			path: '/gridhub/v1/style/save',
+		gridflowApi( {
+			path: '/gridflow/v1/style/save',
 			method: 'POST',
 			data: {
 				postId: getCurrentPostId(),

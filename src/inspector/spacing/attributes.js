@@ -1,9 +1,9 @@
-const gridhubAttributes = {
-	gridhubMargin: {
+const gridflowAttributes = {
+	gridflowMargin: {
 		type: 'object',
 	},
-	gridhubPadding: {
+	gridflowPadding: {
 		type: 'object',
 	},
 };
-export default gridhubAttributes;
+export default gridflowAttributes;

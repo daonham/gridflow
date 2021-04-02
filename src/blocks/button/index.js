@@ -10,23 +10,23 @@ import './style';
 const { name } = metadata;
 
 const settings = {
-	title: __( 'Button', 'gridhub' ),
-	description: __( 'Advanced button for Editor.', 'gridhub' ),
+	title: __( 'Button', 'gridflow' ),
+	description: __( 'Advanced button for Editor.', 'gridflow' ),
 	icon,
 	keywords: [
-		'gridhub',
-		__( 'button', 'gridhub' ),
+		'gridflow',
+		__( 'button', 'gridflow' ),
 	],
 	example: {
 		attributes: {
-			content: __( 'Button', 'gridhub' ),
+			content: __( 'Button', 'gridflow' ),
 		},
 	},
 	styles: [
-		{ name: 'simple', label: __( 'Simple', 'gridhub' ), isDefault: true },
-		{ name: 'link', label: __( 'Link', 'gridhub' ) },
-		{ name: 'outline', label: __( 'Outline', 'gridhub' ) },
-		{ name: 'elevated', label: __( 'Elevated', 'gridhub' ) },
+		{ name: 'simple', label: __( 'Simple', 'gridflow' ), isDefault: true },
+		{ name: 'link', label: __( 'Link', 'gridflow' ) },
+		{ name: 'outline', label: __( 'Outline', 'gridflow' ) },
+		{ name: 'elevated', label: __( 'Elevated', 'gridflow' ) },
 	],
 	edit,
 	save,

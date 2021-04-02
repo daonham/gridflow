@@ -12,12 +12,15 @@ const DEFAULT_VALUES = {
 };
 
 function useUniqueId( idProp ) {
-	const instanceId = useInstanceId( GridHubBoxControl, 'inspector-gridhub-box-control' );
+	const instanceId = useInstanceId(
+		GridFlowBoxControl,
+		'inspector-gridflow-box-control'
+	);
 
 	return idProp || instanceId;
 }
 
-const GridHubBoxControl = ( {
+const GridFlowBoxControl = ( {
 	id: idProp,
 	label,
 	values: valuesProp,
@@ -47,9 +50,6 @@ const GridHubBoxControl = ( {
 		...props,
 	};
 
-	return (
-		<TextInputControl { ...inputControlProps } />
-	);
+	return <TextInputControl { ...inputControlProps } />;
 };
-export default GridHubBoxControl;
-
+export default GridFlowBoxControl;

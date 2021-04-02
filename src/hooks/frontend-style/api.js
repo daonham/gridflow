@@ -1,6 +1,6 @@
 import apiFetch from '@wordpress/api-fetch';
 
-const gridhubApi = async ( { path, data, method } ) => {
+const gridflowApi = async ( { path, data, method } ) => {
 	const response = await apiFetch( {
 		path,
 		method: method || 'POST',
@@ -14,4 +14,4 @@ const gridhubApi = async ( { path, data, method } ) => {
 		console.log( message );
 	}
 };
-export default gridhubApi;
+export default gridflowApi;

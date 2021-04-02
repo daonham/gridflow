@@ -18,9 +18,9 @@ import {
 import { useControlledState } from '../../utils/use-controlled-state';
 import { DEFAULT_VALUES, isValuesDefined } from './utils';
 
-import GridHubColorPicker from '../color';
+import GridFlowColorPicker from '../color';
 
-const GridHubBoxShadow = ( {
+const GridFlowBoxShadow = ( {
 	label = __( 'Box Shadow' ),
 	value: valuesProp,
 	onChange = noop,
@@ -59,22 +59,26 @@ const GridHubBoxShadow = ( {
 
 	return (
 		<>
-			<BaseControl id={ null } label={ label } className="gridhub-box-shadow-component">
-				<GridHubColorPicker
+			<BaseControl
+				id={ null }
+				label={ label }
+				className="gridflow-box-shadow-component"
+			>
+				<GridFlowColorPicker
 					label={ null }
 					value={ inputValues.color }
 					onChange={ createHandleOnChange( 'color' ) }
 					alpha={ true }
-					hint={ __( 'Shadow Color', 'gridhub' ) }
+					hint={ __( 'Shadow Color', 'gridflow' ) }
 				/>
 				<Dropdown
 					position="top left"
 					headerTitle={ 'Shadow Options' }
 					expandOnMobile={ true }
-					contentClassName="gridhub-box-shadow-component__popover"
+					contentClassName="gridflow-box-shadow-component__popover"
 					renderToggle={ ( { isOpen, onToggle } ) => (
 						<Button
-							className="gridhub-box-shadow-component__button"
+							className="gridflow-box-shadow-component__button"
 							icon="admin-customizer"
 							isSecondary
 							label={ 'Shadow Options' }
@@ -83,30 +87,30 @@ const GridHubBoxShadow = ( {
 						/>
 					) }
 					renderContent={ () => (
-						<div className="gridhub-box-shadow-component__items">
+						<div className="gridflow-box-shadow-component__items">
 							<RangeControl
-								label={ __( 'X offset', 'gridhub' ) }
+								label={ __( 'X offset', 'gridflow' ) }
 								value={ inputValues.horizontal }
 								onChange={ createHandleOnChange( 'horizontal' ) }
 								min={ -100 }
 								max={ 100 }
 							/>
 							<RangeControl
-								label={ __( 'Y offset', 'gridhub' ) }
+								label={ __( 'Y offset', 'gridflow' ) }
 								value={ inputValues.vertical }
 								onChange={ createHandleOnChange( 'vertical' ) }
 								min={ -100 }
 								max={ 100 }
 							/>
 							<RangeControl
-								label={ __( 'Blur', 'gridhub' ) }
+								label={ __( 'Blur', 'gridflow' ) }
 								value={ inputValues.blur }
 								onChange={ createHandleOnChange( 'blur' ) }
 								min={ 0 }
 								max={ 100 }
 							/>
 							<RangeControl
-								label={ __( 'Spread', 'gridhub' ) }
+								label={ __( 'Spread', 'gridflow' ) }
 								value={ inputValues.spread }
 								onChange={ createHandleOnChange( 'spread' ) }
 								min={ 0 }
@@ -116,7 +120,7 @@ const GridHubBoxShadow = ( {
 					) }
 				/>
 				<Button
-					className="gridhub-box-shadow-component__reset"
+					className="gridflow-box-shadow-component__reset"
 					isSmall
 					isSecondary
 					label={ 'Reset' }
@@ -130,4 +134,4 @@ const GridHubBoxShadow = ( {
 	);
 };
 
-export default GridHubBoxShadow;
+export default GridFlowBoxShadow;

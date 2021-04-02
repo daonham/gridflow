@@ -7,8 +7,8 @@ import { Button, Tooltip } from '@wordpress/components';
 
 export default function LinkedButton( { isLinked, ...props } ) {
 	const linkedTooltipText = isLinked
-		? __( 'Show', 'gridhub' )
-		: __( 'Hide', 'gridhub' );
+		? __( 'Show', 'gridflow' )
+		: __( 'Hide', 'gridflow' );
 
 	return (
 		<Tooltip text={ linkedTooltipText }>

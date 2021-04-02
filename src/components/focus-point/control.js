@@ -40,13 +40,13 @@ const Control = ( {
 
 	return (
 		<>
-			<div id={ id } className="gridhub-control gridhub-focus-point-control" role="region" aria-labelledby={ headingId }>
+			<div id={ id } className="gridflow-control gridflow-focus-point-control" role="region" aria-labelledby={ headingId }>
 				<Flex
-					className="gridhub-control__header gridhub-focus-point-control__header"
+					className="gridflow-control__header gridflow-focus-point-control__header"
 					justify="flex-start"
 				>
 					<FlexItem>
-						<p id={ headingId } className="gridhub-control__label gridhub-focus-point-control__label">{ label }</p>
+						<p id={ headingId } className="gridflow-control__label gridflow-focus-point-control__label">{ label }</p>
 					</FlexItem>
 
 					<FlexItem>

@@ -1,12 +1,12 @@
 import withInlineStyle from './with-inline-css';
 import './frontend-style';
 
-wp.gridhubCompose = {
+wp.gridflowCompose = {
 	withInlineStyle,
 };
 
 document.addEventListener( 'DOMContentLoaded', function() {
-	if ( ! document.body.classList.contains( 'gridhub-styles' ) ) {
-		document.body.classList.add( 'gridhub-styles' );
+	if ( ! document.body.classList.contains( 'gridflow-styles' ) ) {
+		document.body.classList.add( 'gridflow-styles' );
 	}
 } );

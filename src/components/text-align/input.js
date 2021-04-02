@@ -43,13 +43,13 @@ const TextInputControl = ( {
 
 	return (
 		<>
-			<div id={ id } className="gridhub-control gridhub-text-align-control" role="region" aria-labelledby={ headingId }>
+			<div id={ id } className="gridflow-control gridflow-text-align-control" role="region" aria-labelledby={ headingId }>
 				<Flex
-					className="gridhub-control__header gridhub-text-align-control__header"
+					className="gridflow-control__header gridflow-text-align-control__header"
 					justify="flex-start"
 				>
 					<FlexItem>
-						<p id={ headingId } className="gridhub-control__label gridhub-text-align-control__label">{ label || __( 'Text Align', 'gridhub' ) }</p>
+						<p id={ headingId } className="gridflow-control__label gridflow-text-align-control__label">{ label || __( 'Text Align', 'gridflow' ) }</p>
 					</FlexItem>
 
 					<FlexItem>
@@ -63,32 +63,32 @@ const TextInputControl = ( {
 						<ButtonGroup>
 							<Button
 								{ ...props }
-								label={ __( 'Left', 'gridhub' ) }
-								className="gridhub-text-align-control__button"
+								label={ __( 'Left', 'gridflow' ) }
+								className="gridflow-text-align-control__button"
 								isPrimary={ values[ getDevice ] === 'left' || undefined }
 								onClick={ () => createHandleOnChange( [ getDevice ], 'left' ) }
 								icon={ 'editor-alignleft' }
 							/>
 							<Button
 								{ ...props }
-								label={ __( 'Center', 'gridhub' ) }
-								className="gridhub-text-align-control__button"
+								label={ __( 'Center', 'gridflow' ) }
+								className="gridflow-text-align-control__button"
 								isPrimary={ values[ getDevice ] === 'center' || undefined }
 								onClick={ () => createHandleOnChange( [ getDevice ], 'center' ) }
 								icon={ 'editor-aligncenter' }
 							/>
 							<Button
 								{ ...props }
-								label={ __( 'Right', 'gridhub' ) }
-								className="gridhub-text-align-control__button"
+								label={ __( 'Right', 'gridflow' ) }
+								className="gridflow-text-align-control__button"
 								isPrimary={ values[ getDevice ] === 'right' || undefined }
 								onClick={ () => createHandleOnChange( [ getDevice ], 'right' ) }
 								icon={ 'editor-alignright' }
 							/>
 							<Button
 								{ ...props }
-								label={ __( 'Justified', 'gridhub' ) }
-								className="gridhub-text-align-control__button"
+								label={ __( 'Justified', 'gridflow' ) }
+								className="gridflow-text-align-control__button"
 								isPrimary={ values[ getDevice ] === 'justify' || undefined }
 								onClick={ () => createHandleOnChange( [ getDevice ], 'justify' ) }
 								icon={ 'editor-justify' }

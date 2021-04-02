@@ -1,17 +1,17 @@
 {
-	"name": "gridhub",
-	"title": "GridHub",
-	"description": "GridHub is a page builder for the WordPress Gutenberg blocks",
+	"name": "gridflow",
+	"title": "GridFlow",
+	"description": "GridFlow is a page builder for the WordPress Gutenberg blocks",
 	"version": "1.0.0",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/daonham/gridhub"
+		"url": "https://github.com/daonham/gridflow"
 	},
-	"author": "GridHub",
+	"author": "GridFlow",
 	"license": "GPL-2.0",
-	"homepage": "https://github.com/daonham/gridhub",
+	"homepage": "https://github.com/daonham/gridflow",
 	"bugs": {
-		"url": "https://github.com/daonham/gridhub/issues"
+		"url": "https://github.com/daonham/gridflow/issues"
 	},
 	"scripts": {
 		"setup": "composer install && npm install && npm run build && wp-scripts env install",
@@ -27,8 +27,8 @@
 		"test:js:coverage": "wp-scripts test-unit-js --config .tool/tests/jest/jest.config.js --coverage"
 	},
 	"wp-env": {
-		"plugin-dir": "gridhub",
-		"plugin-name": "GridHub"
+		"plugin-dir": "gridflow",
+		"plugin-name": "GridFlow"
 	},
 	"devDependencies": {
 		"@babel/plugin-proposal-class-properties": "7.10.4",

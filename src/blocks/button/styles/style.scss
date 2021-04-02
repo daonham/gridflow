@@ -1,4 +1,4 @@
-.gridhub-button {
+.gridflow-button {
 
 	&__link {
 		display: inline-flex;
@@ -18,7 +18,7 @@
 
 	&.is-style-link {
 
-		.gridhub-button__link {
+		.gridflow-button__link {
 			padding: 0;
 			background: transparent;
 			border: none;
@@ -35,7 +35,7 @@
 
 	&.is-style-outline {
 
-		.gridhub-button__link {
+		.gridflow-button__link {
 			background: transparent;
 			color: #222;
 			border: 2px solid #222;
@@ -44,7 +44,7 @@
 
 	&.is-style-elevated {
 
-		.gridhub-button__link {
+		.gridflow-button__link {
 			background: #fff;
 			color: #222;
 			border: none;

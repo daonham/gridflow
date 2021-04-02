@@ -1,12 +1,12 @@
-const gridhubAttributes = {
-	gridhubBorder: {
+const gridflowAttributes = {
+	gridflowBorder: {
 		type: 'object',
 	},
-	gridhubBorderRadius: {
+	gridflowBorderRadius: {
 		type: 'object',
 	},
-	gridhubBoxShadow: {
+	gridflowBoxShadow: {
 		type: 'object',
 	},
 };
-export default gridhubAttributes;
+export default gridflowAttributes;

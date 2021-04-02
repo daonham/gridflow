@@ -12,17 +12,17 @@ const ResponsiveControl = ( { device, setDevice } ) => {
 	const { __experimentalSetPreviewDeviceType: setPreviewDeviceType } = useDispatch( 'core/edit-post' );
 
 	return (
-		<div className="gridhub-reponsive-component">
+		<div className="gridflow-reponsive-component">
 			<div
-				className={ classnames( 'gridhub-reponsive-component__inner', { 'gridhub-reponsive-component__show': visible } ) }
-				style={ { '--gridhub-reponsive-top': option } }
+				className={ classnames( 'gridflow-reponsive-component__inner', { 'gridflow-reponsive-component__show': visible } ) }
+				style={ { '--gridflow-reponsive-top': option } }
 			>
 				{ allDevice.map( ( val, i ) => {
 					return (
 						<button
 							key={ i }
 							className={ classnames(
-								`gridhub-reponsive-component__${ val.name }`,
+								`gridflow-reponsive-component__${ val.name }`,
 								{ 'is-active': device === val.name },
 								{ 'is-hidden': visible === false && ( device !== val.name ) },
 							) }

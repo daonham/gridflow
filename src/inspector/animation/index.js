@@ -6,16 +6,16 @@ import { createHigherOrderComponent } from '@wordpress/compose';
 import { addFilter } from '@wordpress/hooks';
 
 import Inspector from './inspector';
-import gridhubAttributes from './attributes';
+import gridflowAttributes from './attributes';
 
 const allowedBlocks = [
-	'gridhub/heading',
-	'gridhub/button',
+	'gridflow/heading',
+	'gridflow/button',
 ];
 
 export function addAttributes( settings ) {
 	if ( allowedBlocks.includes( settings.name ) ) {
-		settings.attributes = assign( settings.attributes, gridhubAttributes );
+		settings.attributes = assign( settings.attributes, gridflowAttributes );
 	}
 
 	return settings;
@@ -36,16 +36,16 @@ export const withInspectorControl = createHigherOrderComponent( ( BlockEdit ) =>
 } );
 
 export function addSaveProps( extraProps, blockType, attributes ) {
-	const { gridhubAnimation, gridhubSpeed, gridhubDelay } = attributes;
+	const { gridflowAnimation, gridflowSpeed, gridflowDelay } = attributes;
 
-	if ( gridhubAnimation?.desktop || gridhubAnimation?.tablet || gridhubAnimation?.mobile ) {
+	if ( gridflowAnimation?.desktop || gridflowAnimation?.tablet || gridflowAnimation?.mobile ) {
 		const animated = {
-			type: gridhubAnimation || '',
-			speed: gridhubSpeed || '',
-			delay: gridhubDelay || '',
+			type: gridflowAnimation || '',
+			speed: gridflowSpeed || '',
+			delay: gridflowDelay || '',
 		};
 
-		extraProps['data-gridhub-animated'] = JSON.stringify( animated );
+		extraProps['data-gridflow-animated'] = JSON.stringify( animated );
 	}
 
 	return extraProps;
@@ -53,7 +53,7 @@ export function addSaveProps( extraProps, blockType, attributes ) {
 
 export const withDataAnimation = createHigherOrderComponent(
 	( BlockListBlock ) => ( props ) => {
-		const { gridhubAnimation, gridhubSpeed, gridhubDelay } = props.attributes;
+		const { gridflowAnimation, gridflowSpeed, gridflowDelay } = props.attributes;
 
 		const getPreviewDeviceType = useSelect( ( select ) => {
 			const { __experimentalGetPreviewDeviceType } = select( 'core/edit-post' );
@@ -70,10 +70,10 @@ export const withDataAnimation = createHigherOrderComponent(
 		newProps.wrapperProps = {
 			...wrapperProps,
 			className: classnames(
-				{'gridhub__animated': gridhubAnimation?.[getDevice]},
-				{ [`gridhub-animate__${gridhubAnimation?.[getDevice]}`]: gridhubAnimation?.[getDevice]},
-				{ [`gridhub_animated__${gridhubSpeed}`]: gridhubSpeed},
-				{ [`gridhub_animated__delay-${gridhubDelay}`]: gridhubDelay},
+				{'gridflow__animated': gridflowAnimation?.[getDevice]},
+				{ [`gridflow-animate__${gridflowAnimation?.[getDevice]}`]: gridflowAnimation?.[getDevice]},
+				{ [`gridflow_animated__${gridflowSpeed}`]: gridflowSpeed},
+				{ [`gridflow_animated__delay-${gridflowDelay}`]: gridflowDelay},
 				props.wrapperProps?.className
 			)
 		};
@@ -82,7 +82,7 @@ export const withDataAnimation = createHigherOrderComponent(
 	}
 );
 
-addFilter( 'blocks.registerBlockType', 'gridhub/inspector/attributes', addAttributes );
-addFilter( 'editor.BlockEdit', 'gridhub/animation', withInspectorControl );
-addFilter( 'blocks.getSaveContent.extraProps', 'gridhub/responsive/class', addSaveProps );
-addFilter( 'editor.BlockListBlock', 'gridhub/animation/with-data-animation', withDataAnimation );
+addFilter( 'blocks.registerBlockType', 'gridflow/inspector/attributes', addAttributes );
+addFilter( 'editor.BlockEdit', 'gridflow/animation', withInspectorControl );
+addFilter( 'blocks.getSaveContent.extraProps', 'gridflow/responsive/class', addSaveProps );
+addFilter( 'editor.BlockListBlock', 'gridflow/animation/with-data-animation', withDataAnimation );

@@ -15,7 +15,7 @@ import { useBlockProps, BlockIcon, MediaPlaceholder, RichText } from '@wordpress
 import Controls from './controls';
 import Inspector from './inspector';
 
-const { withInlineStyle } = wp.gridhubCompose;
+const { withInlineStyle } = wp.gridflowCompose;
 
 function Edit( {
 	isSelected,
@@ -54,8 +54,8 @@ function Edit( {
 
 	const mediaPreview = !! url && (
 		<img
-			alt={ __( 'Edit image', 'gridhub' ) }
-			title={ __( 'Edit image', 'gridhub' ) }
+			alt={ __( 'Edit image', 'gridflow' ) }
+			title={ __( 'Edit image', 'gridflow' ) }
 			className={ 'edit-image-preview' }
 			src={ url }
 		/>
@@ -85,11 +85,11 @@ function Edit( {
 		return (
 			<>
 				{ linkType ? (
-					<a className={ classnames( 'gridhub-image__wrapper', { 'gridhub-image__wrapper--overlay': overlay || overlayHover } ) } href={ href } target={ target } rel={ rel } onClick={ ( e ) => e.preventDefault() }>
+					<a className={ classnames( 'gridflow-image__wrapper', { 'gridflow-image__wrapper--overlay': overlay || overlayHover } ) } href={ href } target={ target } rel={ rel } onClick={ ( e ) => e.preventDefault() }>
 						<img src={ url } alt={ alt || '' } />
 					</a>
 				) : (
-					<div className={ classnames( 'gridhub-image__wrapper', { 'gridhub-image__wrapper--overlay': overlay || overlayHover } ) }>
+					<div className={ classnames( 'gridflow-image__wrapper', { 'gridflow-image__wrapper--overlay': overlay || overlayHover } ) }>
 						<img src={ url } alt={ alt || '' } />
 					</div>
 				) }
@@ -113,17 +113,17 @@ function Edit( {
 				/>
 			) }
 
-			<div { ...useBlockProps( { className: classnames( 'gridhub-image', uniqueId ) } ) }>
+			<div { ...useBlockProps( { className: classnames( 'gridflow-image', uniqueId ) } ) }>
 				{ url ? (
-					<div className={ classnames( 'gridhub-image__inner', 'gridhub-block-inner' ) }>
+					<div className={ classnames( 'gridflow-image__inner', 'gridflow-block-inner' ) }>
 						{ enableCaption ? (
-							<figure className={ 'gridhub-image__caption' }>
+							<figure className={ 'gridflow-image__caption' }>
 								{ contentLink() }
 
 								{ ( ! RichText.isEmpty( caption ) || isSelected ) && (
 									<RichText
 										tagName="figcaption"
-										className={ 'gridhub-image__caption__text' }
+										className={ 'gridflow-image__caption__text' }
 										aria-label={ __( 'Image caption text' ) }
 										placeholder={ __( 'Write caption…' ) }
 										unstableOnFocus={ onFocusCaption }

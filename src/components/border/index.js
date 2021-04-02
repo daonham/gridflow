@@ -39,12 +39,15 @@ const DEFAULT_VALUES = {
 };
 
 function useUniqueId( idProp ) {
-	const instanceId = useInstanceId( GridHubBorderDevice, 'inspector-gridhub-border-device-control' );
+	const instanceId = useInstanceId(
+		GridFlowBorderDevice,
+		'inspector-gridflow-border-device-control'
+	);
 
 	return idProp || instanceId;
 }
 
-const GridHubBorderDevice = ( {
+const GridFlowBorderDevice = ( {
 	id: idProp,
 	label,
 	values: valuesProp,
@@ -76,9 +79,6 @@ const GridHubBorderDevice = ( {
 		...props,
 	};
 
-	return (
-		<Control { ...inputControlProps } />
-	);
+	return <Control { ...inputControlProps } />;
 };
-export default GridHubBorderDevice;
-
+export default GridFlowBorderDevice;

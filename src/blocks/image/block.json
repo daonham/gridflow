@@ -1,7 +1,7 @@
 {
 	"apiVersion": 2,
-	"name": "gridhub/image",
-	"category": "gridhub",
+	"name": "gridflow/image",
+	"category": "gridflow",
 	"attributes": {
 		"url": {
 			"type": "string",
@@ -79,7 +79,7 @@
 		"font": {
 			"type": "string"
 		},
-		"gridhubFont": {
+		"gridflowFont": {
 			"type": "object",
 			"default": {
 				"1": {
@@ -116,5 +116,5 @@
 			"type": "object"
 		}
 	},
-	"style": "gridhub-button"
+	"style": "gridflow-button"
 }

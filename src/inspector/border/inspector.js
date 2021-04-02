@@ -2,31 +2,35 @@ import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
 import { PanelBody } from '@wordpress/components';
 
-import GridHubBoxControl from '../../components/box';
-import GridHubBorder from '../../components/border';
-import GridHubBoxShadow from '../../components/box-shadow';
+import GridFlowBoxControl from '../../components/box';
+import GridFlowBorder from '../../components/border';
+import GridFlowBoxShadow from '../../components/box-shadow';
 
 const Inspector = ( { attributes, setAttributes } ) => {
-	const { gridhubBorder, gridhubBorderRadius, gridhubBoxShadow } = attributes;
+	const { gridflowBorder, gridflowBorderRadius, gridflowBoxShadow } = attributes;
 
 	return (
 		<InspectorControls key="inspector">
-			<PanelBody title={ __( 'Border', 'gridhub' ) } initialOpen={ false }>
-				<GridHubBorder
-					label={ __( 'Border', 'gridhub' ) }
-					values={ gridhubBorder }
+			<PanelBody title={ __( 'Border', 'gridflow' ) } initialOpen={ false }>
+				<GridFlowBorder
+					label={ __( 'Border', 'gridflow' ) }
+					values={ gridflowBorder }
 					device={ true }
-					onChange={ ( value ) => setAttributes( { gridhubBorder: value } ) }
+					onChange={ ( value ) => setAttributes( { gridflowBorder: value } ) }
 				/>
-				<GridHubBoxControl
-					label={ __( 'Border Radius', 'gridhub' ) }
-					values={ gridhubBorderRadius }
-					onChange={ ( value ) => setAttributes( { gridhubBorderRadius: value } ) }
+				<GridFlowBoxControl
+					label={ __( 'Border Radius', 'gridflow' ) }
+					values={ gridflowBorderRadius }
+					onChange={ ( value ) =>
+						setAttributes( { gridflowBorderRadius: value } )
+					}
 				/>
-				<GridHubBoxShadow
-					label={ __( 'Box Shadow', 'gridhub' ) }
-					value={ gridhubBoxShadow }
-					onChange={ ( value ) => setAttributes( { gridhubBoxShadow: value } ) }
+				<GridFlowBoxShadow
+					label={ __( 'Box Shadow', 'gridflow' ) }
+					value={ gridflowBoxShadow }
+					onChange={ ( value ) =>
+						setAttributes( { gridflowBoxShadow: value } )
+					}
 				/>
 			</PanelBody>
 		</InspectorControls>

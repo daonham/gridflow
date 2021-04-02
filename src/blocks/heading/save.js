@@ -12,9 +12,9 @@ export default function save( { attributes } ) {
 	const { content, tagName, uniqueId, icon, iconPosition } = attributes;
 
 	return (
-		<div { ...useBlockProps.save( { className: classnames( 'gridhub-heading', uniqueId ) } ) }>
-			<div className={ classnames( 'gridhub-heading__inner', 'gridhub-block-inner' ) }>
-				<div className={ 'gridhub-heading__wrapper' }>
+		<div { ...useBlockProps.save( { className: classnames( 'gridflow-heading', uniqueId ) } ) }>
+			<div className={ classnames( 'gridflow-heading__inner', 'gridflow-block-inner' ) }>
+				<div className={ 'gridflow-heading__wrapper' }>
 					{ ( icon?.icon || icon?.url ) && iconPosition === 'left' && (
 						<span>
 							{ icon?.icon && (
@@ -28,7 +28,7 @@ export default function save( { attributes } ) {
 
 					{ ! RichText.isEmpty( content ) && (
 						<RichText.Content
-							className={ classnames( 'gridhub-heading__content' ) }
+							className={ classnames( 'gridflow-heading__content' ) }
 							tagName={ tagName }
 							value={ content }
 						/>

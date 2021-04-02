@@ -1,19 +1,26 @@
 import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, SelectControl, Flex, FlexItem } from '@wordpress/components';
+import {
+	PanelBody,
+	SelectControl,
+	Flex,
+	FlexItem,
+} from '@wordpress/components';
 
-import GridHubSelect from '../../components/select';
+import GridFlowSelect from '../../components/select';
 
 const Inspector = ( { attributes, setAttributes } ) => {
-	const { gridhubAnimation, gridhubSpeed, gridhubDelay } = attributes;
+	const { gridflowAnimation, gridflowSpeed, gridflowDelay } = attributes;
 
 	return (
 		<InspectorControls key="inspector">
-			<PanelBody title={ __( 'Animation', 'gridhub' ) } initialOpen={ false }>
-				<GridHubSelect
-					label={ __( 'Animation', 'gridhub' ) }
-					values={ gridhubAnimation }
-					onChange={ ( value ) => setAttributes( { gridhubAnimation: value } ) }
+			<PanelBody title={ __( 'Animation', 'gridflow' ) } initialOpen={ false }>
+				<GridFlowSelect
+					label={ __( 'Animation', 'gridflow' ) }
+					values={ gridflowAnimation }
+					onChange={ ( value ) =>
+						setAttributes( { gridflowAnimation: value } )
+					}
 					options={ [
 						{ label: 'None', value: '' },
 						{ label: 'Fade In', value: 'fadeIn' },
@@ -44,8 +51,8 @@ const Inspector = ( { attributes, setAttributes } ) => {
 				<Flex>
 					<FlexItem style={ { width: '50%' } }>
 						<SelectControl
-							label={ __( 'Speed', 'gridhub' ) }
-							value={ gridhubSpeed }
+							label={ __( 'Speed', 'gridflow' ) }
+							value={ gridflowSpeed }
 							options={ [
 								{ label: __( 'Default' ), value: '' },
 								{ label: __( 'Slow' ), value: 'slow' },
@@ -53,14 +60,16 @@ const Inspector = ( { attributes, setAttributes } ) => {
 								{ label: __( 'Fast' ), value: 'fast' },
 								{ label: __( 'Faster' ), value: 'faster' },
 							] }
-							onChange={ ( value ) => setAttributes( { gridhubSpeed: value } ) }
+							onChange={ ( value ) =>
+								setAttributes( { gridflowSpeed: value } )
+							}
 							style={ { width: '100%' } }
 						/>
 					</FlexItem>
 					<FlexItem style={ { width: '50%' } }>
 						<SelectControl
-							label={ __( 'Delay', 'gridhub' ) }
-							value={ gridhubDelay }
+							label={ __( 'Delay', 'gridflow' ) }
+							value={ gridflowDelay }
 							options={ [
 								{ label: __( 'Default' ), value: '' },
 								{ label: __( '1s' ), value: '1s' },
@@ -69,7 +78,9 @@ const Inspector = ( { attributes, setAttributes } ) => {
 								{ label: __( '4s' ), value: '4s' },
 								{ label: __( '5s' ), value: '5s' },
 							] }
-							onChange={ ( value ) => setAttributes( { gridhubDelay: value } ) }
+							onChange={ ( value ) =>
+								setAttributes( { gridflowDelay: value } )
+							}
 							style={ { width: '100%' } }
 						/>
 					</FlexItem>

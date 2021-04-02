@@ -6,7 +6,10 @@ import { noop } from 'lodash';
 import { useControlledState } from '../../utils/use-controlled-state';
 
 function useUniqueId( idProp ) {
-	const instanceId = useInstanceId( GridHubFocusPointPicker, 'inspector-gridhub-focus-point-control' );
+	const instanceId = useInstanceId(
+		GridFlowFocusPointPicker,
+		'inspector-gridflow-focus-point-control'
+	);
 
 	return idProp || instanceId;
 }
@@ -17,7 +20,7 @@ const DEFAULT_VALUES = {
 	mobile: { x: undefined, y: undefined },
 };
 
-const GridHubFocusPointPicker = ( {
+const GridFlowFocusPointPicker = ( {
 	id: idProp,
 	label,
 	url,
@@ -51,9 +54,6 @@ const GridHubFocusPointPicker = ( {
 		...props,
 	};
 
-	return (
-		<Control { ...inputControlProps } />
-	);
+	return <Control { ...inputControlProps } />;
 };
-export default GridHubFocusPointPicker;
-
+export default GridFlowFocusPointPicker;

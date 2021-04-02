@@ -19,15 +19,18 @@ import {
 import { useControlledState } from '../../utils/use-controlled-state';
 import { DEFAULT_VALUES, isValuesDefined } from './utils';
 
-import GridHubColorPicker from '../color';
+import GridFlowColorPicker from '../color';
 
 function useUniqueId( idProp ) {
-	const instanceId = useInstanceId( GridHubTextShadow, 'inspector-gridhub-text-shadow-control' );
+	const instanceId = useInstanceId(
+		GridFlowTextShadow,
+		'inspector-gridflow-text-shadow-control'
+	);
 
 	return idProp || instanceId;
 }
 
-const GridHubTextShadow = ( {
+const GridFlowTextShadow = ( {
 	id: idProp,
 	label = __( 'Text Shadow' ),
 	value: valuesProp,
@@ -70,15 +73,20 @@ const GridHubTextShadow = ( {
 
 	return (
 		<>
-			<div id={ id } className="gridhub-text-shadow-component">
+			<div id={ id } className="gridflow-text-shadow-component">
 				<Flex style={ { paddingBottom: 8 } }>
 					<FlexItem>
-						<p id={ headingId } className="gridhub-control__label gridhub-text-shadow-component__label">{ label }</p>
+						<p
+							id={ headingId }
+							className="gridflow-control__label gridflow-text-shadow-component__label"
+						>
+							{ label }
+						</p>
 					</FlexItem>
 
 					<FlexItem>
 						<Button
-							className="gridhub-text-shadow-component__reset"
+							className="gridflow-text-shadow-component__reset"
 							isSmall
 							isSecondary
 							label={ 'Reset' }
@@ -91,7 +99,7 @@ const GridHubTextShadow = ( {
 				</Flex>
 
 				<Flex
-					className="gridhub-text-shadow-component__content"
+					className="gridflow-text-shadow-component__content"
 					justify="flex-start"
 					align="flex-start"
 				>
@@ -125,12 +133,12 @@ const GridHubTextShadow = ( {
 						min={ 0 }
 						max={ 100 }
 					/>
-					<GridHubColorPicker
+					<GridFlowColorPicker
 						label={ null }
 						value={ inputValues.color || 'rgba(0, 0, 0, 0.5)' }
 						onChange={ createHandleOnChange( 'color' ) }
 						alpha={ true }
-						hint={ __( 'Shadow Color', 'gridhub' ) }
+						hint={ __( 'Shadow Color', 'gridflow' ) }
 					/>
 				</Flex>
 			</div>
@@ -138,4 +146,4 @@ const GridHubTextShadow = ( {
 	);
 };
 
-export default GridHubTextShadow;
+export default GridFlowTextShadow;

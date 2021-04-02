@@ -23,12 +23,12 @@ const withInlineStyle = createHigherOrderComponent(
 		}, [] );
 
 		const getFonts = () => {
-			if ( attributes.gridhubFont ) {
-				const { gridhubFont } = attributes;
+			if ( attributes.gridflowFont ) {
+				const { gridflowFont } = attributes;
 
 				const fonts = [];
 
-				Object.values( gridhubFont ).map( ( font ) => {
+				Object.values( gridflowFont ).map( ( font ) => {
 					let weight = 'regular';
 
 					if ( attributes[ font.weight ] ) {
@@ -37,7 +37,7 @@ const withInlineStyle = createHigherOrderComponent(
 						}
 					}
 
-					if ( attributes[ font.name ] && gridHubEditorData.systemFont && ! ( gridHubEditorData.systemFont ).includes( attributes[ font.name ] ) ) {
+					if ( attributes[ font.name ] && gridFlowEditorData.systemFont && ! ( gridFlowEditorData.systemFont ).includes( attributes[ font.name ] ) ) {
 						fonts.push( {
 							font: attributes[ font.name ],
 							weights: [ weight ],
@@ -50,7 +50,7 @@ const withInlineStyle = createHigherOrderComponent(
 		};
 
 		useEffect( () => {
-			const id = `gridhub-block-${ clientId.substr( 0, 8 ) }`;
+			const id = `gridflow-block-${ clientId.substr( 0, 8 ) }`;
 
 			getFonts();
 

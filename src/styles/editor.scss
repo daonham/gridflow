@@ -1,4 +1,4 @@
-.gridhub-control {
+.gridflow-control {
 
 	&__label {
 		box-sizing: border-box;
@@ -11,14 +11,14 @@
 	}
 }
 
-.gridhub-reponsive-component {
+.gridflow-reponsive-component {
 	margin: 0 !important;
 	position: relative;
 	width: 24px;
 	height: 24px;
 
 	&__show {
-		top: calc(-1 * var(--gridhub-reponsive-top) * 24px) !important;
+		top: calc(-1 * var(--gridflow-reponsive-top) * 24px) !important;
 	}
 
 	&__inner {

@@ -1,45 +1,45 @@
-import GridHubBackground from './background';
-import GridHubBorder from './border';
-import GridHubBoxControl from './box';
-import GridHubBoxShadow from './box-shadow';
-import GridHubColorPicker from './color';
-import GridHubFocusPointPicker from './focus-point';
-import GridHubIconSelect from './icon';
-import GridHubLinkControl from './link';
-import GridHubRangeControl from './range';
-import GridHubSelect from './select';
-import GridHubTextUnit from './text';
-import GridHubTextAlign from './text-align';
-import GridHubTextShadow from './text-shadow';
-import GridHubTyphography from './typopgraphy';
+import GridFlowBackground from './background';
+import GridFlowBorder from './border';
+import GridFlowBoxControl from './box';
+import GridFlowBoxShadow from './box-shadow';
+import GridFlowColorPicker from './color';
+import GridFlowFocusPointPicker from './focus-point';
+import GridFlowIconSelect from './icon';
+import GridFlowLinkControl from './link';
+import GridFlowRangeControl from './range';
+import GridFlowSelect from './select';
+import GridFlowTextUnit from './text';
+import GridFlowTextAlign from './text-align';
+import GridFlowTextShadow from './text-shadow';
+import GridFlowTyphography from './typopgraphy';
 
 // Style.
-import GridHubStyleBackground from './background/style';
-import GridHubStyleBorder from './border/style';
-import GridHubStyleBox from './box/style';
-import GridHubStyleBoxShadow from './box-shadow/style';
-import GridHubStyleTextShadow from './text-shadow/style';
-import GridHubStyleTypography from './typopgraphy/style';
+import GridFlowStyleBackground from './background/style';
+import GridFlowStyleBorder from './border/style';
+import GridFlowStyleBox from './box/style';
+import GridFlowStyleBoxShadow from './box-shadow/style';
+import GridFlowStyleTextShadow from './text-shadow/style';
+import GridFlowStyleTypography from './typopgraphy/style';
 
-wp.gridhubComponents = {
-	GridHubRangeControl,
-	GridHubTextUnit,
-	GridHubBoxControl,
-	GridHubTextShadow,
-	GridHubIconSelect,
-	GridHubFocusPointPicker,
-	GridHubBackground,
-	GridHubSelect,
-	GridHubTyphography,
-	GridHubBorder,
-	GridHubBoxShadow,
-	GridHubColorPicker,
-	GridHubLinkControl,
-	GridHubTextAlign,
-	GridHubStyleTypography,
-	GridHubStyleTextShadow,
-	GridHubStyleBox,
-	GridHubStyleBoxShadow,
-	GridHubStyleBorder,
-	GridHubStyleBackground,
+wp.gridflowComponents = {
+	GridFlowRangeControl,
+	GridFlowTextUnit,
+	GridFlowBoxControl,
+	GridFlowTextShadow,
+	GridFlowIconSelect,
+	GridFlowFocusPointPicker,
+	GridFlowBackground,
+	GridFlowSelect,
+	GridFlowTyphography,
+	GridFlowBorder,
+	GridFlowBoxShadow,
+	GridFlowColorPicker,
+	GridFlowLinkControl,
+	GridFlowTextAlign,
+	GridFlowStyleTypography,
+	GridFlowStyleTextShadow,
+	GridFlowStyleBox,
+	GridFlowStyleBoxShadow,
+	GridFlowStyleBorder,
+	GridFlowStyleBackground,
 };

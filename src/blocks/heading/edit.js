@@ -13,7 +13,7 @@ import { compose } from '@wordpress/compose';
 import Controls from './controls';
 import Inspector from './inspector';
 
-const { withInlineStyle } = wp.gridhubCompose;
+const { withInlineStyle } = wp.gridflowCompose;
 
 function Edit( {
 	isSelected,
@@ -38,9 +38,9 @@ function Edit( {
 				/>
 			) }
 
-			<div { ...useBlockProps( { className: classnames( 'gridhub-heading', uniqueId ) } ) }>
-				<div className={ classnames( 'gridhub-heading__inner', 'gridhub-block-inner' ) }>
-					<div className={ 'gridhub-heading__wrapper' }>
+			<div { ...useBlockProps( { className: classnames( 'gridflow-heading', uniqueId ) } ) }>
+				<div className={ classnames( 'gridflow-heading__inner', 'gridflow-block-inner' ) }>
+					<div className={ 'gridflow-heading__wrapper' }>
 						{ ( icon?.icon || icon?.url ) && iconPosition === 'left' && (
 							<span>
 								{ icon?.icon && (
@@ -53,9 +53,9 @@ function Edit( {
 						) }
 
 						<RichText
-							className={ classnames( 'gridhub-heading__content' ) }
+							className={ classnames( 'gridflow-heading__content' ) }
 							tagName={ tagName }
-							placeholder={ placeholder || __( 'Write heading...', 'gridhub' ) }
+							placeholder={ placeholder || __( 'Write heading...', 'gridflow' ) }
 							keepPlaceholderOnFocus
 							value={ content }
 							onChange={ ( value ) => setAttributes( { content: value } ) }

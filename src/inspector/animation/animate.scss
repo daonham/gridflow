@@ -6,112 +6,112 @@
  * Copyright (c) 2021 Animate.css
  */
 :root {
-	--gridhub-animate-duration: 1s;
-	--gridhub-animate-delay: 1s;
-	--gridhub-animate-repeat: 1;
+	--gridflow-animate-duration: 1s;
+	--gridflow-animate-delay: 1s;
+	--gridflow-animate-repeat: 1;
 }
 
-.gridhub__animated {
+.gridflow__animated {
 	-webkit-animation-duration: 1s;
 	animation-duration: 1s;
-	-webkit-animation-duration: var(--gridhub-animate-duration);
-	animation-duration: var(--gridhub-animate-duration);
+	-webkit-animation-duration: var(--gridflow-animate-duration);
+	animation-duration: var(--gridflow-animate-duration);
 	-webkit-animation-fill-mode: both;
 	animation-fill-mode: both;
 }
 
-.gridhub__animated.gridhub_animated__infinite {
+.gridflow__animated.gridflow_animated__infinite {
 	-webkit-animation-iteration-count: infinite;
 	animation-iteration-count: infinite;
 }
 
-.gridhub__animated.gridhub_animated__repeat-1 {
+.gridflow__animated.gridflow_animated__repeat-1 {
 	-webkit-animation-iteration-count: 1;
 	animation-iteration-count: 1;
-	-webkit-animation-iteration-count: var(--gridhub-animate-repeat);
-	animation-iteration-count: var(--gridhub-animate-repeat);
+	-webkit-animation-iteration-count: var(--gridflow-animate-repeat);
+	animation-iteration-count: var(--gridflow-animate-repeat);
 }
 
-.gridhub__animated.gridhub_animated__repeat-2 {
+.gridflow__animated.gridflow_animated__repeat-2 {
 	-webkit-animation-iteration-count: calc(1 * 2);
 	animation-iteration-count: calc(1 * 2);
-	-webkit-animation-iteration-count: calc(var(--gridhub-animate-repeat) * 2);
-	animation-iteration-count: calc(var(--gridhub-animate-repeat) * 2);
+	-webkit-animation-iteration-count: calc(var(--gridflow-animate-repeat) * 2);
+	animation-iteration-count: calc(var(--gridflow-animate-repeat) * 2);
 }
 
-.gridhub__animated.gridhub_animated__repeat-3 {
+.gridflow__animated.gridflow_animated__repeat-3 {
 	-webkit-animation-iteration-count: calc(1 * 3);
 	animation-iteration-count: calc(1 * 3);
-	-webkit-animation-iteration-count: calc(var(--gridhub-animate-repeat) * 3);
-	animation-iteration-count: calc(var(--gridhub-animate-repeat) * 3);
+	-webkit-animation-iteration-count: calc(var(--gridflow-animate-repeat) * 3);
+	animation-iteration-count: calc(var(--gridflow-animate-repeat) * 3);
 }
 
-.gridhub__animated.gridhub_animated__delay-1s {
+.gridflow__animated.gridflow_animated__delay-1s {
 	-webkit-animation-delay: 1s;
 	animation-delay: 1s;
-	-webkit-animation-delay: var(--gridhub-animate-delay);
-	animation-delay: var(--gridhub-animate-delay);
+	-webkit-animation-delay: var(--gridflow-animate-delay);
+	animation-delay: var(--gridflow-animate-delay);
 }
 
-.gridhub__animated.gridhub_animated__delay-2s {
+.gridflow__animated.gridflow_animated__delay-2s {
 	-webkit-animation-delay: calc(1s * 2);
 	animation-delay: calc(1s * 2);
-	-webkit-animation-delay: calc(var(--gridhub-animate-delay) * 2);
-	animation-delay: calc(var(--gridhub-animate-delay) * 2);
+	-webkit-animation-delay: calc(var(--gridflow-animate-delay) * 2);
+	animation-delay: calc(var(--gridflow-animate-delay) * 2);
 }
 
-.gridhub__animated.gridhub_animated__delay-3s {
+.gridflow__animated.gridflow_animated__delay-3s {
 	-webkit-animation-delay: calc(1s * 3);
 	animation-delay: calc(1s * 3);
-	-webkit-animation-delay: calc(var(--gridhub-animate-delay) * 3);
-	animation-delay: calc(var(--gridhub-animate-delay) * 3);
+	-webkit-animation-delay: calc(var(--gridflow-animate-delay) * 3);
+	animation-delay: calc(var(--gridflow-animate-delay) * 3);
 }
 
-.gridhub__animated.gridhub_animated__delay-4s {
+.gridflow__animated.gridflow_animated__delay-4s {
 	-webkit-animation-delay: calc(1s * 4);
 	animation-delay: calc(1s * 4);
-	-webkit-animation-delay: calc(var(--gridhub-animate-delay) * 4);
-	animation-delay: calc(var(--gridhub-animate-delay) * 4);
+	-webkit-animation-delay: calc(var(--gridflow-animate-delay) * 4);
+	animation-delay: calc(var(--gridflow-animate-delay) * 4);
 }
 
-.gridhub__animated.gridhub_animated__delay-5s {
+.gridflow__animated.gridflow_animated__delay-5s {
 	-webkit-animation-delay: calc(1s * 5);
 	animation-delay: calc(1s * 5);
-	-webkit-animation-delay: calc(var(--gridhub-animate-delay) * 5);
-	animation-delay: calc(var(--gridhub-animate-delay) * 5);
+	-webkit-animation-delay: calc(var(--gridflow-animate-delay) * 5);
+	animation-delay: calc(var(--gridflow-animate-delay) * 5);
 }
 
-.gridhub__animated.gridhub_animated__faster {
+.gridflow__animated.gridflow_animated__faster {
 	-webkit-animation-duration: calc(1s / 2);
 	animation-duration: calc(1s / 2);
-	-webkit-animation-duration: calc(var(--gridhub-animate-duration) / 2);
-	animation-duration: calc(var(--gridhub-animate-duration) / 2);
+	-webkit-animation-duration: calc(var(--gridflow-animate-duration) / 2);
+	animation-duration: calc(var(--gridflow-animate-duration) / 2);
 }
 
-.gridhub__animated.gridhub_animated__fast {
+.gridflow__animated.gridflow_animated__fast {
 	-webkit-animation-duration: calc(1s * 0.8);
 	animation-duration: calc(1s * 0.8);
-	-webkit-animation-duration: calc(var(--gridhub-animate-duration) * 0.8);
-	animation-duration: calc(var(--gridhub-animate-duration) * 0.8);
+	-webkit-animation-duration: calc(var(--gridflow-animate-duration) * 0.8);
+	animation-duration: calc(var(--gridflow-animate-duration) * 0.8);
 }
 
-.gridhub__animated.gridhub_animated__slow {
+.gridflow__animated.gridflow_animated__slow {
 	-webkit-animation-duration: calc(1s * 2);
 	animation-duration: calc(1s * 2);
-	-webkit-animation-duration: calc(var(--gridhub-animate-duration) * 2);
-	animation-duration: calc(var(--gridhub-animate-duration) * 2);
+	-webkit-animation-duration: calc(var(--gridflow-animate-duration) * 2);
+	animation-duration: calc(var(--gridflow-animate-duration) * 2);
 }
 
-.gridhub__animated.gridhub_animated__slower {
+.gridflow__animated.gridflow_animated__slower {
 	-webkit-animation-duration: calc(1s * 3);
 	animation-duration: calc(1s * 3);
-	-webkit-animation-duration: calc(var(--gridhub-animate-duration) * 3);
-	animation-duration: calc(var(--gridhub-animate-duration) * 3);
+	-webkit-animation-duration: calc(var(--gridflow-animate-duration) * 3);
+	animation-duration: calc(var(--gridflow-animate-duration) * 3);
 }
 
 @media print, (prefers-reduced-motion: reduce) {
 
-	.gridhub__animated {
+	.gridflow__animated {
 		-webkit-animation-duration: 1ms !important;
 		animation-duration: 1ms !important;
 		-webkit-transition-duration: 1ms !important;
@@ -120,7 +120,7 @@
 		animation-iteration-count: 1 !important;
 	}
 
-	.gridhub__animated[class*="Out"] {
+	.gridflow__animated[class*="Out"] {
 		opacity: 0;
 	}
 }
@@ -206,7 +206,7 @@
 	}
 }
 
-.gridhub-animate__bounce {
+.gridflow-animate__bounce {
 	-webkit-animation-name: bounce;
 	animation-name: bounce;
 	-webkit-transform-origin: center bottom;
@@ -241,7 +241,7 @@
 	}
 }
 
-.gridhub-animate__flash {
+.gridflow-animate__flash {
 	-webkit-animation-name: flash;
 	animation-name: flash;
 }
@@ -283,7 +283,7 @@
 	}
 }
 
-.gridhub-animate__pulse {
+.gridflow-animate__pulse {
 	-webkit-animation-name: pulse;
 	animation-name: pulse;
 	-webkit-animation-timing-function: ease-in-out;
@@ -366,7 +366,7 @@
 	}
 }
 
-.gridhub-animate__rubberBand {
+.gridflow-animate__rubberBand {
 	-webkit-animation-name: rubberband;
 	animation-name: rubberBand;
 }
@@ -423,7 +423,7 @@
 	}
 }
 
-.gridhub-animate__shakeX {
+.gridflow-animate__shakeX {
 	-webkit-animation-name: shakex;
 	animation-name: shakeX;
 }
@@ -480,7 +480,7 @@
 	}
 }
 
-.gridhub-animate__shakeY {
+.gridflow-animate__shakeY {
 	-webkit-animation-name: shakey;
 	animation-name: shakeY;
 }
@@ -551,7 +551,7 @@
 	}
 }
 
-.gridhub-animate__headShake {
+.gridflow-animate__headShake {
 	-webkit-animation-timing-function: ease-in-out;
 	animation-timing-function: ease-in-out;
 	-webkit-animation-name: headshake;
@@ -614,7 +614,7 @@
 	}
 }
 
-.gridhub-animate__swing {
+.gridflow-animate__swing {
 	-webkit-transform-origin: top center;
 	transform-origin: top center;
 	-webkit-animation-name: swing;
@@ -689,7 +689,7 @@
 	}
 }
 
-.gridhub-animate__tada {
+.gridflow-animate__tada {
 	-webkit-animation-name: tada;
 	animation-name: tada;
 }
@@ -771,7 +771,7 @@
 	}
 }
 
-.gridhub-animate__wobble {
+.gridflow-animate__wobble {
 	-webkit-animation-name: wobble;
 	animation-name: wobble;
 }
@@ -866,7 +866,7 @@
 	}
 }
 
-.gridhub-animate__jello {
+.gridflow-animate__jello {
 	-webkit-animation-name: jello;
 	animation-name: jello;
 	-webkit-transform-origin: center;
@@ -929,13 +929,13 @@
 	}
 }
 
-.gridhub-animate__heartBeat {
+.gridflow-animate__heartBeat {
 	-webkit-animation-name: heartbeat;
 	animation-name: heartBeat;
 	-webkit-animation-duration: calc(1s * 1.3);
 	animation-duration: calc(1s * 1.3);
-	-webkit-animation-duration: calc(var(--gridhub-animate-duration) * 1.3);
-	animation-duration: calc(var(--gridhub-animate-duration) * 1.3);
+	-webkit-animation-duration: calc(var(--gridflow-animate-duration) * 1.3);
+	animation-duration: calc(var(--gridflow-animate-duration) * 1.3);
 	-webkit-animation-timing-function: ease-in-out;
 	animation-timing-function: ease-in-out;
 }
@@ -983,7 +983,7 @@
 	}
 }
 
-.gridhub-animate__backInDown {
+.gridflow-animate__backInDown {
 	-webkit-animation-name: backindown;
 	animation-name: backInDown;
 }
@@ -1030,7 +1030,7 @@
 	}
 }
 
-.gridhub-animate__backInLeft {
+.gridflow-animate__backInLeft {
 	-webkit-animation-name: backinleft;
 	animation-name: backInLeft;
 }
@@ -1077,7 +1077,7 @@
 	}
 }
 
-.gridhub-animate__backInRight {
+.gridflow-animate__backInRight {
 	-webkit-animation-name: backinright;
 	animation-name: backInRight;
 }
@@ -1124,7 +1124,7 @@
 	}
 }
 
-.gridhub-animate__backInUp {
+.gridflow-animate__backInUp {
 	-webkit-animation-name: backinup;
 	animation-name: backInUp;
 }
@@ -1172,7 +1172,7 @@
 	}
 }
 
-.gridhub-animate__backOutDown {
+.gridflow-animate__backOutDown {
 	-webkit-animation-name: backoutdown;
 	animation-name: backOutDown;
 }
@@ -1219,7 +1219,7 @@
 	}
 }
 
-.gridhub-animate__backOutLeft {
+.gridflow-animate__backOutLeft {
 	-webkit-animation-name: backoutleft;
 	animation-name: backOutLeft;
 }
@@ -1266,7 +1266,7 @@
 	}
 }
 
-.gridhub-animate__backOutRight {
+.gridflow-animate__backOutRight {
 	-webkit-animation-name: backoutright;
 	animation-name: backOutRight;
 }
@@ -1313,7 +1313,7 @@
 	}
 }
 
-.gridhub-animate__backOutUp {
+.gridflow-animate__backOutUp {
 	-webkit-animation-name: backoutup;
 	animation-name: backOutUp;
 }
@@ -1411,11 +1411,11 @@
 	}
 }
 
-.gridhub-animate__bounceIn {
+.gridflow-animate__bounceIn {
 	-webkit-animation-duration: calc(1s * 0.75);
 	animation-duration: calc(1s * 0.75);
-	-webkit-animation-duration: calc(var(--gridhub-animate-duration) * 0.75);
-	animation-duration: calc(var(--gridhub-animate-duration) * 0.75);
+	-webkit-animation-duration: calc(var(--gridflow-animate-duration) * 0.75);
+	animation-duration: calc(var(--gridflow-animate-duration) * 0.75);
 	-webkit-animation-name: bouncein;
 	animation-name: bounceIn;
 }
@@ -1498,7 +1498,7 @@
 	}
 }
 
-.gridhub-animate__bounceInDown {
+.gridflow-animate__bounceInDown {
 	-webkit-animation-name: bounceindown;
 	animation-name: bounceInDown;
 }
@@ -1581,7 +1581,7 @@
 	}
 }
 
-.gridhub-animate__bounceInLeft {
+.gridflow-animate__bounceInLeft {
 	-webkit-animation-name: bounceinleft;
 	animation-name: bounceInLeft;
 }
@@ -1664,7 +1664,7 @@
 	}
 }
 
-.gridhub-animate__bounceInRight {
+.gridflow-animate__bounceInRight {
 	-webkit-animation-name: bounceinright;
 	animation-name: bounceInRight;
 }
@@ -1747,7 +1747,7 @@
 	}
 }
 
-.gridhub-animate__bounceInUp {
+.gridflow-animate__bounceInUp {
 	-webkit-animation-name: bounceinup;
 	animation-name: bounceInUp;
 }
@@ -1795,11 +1795,11 @@
 	}
 }
 
-.gridhub-animate__bounceOut {
+.gridflow-animate__bounceOut {
 	-webkit-animation-duration: calc(1s * 0.75);
 	animation-duration: calc(1s * 0.75);
-	-webkit-animation-duration: calc(var(--gridhub-animate-duration) * 0.75);
-	animation-duration: calc(var(--gridhub-animate-duration) * 0.75);
+	-webkit-animation-duration: calc(var(--gridflow-animate-duration) * 0.75);
+	animation-duration: calc(var(--gridflow-animate-duration) * 0.75);
 	-webkit-animation-name: bounceout;
 	animation-name: bounceOut;
 }
@@ -1846,7 +1846,7 @@
 	}
 }
 
-.gridhub-animate__bounceOutDown {
+.gridflow-animate__bounceOutDown {
 	-webkit-animation-name: bounceoutdown;
 	animation-name: bounceOutDown;
 }
@@ -1881,7 +1881,7 @@
 	}
 }
 
-.gridhub-animate__bounceOutLeft {
+.gridflow-animate__bounceOutLeft {
 	-webkit-animation-name: bounceoutleft;
 	animation-name: bounceOutLeft;
 }
@@ -1916,7 +1916,7 @@
 	}
 }
 
-.gridhub-animate__bounceOutRight {
+.gridflow-animate__bounceOutRight {
 	-webkit-animation-name: bounceoutright;
 	animation-name: bounceOutRight;
 }
@@ -1963,7 +1963,7 @@
 	}
 }
 
-.gridhub-animate__bounceOutUp {
+.gridflow-animate__bounceOutUp {
 	-webkit-animation-name: bounceoutup;
 	animation-name: bounceOutUp;
 }
@@ -1991,7 +1991,7 @@
 	}
 }
 
-.gridhub-animate__fadeIn {
+.gridflow-animate__fadeIn {
 	-webkit-animation-name: fadein;
 	animation-name: fadeIn;
 }
@@ -2026,7 +2026,7 @@
 	}
 }
 
-.gridhub-animate__fadeInDown {
+.gridflow-animate__fadeInDown {
 	-webkit-animation-name: fadeindown;
 	animation-name: fadeInDown;
 }
@@ -2061,7 +2061,7 @@
 	}
 }
 
-.gridhub-animate__fadeInDownBig {
+.gridflow-animate__fadeInDownBig {
 	-webkit-animation-name: fadeindownbig;
 	animation-name: fadeInDownBig;
 }
@@ -2096,7 +2096,7 @@
 	}
 }
 
-.gridhub-animate__fadeInLeft {
+.gridflow-animate__fadeInLeft {
 	-webkit-animation-name: fadeinleft;
 	animation-name: fadeInLeft;
 }
@@ -2131,7 +2131,7 @@
 	}
 }
 
-.gridhub-animate__fadeInLeftBig {
+.gridflow-animate__fadeInLeftBig {
 	-webkit-animation-name: fadeinleftbig;
 	animation-name: fadeInLeftBig;
 }
@@ -2166,7 +2166,7 @@
 	}
 }
 
-.gridhub-animate__fadeInRight {
+.gridflow-animate__fadeInRight {
 	-webkit-animation-name: fadeinright;
 	animation-name: fadeInRight;
 }
@@ -2201,7 +2201,7 @@
 	}
 }
 
-.gridhub-animate__fadeInRightBig {
+.gridflow-animate__fadeInRightBig {
 	-webkit-animation-name: fadeinrightbig;
 	animation-name: fadeInRightBig;
 }
@@ -2236,7 +2236,7 @@
 	}
 }
 
-.gridhub-animate__fadeInUp {
+.gridflow-animate__fadeInUp {
 	-webkit-animation-name: fadeinup;
 	animation-name: fadeInUp;
 }
@@ -2271,7 +2271,7 @@
 	}
 }
 
-.gridhub-animate__fadeInUpBig {
+.gridflow-animate__fadeInUpBig {
 	-webkit-animation-name: fadeinupbig;
 	animation-name: fadeInUpBig;
 }
@@ -2306,7 +2306,7 @@
 	}
 }
 
-.gridhub-animate__fadeInTopLeft {
+.gridflow-animate__fadeInTopLeft {
 	-webkit-animation-name: fadeintopleft;
 	animation-name: fadeInTopLeft;
 }
@@ -2341,7 +2341,7 @@
 	}
 }
 
-.gridhub-animate__fadeInTopRight {
+.gridflow-animate__fadeInTopRight {
 	-webkit-animation-name: fadeintopright;
 	animation-name: fadeInTopRight;
 }
@@ -2376,7 +2376,7 @@
 	}
 }
 
-.gridhub-animate__fadeInBottomLeft {
+.gridflow-animate__fadeInBottomLeft {
 	-webkit-animation-name: fadeinbottomleft;
 	animation-name: fadeInBottomLeft;
 }
@@ -2411,7 +2411,7 @@
 	}
 }
 
-.gridhub-animate__fadeInBottomRight {
+.gridflow-animate__fadeInBottomRight {
 	-webkit-animation-name: fadeinbottomright;
 	animation-name: fadeInBottomRight;
 }
@@ -2439,7 +2439,7 @@
 	}
 }
 
-.gridhub-animate__fadeOut {
+.gridflow-animate__fadeOut {
 	-webkit-animation-name: fadeout;
 	animation-name: fadeOut;
 }
@@ -2470,7 +2470,7 @@
 	}
 }
 
-.gridhub-animate__fadeOutDown {
+.gridflow-animate__fadeOutDown {
 	-webkit-animation-name: fadeoutdown;
 	animation-name: fadeOutDown;
 }
@@ -2501,7 +2501,7 @@
 	}
 }
 
-.gridhub-animate__fadeOutDownBig {
+.gridflow-animate__fadeOutDownBig {
 	-webkit-animation-name: fadeoutdownbig;
 	animation-name: fadeOutDownBig;
 }
@@ -2532,7 +2532,7 @@
 	}
 }
 
-.gridhub-animate__fadeOutLeft {
+.gridflow-animate__fadeOutLeft {
 	-webkit-animation-name: fadeoutleft;
 	animation-name: fadeOutLeft;
 }
@@ -2563,7 +2563,7 @@
 	}
 }
 
-.gridhub-animate__fadeOutLeftBig {
+.gridflow-animate__fadeOutLeftBig {
 	-webkit-animation-name: fadeoutleftbig;
 	animation-name: fadeOutLeftBig;
 }
@@ -2594,7 +2594,7 @@
 	}
 }
 
-.gridhub-animate__fadeOutRight {
+.gridflow-animate__fadeOutRight {
 	-webkit-animation-name: fadeoutright;
 	animation-name: fadeOutRight;
 }
@@ -2625,7 +2625,7 @@
 	}
 }
 
-.gridhub-animate__fadeOutRightBig {
+.gridflow-animate__fadeOutRightBig {
 	-webkit-animation-name: fadeoutrightbig;
 	animation-name: fadeOutRightBig;
 }
@@ -2656,7 +2656,7 @@
 	}
 }
 
-.gridhub-animate__fadeOutUp {
+.gridflow-animate__fadeOutUp {
 	-webkit-animation-name: fadeoutup;
 	animation-name: fadeOutUp;
 }
@@ -2687,7 +2687,7 @@
 	}
 }
 
-.gridhub-animate__fadeOutUpBig {
+.gridflow-animate__fadeOutUpBig {
 	-webkit-animation-name: fadeoutupbig;
 	animation-name: fadeOutUpBig;
 }
@@ -2722,7 +2722,7 @@
 	}
 }
 
-.gridhub-animate__fadeOutTopLeft {
+.gridflow-animate__fadeOutTopLeft {
 	-webkit-animation-name: fadeouttopleft;
 	animation-name: fadeOutTopLeft;
 }
@@ -2757,7 +2757,7 @@
 	}
 }
 
-.gridhub-animate__fadeOutTopRight {
+.gridflow-animate__fadeOutTopRight {
 	-webkit-animation-name: fadeouttopright;
 	animation-name: fadeOutTopRight;
 }
@@ -2792,7 +2792,7 @@
 	}
 }
 
-.gridhub-animate__fadeOutBottomRight {
+.gridflow-animate__fadeOutBottomRight {
 	-webkit-animation-name: fadeoutbottomright;
 	animation-name: fadeOutBottomRight;
 }
@@ -2827,7 +2827,7 @@
 	}
 }
 
-.gridhub-animate__fadeOutBottomLeft {
+.gridflow-animate__fadeOutBottomLeft {
 	-webkit-animation-name: fadeoutbottomleft;
 	animation-name: fadeOutBottomLeft;
 }
@@ -2933,7 +2933,7 @@
 	}
 }
 
-.gridhub-animate__animated.gridhub-animate__flip {
+.gridflow-animate__animated.gridflow-animate__flip {
 	-webkit-backface-visibility: visible;
 	backface-visibility: visible;
 	-webkit-animation-name: flip;
@@ -3008,7 +3008,7 @@
 	}
 }
 
-.gridhub-animate__flipInX {
+.gridflow-animate__flipInX {
 	-webkit-backface-visibility: visible !important;
 	backface-visibility: visible !important;
 	-webkit-animation-name: flipinx;
@@ -3083,7 +3083,7 @@
 	}
 }
 
-.gridhub-animate__flipInY {
+.gridflow-animate__flipInY {
 	-webkit-backface-visibility: visible !important;
 	backface-visibility: visible !important;
 	-webkit-animation-name: flipiny;
@@ -3130,11 +3130,11 @@
 	}
 }
 
-.gridhub-animate__flipOutX {
+.gridflow-animate__flipOutX {
 	-webkit-animation-duration: calc(1s * 0.75);
 	animation-duration: calc(1s * 0.75);
-	-webkit-animation-duration: calc(var(--gridhub-animate-duration) * 0.75);
-	animation-duration: calc(var(--gridhub-animate-duration) * 0.75);
+	-webkit-animation-duration: calc(var(--gridflow-animate-duration) * 0.75);
+	animation-duration: calc(var(--gridflow-animate-duration) * 0.75);
 	-webkit-animation-name: flipoutx;
 	animation-name: flipOutX;
 	-webkit-backface-visibility: visible !important;
@@ -3181,11 +3181,11 @@
 	}
 }
 
-.gridhub-animate__flipOutY {
+.gridflow-animate__flipOutY {
 	-webkit-animation-duration: calc(1s * 0.75);
 	animation-duration: calc(1s * 0.75);
-	-webkit-animation-duration: calc(var(--gridhub-animate-duration) * 0.75);
-	animation-duration: calc(var(--gridhub-animate-duration) * 0.75);
+	-webkit-animation-duration: calc(var(--gridflow-animate-duration) * 0.75);
+	animation-duration: calc(var(--gridflow-animate-duration) * 0.75);
 	-webkit-backface-visibility: visible !important;
 	backface-visibility: visible !important;
 	-webkit-animation-name: flipouty;
@@ -3243,7 +3243,7 @@
 	}
 }
 
-.gridhub-animate__lightSpeedInRight {
+.gridflow-animate__lightSpeedInRight {
 	-webkit-animation-name: lightspeedinright;
 	animation-name: lightSpeedInRight;
 	-webkit-animation-timing-function: ease-out;
@@ -3300,7 +3300,7 @@
 	}
 }
 
-.gridhub-animate__lightSpeedInLeft {
+.gridflow-animate__lightSpeedInLeft {
 	-webkit-animation-name: lightspeedinleft;
 	animation-name: lightSpeedInLeft;
 	-webkit-animation-timing-function: ease-out;
@@ -3333,7 +3333,7 @@
 	}
 }
 
-.gridhub-animate__lightSpeedOutRight {
+.gridflow-animate__lightSpeedOutRight {
 	-webkit-animation-name: lightspeedoutright;
 	animation-name: lightSpeedOutRight;
 	-webkit-animation-timing-function: ease-in;
@@ -3366,7 +3366,7 @@
 	}
 }
 
-.gridhub-animate__lightSpeedOutLeft {
+.gridflow-animate__lightSpeedOutLeft {
 	-webkit-animation-name: lightspeedoutleft;
 	animation-name: lightSpeedOutLeft;
 	-webkit-animation-timing-function: ease-in;
@@ -3404,7 +3404,7 @@
 	}
 }
 
-.gridhub-animate__rotateIn {
+.gridflow-animate__rotateIn {
 	-webkit-animation-name: rotatein;
 	animation-name: rotateIn;
 	-webkit-transform-origin: center;
@@ -3441,7 +3441,7 @@
 	}
 }
 
-.gridhub-animate__rotateInDownLeft {
+.gridflow-animate__rotateInDownLeft {
 	-webkit-animation-name: rotateindownleft;
 	animation-name: rotateInDownLeft;
 	-webkit-transform-origin: left bottom;
@@ -3478,7 +3478,7 @@
 	}
 }
 
-.gridhub-animate__rotateInDownRight {
+.gridflow-animate__rotateInDownRight {
 	-webkit-animation-name: rotateindownright;
 	animation-name: rotateInDownRight;
 	-webkit-transform-origin: right bottom;
@@ -3515,7 +3515,7 @@
 	}
 }
 
-.gridhub-animate__rotateInUpLeft {
+.gridflow-animate__rotateInUpLeft {
 	-webkit-animation-name: rotateinupleft;
 	animation-name: rotateInUpLeft;
 	-webkit-transform-origin: left bottom;
@@ -3552,7 +3552,7 @@
 	}
 }
 
-.gridhub-animate__rotateInUpRight {
+.gridflow-animate__rotateInUpRight {
 	-webkit-animation-name: rotateinupright;
 	animation-name: rotateInUpRight;
 	-webkit-transform-origin: right bottom;
@@ -3586,7 +3586,7 @@
 	}
 }
 
-.gridhub-animate__rotateOut {
+.gridflow-animate__rotateOut {
 	-webkit-animation-name: rotateout;
 	animation-name: rotateOut;
 	-webkit-transform-origin: center;
@@ -3619,7 +3619,7 @@
 	}
 }
 
-.gridhub-animate__rotateOutDownLeft {
+.gridflow-animate__rotateOutDownLeft {
 	-webkit-animation-name: rotateoutdownleft;
 	animation-name: rotateOutDownLeft;
 	-webkit-transform-origin: left bottom;
@@ -3652,7 +3652,7 @@
 	}
 }
 
-.gridhub-animate__rotateOutDownRight {
+.gridflow-animate__rotateOutDownRight {
 	-webkit-animation-name: rotateoutdownright;
 	animation-name: rotateOutDownRight;
 	-webkit-transform-origin: right bottom;
@@ -3685,7 +3685,7 @@
 	}
 }
 
-.gridhub-animate__rotateOutUpLeft {
+.gridflow-animate__rotateOutUpLeft {
 	-webkit-animation-name: rotateoutupleft;
 	animation-name: rotateOutUpLeft;
 	-webkit-transform-origin: left bottom;
@@ -3718,7 +3718,7 @@
 	}
 }
 
-.gridhub-animate__rotateOutUpRight {
+.gridflow-animate__rotateOutUpRight {
 	-webkit-animation-name: rotateoutupright;
 	animation-name: rotateOutUpRight;
 	-webkit-transform-origin: right bottom;
@@ -3788,11 +3788,11 @@
 	}
 }
 
-.gridhub-animate__hinge {
+.gridflow-animate__hinge {
 	-webkit-animation-duration: calc(1s * 2);
 	animation-duration: calc(1s * 2);
-	-webkit-animation-duration: calc(var(--gridhub-animate-duration) * 2);
-	animation-duration: calc(var(--gridhub-animate-duration) * 2);
+	-webkit-animation-duration: calc(var(--gridflow-animate-duration) * 2);
+	animation-duration: calc(var(--gridflow-animate-duration) * 2);
 	-webkit-animation-name: hinge;
 	animation-name: hinge;
 	-webkit-transform-origin: top left;
@@ -3853,7 +3853,7 @@
 	}
 }
 
-.gridhub-animate__jackInTheBox {
+.gridflow-animate__jackInTheBox {
 	-webkit-animation-name: jackinthebox;
 	animation-name: jackInTheBox;
 }
@@ -3889,7 +3889,7 @@
 	}
 }
 
-.gridhub-animate__rollIn {
+.gridflow-animate__rollIn {
 	-webkit-animation-name: rollin;
 	animation-name: rollIn;
 }
@@ -3921,7 +3921,7 @@
 	}
 }
 
-.gridhub-animate__rollOut {
+.gridflow-animate__rollOut {
 	-webkit-animation-name: rollout;
 	animation-name: rollOut;
 }
@@ -3953,7 +3953,7 @@
 	}
 }
 
-.gridhub-animate__zoomIn {
+.gridflow-animate__zoomIn {
 	-webkit-animation-name: zoomin;
 	animation-name: zoomIn;
 }
@@ -3996,7 +3996,7 @@
 	}
 }
 
-.gridhub-animate__zoomInDown {
+.gridflow-animate__zoomInDown {
 	-webkit-animation-name: zoomindown;
 	animation-name: zoomInDown;
 }
@@ -4039,7 +4039,7 @@
 	}
 }
 
-.gridhub-animate__zoomInLeft {
+.gridflow-animate__zoomInLeft {
 	-webkit-animation-name: zoominleft;
 	animation-name: zoomInLeft;
 }
@@ -4082,7 +4082,7 @@
 	}
 }
 
-.gridhub-animate__zoomInRight {
+.gridflow-animate__zoomInRight {
 	-webkit-animation-name: zoominright;
 	animation-name: zoomInRight;
 }
@@ -4125,7 +4125,7 @@
 	}
 }
 
-.gridhub-animate__zoomInUp {
+.gridflow-animate__zoomInUp {
 	-webkit-animation-name: zoominup;
 	animation-name: zoomInUp;
 }
@@ -4165,7 +4165,7 @@
 	}
 }
 
-.gridhub-animate__zoomOut {
+.gridflow-animate__zoomOut {
 	-webkit-animation-name: zoomout;
 	animation-name: zoomOut;
 }
@@ -4208,7 +4208,7 @@
 	}
 }
 
-.gridhub-animate__zoomOutDown {
+.gridflow-animate__zoomOutDown {
 	-webkit-animation-name: zoomoutdown;
 	animation-name: zoomOutDown;
 	-webkit-transform-origin: center bottom;
@@ -4245,7 +4245,7 @@
 	}
 }
 
-.gridhub-animate__zoomOutLeft {
+.gridflow-animate__zoomOutLeft {
 	-webkit-animation-name: zoomoutleft;
 	animation-name: zoomOutLeft;
 	-webkit-transform-origin: left center;
@@ -4282,7 +4282,7 @@
 	}
 }
 
-.gridhub-animate__zoomOutRight {
+.gridflow-animate__zoomOutRight {
 	-webkit-animation-name: zoomoutright;
 	animation-name: zoomOutRight;
 	-webkit-transform-origin: right center;
@@ -4327,7 +4327,7 @@
 	}
 }
 
-.gridhub-animate__zoomOutUp {
+.gridflow-animate__zoomOutUp {
 	-webkit-animation-name: zoomoutup;
 	animation-name: zoomOutUp;
 	-webkit-transform-origin: center bottom;
@@ -4363,7 +4363,7 @@
 	}
 }
 
-.gridhub-animate__slideInDown {
+.gridflow-animate__slideInDown {
 	-webkit-animation-name: slideindown;
 	animation-name: slideInDown;
 }
@@ -4396,7 +4396,7 @@
 	}
 }
 
-.gridhub-animate__slideInLeft {
+.gridflow-animate__slideInLeft {
 	-webkit-animation-name: slideinleft;
 	animation-name: slideInLeft;
 }
@@ -4429,7 +4429,7 @@
 	}
 }
 
-.gridhub-animate__slideInRight {
+.gridflow-animate__slideInRight {
 	-webkit-animation-name: slideinright;
 	animation-name: slideInRight;
 }
@@ -4462,7 +4462,7 @@
 	}
 }
 
-.gridhub-animate__slideInUp {
+.gridflow-animate__slideInUp {
 	-webkit-animation-name: slideinup;
 	animation-name: slideInUp;
 }
@@ -4496,7 +4496,7 @@
 	}
 }
 
-.gridhub-animate__slideOutDown {
+.gridflow-animate__slideOutDown {
 	-webkit-animation-name: slideoutdown;
 	animation-name: slideOutDown;
 }
@@ -4529,7 +4529,7 @@
 	}
 }
 
-.gridhub-animate__slideOutLeft {
+.gridflow-animate__slideOutLeft {
 	-webkit-animation-name: slideoutleft;
 	animation-name: slideOutLeft;
 }
@@ -4562,7 +4562,7 @@
 	}
 }
 
-.gridhub-animate__slideOutRight {
+.gridflow-animate__slideOutRight {
 	-webkit-animation-name: slideoutright;
 	animation-name: slideOutRight;
 }
@@ -4595,7 +4595,7 @@
 	}
 }
 
-.gridhub-animate__slideOutUp {
+.gridflow-animate__slideOutUp {
 	-webkit-animation-name: slideoutup;
 	animation-name: slideOutUp;
 }

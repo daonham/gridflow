@@ -38,7 +38,7 @@ const Control = ( {
 
 	return (
 		<>
-			<div id={ id } className="gridhub-control gridhub-border-device-control" role="region" aria-labelledby={ headingId } style={ { marginBottom: 15 } }>
+			<div id={ id } className="gridflow-control gridflow-border-device-control" role="region" aria-labelledby={ headingId } style={ { marginBottom: 15 } }>
 				<Border
 					{ ...props }
 					headingId={ headingId }

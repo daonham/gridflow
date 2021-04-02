@@ -1,10 +1,10 @@
-import gridhubAnimate from './animate';
+import gridflowAnimate from './animate';
 
-gridhubDomReady( function() {
-	gridhubAnimate();
+gridflowDomReady( function() {
+	gridflowAnimate();
 } );
 
-function gridhubDomReady( fn ) {
+function gridflowDomReady( fn ) {
 	if ( typeof fn !== 'function' ) {
 		return;
 	}

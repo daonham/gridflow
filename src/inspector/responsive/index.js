@@ -6,16 +6,16 @@ import { createHigherOrderComponent } from '@wordpress/compose';
 import { addFilter } from '@wordpress/hooks';
 
 import Inspector from './inspector';
-import gridhubAttributes from './attributes';
+import gridflowAttributes from './attributes';
 
 const allowedBlocks = [
-	'gridhub/heading',
-	'gridhub/button',
+	'gridflow/heading',
+	'gridflow/button',
 ];
 
 export function addAttributes( settings ) {
 	if ( allowedBlocks.includes( settings.name ) ) {
-		settings.attributes = assign( settings.attributes, gridhubAttributes );
+		settings.attributes = assign( settings.attributes, gridflowAttributes );
 	}
 
 	return settings;
@@ -38,18 +38,18 @@ export const withInspectorControl = createHigherOrderComponent( ( BlockEdit ) =>
 }, 'withInspectorControl' );
 
 export function addSaveProps( extraProps, blockType, attributes ) {
-	const { gridhubHideDesktop, gridhubHideTablet, gridhubHideMobile } = attributes;
+	const { gridflowHideDesktop, gridflowHideTablet, gridflowHideMobile } = attributes;
 
-	if ( gridhubHideDesktop && ! extraProps.className.includes( 'gridhub-hidden-desktop' ) ) {
-		extraProps.className = classnames( extraProps.className, 'gridhub-hidden-desktop' );
+	if ( gridflowHideDesktop && ! extraProps.className.includes( 'gridflow-hidden-desktop' ) ) {
+		extraProps.className = classnames( extraProps.className, 'gridflow-hidden-desktop' );
 	}
 
-	if ( gridhubHideTablet && ! extraProps.className.includes( 'gridhub-hidden-tablet' ) ) {
-		extraProps.className = classnames( extraProps.className, 'gridhub-hidden-tablet' );
+	if ( gridflowHideTablet && ! extraProps.className.includes( 'gridflow-hidden-tablet' ) ) {
+		extraProps.className = classnames( extraProps.className, 'gridflow-hidden-tablet' );
 	}
 
-	if ( gridhubHideMobile && ! extraProps.className.includes( 'gridhub-hidden-mobile' ) ) {
-		extraProps.className = classnames( extraProps.className, 'gridhub-hidden-mobile' );
+	if ( gridflowHideMobile && ! extraProps.className.includes( 'gridflow-hidden-mobile' ) ) {
+		extraProps.className = classnames( extraProps.className, 'gridflow-hidden-mobile' );
 	}
 
 	return extraProps;
@@ -57,7 +57,7 @@ export function addSaveProps( extraProps, blockType, attributes ) {
 
 export const withDataResponsive = createHigherOrderComponent(
 	( BlockListBlock ) => ( props ) => {
-		const { gridhubHideDesktop, gridhubHideTablet, gridhubHideMobile } = props.attributes;
+		const { gridflowHideDesktop, gridflowHideTablet, gridflowHideMobile } = props.attributes;
 
 		const getPreviewDeviceType = useSelect( ( select ) => {
 			const { __experimentalGetPreviewDeviceType } = select( 'core/edit-post' );
@@ -67,11 +67,11 @@ export const withDataResponsive = createHigherOrderComponent(
 
 		let style;
 
-		if ( getPreviewDeviceType === 'Desktop' && gridhubHideDesktop ) {
+		if ( getPreviewDeviceType === 'Desktop' && gridflowHideDesktop ) {
 			style = 'none';
-		} else if ( getPreviewDeviceType === 'Tablet' && gridhubHideTablet ) {
+		} else if ( getPreviewDeviceType === 'Tablet' && gridflowHideTablet ) {
 			style = 'none';
-		} else if ( getPreviewDeviceType === 'Mobile' && gridhubHideMobile ) {
+		} else if ( getPreviewDeviceType === 'Mobile' && gridflowHideMobile ) {
 			style = 'none';
 		}
 
@@ -91,8 +91,8 @@ export const withDataResponsive = createHigherOrderComponent(
 	}
 );
 
-addFilter( 'blocks.registerBlockType', 'gridhub/inspector/attributes', addAttributes );
-addFilter( 'editor.BlockEdit', 'gridhub/responsive', withInspectorControl );
-addFilter( 'blocks.getSaveContent.extraProps', 'gridhub/responsive/class', addSaveProps );
-addFilter( 'editor.BlockListBlock', 'gridhub/responsive/with-data-responsive', withDataResponsive );
+addFilter( 'blocks.registerBlockType', 'gridflow/inspector/attributes', addAttributes );
+addFilter( 'editor.BlockEdit', 'gridflow/responsive', withInspectorControl );
+addFilter( 'blocks.getSaveContent.extraProps', 'gridflow/responsive/class', addSaveProps );
+addFilter( 'editor.BlockListBlock', 'gridflow/responsive/with-data-responsive', withDataResponsive );
 

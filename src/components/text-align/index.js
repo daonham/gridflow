@@ -8,12 +8,15 @@ import { useControlledState } from '../../utils/use-controlled-state';
 import { DEFAULT_VALUES } from '../../utils/utils';
 
 function useUniqueId( idProp ) {
-	const instanceId = useInstanceId( GridHubTextAlign, 'inspector-gridhub-text-align-control' );
+	const instanceId = useInstanceId(
+		GridFlowTextAlign,
+		'inspector-gridflow-text-align-control'
+	);
 
 	return idProp || instanceId;
 }
 
-const GridHubTextAlign = ( {
+const GridFlowTextAlign = ( {
 	id: idProp,
 	label,
 	values: valuesProp,
@@ -44,9 +47,6 @@ const GridHubTextAlign = ( {
 		...props,
 	};
 
-	return (
-		<TextInputControl { ...inputControlProps } />
-	);
+	return <TextInputControl { ...inputControlProps } />;
 };
-export default GridHubTextAlign;
-
+export default GridFlowTextAlign;
