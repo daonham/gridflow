@@ -18,9 +18,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 				<GridFlowSelect
 					label={ __( 'Animation', 'gridflow' ) }
 					values={ gridflowAnimation }
-					onChange={ ( value ) =>
-						setAttributes( { gridflowAnimation: value } )
-					}
+					onChange={ ( value ) => setAttributes( { gridflowAnimation: value } ) }
 					options={ [
 						{ label: 'None', value: '' },
 						{ label: 'Fade In', value: 'fadeIn' },
@@ -60,9 +58,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 								{ label: __( 'Fast' ), value: 'fast' },
 								{ label: __( 'Faster' ), value: 'faster' },
 							] }
-							onChange={ ( value ) =>
-								setAttributes( { gridflowSpeed: value } )
-							}
+							onChange={ ( value ) => setAttributes( { gridflowSpeed: value } ) }
 							style={ { width: '100%' } }
 						/>
 					</FlexItem>
@@ -78,9 +74,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 								{ label: __( '4s' ), value: '4s' },
 								{ label: __( '5s' ), value: '5s' },
 							] }
-							onChange={ ( value ) =>
-								setAttributes( { gridflowDelay: value } )
-							}
+							onChange={ ( value ) => setAttributes( { gridflowDelay: value } ) }
 							style={ { width: '100%' } }
 						/>
 					</FlexItem>

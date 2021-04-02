@@ -1,10 +1,10 @@
-const GridFlowStyleTextShadow = textShadow => {
+const GridFlowStyleTextShadow = ( textShadow ) => {
 	const X = textShadow?.horizontal;
 	const Y = textShadow?.vertical;
 	const blur = textShadow?.blur;
 	const color = textShadow?.color;
 
-	if (X == undefined && Y == undefined && blur == undefined) {
+	if ( X == undefined && Y == undefined && blur == undefined ) {
 		return;
 	}
 

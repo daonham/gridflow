@@ -61,17 +61,7 @@ function inlineStyle( { attributes } ) {
 		' .gridflow-image__caption__text': {
 			'text-align': captionTextAligns?.desktop,
 			...GridFlowStyleBox( captionSpacing, 'margin', 'desktop' ),
-			...GridFlowStyleTypography( {
-				font,
-				fontSize,
-				lineHeight,
-				fontWeight,
-				decoration,
-				transform,
-				fontStyle,
-				letterSpacing,
-				device: 'desktop',
-			} ),
+			...GridFlowStyleTypography( { font, fontSize, lineHeight, fontWeight, decoration, transform, fontStyle, letterSpacing, device: 'desktop', } ),
 		},
 	};
 
@@ -92,17 +82,7 @@ function inlineStyle( { attributes } ) {
 		' .gridflow-image__caption__text': {
 			'text-align': captionTextAligns?.tablet,
 			...GridFlowStyleBox( captionSpacing, 'margin', 'tablet' ),
-			...GridFlowStyleTypography( {
-				font,
-				fontSize,
-				lineHeight,
-				fontWeight,
-				decoration,
-				transform,
-				fontStyle,
-				letterSpacing,
-				device: 'tablet',
-			} ),
+			...GridFlowStyleTypography( { font, fontSize, lineHeight, fontWeight, decoration, transform, fontStyle, letterSpacing, device: 'tablet', } ),
 		},
 	};
 
@@ -123,17 +103,7 @@ function inlineStyle( { attributes } ) {
 		' .gridflow-image__caption__text': {
 			'text-align': captionTextAligns?.mobile,
 			...GridFlowStyleBox( captionSpacing, 'margin', 'mobile' ),
-			...GridFlowStyleTypography( {
-				font,
-				fontSize,
-				lineHeight,
-				fontWeight,
-				decoration,
-				transform,
-				fontStyle,
-				letterSpacing,
-				device: 'mobile',
-			} ),
+			...GridFlowStyleTypography( { font, fontSize, lineHeight, fontWeight, decoration, transform, fontStyle, letterSpacing, device: 'mobile', } ),
 		},
 	};
 

@@ -21,16 +21,12 @@ const Inspector = ( { attributes, setAttributes } ) => {
 				<GridFlowBoxControl
 					label={ __( 'Border Radius', 'gridflow' ) }
 					values={ gridflowBorderRadius }
-					onChange={ ( value ) =>
-						setAttributes( { gridflowBorderRadius: value } )
-					}
+					onChange={ ( value ) => setAttributes( { gridflowBorderRadius: value } ) }
 				/>
 				<GridFlowBoxShadow
 					label={ __( 'Box Shadow', 'gridflow' ) }
 					value={ gridflowBoxShadow }
-					onChange={ ( value ) =>
-						setAttributes( { gridflowBoxShadow: value } )
-					}
+					onChange={ ( value ) => setAttributes( { gridflowBoxShadow: value } ) }
 				/>
 			</PanelBody>
 		</InspectorControls>

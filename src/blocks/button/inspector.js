@@ -72,9 +72,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 							<GridFlowTextUnit
 								label={ __( 'Width', 'gridflow' ) }
 								values={ width }
-								onChange={ ( value ) =>
-									setAttributes( { width: value } )
-								}
+								onChange={ ( value ) => setAttributes( { width: value } ) }
 							/>
 						</FlexItem>
 
@@ -82,9 +80,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 							<GridFlowTextUnit
 								label={ __( 'Height', 'gridflow' ) }
 								values={ height }
-								onChange={ ( value ) =>
-									setAttributes( { height: value } )
-								}
+								onChange={ ( value ) => setAttributes( { height: value } ) }
 							/>
 						</FlexItem>
 					</Flex>
@@ -98,14 +94,8 @@ const Inspector = ( { attributes, setAttributes } ) => {
 				<PanelBody title={ __( 'Button', 'gridflow' ) } initialOpen={ false }>
 					<TabPanel
 						tabs={ [
-							{
-								name: 'normal',
-								title: __( 'Normal', 'gridflow' ),
-							},
-							{
-								name: 'hover',
-								title: __( 'Hover', 'gridflow' ),
-							},
+							{ name: 'normal', title: __( 'Normal', 'gridflow' ) },
+							{ name: 'hover', title: __( 'Hover', 'gridflow' ) },
 						] }
 					>
 						{ ( tab ) => {
@@ -116,61 +106,35 @@ const Inspector = ( { attributes, setAttributes } ) => {
 											label={ __( 'Color', 'gridflow' ) }
 											value={ color }
 											alpha={ true }
-											onChange={ ( value ) =>
-												setAttributes( { color: value } )
-											}
+											onChange={ ( value ) => setAttributes( { color: value } ) }
 										/>
 										<GridFlowColorPicker
-											label={ __(
-												'Background Color',
-												'gridflow'
-											) }
+											label={ __( 'Background Color', 'gridflow' ) }
 											value={ bgColor }
 											alpha={ true }
 											gradients={ true }
-											onChange={ ( value ) =>
-												setAttributes( {
-													bgColor: value,
-												} )
-											}
+											onChange={ ( value ) => setAttributes( { bgColor: value } ) }
 										/>
 										<GridFlowBoxControl
 											label={ __( 'Padding', 'gridflow' ) }
 											values={ padding }
-											onChange={ ( value ) =>
-												setAttributes( {
-													padding: value,
-												} )
-											}
+											onChange={ ( value ) => setAttributes( { padding: value } ) }
 										/>
 										<GridFlowBorder
 											label={ __( 'Border', 'gridflow' ) }
 											values={ border }
 											device={ true }
-											onChange={ ( value ) =>
-												setAttributes( { border: value } )
-											}
+											onChange={ ( value ) => setAttributes( { border: value } ) }
 										/>
 										<GridFlowBoxControl
-											label={ __(
-												'Border Radius',
-												'gridflow'
-											) }
+											label={ __( 'Border Radius', 'gridflow' ) }
 											values={ borderRadius }
-											onChange={ ( value ) =>
-												setAttributes( {
-													borderRadius: value,
-												} )
-											}
+											onChange={ ( value ) => setAttributes( { borderRadius: value } ) }
 										/>
 										<GridFlowBoxShadow
 											label={ __( 'Box Shadow', 'gridflow' ) }
 											value={ boxShadow }
-											onChange={ ( value ) =>
-												setAttributes( {
-													boxShadow: value,
-												} )
-											}
+											onChange={ ( value ) => setAttributes( { boxShadow: value } ) }
 										/>
 									</>
 								);
@@ -183,56 +147,30 @@ const Inspector = ( { attributes, setAttributes } ) => {
 											label={ __( 'Color', 'gridflow' ) }
 											value={ colorHover }
 											alpha={ true }
-											onChange={ ( value ) =>
-												setAttributes( {
-													colorHover: value,
-												} )
-											}
+											onChange={ ( value ) => setAttributes( { colorHover: value } ) }
 										/>
 										<GridFlowColorPicker
-											label={ __(
-												'Background Color',
-												'gridflow'
-											) }
+											label={ __( 'Background Color', 'gridflow' ) }
 											value={ bgColorHover }
 											alpha={ true }
 											gradients={ true }
-											onChange={ ( value ) =>
-												setAttributes( {
-													bgColorHover: value,
-												} )
-											}
+											onChange={ ( value ) => setAttributes( { bgColorHover: value } ) }
 										/>
 										<GridFlowBorder
 											label={ __( 'Border', 'gridflow' ) }
 											values={ borderHover }
 											device={ true }
-											onChange={ ( value ) =>
-												setAttributes( {
-													borderHover: value,
-												} )
-											}
+											onChange={ ( value ) => setAttributes( { borderHover: value } ) }
 										/>
 										<GridFlowBoxControl
-											label={ __(
-												'Border Radius',
-												'gridflow'
-											) }
+											label={ __( 'Border Radius', 'gridflow' ) }
 											values={ borderRadiusHover }
-											onChange={ ( value ) =>
-												setAttributes( {
-													borderRadiusHover: value,
-												} )
-											}
+											onChange={ ( value ) => setAttributes( { borderRadiusHover: value } ) }
 										/>
 										<GridFlowBoxShadow
 											label={ __( 'Box Shadow', 'gridflow' ) }
 											value={ boxShadowHover }
-											onChange={ ( value ) =>
-												setAttributes( {
-													boxShadowHover: value,
-												} )
-											}
+											onChange={ ( value ) => setAttributes( { boxShadowHover: value } ) }
 										/>
 									</>
 								);
@@ -246,33 +184,19 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						font={ font }
 						onChangeFont={ ( value ) => setAttributes( { font: value } ) }
 						fontSize={ fontSize }
-						onChangeFontSize={ ( value ) =>
-							setAttributes( { fontSize: value } )
-						}
+						onChangeFontSize={ ( value ) => setAttributes( { fontSize: value } ) }
 						lineHeight={ lineHeight }
-						onChangeLineHeight={ ( value ) =>
-							setAttributes( { lineHeight: value } )
-						}
+						onChangeLineHeight={ ( value ) => setAttributes( { lineHeight: value } ) }
 						fontWeight={ fontWeight }
-						onChangeFontWeight={ ( value ) =>
-							setAttributes( { fontWeight: value } )
-						}
+						onChangeFontWeight={ ( value ) => setAttributes( { fontWeight: value } ) }
 						decoration={ decoration }
-						onChangeDecoration={ ( value ) =>
-							setAttributes( { decoration: value } )
-						}
+						onChangeDecoration={ ( value ) => setAttributes( { decoration: value } ) }
 						transform={ transform }
-						onChangeTransform={ ( value ) =>
-							setAttributes( { transform: value } )
-						}
+						onChangeTransform={ ( value ) => setAttributes( { transform: value } ) }
 						fontStyle={ fontStyle }
-						onChangeFontStyle={ ( value ) =>
-							setAttributes( { fontStyle: value } )
-						}
+						onChangeFontStyle={ ( value ) => setAttributes( { fontStyle: value } ) }
 						letterSpacing={ letterSpacing }
-						onChangeLetterSpacing={ ( value ) =>
-							setAttributes( { letterSpacing: value } )
-						}
+						onChangeLetterSpacing={ ( value ) => setAttributes( { letterSpacing: value } ) }
 					/>
 				</PanelBody>
 
@@ -288,18 +212,10 @@ const Inspector = ( { attributes, setAttributes } ) => {
 								label={ __( 'Icon Position', 'gridflow' ) }
 								value={ iconPosition }
 								options={ [
-									{
-										label: __( 'Left', 'gridflow' ),
-										value: 'left',
-									},
-									{
-										label: __( 'Right', 'gridflow' ),
-										value: 'right',
-									},
+									{ label: __( 'Left', 'gridflow' ), value: 'left' },
+									{ label: __( 'Right', 'gridflow' ), value: 'right' },
 								] }
-								onChange={ ( value ) =>
-									setAttributes( { iconPosition: value } )
-								}
+								onChange={ ( value ) => setAttributes( { iconPosition: value } ) }
 								style={ { width: 100 } }
 							/>
 						</FlexItem>
@@ -307,9 +223,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 							<UnitControl
 								label={ __( 'Icon Spacing', 'gridflow' ) }
 								value={ iconSpacing }
-								onChange={ ( value ) =>
-									setAttributes( { iconSpacing: value } )
-								}
+								onChange={ ( value ) => setAttributes( { iconSpacing: value } ) }
 								min={ 0 }
 								style={ { maxWidth: 90 } }
 							/>
@@ -319,27 +233,17 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						<GridFlowTextUnit
 							label={ __( 'Width', 'gridflow' ) }
 							values={ iconWidth }
-							onChange={ ( value ) =>
-								setAttributes( { iconWidth: value } )
-							}
+							onChange={ ( value ) => setAttributes( { iconWidth: value } ) }
 						/>
 					) }
 					{ icon?.icon && (
 						<>
-							<Flex
-								gap={ 8 }
-								justify={ 'flex-start' }
-								align={ 'flex-start' }
-							>
+							<Flex gap={ 8 } justify={ 'flex-start' } align={ 'flex-start' } >
 								<FlexItem>
 									<GridFlowTextUnit
 										label={ 'Font Size' }
 										values={ iconFontSize }
-										onChange={ ( value ) =>
-											setAttributes( {
-												iconFontSize: value,
-											} )
-										}
+										onChange={ ( value ) => setAttributes( { iconFontSize: value } ) }
 									/>
 								</FlexItem>
 
@@ -347,11 +251,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 									<GridFlowTextUnit
 										label={ 'Line Height' }
 										values={ iconLineHeight }
-										onChange={ ( value ) =>
-											setAttributes( {
-												iconLineHeight: value,
-											} )
-										}
+										onChange={ ( value ) => setAttributes( { iconLineHeight: value } ) }
 									/>
 								</FlexItem>
 							</Flex>
@@ -359,14 +259,8 @@ const Inspector = ( { attributes, setAttributes } ) => {
 					) }
 					<TabPanel
 						tabs={ [
-							{
-								name: 'normal',
-								title: __( 'Normal', 'gridflow' ),
-							},
-							{
-								name: 'hover',
-								title: __( 'Hover', 'gridflow' ),
-							},
+							{ name: 'normal', title: __( 'Normal', 'gridflow' ) },
+							{ name: 'hover', title: __( 'Hover', 'gridflow' ) },
 						] }
 					>
 						{ ( tab ) => {
@@ -378,11 +272,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 											value={ iconColor }
 											alpha={ true }
 											gradients={ true }
-											onChange={ ( value ) =>
-												setAttributes( {
-													iconColor: value,
-												} )
-											}
+											onChange={ ( value ) => setAttributes( { iconColor: value } ) }
 										/>
 									</>
 								);
@@ -396,11 +286,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 											value={ iconColorHover }
 											alpha={ true }
 											gradients={ true }
-											onChange={ ( value ) =>
-												setAttributes( {
-													iconColorHover: value,
-												} )
-											}
+											onChange={ ( value ) => setAttributes( { iconColorHover: value } ) }
 										/>
 									</>
 								);

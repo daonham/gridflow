@@ -50,12 +50,7 @@ const TextInputControl = ( {
 	return (
 		<>
 			<div id={ id } className="gridflow-control gridflow-link-control" role="region" aria-labelledby={ headingId }>
-
-				<p
-					id={ headingId }
-					className="gridflow-control__label gridflow-link-control__label"
-					style={ { marginBottom: 8 } }
-				>
+				<p id={ headingId } className="gridflow-control__label gridflow-link-control__label" style={ { marginBottom: 8 } } >
 					{ label || __( 'Link', 'gridflow' ) }
 				</p>
 

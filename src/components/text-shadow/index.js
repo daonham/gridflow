@@ -22,10 +22,7 @@ import { DEFAULT_VALUES, isValuesDefined } from './utils';
 import GridFlowColorPicker from '../color';
 
 function useUniqueId( idProp ) {
-	const instanceId = useInstanceId(
-		GridFlowTextShadow,
-		'inspector-gridflow-text-shadow-control'
-	);
+	const instanceId = useInstanceId( GridFlowTextShadow, 'inspector-gridflow-text-shadow-control' );
 
 	return idProp || instanceId;
 }
@@ -76,10 +73,7 @@ const GridFlowTextShadow = ( {
 			<div id={ id } className="gridflow-text-shadow-component">
 				<Flex style={ { paddingBottom: 8 } }>
 					<FlexItem>
-						<p
-							id={ headingId }
-							className="gridflow-control__label gridflow-text-shadow-component__label"
-						>
+						<p id={ headingId } className="gridflow-control__label gridflow-text-shadow-component__label" >
 							{ label }
 						</p>
 					</FlexItem>
@@ -98,11 +92,7 @@ const GridFlowTextShadow = ( {
 					</FlexItem>
 				</Flex>
 
-				<Flex
-					className="gridflow-text-shadow-component__content"
-					justify="flex-start"
-					align="flex-start"
-				>
+				<Flex className="gridflow-text-shadow-component__content" justify="flex-start" align="flex-start" >
 					<UnitControl
 						label={ 'X offset' }
 						labelPosition="bottom"

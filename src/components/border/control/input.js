@@ -99,10 +99,7 @@ const TextInputControl = ( {
 		<>
 			<Flex className="gridflow-control__header gridflow-border-control__header">
 				<FlexItem>
-					<p
-						id={ headingId }
-						className="gridflow-control__label gridflow-border-control__label"
-					>
+					<p id={ headingId } className="gridflow-control__label gridflow-border-control__label" >
 						{ label }
 					</p>
 				</FlexItem>
@@ -129,10 +126,7 @@ const TextInputControl = ( {
 				</FlexItem>
 			</Flex>
 
-			<Flex
-				className="gridflow-border-control__content"
-				justify="flex-start"
-			>
+			<Flex className="gridflow-border-control__content" justify="flex-start" >
 				<UnitControl
 					className="gridflow-border-control__width"
 					value={ values.width }

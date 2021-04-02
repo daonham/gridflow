@@ -86,33 +86,19 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						font={ font }
 						onChangeFont={ ( value ) => setAttributes( { font: value } ) }
 						fontSize={ fontSize }
-						onChangeFontSize={ ( value ) =>
-							setAttributes( { fontSize: value } )
-						}
+						onChangeFontSize={ ( value ) => setAttributes( { fontSize: value } ) }
 						lineHeight={ lineHeight }
-						onChangeLineHeight={ ( value ) =>
-							setAttributes( { lineHeight: value } )
-						}
+						onChangeLineHeight={ ( value ) => setAttributes( { lineHeight: value } ) }
 						fontWeight={ fontWeight }
-						onChangeFontWeight={ ( value ) =>
-							setAttributes( { fontWeight: value } )
-						}
+						onChangeFontWeight={ ( value ) => setAttributes( { fontWeight: value } ) }
 						decoration={ decoration }
-						onChangeDecoration={ ( value ) =>
-							setAttributes( { decoration: value } )
-						}
+						onChangeDecoration={ ( value ) => setAttributes( { decoration: value } ) }
 						transform={ transform }
-						onChangeTransform={ ( value ) =>
-							setAttributes( { transform: value } )
-						}
+						onChangeTransform={ ( value ) => setAttributes( { transform: value } ) }
 						fontStyle={ fontStyle }
-						onChangeFontStyle={ ( value ) =>
-							setAttributes( { fontStyle: value } )
-						}
+						onChangeFontStyle={ ( value ) => setAttributes( { fontStyle: value } ) }
 						letterSpacing={ letterSpacing }
-						onChangeLetterSpacing={ ( value ) =>
-							setAttributes( { letterSpacing: value } )
-						}
+						onChangeLetterSpacing={ ( value ) => setAttributes( { letterSpacing: value } ) }
 					/>
 					<GridFlowTextShadow
 						label={ __( 'Text Shadow', 'gridflow' ) }
@@ -133,18 +119,10 @@ const Inspector = ( { attributes, setAttributes } ) => {
 								label={ __( 'Icon Position', 'gridflow' ) }
 								value={ iconPosition }
 								options={ [
-									{
-										label: __( 'Left', 'gridflow' ),
-										value: 'left',
-									},
-									{
-										label: __( 'Right', 'gridflow' ),
-										value: 'right',
-									},
+									{ label: __( 'Left', 'gridflow' ), value: 'left' },
+									{ label: __( 'Right', 'gridflow' ), value: 'right' },
 								] }
-								onChange={ ( value ) =>
-									setAttributes( { iconPosition: value } )
-								}
+								onChange={ ( value ) => setAttributes( { iconPosition: value } ) }
 								style={ { width: 100 } }
 							/>
 						</FlexItem>
@@ -152,9 +130,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 							<UnitControl
 								label={ __( 'Icon Spacing', 'gridflow' ) }
 								value={ iconSpacing }
-								onChange={ ( value ) =>
-									setAttributes( { iconSpacing: value } )
-								}
+								onChange={ ( value ) => setAttributes( { iconSpacing: value } ) }
 								min={ 0 }
 								style={ { maxWidth: 90 } }
 							/>
@@ -164,27 +140,17 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						label={ __( 'Vertical Alignment', 'gridflow' ) }
 						value={ iconAlignment }
 						options={ [
-							{
-								label: __( 'Top', 'gridflow' ),
-								value: 'flex-start',
-							},
+							{ label: __( 'Top', 'gridflow' ), value: 'flex-start' },
 							{ label: __( 'Center', 'gridflow' ), value: 'center' },
-							{
-								label: __( 'Bottom', 'gridflow' ),
-								value: 'flex-end',
-							},
+							{ label: __( 'Bottom', 'gridflow' ), value: 'flex-end' },
 						] }
-						onChange={ ( value ) =>
-							setAttributes( { iconAlignment: value } )
-						}
+						onChange={ ( value ) => setAttributes( { iconAlignment: value } ) }
 					/>
 					{ icon?.url && (
 						<GridFlowTextUnit
 							label={ __( 'Width', 'gridflow' ) }
 							values={ iconWidth }
-							onChange={ ( value ) =>
-								setAttributes( { iconWidth: value } )
-							}
+							onChange={ ( value ) => setAttributes( { iconWidth: value } ) }
 						/>
 					) }
 					{ icon?.icon && (
@@ -198,11 +164,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 									<GridFlowTextUnit
 										label={ 'Font Size' }
 										values={ iconFontSize }
-										onChange={ ( value ) =>
-											setAttributes( {
-												iconFontSize: value,
-											} )
-										}
+										onChange={ ( value ) => setAttributes( { iconFontSize: value } ) }
 									/>
 								</FlexItem>
 
@@ -210,11 +172,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 									<GridFlowTextUnit
 										label={ 'Line Height' }
 										values={ iconLineHeight }
-										onChange={ ( value ) =>
-											setAttributes( {
-												iconLineHeight: value,
-											} )
-										}
+										onChange={ ( value ) => setAttributes( { iconLineHeight: value } ) }
 									/>
 								</FlexItem>
 							</Flex>
@@ -223,9 +181,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 								value={ iconColor }
 								alpha={ true }
 								gradients={ true }
-								onChange={ ( value ) =>
-									setAttributes( { iconColor: value } )
-								}
+								onChange={ ( value ) => setAttributes( { iconColor: value } ) }
 							/>
 						</>
 					) }
@@ -234,16 +190,12 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						value={ iconBackgroundColor }
 						alpha={ true }
 						gradients={ true }
-						onChange={ ( value ) =>
-							setAttributes( { iconBackgroundColor: value } )
-						}
+						onChange={ ( value ) => setAttributes( { iconBackgroundColor: value } ) }
 					/>
 					<GridFlowBoxControl
 						label={ __( 'Padding', 'gridflow' ) }
 						values={ iconPadding }
-						onChange={ ( value ) =>
-							setAttributes( { iconPadding: value } )
-						}
+						onChange={ ( value ) => setAttributes( { iconPadding: value } ) }
 					/>
 					<GridFlowBorder
 						label={ __( 'Border', 'gridflow' ) }
@@ -254,16 +206,12 @@ const Inspector = ( { attributes, setAttributes } ) => {
 					<GridFlowBoxControl
 						label={ __( 'Border Radius', 'gridflow' ) }
 						values={ iconBorderRadius }
-						onChange={ ( value ) =>
-							setAttributes( { iconBorderRadius: value } )
-						}
+						onChange={ ( value ) => setAttributes( { iconBorderRadius: value } ) }
 					/>
 					<GridFlowBoxShadow
 						label={ __( 'Box Shadow', 'gridflow' ) }
 						value={ iconBoxShadow }
-						onChange={ ( value ) =>
-							setAttributes( { iconBoxShadow: value } )
-						}
+						onChange={ ( value ) => setAttributes( { iconBoxShadow: value } ) }
 					/>
 				</PanelBody>
 			</InspectorControls>

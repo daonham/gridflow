@@ -12,9 +12,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 			<PanelBody title={ __( 'Background', 'gridflow' ) } initialOpen={ false }>
 				<GridFlowBackground
 					values={ gridflowBackground }
-					onChange={ ( value ) =>
-						setAttributes( { gridflowBackground: value } )
-					}
+					onChange={ ( value ) => setAttributes( { gridflowBackground: value } ) }
 				/>
 			</PanelBody>
 		</InspectorControls>

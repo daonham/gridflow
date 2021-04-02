@@ -99,11 +99,7 @@ const GridFlowIconSelect = ( {
 	return (
 		<>
 			<div id={ id } className="gridflow-icon-component">
-				<p
-					id={ headingId }
-					style={ { paddingBottom: 8 } }
-					className="gridflow-control__label gridflow-icon-component__label"
-				>
+				<p id={ headingId } style={ { paddingBottom: 8 } } className="gridflow-control__label gridflow-icon-component__label" >
 					{ label }
 				</p>
 
@@ -131,26 +127,7 @@ const GridFlowIconSelect = ( {
 								<Button
 									isSecondary
 									label={ __( 'Icon Library', 'gridflow' ) }
-									icon={
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											enableBackground="new 0 0 24 24"
-											height="20"
-											viewBox="0 0 24 24"
-											width="20"
-										>
-											<g>
-												<rect
-													fill="none"
-													height="24"
-													width="24"
-												/>
-											</g>
-											<g>
-												<path d="M14,10H3v2h11V10z M14,6H3v2h11V6z M18,14v-4h-2v4h-4v2h4v4h2v-4h4v-2H18z M3,16h7v-2H3V16z" />
-											</g>
-										</svg>
-									}
+									icon={ <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="20" viewBox="0 0 24 24" width="20" > <g> <rect fill="none" height="24" width="24" /> </g> <g> <path d="M14,10H3v2h11V10z M14,6H3v2h11V6z M18,14v-4h-2v4h-4v2h4v4h2v-4h4v-2H18z M3,16h7v-2H3V16z" /> </g> </svg> }
 									onClick={ openModal }
 									style={ { height: 30, minHeight: 30 } }
 								/>
@@ -163,30 +140,11 @@ const GridFlowIconSelect = ( {
 									allowedTypes={ [ 'image' ] }
 									render={ ( { open } ) => (
 										<Button
-											label={ __(
-												'Upload SVG, PNG, JPG',
-												'gridflow'
-											) }
+											label={ __( 'Upload SVG, PNG, JPG', 'gridflow' ) }
 											isSecondary
 											onClick={ open }
-											icon={
-												<svg
-													xmlns="http://www.w3.org/2000/svg"
-													height="20"
-													viewBox="0 0 24 24"
-													width="20"
-												>
-													<path
-														d="M0 0h24v24H0z"
-														fill="none"
-													/>
-													<path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z" />
-												</svg>
-											}
-											style={ {
-												height: 30,
-												minHeight: 30,
-											} }
+											icon={ <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20" > <path d="M0 0h24v24H0z" fill="none" /> <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z" /> </svg> }
+											style={ { height: 30, minHeight: 30 } }
 										/>
 									) }
 								/>
@@ -198,20 +156,7 @@ const GridFlowIconSelect = ( {
 									isSecondary
 									label={ 'Reset' }
 									onClick={ () => handleOnReset() }
-									icon={
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											height="20"
-											viewBox="0 0 24 24"
-											width="20"
-										>
-											<path
-												d="M0 0h24v24H0z"
-												fill="none"
-											/>
-											<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.42 0 8 3.58 8 8 0 1.85-.63 3.55-1.69 4.9z" />
-										</svg>
-									}
+									icon={ <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20" > <path d="M0 0h24v24H0z" fill="none" /> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.42 0 8 3.58 8 8 0 1.85-.63 3.55-1.69 4.9z" /> </svg> }
 									style={ { height: 30, minHeight: 30 } }
 								/>
 							</FlexItem>
@@ -229,27 +174,16 @@ const GridFlowIconSelect = ( {
 								<div className="gridflow-icon-component__modal__sidebar">
 									<div className="gridflow-icon-component__modal__sidebar-inner">
 										<div className="gridflow-icon-component__modal__sidebar-link">
-											<h3>
-												{ __( 'Select Icons', 'gridflow' ) }
-											</h3>
+											<h3>{ __( 'Select Icons', 'gridflow' ) }</h3>
 										</div>
 
 										{ allTabs.map( ( alltab ) => {
 											return (
-												<div
-													className="gridflow-icon-component__modal__sidebar-link"
-													key={ alltab.value }
-												>
+												<div className="gridflow-icon-component__modal__sidebar-link" key={ alltab.value } >
 													<button
-														className={ classnames( {
-															'gridflow-tab-active':
-																alltab.value ===
-																tab,
-														} ) }
+														className={ classnames( { 'gridflow-tab-active': alltab.value === tab } ) }
 														label={ alltab.label }
-														onClick={ () =>
-															setTab( alltab.value )
-														}
+														onClick={ () => setTab( alltab.value ) }
 													>
 														{ alltab.label }
 													</button>
@@ -262,10 +196,7 @@ const GridFlowIconSelect = ( {
 								<div className="gridflow-icon-component__modal__content">
 									<div className="gridflow-icon-component__modal__search">
 										<TextControl
-											placeholder={ __(
-												'Search for icon...',
-												'gridflow'
-											) }
+											placeholder={ __( 'Search for icon...', 'gridflow' ) }
 											value={ search }
 											onChange={ ( e ) => setSearch( e ) }
 											style={ { fontSize: 14 } }

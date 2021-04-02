@@ -13,10 +13,7 @@ const ResponsiveControl = ( { device, setDevice } ) => {
 
 	return (
 		<div className="gridflow-reponsive-component">
-			<div
-				className={ classnames( 'gridflow-reponsive-component__inner', { 'gridflow-reponsive-component__show': visible } ) }
-				style={ { '--gridflow-reponsive-top': option } }
-			>
+			<div className={ classnames( 'gridflow-reponsive-component__inner', { 'gridflow-reponsive-component__show': visible } ) } style={ { '--gridflow-reponsive-top': option } } >
 				{ allDevice.map( ( val, i ) => {
 					return (
 						<button

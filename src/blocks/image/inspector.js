@@ -71,9 +71,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 					<ToggleControl
 						label={ __( 'Enable Caption', 'gridflow' ) }
 						checked={ enableCaption }
-						onChange={ () =>
-							setAttributes( { enableCaption: ! enableCaption } )
-						}
+						onChange={ () => setAttributes( { enableCaption: ! enableCaption } ) }
 					/>
 					<SelectControl
 						label={ __( 'Link', 'gridflow' ) }
@@ -81,14 +79,8 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						onChange={ ( value ) => setAttributes( { linkType: value } ) }
 						options={ [
 							{ label: __( 'None', 'gridflow' ), value: '' },
-							{
-								label: __( 'Media File', 'gridflow' ),
-								value: 'media',
-							},
-							{
-								label: __( 'Custom Link', 'gridflow' ),
-								value: 'custom',
-							},
+							{ label: __( 'Media File', 'gridflow' ), value: 'media' },
+							{ label: __( 'Custom Link', 'gridflow' ), value: 'custom' },
 						] }
 					/>
 					{ linkType === 'custom' && (
@@ -107,14 +99,8 @@ const Inspector = ( { attributes, setAttributes } ) => {
 				<PanelBody title={ __( 'Image', 'gridflow' ) } initialOpen={ false }>
 					<TabPanel
 						tabs={ [
-							{
-								name: 'normal',
-								title: __( 'Normal', 'gridflow' ),
-							},
-							{
-								name: 'hover',
-								title: __( 'Hover', 'gridflow' ),
-							},
+							{ name: 'normal', title: __( 'Normal', 'gridflow' ) },
+							{ name: 'hover', title: __( 'Hover', 'gridflow' ) },
 						] }
 					>
 						{ ( tab ) => {
@@ -129,86 +115,35 @@ const Inspector = ( { attributes, setAttributes } ) => {
 										>
 											<FlexItem>
 												<GridFlowTextUnit
-													label={ __(
-														'Width',
-														'gridflow'
-													) }
+													label={ __( 'Width', 'gridflow' ) }
 													values={ width }
-													onChange={ ( value ) =>
-														setAttributes( {
-															width: value,
-														} )
-													}
+													onChange={ ( value ) => setAttributes( { width: value } ) }
 												/>
 											</FlexItem>
 
 											<FlexItem>
 												<GridFlowTextUnit
-													label={ __(
-														'Height',
-														'gridflow'
-													) }
+													label={ __( 'Height', 'gridflow' ) }
 													values={ height }
-													onChange={ ( value ) =>
-														setAttributes( {
-															height: value,
-														} )
-													}
+													onChange={ ( value ) => setAttributes( { height: value } ) }
 												/>
 											</FlexItem>
 										</Flex>
 										<GridFlowSelect
 											label={ __( 'Object Fit', 'gridflow' ) }
 											values={ objectFit }
-											onChange={ ( value ) =>
-												setAttributes( {
-													objectFit: value,
-												} )
-											}
+											onChange={ ( value ) => setAttributes( { objectFit: value } ) }
 											options={ [
-												{
-													label: __(
-														'Default',
-														'gridflow'
-													),
-													value: '',
-												},
-												{
-													label: __(
-														'Contain',
-														'gridflow'
-													),
-													value: 'contain',
-												},
-												{
-													label: __(
-														'Cover',
-														'gridflow'
-													),
-													value: 'cover',
-												},
-												{
-													label: __(
-														'Scale down',
-														'gridflow'
-													),
-													value: 'scale-down',
-												},
-												{
-													label: __(
-														'None',
-														'gridflow'
-													),
-													value: 'none',
-												},
+												{ label: __( 'Default', 'gridflow' ), value: '' },
+												{ label: __( 'Contain', 'gridflow' ), value: 'contain' },
+												{ label: __( 'Cover', 'gridflow' ), value: 'cover' },
+												{ label: __( 'Scale down', 'gridflow' ), value: 'scale-down' },
+												{ label: __( 'None', 'gridflow' ), value: 'none' },
 											] }
 										/>
 										{ url && (
 											<GridFlowFocusPointPicker
-												label={ __(
-													'Object Position',
-													'gridflow'
-												) }
+												label={ __( 'Object Position', 'gridflow' ) }
 												url={ url }
 												values={ objectPosition }
 												onChange={ ( value ) =>
@@ -221,56 +156,32 @@ const Inspector = ( { attributes, setAttributes } ) => {
 										<RangeControl
 											label={ __( 'Overlay', 'gridflow' ) }
 											value={ overlay }
-											onChange={ ( value ) =>
-												setAttributes( {
-													overlay: value,
-												} )
-											}
+											onChange={ ( value ) => setAttributes( { overlay: value } ) }
 											min={ 0 }
 											max={ 100 }
 										/>
 										<GridFlowColorPicker
-											label={ __(
-												'Background Overlay',
-												'gridflow'
-											) }
+											label={ __( 'Background Overlay', 'gridflow' ) }
 											value={ bgOverlay }
 											alpha={ false }
 											gradients={ true }
-											onChange={ ( value ) =>
-												setAttributes( {
-													bgOverlay: value,
-												} )
-											}
+											onChange={ ( value ) => setAttributes( { bgOverlay: value } ) }
 										/>
 										<GridFlowBorder
 											label={ __( 'Border', 'gridflow' ) }
 											values={ border }
 											device={ true }
-											onChange={ ( value ) =>
-												setAttributes( { border: value } )
-											}
+											onChange={ ( value ) => setAttributes( { border: value } ) }
 										/>
 										<GridFlowBoxControl
-											label={ __(
-												'Border Radius',
-												'gridflow'
-											) }
+											label={ __( 'Border Radius', 'gridflow' ) }
 											values={ borderRadius }
-											onChange={ ( value ) =>
-												setAttributes( {
-													borderRadius: value,
-												} )
-											}
+											onChange={ ( value ) => setAttributes( { borderRadius: value } ) }
 										/>
 										<GridFlowBoxShadow
 											label={ __( 'Box Shadow', 'gridflow' ) }
 											value={ boxShadow }
-											onChange={ ( value ) =>
-												setAttributes( {
-													boxShadow: value,
-												} )
-											}
+											onChange={ ( value ) => setAttributes( { boxShadow: value } ) }
 										/>
 									</>
 								);
@@ -282,62 +193,31 @@ const Inspector = ( { attributes, setAttributes } ) => {
 										<RangeControl
 											label={ __( 'Overlay', 'gridflow' ) }
 											value={ overlayHover }
-											onChange={ ( value ) =>
-												setAttributes( {
-													overlayHover: value,
-												} )
-											}
+											onChange={ ( value ) => setAttributes( { overlayHover: value } ) }
 											min={ 0 }
 											max={ 100 }
 										/>
 										<GridFlowColorPicker
-											label={ __(
-												'Background Overlay',
-												'gridflow'
-											) }
+											label={ __( 'Background Overlay', 'gridflow' ) }
 											value={ bgOverlayHover }
 											alpha={ false }
 											gradients={ true }
-											onChange={ ( value ) =>
-												setAttributes( {
-													bgOverlayHover: value,
-												} )
-											}
+											onChange={ ( value ) => setAttributes( { bgOverlayHover: value } ) }
 										/>
 										<RangeControl
-											label={ __(
-												'Transition Duration',
-												'gridflow'
-											) }
+											label={ __( 'Transition Duration', 'gridflow' ) }
 											value={ transition }
-											onChange={ ( value ) =>
-												setAttributes( {
-													transition: value,
-												} )
-											}
+											onChange={ ( value ) => setAttributes( { transition: value } ) }
 											min={ 0 }
 											max={ 3 }
 											step={ 0.1 }
 										/>
 										<SelectControl
-											label={ __(
-												'Hover Effect',
-												'gridflow'
-											) }
+											label={ __( 'Hover Effect', 'gridflow' ) }
 											value={ hoverEffect }
-											onChange={ ( value ) =>
-												setAttributes( {
-													hoverEffect: value,
-												} )
-											}
+											onChange={ ( value ) => setAttributes( { hoverEffect: value } ) }
 											options={ [
-												{
-													label: __(
-														'None',
-														'gridflow'
-													),
-													value: '',
-												},
+												{ label: __( 'None', 'gridflow' ), value: '' },
 											] }
 										/>
 									</>
@@ -346,58 +226,36 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						} }
 					</TabPanel>
 				</PanelBody>
+
 				{ enableCaption && (
-					<PanelBody
-						title={ __( 'Caption', 'gridflow' ) }
-						initialOpen={ false }
-					>
+					<PanelBody title={ __( 'Caption', 'gridflow' ) } initialOpen={ false } >
 						<GridFlowTextAlign
 							label={ __( 'Alignment', 'gridflow' ) }
 							values={ captionTextAligns }
-							onChange={ ( value ) =>
-								setAttributes( { captionTextAligns: value } )
-							}
+							onChange={ ( value ) => setAttributes( { captionTextAligns: value } ) }
 						/>
 						<GridFlowTyphography
 							font={ font }
-							onChangeFont={ ( value ) =>
-								setAttributes( { font: value } )
-							}
+							onChangeFont={ ( value ) => setAttributes( { font: value } ) }
 							fontSize={ fontSize }
-							onChangeFontSize={ ( value ) =>
-								setAttributes( { fontSize: value } )
-							}
+							onChangeFontSize={ ( value ) => setAttributes( { fontSize: value } ) }
 							lineHeight={ lineHeight }
-							onChangeLineHeight={ ( value ) =>
-								setAttributes( { lineHeight: value } )
-							}
+							onChangeLineHeight={ ( value ) => setAttributes( { lineHeight: value } ) }
 							fontWeight={ fontWeight }
-							onChangeFontWeight={ ( value ) =>
-								setAttributes( { fontWeight: value } )
-							}
+							onChangeFontWeight={ ( value ) => setAttributes( { fontWeight: value } ) }
 							decoration={ decoration }
-							onChangeDecoration={ ( value ) =>
-								setAttributes( { decoration: value } )
-							}
+							onChangeDecoration={ ( value ) => setAttributes( { decoration: value } ) }
 							transform={ transform }
-							onChangeTransform={ ( value ) =>
-								setAttributes( { transform: value } )
-							}
+							onChangeTransform={ ( value ) => setAttributes( { transform: value } ) }
 							fontStyle={ fontStyle }
-							onChangeFontStyle={ ( value ) =>
-								setAttributes( { fontStyle: value } )
-							}
+							onChangeFontStyle={ ( value ) => setAttributes( { fontStyle: value } ) }
 							letterSpacing={ letterSpacing }
-							onChangeLetterSpacing={ ( value ) =>
-								setAttributes( { letterSpacing: value } )
-							}
+							onChangeLetterSpacing={ ( value ) => setAttributes( { letterSpacing: value } ) }
 						/>
 						<GridFlowBoxControl
 							label={ __( 'Caption Spacing', 'gridflow' ) }
 							value={ captionSpacing }
-							onChange={ ( value ) =>
-								setAttributes( { captionSpacing: value } )
-							}
+							onChange={ ( value ) => setAttributes( { captionSpacing: value } ) }
 						/>
 					</PanelBody>
 				) }

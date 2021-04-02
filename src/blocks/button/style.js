@@ -64,27 +64,11 @@ function inlineStyle( { attributes } ) {
 			...GridFlowStyleBoxShadow( boxShadowHover ),
 		},
 		' a.gridflow-button__link > .gridflow-button__text': {
-			...GridFlowStyleTypography( {
-				font,
-				fontSize,
-				lineHeight,
-				fontWeight,
-				decoration,
-				transform,
-				fontStyle,
-				letterSpacing,
-				device: 'desktop',
-			} ),
+			...GridFlowStyleTypography( { font, fontSize, lineHeight, fontWeight, decoration, transform, fontStyle, letterSpacing, device: 'desktop' } ),
 		},
 		' a.gridflow-button__link > .gridflow-button__icon': {
-			'margin-right':
-				iconPosition === 'left' && iconSpacing
-					? iconSpacing
-					: undefined,
-			'margin-left':
-				iconPosition === 'right' && iconSpacing
-					? iconSpacing
-					: undefined,
+			'margin-right': iconPosition === 'left' && iconSpacing ? iconSpacing : undefined,
+			'margin-left': iconPosition === 'right' && iconSpacing ? iconSpacing : undefined,
 		},
 		' a.gridflow-button__link > .gridflow-button__icon > img': {
 			width: iconWidth?.desktop || undefined,
@@ -115,12 +99,7 @@ function inlineStyle( { attributes } ) {
 			...GridFlowStyleBox( borderRadiusHover, 'border-radius', 'tablet' ),
 		},
 		' a.gridflow-button__link > .gridflow-button__text': {
-			...GridFlowStyleTypography( {
-				fontSize,
-				lineHeight,
-				letterSpacing,
-				device: 'tablet',
-			} ),
+			...GridFlowStyleTypography( { fontSize, lineHeight, letterSpacing, device: 'tablet' } ),
 		},
 		' a.gridflow-button__link > .gridflow-button__icon > img': {
 			width: iconWidth?.tablet || undefined,
@@ -147,12 +126,7 @@ function inlineStyle( { attributes } ) {
 			...GridFlowStyleBox( borderRadiusHover, 'border-radius', 'mobile' ),
 		},
 		' a.gridflow-button__link > .gridflow-button__text': {
-			...GridFlowStyleTypography( {
-				fontSize,
-				lineHeight,
-				letterSpacing,
-				device: 'mobile',
-			} ),
+			...GridFlowStyleTypography( { fontSize, lineHeight, letterSpacing, device: 'mobile' } ),
 		},
 		' a.gridflow-button__link > .gridflow-button__icon > img': {
 			width: iconWidth?.mobile || undefined,

@@ -101,6 +101,7 @@ const GridFlowBackground = ( { label, values: valuesProp, onChange = noop } ) =>
 						<p className="gridflow-control__label">
 							{ __( 'Image', 'gridflow' ) }
 						</p>
+
 						<Flex style={ { marginBottom: 10 } } align="flex-start">
 							<FlexItem>
 								<TextControl
@@ -111,23 +112,16 @@ const GridFlowBackground = ( { label, values: valuesProp, onChange = noop } ) =>
 									style={ { marginBottom: 0 } }
 								/>
 							</FlexItem>
+
 							<FlexItem>
 								<MediaUploadCheck>
 									<MediaUpload
-										onSelect={ ( media ) =>
-											onChangeType( 'image', media.url )
-										}
+										onSelect={ ( media ) => onChangeType( 'image', media.url ) }
 										allowedTypes={ [ 'image' ] }
 										value={ inputValues.image }
 										render={ ( { open } ) => (
-											<Button
-												onClick={ open }
-												isSecondary
-												style={ { height: 31 } }
-											>
-												{ ! inputValues.image
-													? __( 'Upload', 'gridflow' )
-													: __( 'Replace', 'gridflow' ) }
+											<Button onClick={ open } isSecondary style={ { height: 31 } } >
+												{ ! inputValues.image ? __( 'Upload', 'gridflow' ) : __( 'Replace', 'gridflow' ) }
 											</Button>
 										) }
 									/>
@@ -143,29 +137,17 @@ const GridFlowBackground = ( { label, values: valuesProp, onChange = noop } ) =>
 									values={ inputValues.position }
 									onChange={ createHandleOnChange( 'position' ) }
 								/>
-								<Flex
-									gap={ 8 }
-									justify={ 'flex-start' }
-									align={ 'flex-start' }
-								>
+								<Flex gap={ 8 } justify={ 'flex-start' } align={ 'flex-start' } >
 									<FlexItem>
 										<GridFlowSelect
 											label={ __( 'Attachment', 'gridflow' ) }
 											values={ inputValues.attachment }
 											options={ [
 												{ label: 'Default', value: '' },
-												{
-													label: 'Scroll',
-													value: 'scroll',
-												},
-												{
-													label: 'Fixed',
-													value: 'fixed',
-												},
+												{ label: 'Scroll', value: 'scroll' },
+												{ label: 'Fixed', value: 'fixed' },
 											] }
-											onChange={ createHandleOnChange(
-												'attachment'
-											) }
+											onChange={ createHandleOnChange( 'attachment' ) }
 										/>
 									</FlexItem>
 									<FlexItem>
@@ -174,30 +156,13 @@ const GridFlowBackground = ( { label, values: valuesProp, onChange = noop } ) =>
 											values={ inputValues.repeat }
 											options={ [
 												{ label: 'Default', value: '' },
-												{
-													label: 'No Repeat',
-													value: 'no-repeat',
-												},
-												{
-													label: 'Repeat',
-													value: 'repeat',
-												},
-												{
-													label: 'Repeat',
-													value: 'repeat',
-												},
-												{
-													label: 'Repeat X',
-													value: 'repeat-x',
-												},
-												{
-													label: 'Repeat Y',
-													value: 'repeat-y',
-												},
+												{ label: 'No Repeat', value: 'no-repeat' },
+												{ label: 'Repeat', value: 'repeat' },
+												{ label: 'Repeat', value: 'repeat' },
+												{ label: 'Repeat X', value: 'repeat-x' },
+												{ label: 'Repeat Y', value: 'repeat-y' },
 											] }
-											onChange={ createHandleOnChange(
-												'repeat'
-											) }
+											onChange={ createHandleOnChange( 'repeat' ) }
 										/>
 									</FlexItem>
 								</Flex>

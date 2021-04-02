@@ -59,11 +59,7 @@ const GridFlowBoxShadow = ( {
 
 	return (
 		<>
-			<BaseControl
-				id={ null }
-				label={ label }
-				className="gridflow-box-shadow-component"
-			>
+			<BaseControl id={ null } label={ label } className="gridflow-box-shadow-component" >
 				<GridFlowColorPicker
 					label={ null }
 					value={ inputValues.color }
