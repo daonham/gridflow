@@ -55,7 +55,6 @@ const TextInputControl = ( {
 					values={ values[ getDevice ] }
 					onChange={ createHandleOnChange( [ getDevice ] ) }
 				/>
-
 			</div>
 		</>
 	);

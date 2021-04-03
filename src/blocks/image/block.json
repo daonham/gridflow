@@ -115,6 +115,5 @@
 		"captionSpacing": {
 			"type": "object"
 		}
-	},
-	"style": "gridflow-button"
+	}
 }

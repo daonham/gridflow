@@ -12,6 +12,7 @@ const allowedBlocks = [
 	'gridflow/heading',
 	'gridflow/button',
 	'gridflow/image',
+	'gridflow/icon',
 ];
 
 export function addAttributes( settings ) {

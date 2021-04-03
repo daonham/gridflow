@@ -1,0 +1,75 @@
+{
+	"apiVersion": 2,
+	"name": "gridflow/icon",
+	"category": "gridflow",
+	"attributes": {
+		"icon": {
+			"default": {
+				"icon": "far fa-star",
+				"url": null,
+				"alt": null
+			}
+		},
+		"links": {
+			"type": "object"
+		},
+		"textAligns": {
+			"type": "object"
+		},
+		"fontSize": {
+			"type": "object"
+		},
+		"lineHeight": {
+			"type": "object"
+		},
+		"imgWidth": {
+			"type": "object"
+		},
+		"width": {
+			"type": "object"
+		},
+		"height": {
+			"type": "object"
+		},
+		"color": {
+			"type": "string"
+		},
+		"bgColor": {
+			"type": "string"
+		},
+		"padding": {
+			"type": "object"
+		},
+		"border": {
+			"type": "object"
+		},
+		"borderRadius": {
+			"type": "object"
+		},
+		"boxShadow": {
+			"type": "object"
+		},
+		"colorHover": {
+			"type": "string"
+		},
+		"bgColorHover": {
+			"type": "string"
+		},
+		"transition": {
+			"type": "number"
+		},
+		"hoverEffect": {
+			"type": "string"
+		},
+		"borderHover": {
+			"type": "object"
+		},
+		"borderRadiusHover": {
+			"type": "object"
+		},
+		"boxShadowHover": {
+			"type": "object"
+		}
+	},
+	"style": "gridflow-icon"
+}
