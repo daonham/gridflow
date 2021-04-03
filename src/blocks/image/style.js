@@ -47,6 +47,7 @@ function inlineStyle( { attributes } ) {
 			width: width?.desktop,
 			height: height?.desktop,
 			'object-fit': objectFit?.desktop || undefined,
+			'-o-object-fit': objectFit?.desktop || undefined,
 			'object-position': objectPosition?.desktop?.x && objectPosition?.desktop?.y ? `${objectPosition?.desktop?.x * 100}% ${objectPosition?.desktop?.y * 100}%` : undefined
 		},
 		' .gridflow-image__wrapper--overlay:after': {
@@ -55,6 +56,7 @@ function inlineStyle( { attributes } ) {
 			transition: `all ${transition}s`,
 		},
 		' .gridflow-image__wrapper--overlay:hover:after': {
+			transition: `all ${transition}s`,
 			opacity: overlayHover ? overlayHover * 0.01 : undefined,
 			background: bgOverlayHover,
 		},
@@ -77,6 +79,7 @@ function inlineStyle( { attributes } ) {
 			width: width?.tablet,
 			height: height?.tablet,
 			'object-fit': objectFit?.tablet || undefined,
+			'-o-object-fit': objectFit?.tablet || undefined,
 			'object-position': objectPosition?.tablet?.x && objectPosition?.tablet?.y ? `${objectPosition?.tablet?.x * 100}% ${objectPosition?.tablet?.y * 100}%` : undefined
 		},
 		' .gridflow-image__caption__text': {
@@ -98,6 +101,7 @@ function inlineStyle( { attributes } ) {
 			width: width?.mobile,
 			height: height?.mobile,
 			'object-fit': objectFit?.mobile || undefined,
+			'-o-object-fit': objectFit?.mobile || undefined,
 			'object-position': objectPosition?.mobile?.x && objectPosition?.mobile?.y ? `${objectPosition?.mobile?.x * 100}% ${objectPosition?.mobile?.y * 100}%` : undefined
 		},
 		' .gridflow-image__caption__text': {
