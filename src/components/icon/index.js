@@ -143,7 +143,7 @@ const GridFlowIconSelect = ( {
 											label={ __( 'Upload SVG, PNG, JPG', 'gridflow' ) }
 											isSecondary
 											onClick={ open }
-											icon={ <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20" > <path d="M0 0h24v24H0z" fill="none" /> <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z" /> </svg> }
+											icon={ <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24" /></g><g><path d="M18,15v3H6v-3H4v3c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2v-3H18z M7,9l1.41,1.41L11,7.83V16h2V7.83l2.59,2.58L17,9l-5-5L7,9z" /></g></svg> }
 											style={ { height: 30, minHeight: 30 } }
 										/>
 									) }

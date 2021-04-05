@@ -75,6 +75,7 @@ const GridFlowBackground = ( { label, values: valuesProp, onChange = noop } ) =>
 								isSmall
 								isPrimary={ inputValues.type === 'classic' }
 								onClick={ () => onChangeType( 'type', 'classic' ) }
+								style={ { fontSize: 12 } }
 							>
 								{ __( 'Classic', 'gridflow' ) }
 							</Button>
@@ -82,6 +83,7 @@ const GridFlowBackground = ( { label, values: valuesProp, onChange = noop } ) =>
 								isSmall
 								isPrimary={ inputValues.type === 'gradient' }
 								onClick={ () => onChangeType( 'type', 'gradient' ) }
+								style={ { fontSize: 12 } }
 							>
 								{ __( 'Gradient', 'gridflow' ) }
 							</Button>
