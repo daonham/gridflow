@@ -12,6 +12,7 @@ import GridFlowTextUnit from './text';
 import GridFlowTextAlign from './text-align';
 import GridFlowTextShadow from './text-shadow';
 import GridFlowTyphography from './typopgraphy';
+import GridFlowDivider from './divider';
 
 // Style.
 import GridFlowStyleBackground from './background/style';
@@ -22,6 +23,7 @@ import GridFlowStyleTextShadow from './text-shadow/style';
 import GridFlowStyleTypography from './typopgraphy/style';
 
 wp.gridflowComponents = {
+	GridFlowDivider,
 	GridFlowRangeControl,
 	GridFlowTextUnit,
 	GridFlowBoxControl,

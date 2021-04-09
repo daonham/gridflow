@@ -1,0 +1,30 @@
+{
+	"apiVersion": 2,
+	"name": "gridflow/accordion-item",
+	"category": "gridflow",
+	"parent": [
+		"gridflow/accordion"
+	],
+	"attributes": {
+		"title": {
+			"type": "string",
+			"source": "html",
+			"selector": ".gridflow-accordion__item__title-content",
+			"default": ""
+		},
+		"collapse": {
+			"type": "boolean",
+			"default": false
+		},
+		"icon": {
+			"type": "object"
+		},
+		"iconActive": {
+			"type": "object"
+		},
+		"iconAlign": {
+			"type": "string",
+			"default": "left"
+		}
+	}
+}

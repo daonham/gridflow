@@ -146,8 +146,6 @@ const TextInputControl = ( {
 						{ label: 'Dashed', value: 'dashed' },
 						{ label: 'Dotted', value: 'dotted' },
 						{ label: 'Double', value: 'double' },
-						{ label: 'Groove', value: 'groove' },
-						{ label: 'Ridge', value: 'ridge' },
 						{ label: 'None', value: 'none' },
 					] }
 					onChange={ createHandleOnChange( 'style' ) }

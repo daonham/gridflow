@@ -1,0 +1,115 @@
+{
+	"apiVersion": 2,
+	"name": "gridflow/accordion",
+	"category": "gridflow",
+	"attributes": {
+		"icon": {
+			"default": {
+				"icon": "fas fa-chevron-down",
+				"url": null,
+				"alt": null
+			}
+		},
+		"iconActive": {
+			"default": {
+				"icon": "fas fa-chevron-up",
+				"url": null,
+				"alt": null
+			}
+		},
+		"spacing": {
+			"type": "object"
+		},
+		"boxShadow": {
+			"type": "object"
+		},
+		"titleTextAligns": {
+			"type": "object"
+		},
+		"titleColor": {
+			"type": "string"
+		},
+		"bgTitleColor": {
+			"type": "string"
+		},
+		"font": {
+			"type": "string"
+		},
+		"fontSize": {
+			"type": "object"
+		},
+		"lineHeight": {
+			"type": "object"
+		},
+		"fontWeight": {
+			"type": "string"
+		},
+		"decoration": {
+			"type": "string"
+		},
+		"transform": {
+			"type": "string"
+		},
+		"fontStyle": {
+			"type": "string"
+		},
+		"letterSpacing": {
+			"type": "object"
+		},
+		"titlePadding": {
+			"type": "object"
+		},
+		"titleBorder": {
+			"type": "object"
+		},
+		"titleBorderRadius": {
+			"type": "object"
+		},
+		"titleColorActive": {
+			"type": "string"
+		},
+		"bgTitleColorActive": {
+			"type": "string"
+		},
+		"fontWeightActive": {
+			"type": "string"
+		},
+		"titleBorderActive": {
+			"type": "object"
+		},
+		"titleBorderRadiusActive": {
+			"type": "object"
+		},
+		"iconAlign": {
+			"type": "string",
+			"default": "left"
+		},
+		"iconColor": {
+			"type": "string"
+		},
+		"iconColorActive": {
+			"type": "string"
+		},
+		"iconFontSize": {
+			"type": "object"
+		},
+		"iconSpacing": {
+			"type": "object"
+		},
+		"contentColor": {
+			"type": "string"
+		},
+		"bgContentColor": {
+			"type": "string"
+		},
+		"contentPadding": {
+			"type": "object"
+		},
+		"contentBorder": {
+			"type": "object"
+		},
+		"contentBorderRadius": {
+			"type": "object"
+		}
+	}
+}

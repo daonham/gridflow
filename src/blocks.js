@@ -17,6 +17,8 @@ import * as heading from './blocks/heading';
 import * as button from './blocks/button';
 import * as image from './blocks/image';
 import * as icon from './blocks/icon';
+import * as accordion from './blocks/accordion';
+import * as accordionItem from './blocks/accordion/accordion-item';
 
 const registerBlock = ( block ) => {
 	if ( ! block ) {
@@ -37,6 +39,8 @@ export const registerGridFlowBlocks = () => {
 		button,
 		image,
 		icon,
+		accordion,
+		accordionItem,
 	].forEach( registerBlock );
 };
 
