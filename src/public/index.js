@@ -1,7 +1,9 @@
 import gridflowAnimate from './animate';
+import gridflowAccordion from './accordion';
 
 gridflowDomReady( function() {
 	gridflowAnimate();
+	gridflowAccordion();
 } );
 
 function gridflowDomReady( fn ) {

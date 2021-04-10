@@ -15,7 +15,7 @@ const TEMPLATE = [
 ];
 
 function Edit( { isSelected, attributes, setAttributes, clientId } ) {
-	const { uniqueId, title, collapse, icon, iconActive, iconAlign } = attributes;
+	const { uniqueId, title, tagName, collapse, icon, iconActive, iconAlign } = attributes;
 
 	const isSelectedChild = useSelect( ( select ) => {
 		const { getSelectedBlockClientId, getBlocks } = select( blockEditorStore );
@@ -24,6 +24,8 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 
 		return hasSelectedChildren.length > 0;
 	}, [ clientId ] );
+
+	const isEditing = isSelected || isSelectedChild || collapse;
 
 	return (
 		<>
@@ -41,22 +43,24 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 				/>
 			) }
 
-			<div { ...useBlockProps( { className: classnames( 'gridflow-accordion__item', uniqueId ) } ) }>
+			<div { ...useBlockProps( { className: classnames( 'gridflow-accordion__item', uniqueId, { active: isEditing } ) } ) }>
 				<div className={ classnames( 'gridflow-accordion__item__inner', 'gridflow-block-inner' ) }>
 					<div className={ 'gridflow-accordion__item__wrapper' }>
 						<div className="gridflow-accordion__item__title">
 							{ ( icon?.icon || icon?.url ) && iconAlign && iconAlign === 'left' && (
 								<span className="gridflow-accordion__item__icon gridflow-accordion__item__icon--left">
-									<span className="gridflow-accordion__item__icon__closed">
-										{ icon?.icon && (
-											<i className={ icon.icon }></i>
-										) }
-										{ icon?.url && (
-											<img src={ icon.url } alt={ icon?.alt ? icon.alt : '' } />
-										) }
-									</span>
+									{ ! isEditing && (
+										<span className="gridflow-accordion__item__icon__closed">
+											{ icon?.icon && (
+												<i className={ icon.icon }></i>
+											) }
+											{ icon?.url && (
+												<img src={ icon.url } alt={ icon?.alt ? icon.alt : '' } />
+											) }
+										</span>
+									) }
 
-									{ ( iconActive?.icon || iconActive?.url ) && (
+									{ isEditing && ( iconActive?.icon || iconActive?.url ) && (
 										<span className="gridflow-accordion__item__icon__opened">
 											{ iconActive?.icon && (
 												<i className={ iconActive.icon }></i>
@@ -69,7 +73,7 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 								</span>
 							) }
 							<RichText
-								tagName="span"
+								tagName={ tagName }
 								placeholder={ __( 'Write accordion item title…', 'gridflow' ) }
 								className={ 'gridflow-accordion__item__title-content' }
 								value={ title }
@@ -78,16 +82,18 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 							/>
 							{ ( icon?.icon || icon?.url ) && iconAlign && iconAlign === 'right' && (
 								<span className="gridflow-accordion__item__icon gridflow-accordion__item__icon--right">
-									<span className="gridflow-accordion__item__icon__closed">
-										{ icon?.icon && (
-											<i className={ icon.icon }></i>
-										) }
-										{ icon?.url && (
-											<img src={ icon.url } alt={ icon?.alt ? icon.alt : '' } />
-										) }
-									</span>
+									{ ! isEditing && (
+										<span className="gridflow-accordion__item__icon__closed">
+											{ icon?.icon && (
+												<i className={ icon.icon }></i>
+											) }
+											{ icon?.url && (
+												<img src={ icon.url } alt={ icon?.alt ? icon.alt : '' } />
+											) }
+										</span>
+									) }
 
-									{ ( iconActive?.icon || iconActive?.url ) && (
+									{ isEditing && ( iconActive?.icon || iconActive?.url ) && (
 										<span className="gridflow-accordion__item__icon__opened">
 											{ iconActive?.icon && (
 												<i className={ iconActive.icon }></i>
@@ -100,7 +106,7 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 								</span>
 							) }
 						</div>
-						<div className="gridflow-accordion__item__content" style={ { display: isSelected || isSelectedChild || collapse ? 'block' : 'none' } }>
+						<div className="gridflow-accordion__item__content" style={ { display: isEditing ? 'block' : 'none' } }>
 							<InnerBlocks
 								template={ TEMPLATE }
 								templateInsertUpdatesSelection={ false }

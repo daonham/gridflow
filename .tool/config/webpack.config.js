@@ -1,6 +1,6 @@
 const path = require( 'path' );
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
-const postcssConfig = require( './postcss.config' );
+const postcssPlugins = require( '@wordpress/postcss-plugins-preset' );
 
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 const RtlCssPlugin = require( 'rtlcss-webpack-plugin' );
@@ -46,8 +46,9 @@ module.exports = {
 					{
 						loader: 'postcss-loader',
 						options: {
-							...postcssConfig,
+							ident: 'postcss',
 							sourceMap: ! isProduction,
+							plugins: postcssPlugins,
 						},
 					},
 					{

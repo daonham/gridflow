@@ -23,6 +23,10 @@
 		"boxShadow": {
 			"type": "object"
 		},
+		"tagName": {
+			"type": "string",
+			"default": "span"
+		},
 		"titleTextAligns": {
 			"type": "object"
 		},
@@ -82,7 +86,7 @@
 		},
 		"iconAlign": {
 			"type": "string",
-			"default": "left"
+			"default": "right"
 		},
 		"iconColor": {
 			"type": "string"
@@ -94,7 +98,12 @@
 			"type": "object"
 		},
 		"iconSpacing": {
-			"type": "object"
+			"type": "object",
+			"default": {
+				"desktop": "5px",
+				"tablet": "5px",
+				"mobile": "5px"
+			}
 		},
 		"contentColor": {
 			"type": "string"

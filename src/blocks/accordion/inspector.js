@@ -26,6 +26,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 		iconActive,
 		spacing,
 		boxShadow,
+		tagName,
 
 		titleTextAligns,
 		titleColor,
@@ -84,6 +85,22 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						label={ __( 'Box Shadow', 'gridflow' ) }
 						value={ boxShadow }
 						onChange={ ( value ) => setAttributes( { boxShadow: value } ) }
+					/>
+					<SelectControl
+						label={ __( 'Title HTML Tag', 'gridflow' ) }
+						value={ tagName }
+						options={ [
+							{ label: 'H1', value: 'h1' },
+							{ label: 'H2', value: 'h2' },
+							{ label: 'H3', value: 'h3' },
+							{ label: 'H4', value: 'h4' },
+							{ label: 'H5', value: 'h5' },
+							{ label: 'H6', value: 'h6' },
+							{ label: 'DIV', value: 'div' },
+							{ label: 'P', value: 'p' },
+							{ label: 'SPAN', value: 'span' },
+						] }
+						onChange={ ( value ) => setAttributes( { tagName: value } ) }
 					/>
 				</PanelBody>
 

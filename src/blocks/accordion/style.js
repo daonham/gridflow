@@ -8,109 +8,195 @@ const {
 
 function inlineStyle( { attributes } ) {
 	const {
-		textAligns,
+		spacing,
+		boxShadow,
+		titleTextAligns,
+		titleColor,
+		bgTitleColor,
+		font,
 		fontSize,
 		lineHeight,
-		imgWidth,
-		width,
-		height,
-		color,
-		bgColor,
-		padding,
-		border,
-		borderRadius,
-		boxShadow,
+		fontWeight,
+		decoration,
+		transform,
+		fontStyle,
+		letterSpacing,
+		titlePadding,
+		titleBorder,
+		titleBorderRadius,
 
-		colorHover,
-		bgColorHover,
-		transition,
-		borderHover,
-		borderRadiusHover,
-		boxShadowHover,
+		titleColorActive,
+		bgTitleColorActive,
+		fontWeightActive,
+		titleBorderActive,
+		titleBorderRadiusActive,
+
+		iconAlign,
+		iconColor,
+		iconColorActive,
+		iconFontSize,
+		iconSpacing,
+
+		contentColor,
+		bgContentColor,
+		contentPadding,
+		contentBorder,
+		contentBorderRadius,
 	} = attributes;
 	const desktop = {
-		'': {
-			'text-align': textAligns?.desktop,
-		},
-		' .gridflow-icon__icon': {
-			width: width?.desktop,
-			height: height?.desktop,
-			'background-color': bgColor,
-			...GridFlowStyleBox( padding, 'padding', 'desktop' ),
-			...GridFlowStyleBorder( border, 'desktop' ),
-			...GridFlowStyleBox( borderRadius, 'border-radius', 'desktop' ),
+		' .gridflow-accordion__item': {
+			'margin-bottom': spacing?.desktop ? spacing.desktop + 'px' : undefined,
 			...GridFlowStyleBoxShadow( boxShadow ),
-			transition: transition && `all ${transition}s`,
 		},
-		' .gridflow-icon__icon > i': {
-			color,
-			'font-size': fontSize?.desktop,
-			'line-height': lineHeight?.desktop,
+		' .gridflow-accordion__item__title': {
+			'text-align': titleTextAligns?.desktop,
+			color: titleColor,
+			background: bgTitleColor,
+			...GridFlowStyleBox( titlePadding, 'padding', 'desktop' ),
+			...GridFlowStyleBorder( titleBorder, 'desktop' ),
+			...GridFlowStyleBox( titleBorderRadius, 'border-radius', 'desktop' ),
 		},
-		' .gridflow-icon__icon > img': {
-			color,
-			width: imgWidth?.desktop,
+		' .gridflow-accordion__item__title-content': {
+			...GridFlowStyleTypography( {
+				font,
+				fontSize,
+				lineHeight,
+				fontWeight,
+				decoration,
+				transform,
+				fontStyle,
+				letterSpacing,
+				device: 'desktop',
+			} ),
 		},
-		' .gridflow-icon__icon:hover': {
-			'background-color': bgColorHover,
-			transition: transition && `all ${transition}s`,
-			...GridFlowStyleBorder( borderHover, 'desktop' ),
-			...GridFlowStyleBox( borderRadiusHover, 'border-radius', 'desktop' ),
-			...GridFlowStyleBoxShadow( boxShadowHover ),
+		' .gridflow-accordion__item .gridflow-accordion__item__icon i:before': {
+			color: iconColor,
+			'font-size': iconFontSize?.desktop,
 		},
-		' .gridflow-icon__icon:hover > i': {
-			color: colorHover,
+		' .gridflow-accordion__item .gridflow-accordion__item__icon': {
+			'margin-right': iconAlign === 'left' && iconSpacing?.desktop ? iconSpacing.desktop : 0,
+			'margin-left': iconAlign === 'right' && iconSpacing?.desktop ? iconSpacing.desktop : 0,
 		},
-		' .gridflow-icon__icon:hover > img': {
-			color: colorHover,
-		}
+		' .gridflow-accordion__item.active .gridflow-accordion__item__title': {
+			color: titleColorActive,
+			background: bgTitleColorActive,
+			...GridFlowStyleBorder( titleBorderActive, 'desktop' ),
+			...GridFlowStyleBox( titleBorderRadiusActive, 'border-radius', 'desktop' ),
+		},
+		' .gridflow-accordion__item.active .gridflow-accordion__item__title-content': {
+			'font-weight': fontWeightActive || undefined,
+		},
+		' .gridflow-accordion__item.active .gridflow-accordion__item__icon i:before': {
+			color: iconColorActive,
+		},
+		' .gridflow-accordion__item .gridflow-accordion__item__title:hover': {
+			color: titleColorActive,
+			background: bgTitleColorActive,
+			...GridFlowStyleBorder( titleBorderActive, 'desktop' ),
+			...GridFlowStyleBox( titleBorderRadiusActive, 'border-radius', 'desktop' ),
+		},
+		' .gridflow-accordion__item .gridflow-accordion__item__title:hover .gridflow-accordion__item__title-content': {
+			'font-weight': fontWeightActive || undefined,
+		},
+		' .gridflow-accordion__item .gridflow-accordion__item__title:hover .gridflow-accordion__item__icon i:before': {
+			color: iconColorActive,
+		},
+		' .gridflow-accordion__item__content': {
+			color: contentColor,
+			background: bgContentColor,
+			...GridFlowStyleBox( contentPadding, 'padding', 'desktop' ),
+			...GridFlowStyleBorder( contentBorder, 'desktop' ),
+			...GridFlowStyleBox( contentBorderRadius, 'border-radius', 'desktop' ),
+		},
 	};
 
 	const tablet = {
-		'': {
-			'text-align': textAligns?.tablet,
+		' .gridflow-accordion__item': {
+			'margin-bottom': spacing?.tablet ? spacing.tablet + 'px' : undefined,
 		},
-		' .gridflow-icon__icon': {
-			width: width?.tablet,
-			height: height?.tablet,
-			...GridFlowStyleBox( padding, 'padding', 'tablet' ),
-			...GridFlowStyleBorder( border, 'tablet' ),
-			...GridFlowStyleBox( borderRadius, 'border-radius', 'tablet' ),
+		' .gridflow-accordion__item__title': {
+			'text-align': titleTextAligns?.tablet,
+			...GridFlowStyleBox( titlePadding, 'padding', 'tablet' ),
+			...GridFlowStyleBorder( titleBorder, 'tablet' ),
+			...GridFlowStyleBox( titleBorderRadius, 'border-radius', 'tablet' ),
 		},
-		' .gridflow-icon__icon > i': {
-			'font-size': fontSize?.tablet,
-			'line-height': lineHeight?.tablet,
+		' .gridflow-accordion__item__title-content': {
+			...GridFlowStyleTypography( {
+				font,
+				fontSize,
+				lineHeight,
+				fontWeight,
+				decoration,
+				transform,
+				fontStyle,
+				letterSpacing,
+				device: 'tablet',
+			} ),
 		},
-		' .gridflow-icon__icon > img': {
-			width: imgWidth?.tablet,
+		' .gridflow-accordion__item .gridflow-accordion__item__icon i:before': {
+			'font-size': iconFontSize?.tablet,
 		},
-		' .gridflow-icon__icon:hover': {
-			...GridFlowStyleBorder( borderHover, 'tablet' ),
-			...GridFlowStyleBox( borderRadiusHover, 'border-radius', 'tablet' ),
+		' .gridflow-accordion__item .gridflow-accordion__item__icon': {
+			'margin-right': iconAlign === 'left' && iconSpacing?.tablet ? iconSpacing.tablet : undefined,
+			'margin-left': iconAlign === 'right' && iconSpacing?.tablet ? iconSpacing.tablet : undefined,
+		},
+		' .gridflow-accordion__item.active .gridflow-accordion__item__title': {
+			...GridFlowStyleBorder( titleBorderActive, 'tablet' ),
+			...GridFlowStyleBox( titleBorderRadiusActive, 'border-radius', 'tablet' ),
+		},
+		' .gridflow-accordion__item .gridflow-accordion__item__title:hover': {
+			...GridFlowStyleBorder( titleBorderActive, 'tablet' ),
+			...GridFlowStyleBox( titleBorderRadiusActive, 'border-radius', 'tablet' ),
+		},
+		' .gridflow-accordion__item__content': {
+			...GridFlowStyleBox( contentPadding, 'padding', 'tablet' ),
+			...GridFlowStyleBorder( contentBorder, 'tablet' ),
+			...GridFlowStyleBox( contentBorderRadius, 'border-radius', 'tablet' ),
 		},
 	};
 
 	const mobile = {
-		'': {
-			'text-align': textAligns?.mobile,
+		' .gridflow-accordion__item': {
+			'margin-bottom': spacing?.mobile ? spacing.mobile + 'px' : undefined,
 		},
-		' .gridflow-icon__icon': {
-			width: width?.mobile,
-			height: height?.mobile,
-			...GridFlowStyleBox( padding, 'padding', 'mobile' ),
-			...GridFlowStyleBorder( border, 'mobile' ),
-			...GridFlowStyleBox( borderRadius, 'border-radius', 'mobile' ),
+		' .gridflow-accordion__item__title': {
+			'text-align': titleTextAligns?.mobile,
+			...GridFlowStyleBox( titlePadding, 'padding', 'mobile' ),
+			...GridFlowStyleBorder( titleBorder, 'mobile' ),
+			...GridFlowStyleBox( titleBorderRadius, 'border-radius', 'mobile' ),
 		},
-		' .gridflow-icon__icon > i': {
-			'font-size': fontSize?.mobile,
-			'line-height': lineHeight?.mobile,
+		' .gridflow-accordion__item__title-content': {
+			...GridFlowStyleTypography( {
+				font,
+				fontSize,
+				lineHeight,
+				fontWeight,
+				decoration,
+				transform,
+				fontStyle,
+				letterSpacing,
+				device: 'mobile',
+			} ),
 		},
-		' .gridflow-icon__icon > img': {
-			width: imgWidth?.mobile,
+		' .gridflow-accordion__item .gridflow-accordion__item__icon i:before': {
+			'font-size': iconFontSize?.mobile,
 		},
-		' .gridflow-icon__icon:hover': {
-			...GridFlowStyleBorder( borderHover, 'mobile' ),
-			...GridFlowStyleBox( borderRadiusHover, 'border-radius', 'mobile' ),
+		' .gridflow-accordion__item .gridflow-accordion__item__icon': {
+			'margin-right': iconAlign === 'left' && iconSpacing?.mobile ? iconSpacing.mobile : undefined,
+			'margin-left': iconAlign === 'right' && iconSpacing?.mobile ? iconSpacing.mobile : undefined,
+		},
+		' .gridflow-accordion__item.active .gridflow-accordion__item__title': {
+			...GridFlowStyleBorder( titleBorderActive, 'mobile' ),
+			...GridFlowStyleBox( titleBorderRadiusActive, 'border-radius', 'mobile' ),
+		},
+		' .gridflow-accordion__item .gridflow-accordion__item__title:hover': {
+			...GridFlowStyleBorder( titleBorderActive, 'mobile' ),
+			...GridFlowStyleBox( titleBorderRadiusActive, 'border-radius', 'mobile' ),
+		},
+		' .gridflow-accordion__item__content': {
+			...GridFlowStyleBox( contentPadding, 'padding', 'mobile' ),
+			...GridFlowStyleBorder( contentBorder, 'mobile' ),
+			...GridFlowStyleBox( contentBorderRadius, 'border-radius', 'mobile' ),
 		},
 	};
 

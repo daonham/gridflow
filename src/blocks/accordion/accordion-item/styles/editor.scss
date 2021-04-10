@@ -2,15 +2,30 @@
 
 	.gridflow-accordion__item {
 
-		&__wrapper {
-			border-radius: 4px;
+		&__title {
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: center;
+			margin: 0;
+			padding: 12px 20px;
+			background: #eee;
+			border-radius: 4px 4px 0 0;
+
+			&-content {
+				flex: 1;
+				font-size: 1rem;
+				line-height: 1;
+			}
 		}
 
-		&__title {
-			margin: 0;
-			padding: 10px 20px;
-			background: #eee;
-			border-radius: 4px;
+		&__icon {
+			flex: 0;
+			line-height: 1;
+
+			i::before {
+				font-size: 14px;
+				color: #222;
+			}
 		}
 
 		&__content {

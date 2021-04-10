@@ -25,10 +25,10 @@ class Assets {
 		$is_rtl = is_rtl() ? '-rtl' : '';
 
 		// Style.
-		wp_enqueue_style( 'gridflow-frontend', $url . $name . $is_rtl . '.css', array(), self::$version );
+		wp_enqueue_style( 'gridflow-frontend', $url . $name . $is_rtl . '.css', array(), $this->get_asset_info( 'dist/gridflow-style' )['version'] );
 
 		// Script.
-		wp_enqueue_script( 'gridflow', $url . 'js/gridflow.js', array(), self::$version, true );
+		wp_enqueue_script( 'gridflow', $url . 'js/gridflow.js', array(), $this->get_asset_info( 'dist/js/gridflow' )['version'], true );
 
 		// Enqueue style in uploads.
 		do_action( 'gridflow/enqueue/style/uploads', self::$version );
@@ -49,13 +49,13 @@ class Assets {
 		$url     = $this->url();
 		$url_js  = $url . 'gridflow';
 		$is_rtl  = is_rtl() ? '-rtl' : '';
-		$js_file = $this->get_asset_info( $url_js );
+		$js_file = $this->get_asset_info( 'dist/gridflow' );
 
 		// Styles.
-		wp_enqueue_style( 'gridflow-editor', $url . 'gridflow-editor' . $is_rtl . '.css', array(), self::$version );
+		wp_enqueue_style( 'gridflow-editor', $url . 'gridflow-editor' . $is_rtl . '.css', array(), $this->get_asset_info( 'dist/gridflow-editor' )['version'] );
 
 		// Scripts.
-		wp_enqueue_script( 'gridflow-editor', $url_js . '.js', array_merge( $js_file['dependencies'], array( 'wp-api' ) ), self::$version, true );
+		wp_enqueue_script( 'gridflow-editor', $url_js . '.js', $js_file['dependencies'], $js_file['version'], true );
 
 		// Localize.
 		wp_localize_script(
@@ -74,7 +74,7 @@ class Assets {
 		$path = GRIDFLOW_PLUGIN_DIR . $url . '.asset.php';
 
 		if ( file_exists( $path ) ) {
-			include $path;
+			return include( $path );
 		} else {
 			return array(
 				'dependencies' => array(),

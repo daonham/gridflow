@@ -12,6 +12,10 @@
 			"selector": ".gridflow-accordion__item__title-content",
 			"default": ""
 		},
+		"tagName": {
+			"type": "string",
+			"default": "span"
+		},
 		"collapse": {
 			"type": "boolean",
 			"default": false
