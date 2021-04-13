@@ -1,0 +1,31 @@
+{
+	"apiVersion": 2,
+	"name": "gridflow/progressbar",
+	"category": "gridflow",
+	"attributes": {
+		"title":{
+			"type": "string",
+			"source": "html",
+			"selector": ".gridflow-progress-bar__title",
+			"default": ""
+		},
+		"caption":{
+			"type": "string",
+			"source": "html",
+			"selector": ".gridflow-progress-bar__content__caption",
+			"default": ""
+		},
+		"percent": {
+			"type": "number",
+			"default": 60
+		},
+		"showValue": {
+			"type": "boolean",
+			"default": false
+		},
+		"suffix": {
+			"type": "string",
+			"default": "%"
+		}
+	}
+}

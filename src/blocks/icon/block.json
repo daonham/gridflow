@@ -4,6 +4,7 @@
 	"category": "gridflow",
 	"attributes": {
 		"icon": {
+			"type": "object",
 			"default": {
 				"icon": "far fa-star",
 				"url": null,
