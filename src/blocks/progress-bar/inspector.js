@@ -53,7 +53,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 					/>
 				</PanelBody>
 
-				<PanelBody title={ __( 'Icon', 'gridflow' ) } initialOpen={ false }>
+				<PanelBody title={ __( 'Title', 'gridflow' ) } initialOpen={ false }>
 				</PanelBody>
 			</InspectorControls>
 		</>

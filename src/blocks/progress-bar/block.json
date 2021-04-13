@@ -1,6 +1,6 @@
 {
 	"apiVersion": 2,
-	"name": "gridflow/progressbar",
+	"name": "gridflow/progress-bar",
 	"category": "gridflow",
 	"attributes": {
 		"title":{
@@ -12,7 +12,7 @@
 		"caption":{
 			"type": "string",
 			"source": "html",
-			"selector": ".gridflow-progress-bar__content__caption",
+			"selector": ".gridflow-progress-bar__content__label__caption",
 			"default": ""
 		},
 		"percent": {
