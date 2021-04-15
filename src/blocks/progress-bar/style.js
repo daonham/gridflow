@@ -1,116 +1,211 @@
 import { addFilter, hasFilter } from '@wordpress/hooks';
-const {
-	GridFlowStyleBox,
-	GridFlowStyleBorder,
-	GridFlowStyleBoxShadow,
-	GridFlowStyleTypography,
-} = wp.gridflowComponents;
+
+const { GridFlowStyleBox, GridFlowStyleTypography } = wp.gridflowComponents;
 
 function inlineStyle( { attributes } ) {
 	const {
-		textAligns,
-		fontSize,
-		lineHeight,
-		imgWidth,
-		width,
-		height,
 		color,
 		bgColor,
-		padding,
-		border,
+		height,
 		borderRadius,
-		boxShadow,
 
-		colorHover,
-		bgColorHover,
-		transition,
-		borderHover,
-		borderRadiusHover,
-		boxShadowHover,
+		colorTitle,
+		font,
+		fontSize,
+		lineHeight,
+		fontWeight,
+		decoration,
+		transform,
+		fontStyle,
+		letterSpacing,
+		spacing,
+
+		colorCaption,
+		fontCaption,
+		fontSizeCaption,
+		lineHeightCaption,
+		fontWeightCaption,
+		decorationCaption,
+		transformCaption,
+		fontStyleCaption,
+		letterSpacingCaption,
+		paddingCaption,
+
+		colorPercent,
+		fontPercent,
+		fontSizePercent,
+		lineHeightPercent,
+		fontWeightPercent,
+		decorationPercent,
+		transformPercent,
+		fontStylePercent,
+		letterSpacingPercent,
+		paddingPercent,
 	} = attributes;
+
 	const desktop = {
-		'': {
-			'text-align': textAligns?.desktop,
-		},
-		' .gridflow-icon__icon': {
-			width: width?.desktop,
-			height: height?.desktop,
-			'background-color': bgColor,
-			...GridFlowStyleBox( padding, 'padding', 'desktop' ),
-			...GridFlowStyleBorder( border, 'desktop' ),
+		' .gridflow-progress-bar__content': {
+			height: height && height + 'px',
 			...GridFlowStyleBox( borderRadius, 'border-radius', 'desktop' ),
-			...GridFlowStyleBoxShadow( boxShadow ),
-			transition: transition && `all ${transition}s`,
 		},
-		' .gridflow-icon__icon > i': {
+		' .gridflow-progress-bar__content__value': {
+			background: bgColor,
+			...GridFlowStyleBox( borderRadius, 'border-radius', 'desktop' ),
+		},
+		' .gridflow-progress-bar__content__label': {
 			color,
-			'font-size': fontSize?.desktop,
-			'line-height': lineHeight?.desktop,
+			height: height && height + 'px',
+			'line-height': height && height + 'px',
 		},
-		' .gridflow-icon__icon > img': {
-			color,
-			width: imgWidth?.desktop,
+		' .gridflow-progress-bar__title': {
+			color: colorTitle,
+			...GridFlowStyleTypography( {
+				font,
+				fontSize,
+				lineHeight,
+				fontWeight,
+				decoration,
+				transform,
+				fontStyle,
+				letterSpacing,
+				device: 'desktop',
+			} ),
+			'margin-bottom': spacing?.desktop && spacing.desktop + 'px',
 		},
-		' .gridflow-icon__icon:hover': {
-			'background-color': bgColorHover,
-			transition: transition && `all ${transition}s`,
-			...GridFlowStyleBorder( borderHover, 'desktop' ),
-			...GridFlowStyleBox( borderRadiusHover, 'border-radius', 'desktop' ),
-			...GridFlowStyleBoxShadow( boxShadowHover ),
+
+		' .gridflow-progress-bar__content__label__caption': {
+			color: colorCaption,
+			...GridFlowStyleTypography( {
+				font: fontCaption,
+				fontSize: fontSizeCaption,
+				lineHeight: lineHeightCaption,
+				fontWeight: fontWeightCaption,
+				decoration: decorationCaption,
+				transform: transformCaption,
+				fontStyle: fontStyleCaption,
+				letterSpacing: letterSpacingCaption,
+				device: 'desktop',
+			} ),
+			...GridFlowStyleBox( paddingCaption, 'padding', 'desktop' ),
 		},
-		' .gridflow-icon__icon:hover > i': {
-			color: colorHover,
+		' .gridflow-progress-bar__content__label__inner': {
+			color: colorPercent,
+			...GridFlowStyleTypography( {
+				font: fontPercent,
+				fontSize: fontSizePercent,
+				lineHeight: lineHeightPercent,
+				fontWeight: fontWeightPercent,
+				decoration: decorationPercent,
+				transform: transformPercent,
+				fontStyle: fontStylePercent,
+				letterSpacing: letterSpacingPercent,
+				device: 'desktop',
+			} ),
+			...GridFlowStyleBox( paddingPercent, 'padding', 'desktop' ),
 		},
-		' .gridflow-icon__icon:hover > img': {
-			color: colorHover,
-		}
 	};
 
 	const tablet = {
-		'': {
-			'text-align': textAligns?.tablet,
-		},
-		' .gridflow-icon__icon': {
-			width: width?.tablet,
-			height: height?.tablet,
-			...GridFlowStyleBox( padding, 'padding', 'tablet' ),
-			...GridFlowStyleBorder( border, 'tablet' ),
+		' .gridflow-progress-bar__content': {
 			...GridFlowStyleBox( borderRadius, 'border-radius', 'tablet' ),
 		},
-		' .gridflow-icon__icon > i': {
-			'font-size': fontSize?.tablet,
-			'line-height': lineHeight?.tablet,
+		' .gridflow-progress-bar__content__value': {
+			...GridFlowStyleBox( borderRadius, 'border-radius', 'tablet' ),
 		},
-		' .gridflow-icon__icon > img': {
-			width: imgWidth?.tablet,
+		' .gridflow-progress-bar__title': {
+			...GridFlowStyleTypography( {
+				font,
+				fontSize,
+				lineHeight,
+				fontWeight,
+				decoration,
+				transform,
+				fontStyle,
+				letterSpacing,
+				device: 'tablet',
+			} ),
+			'margin-bottom': spacing?.tablet && spacing.tablet + 'px',
 		},
-		' .gridflow-icon__icon:hover': {
-			...GridFlowStyleBorder( borderHover, 'tablet' ),
-			...GridFlowStyleBox( borderRadiusHover, 'border-radius', 'tablet' ),
+
+		' .gridflow-progress-bar__content__label__caption': {
+			...GridFlowStyleTypography( {
+				font: fontCaption,
+				fontSize: fontSizeCaption,
+				lineHeight: lineHeightCaption,
+				fontWeight: fontWeightCaption,
+				decoration: decorationCaption,
+				transform: transformCaption,
+				fontStyle: fontStyleCaption,
+				letterSpacing: letterSpacingCaption,
+				device: 'tablet',
+			} ),
+			...GridFlowStyleBox( paddingCaption, 'padding', 'tablet' ),
+		},
+		' .gridflow-progress-bar__content__label__inner': {
+			...GridFlowStyleTypography( {
+				font: fontPercent,
+				fontSize: fontSizePercent,
+				lineHeight: lineHeightPercent,
+				fontWeight: fontWeightPercent,
+				decoration: decorationPercent,
+				transform: transformPercent,
+				fontStyle: fontStylePercent,
+				letterSpacing: letterSpacingPercent,
+				device: 'tablet',
+			} ),
+			...GridFlowStyleBox( paddingPercent, 'padding', 'tablet' ),
 		},
 	};
 
 	const mobile = {
-		'': {
-			'text-align': textAligns?.mobile,
-		},
-		' .gridflow-icon__icon': {
-			width: width?.mobile,
-			height: height?.mobile,
-			...GridFlowStyleBox( padding, 'padding', 'mobile' ),
-			...GridFlowStyleBorder( border, 'mobile' ),
+		' .gridflow-progress-bar__content': {
 			...GridFlowStyleBox( borderRadius, 'border-radius', 'mobile' ),
 		},
-		' .gridflow-icon__icon > i': {
-			'font-size': fontSize?.mobile,
-			'line-height': lineHeight?.mobile,
+		' .gridflow-progress-bar__content__value': {
+			...GridFlowStyleBox( borderRadius, 'border-radius', 'mobile' ),
 		},
-		' .gridflow-icon__icon > img': {
-			width: imgWidth?.mobile,
+		' .gridflow-progress-bar__title': {
+			...GridFlowStyleTypography( {
+				font,
+				fontSize,
+				lineHeight,
+				fontWeight,
+				decoration,
+				transform,
+				fontStyle,
+				letterSpacing,
+				device: 'mobile',
+			} ),
+			'margin-bottom': spacing?.mobile && spacing.mobile + 'px',
 		},
-		' .gridflow-icon__icon:hover': {
-			...GridFlowStyleBorder( borderHover, 'mobile' ),
-			...GridFlowStyleBox( borderRadiusHover, 'border-radius', 'mobile' ),
+
+		' .gridflow-progress-bar__content__label__caption': {
+			...GridFlowStyleTypography( {
+				font: fontCaption,
+				fontSize: fontSizeCaption,
+				lineHeight: lineHeightCaption,
+				fontWeight: fontWeightCaption,
+				decoration: decorationCaption,
+				transform: transformCaption,
+				fontStyle: fontStyleCaption,
+				letterSpacing: letterSpacingCaption,
+				device: 'mobile',
+			} ),
+			...GridFlowStyleBox( paddingCaption, 'padding', 'mobile' ),
+		},
+		' .gridflow-progress-bar__content__label__inner': {
+			...GridFlowStyleTypography( {
+				font: fontPercent,
+				fontSize: fontSizePercent,
+				lineHeight: lineHeightPercent,
+				fontWeight: fontWeightPercent,
+				decoration: decorationPercent,
+				transform: transformPercent,
+				fontStyle: fontStylePercent,
+				letterSpacing: letterSpacingPercent,
+				device: 'mobile',
+			} ),
+			...GridFlowStyleBox( paddingPercent, 'padding', 'mobile' ),
 		},
 	};
 
@@ -118,9 +213,7 @@ function inlineStyle( { attributes } ) {
 }
 
 if ( ! hasFilter( 'gridflow.inlineStyle.progress-bar', 'gridflow/inline/styles' ) ) {
-	addFilter( 'gridflow.inlineStyle.progress-bar', 'gridflow/inline/styles', function(
-		attributes
-	) {
+	addFilter( 'gridflow.inlineStyle.progress-bar', 'gridflow/inline/styles', function( attributes ) {
 		return inlineStyle( { attributes } );
 	} );
 }

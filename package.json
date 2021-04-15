@@ -72,15 +72,5 @@
 		"style-loader": "^0.19.1",
 		"stylelint-config-wordpress": "^17.0.0",
 		"webpack-fix-style-only-entries": "^0.6.0"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged"
-		}
-	},
-	"lint-staged": {
-		"*.scss": [
-			"stylelint src/**/*.scss --fix"
-		]
 	}
 }

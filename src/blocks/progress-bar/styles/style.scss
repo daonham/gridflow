@@ -1,5 +1,9 @@
 .gridflow-progress-bar {
 
+	&__title {
+		display: inline-block;
+	}
+
 	&__content {
 		position: relative;
 		background: #e5e5e5;

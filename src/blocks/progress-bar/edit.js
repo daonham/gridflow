@@ -11,7 +11,7 @@ import Inspector from './inspector';
 const { withInlineStyle } = wp.gridflowCompose;
 
 function Edit( { isSelected, attributes, setAttributes, toggleSelection } ) {
-	const { uniqueId, percent, suffix, showValue, title, caption } = attributes;
+	const { uniqueId, percent, suffix, showValue, title, caption, showTitle, showCaption } = attributes;
 
 	return (
 		<>
@@ -32,14 +32,16 @@ function Edit( { isSelected, attributes, setAttributes, toggleSelection } ) {
 			<div { ...useBlockProps( { className: classnames( 'gridflow-progress-bar', uniqueId ) } ) }>
 				<div className={ classnames( 'gridflow-progress-bar__inner', 'gridflow-block-inner' ) }>
 					<div className={ 'gridflow-progress-bar__wrapper' }>
-						<RichText
-							tagName="span"
-							className="gridflow-progress-bar__title"
-							placeholder={ __( 'Write title…', 'gridflow' ) }
-							value={ title }
-							onChange={ ( value ) => setAttributes( { title: value } ) }
-							keepPlaceholderOnFocus
-						/>
+						{ showTitle && (
+							<RichText
+								tagName="span"
+								className="gridflow-progress-bar__title"
+								placeholder={ __( 'Write title…', 'gridflow' ) }
+								value={ title }
+								onChange={ ( value ) => setAttributes( { title: value } ) }
+								keepplaceholderonfocus="true"
+							/>
+						) }
 						<div className={ 'gridflow-progress-bar__content' }>
 							<ResizableBox
 								showHandle={ isSelected }
@@ -67,14 +69,16 @@ function Edit( { isSelected, attributes, setAttributes, toggleSelection } ) {
 								} }
 							>
 								<div className={ 'gridflow-progress-bar__content__label' }>
-									<RichText
-										tagName="span"
-										className="gridflow-progress-bar__content__label__caption"
-										placeholder={ __( 'Write caption…', 'gridflow' ) }
-										value={ caption }
-										onChange={ ( value ) => setAttributes( { caption: value } ) }
-										keepPlaceholderOnFocus
-									/>
+									{ showCaption && (
+										<RichText
+											tagName="span"
+											className="gridflow-progress-bar__content__label__caption"
+											placeholder={ __( 'Write caption…', 'gridflow' ) }
+											value={ caption }
+											onChange={ ( value ) => setAttributes( { caption: value } ) }
+											keepplaceholderonfocus="true"
+										/>
+									) }
 									<span className={ 'gridflow-progress-bar__content__label__inner' }>
 										{ showValue ? `${ percent }${ suffix || '' }` : '' }
 									</span>

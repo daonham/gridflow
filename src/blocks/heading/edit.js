@@ -56,7 +56,7 @@ function Edit( {
 							className={ classnames( 'gridflow-heading__content' ) }
 							tagName={ tagName }
 							placeholder={ placeholder || __( 'Write heading...', 'gridflow' ) }
-							keepPlaceholderOnFocus
+							keepplaceholderonfocus="true"
 							value={ content }
 							onChange={ ( value ) => setAttributes( { content: value } ) }
 						/>

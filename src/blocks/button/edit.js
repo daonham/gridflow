@@ -63,7 +63,7 @@ function Edit( {
 							tagName={ 'span' }
 							className={ 'gridflow-button__text' }
 							placeholder={ placeholder || __( 'Add text...', 'gridflow' ) }
-							keepPlaceholderOnFocus
+							keepplaceholderonfocus="true"
 							value={ content }
 							onChange={ ( value ) => setAttributes( { content: value } ) }
 						/>

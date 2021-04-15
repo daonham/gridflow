@@ -15,17 +15,148 @@
 			"selector": ".gridflow-progress-bar__content__label__caption",
 			"default": ""
 		},
+		"color":{
+			"type": "string"
+		},
+		"bgColor":{
+			"type": "string"
+		},
 		"percent": {
 			"type": "number",
 			"default": 60
+		},
+		"height":{
+			"type": "number",
+			"default": 28
 		},
 		"showValue": {
 			"type": "boolean",
 			"default": false
 		},
+		"percentPosition":{
+			"type": "string"
+		},
 		"suffix": {
 			"type": "string",
 			"default": "%"
+		},
+		"showTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"showCaption": {
+			"type": "boolean",
+			"default": true
+		},
+		"borderRadius":{
+			"type": "object"
+		},
+		"colorTitle":{
+			"type": "string"
+		},
+		"gridflowFont": {
+			"type": "object",
+			"default": {
+				"1": {
+					"name": "font",
+					"weight": "fontWeight"
+				},
+				"2": {
+					"name": "fontCaption",
+					"weight": "fontWeightCaption"
+				},
+				"3": {
+					"name": "fontPercent",
+					"weight": "fontWeightPercent"
+				}
+			}
+		},
+		"font": {
+			"type": "string"
+		},
+		"fontSize": {
+			"type": "object"
+		},
+		"lineHeight": {
+			"type": "object"
+		},
+		"fontWeight": {
+			"type": "string"
+		},
+		"decoration": {
+			"type": "string"
+		},
+		"transform": {
+			"type": "string"
+		},
+		"fontStyle": {
+			"type": "string"
+		},
+		"letterSpacing": {
+			"type": "object"
+		},
+		"spacing":{
+			"type": "object"
+		},
+		"colorCaption":{
+			"type": "string"
+		},
+		"fontCaption": {
+			"type": "string"
+		},
+		"fontSizeCaption": {
+			"type": "object"
+		},
+		"lineHeightCaption": {
+			"type": "object"
+		},
+		"fontWeightCaption": {
+			"type": "string"
+		},
+		"decorationCaption": {
+			"type": "string"
+		},
+		"transformCaption": {
+			"type": "string"
+		},
+		"fontStyleCaption": {
+			"type": "string"
+		},
+		"letterSpacingCaption": {
+			"type": "object"
+		},
+		"paddingCaption":{
+			"type": "object"
+		},
+		"colorPercent":{
+			"type": "string"
+		},
+		"fontPercent": {
+			"type": "string"
+		},
+		"fontSizePercent": {
+			"type": "object"
+		},
+		"lineHeightPercent": {
+			"type": "object"
+		},
+		"fontWeightPercent": {
+			"type": "string"
+		},
+		"decorationPercent": {
+			"type": "string"
+		},
+		"transformPercent": {
+			"type": "string"
+		},
+		"fontStylePercent": {
+			"type": "string"
+		},
+		"letterSpacingPercent": {
+			"type": "object"
+		},
+		"paddingPercent":{
+			"type": "object"
 		}
 	}
 }
