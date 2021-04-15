@@ -42,7 +42,7 @@ class Assets {
 		wp_enqueue_script( 'gridflow-flickity', $url_vendor . 'flickity.js', array(), GRIDFLOW_VERSION, true );
 
 		// Style.
-		wp_enqueue_style( 'gridflow-font-awesome', $url . 'lib/font-awesome/css/all.css', array(), '5.12.0' );
+		wp_enqueue_style( 'gridflow-font-awesome', GRIDFLOW_PLUGIN_URL . 'src/components/icon/public/font-awesome/css/all.css', array(), '5.12.0' );
 	}
 
 	public function editor() {
