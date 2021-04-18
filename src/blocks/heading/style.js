@@ -137,9 +137,7 @@ function inlineStyle( { attributes } ) {
 }
 
 if ( ! hasFilter( 'gridflow.inlineStyle.heading', 'gridflow/inline/styles' ) ) {
-	addFilter( 'gridflow.inlineStyle.heading', 'gridflow/inline/styles', function(
-		attributes
-	) {
+	addFilter( 'gridflow.inlineStyle.heading', 'gridflow/inline/styles', function( attributes ) {
 		return inlineStyle( { attributes } );
 	} );
 }

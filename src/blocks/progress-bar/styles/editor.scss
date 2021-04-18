@@ -16,6 +16,24 @@
 			background: #12657e;
 			height: 100%;
 			border-radius: 12px;
+
+			&.is-percent-top {
+
+				.gridflow-progress-bar__content__label__inner {
+					position: absolute;
+					right: 0;
+					bottom: 100%;
+				}
+			}
+
+			&.is-percent-bottom {
+
+				.gridflow-progress-bar__content__label__inner {
+					position: absolute;
+					right: 0;
+					top: 100%;
+				}
+			}
 		}
 
 		&__label {

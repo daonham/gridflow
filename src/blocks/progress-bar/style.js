@@ -6,6 +6,7 @@ function inlineStyle( { attributes } ) {
 	const {
 		color,
 		bgColor,
+		bgColorContent,
 		height,
 		borderRadius,
 
@@ -45,6 +46,7 @@ function inlineStyle( { attributes } ) {
 
 	const desktop = {
 		' .gridflow-progress-bar__content': {
+			background: bgColorContent,
 			height: height && height + 'px',
 			...GridFlowStyleBox( borderRadius, 'border-radius', 'desktop' ),
 		},

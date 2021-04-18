@@ -14,6 +14,8 @@ const allowedBlocks = [
 	'gridflow/image',
 	'gridflow/icon',
 	'gridflow/accordion',
+	'gridflow/progress-bar',
+	'gridflow/google-map',
 ];
 
 export function addAttributes( settings ) {

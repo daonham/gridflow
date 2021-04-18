@@ -1,9 +1,11 @@
 import gridflowAnimate from './animate';
 import gridflowAccordion from './accordion';
+import gridflowProgressBar from './progress-bar';
 
 gridflowDomReady( function() {
 	gridflowAnimate();
 	gridflowAccordion();
+	gridflowProgressBar();
 } );
 
 function gridflowDomReady( fn ) {

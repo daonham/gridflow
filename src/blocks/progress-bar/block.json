@@ -21,6 +21,10 @@
 		"bgColor":{
 			"type": "string"
 		},
+		"bgColorContent":{
+			"type": "string",
+			"default": "#e5e5e5"
+		},
 		"percent": {
 			"type": "number",
 			"default": 60

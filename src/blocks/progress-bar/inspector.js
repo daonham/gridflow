@@ -22,6 +22,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 	const {
 		color,
 		bgColor,
+		bgColorContent,
 		percent,
 		height,
 		showValue,
@@ -70,15 +71,22 @@ const Inspector = ( { attributes, setAttributes } ) => {
 			<InspectorControls>
 				<PanelBody title={ __( 'Settings', 'gridflow' ) } initialOpen={ true }>
 					<GridFlowColorPicker
-						label={ __( 'Color', 'gridflow' ) }
+						label={ __( 'Bar Color', 'gridflow' ) }
 						value={ color }
 						onChange={ ( value ) => setAttributes( { color: value } ) }
 						alpha={ true }
 					/>
 					<GridFlowColorPicker
-						label={ __( 'Background Color', 'gridflow' ) }
+						label={ __( 'Bar Background Color', 'gridflow' ) }
 						value={ bgColor }
 						onChange={ ( value ) => setAttributes( { bgColor: value } ) }
+						alpha={ true }
+						gradients={ true }
+					/>
+					<GridFlowColorPicker
+						label={ __( 'Background Color', 'gridflow' ) }
+						value={ bgColorContent }
+						onChange={ ( value ) => setAttributes( { bgColorContent: value } ) }
 						alpha={ true }
 						gradients={ true }
 					/>
@@ -89,11 +97,6 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						min={ 0 }
 						max={ 100 }
 						step={ 1 }
-					/>
-					<ToggleControl
-						label={ __( 'Show Percent', 'gridflow' ) }
-						checked={ showValue }
-						onChange={ () => setAttributes( { showValue: ! showValue } ) }
 					/>
 					<Flex style={ { marginBottom: 10 } }>
 						<FlexItem style={ { width: '50%' } }>
@@ -116,6 +119,11 @@ const Inspector = ( { attributes, setAttributes } ) => {
 							/>
 						</FlexItem>
 					</Flex>
+					<ToggleControl
+						label={ __( 'Show Percent', 'gridflow' ) }
+						checked={ showValue }
+						onChange={ () => setAttributes( { showValue: ! showValue } ) }
+					/>
 					<ToggleControl
 						label={ __( 'Show Title', 'gridflow' ) }
 						checked={ showTitle }

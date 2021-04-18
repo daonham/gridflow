@@ -1,0 +1,40 @@
+{
+	"apiVersion": 2,
+	"name": "gridflow/google-map",
+	"category": "gridflow",
+	"attributes": {
+		"location": {
+			"type": "string",
+			"default": ""
+		},
+		"zoom": {
+			"type": "number",
+			"default": 12
+		},
+		"width": {
+			"type": "object",
+			"default": {
+				"desktop": "100%",
+				"tablet": "",
+				"mobile": ""
+			}
+		},
+		"height": {
+			"type": "object",
+			"default": {
+				"desktop": "300px",
+				"tablet": "",
+				"mobile": ""
+			}
+		},
+		"border":{
+			"type": "object"
+		},
+		"borderRadius":{
+			"type": "object"
+		},
+		"boxShadow":{
+			"type": "object"
+		}
+	}
+}

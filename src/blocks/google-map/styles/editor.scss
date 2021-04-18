@@ -1,0 +1,17 @@
+
+.gridflow-google-map {
+
+	&__iframe-wrapper {
+		height: 100%;
+		line-height: 0;
+
+		iframe {
+			width: 100%;
+			border: none;
+			height: 360px;
+			min-height: auto;
+			margin: 0;
+			line-height: 1;
+		}
+	}
+}

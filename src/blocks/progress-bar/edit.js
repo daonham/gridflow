@@ -11,7 +11,7 @@ import Inspector from './inspector';
 const { withInlineStyle } = wp.gridflowCompose;
 
 function Edit( { isSelected, attributes, setAttributes, toggleSelection } ) {
-	const { uniqueId, percent, suffix, showValue, title, caption, showTitle, showCaption } = attributes;
+	const { uniqueId, percent, suffix, showValue, title, caption, showTitle, showCaption, percentPosition } = attributes;
 
 	return (
 		<>
@@ -45,7 +45,7 @@ function Edit( { isSelected, attributes, setAttributes, toggleSelection } ) {
 						<div className={ 'gridflow-progress-bar__content' }>
 							<ResizableBox
 								showHandle={ isSelected }
-								className={ 'gridflow-progress-bar__content__value' }
+								className={ classnames( 'gridflow-progress-bar__content__value', {[`is-percent-${percentPosition}`]: percentPosition } ) }
 								size={ { width: percent + '%' } }
 								minWidth="0%"
 								maxWidth="100%"

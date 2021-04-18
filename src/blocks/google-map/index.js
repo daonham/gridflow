@@ -1,3 +1,6 @@
+/**
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
 
 import icon from './icon';
@@ -10,21 +13,19 @@ import './style';
 const { name } = metadata;
 
 const settings = {
-	title: __( 'Progress Bar', 'gridflow' ),
-	description: __( 'Add a Progress bar for Editor.', 'gridflow' ),
-	icon,
+	title: __( 'Google map', 'gridflow' ),
+	description: __( 'Add an address or location to Google map for Editor.', 'gridflow' ),
 	keywords: [
 		'gridflow',
-		__( 'progress bar', 'gridflow' ),
+		__( 'map', 'gridflow' ),
+		__( 'google', 'gridflow' ),
 	],
 	example: {
 		attributes: {
-			title: __( 'My Skill', 'gridflow' ),
-			caption: __( 'Designer', 'gridflow' ),
-			percent: 65,
-			showValue: true,
+			location: 'London Eye, London, UK',
 		},
 	},
+	icon,
 	edit,
 	save,
 };
