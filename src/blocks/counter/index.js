@@ -17,6 +17,12 @@ const settings = {
 		'gridflow',
 		__( 'counter', 'gridflow' ),
 	],
+	example: {
+		attributes: {
+			endValue: '100',
+			title: __( 'Counter title', 'gridflow' ),
+		},
+	},
 	edit,
 	save,
 };
