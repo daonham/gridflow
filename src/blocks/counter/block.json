@@ -1,0 +1,54 @@
+{
+	"apiVersion": 2,
+	"name": "gridflow/counter",
+	"category": "gridflow",
+	"attributes": {
+		"prefix": {
+			"type": "string",
+			"source": "html",
+			"selector": ".gridflow-counter__number__prefix",
+			"default": ""
+		},
+		"title": {
+			"type": "string",
+			"source": "html",
+			"selector": ".gridflow-counter__title",
+			"default": ""
+		},
+		"suffix": {
+			"type": "string",
+			"source": "html",
+			"selector": ".gridflow-counter__number__suffix",
+			"default": ""
+		},
+		"duration": {
+			"type": "string",
+			"default": "2000"
+		},
+		"fromValue": {
+			"type": "string",
+			"default": "0"
+		},
+		"toValue": {
+			"type": "string",
+			"default": "100"
+		},
+		"step": {
+			"type": "string",
+			"default": "1"
+		},
+		"gridflowFont": {
+			"type": "object",
+			"default": {
+				"1": {
+					"name": "font",
+					"weight": "fontWeight"
+				},
+				"2": {
+					"name": "fontTitle",
+					"weight": "fontWeightTitle"
+				}
+			}
+		}
+	}
+}

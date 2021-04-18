@@ -15,6 +15,7 @@ const allowedBlocks = [
 	'gridflow/accordion',
 	'gridflow/progress-bar',
 	'gridflow/google-map',
+	'gridflow/counter',
 ];
 
 export function addAttributes( settings ) {

@@ -23,6 +23,14 @@ const Control = ( {
 	const createHandleOnChange = ( side ) => ( next ) => {
 		const nextValues = { ...values };
 
+		if ( isNaN( next.x ) ) {
+			next.x = undefined;
+		}
+
+		if ( isNaN( next.y ) ) {
+			next.y = undefined;
+		}
+
 		nextValues[ side ] = next;
 
 		handleOnChange( nextValues );
