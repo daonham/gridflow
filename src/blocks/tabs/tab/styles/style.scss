@@ -1,0 +1,28 @@
+.gridflow-counter {
+
+	&__number {
+		display: flex;
+		font-size: 60px;
+		font-weight: 600;
+		color: #222;
+		line-height: 1;
+
+		&__prefix {
+			flex: 1;
+			text-align: right;
+		}
+
+		&__suffix {
+			flex: 1;
+			text-align: left;
+		}
+	}
+
+	&__title {
+		text-align: center;
+		font-size: 20px;
+		font-weight: 400;
+		color: #666;
+		line-height: 1.7;
+	}
+}

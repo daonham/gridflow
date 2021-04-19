@@ -1,0 +1,15 @@
+{
+	"apiVersion": 2,
+	"name": "gridflow/tabs",
+	"category": "gridflow",
+	"attributes": {
+		"tabTitles": {
+			"type": "array",
+			"default": [
+				{ "title": "Tab 1" },
+				{ "title": "Tab 2" },
+				{ "title": "Tab 3" }
+			]
+		}
+	}
+}

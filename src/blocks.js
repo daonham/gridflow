@@ -22,6 +22,8 @@ import * as accordionItem from './blocks/accordion/accordion-item';
 import * as progressBar from './blocks/progress-bar';
 import * as googleMap from './blocks/google-map';
 import * as counter from './blocks/counter';
+import * as tab from './blocks/tabs/tab';
+import * as tabs from './blocks/tabs';
 
 const registerBlock = ( block ) => {
 	if ( ! block ) {
@@ -47,6 +49,8 @@ export const registerGridFlowBlocks = () => {
 		progressBar,
 		googleMap,
 		counter,
+		tab,
+		tabs,
 	].forEach( registerBlock );
 };
 

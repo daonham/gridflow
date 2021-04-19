@@ -18,11 +18,8 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 	const { uniqueId, title, tagName, collapse, icon, iconActive, iconAlign } = attributes;
 
 	const isSelectedChild = useSelect( ( select ) => {
-		const { getSelectedBlockClientId, getBlocks } = select( blockEditorStore );
-
-		const hasSelectedChildren = getBlocks( clientId ).filter( ( elem ) => elem.clientId === getSelectedBlockClientId() );
-
-		return hasSelectedChildren.length > 0;
+		const { hasSelectedInnerBlock } = select( blockEditorStore );
+		return hasSelectedInnerBlock( clientId, true );
 	}, [ clientId ] );
 
 	const isEditing = isSelected || isSelectedChild || collapse;
@@ -78,7 +75,7 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 								className={ 'gridflow-accordion__item__title-content' }
 								value={ title }
 								onChange={ ( value ) => setAttributes( { title: value } ) }
-								keepPlaceholderOnFocus
+								keepplaceholderonfocus="true"
 							/>
 							{ ( icon?.icon || icon?.url ) && iconAlign && iconAlign === 'right' && (
 								<span className="gridflow-accordion__item__icon gridflow-accordion__item__icon--right">

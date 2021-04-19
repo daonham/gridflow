@@ -1,0 +1,14 @@
+{
+	"apiVersion": 2,
+	"name": "gridflow/tab",
+	"category": "gridflow",
+	"parent": [
+		"gridflow/tabs"
+	],
+	"attributes": {
+		"index": {
+			"type": "string",
+			"default": "0"
+		}
+	}
+}
