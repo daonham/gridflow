@@ -7,8 +7,12 @@
 	],
 	"attributes": {
 		"index": {
+			"type": "number",
+			"default": 0
+		},
+		"uniqueIdTab": {
 			"type": "string",
-			"default": "0"
+			"default": ""
 		}
 	}
 }

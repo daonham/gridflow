@@ -5,4 +5,15 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 	}
+
+	&__content {
+
+		> .gridflow-tab {
+			display: none;
+
+			&:first-child {
+				display: block;
+			}
+		}
+	}
 }

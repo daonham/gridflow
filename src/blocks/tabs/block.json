@@ -10,6 +10,10 @@
 				{ "title": "Tab 2" },
 				{ "title": "Tab 3" }
 			]
+		},
+		"uniqueIdTitle": {
+			"type": "string",
+			"default": ""
 		}
 	}
 }

@@ -15,7 +15,7 @@ import Inspector from './inspector';
 const { withInlineStyle } = wp.gridflowCompose;
 
 function Edit( { isSelected, attributes, setAttributes, clientId } ) {
-	const { uniqueId, tabTitles } = attributes;
+	const { uniqueId, tabTitles, uniqueIdTitle } = attributes;
 
 	const [ activeTab, setActiveTab ] = useState( 0 );
 
@@ -32,9 +32,23 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 		}
 	}, [ activeTab ] );
 
-	const isSelectedChild = useSelect( ( select ) => {
-		const { hasSelectedInnerBlock } = select( blockEditorStore );
-		return hasSelectedInnerBlock( clientId, true );
+	const uniqueIdBlock = clientId.substr( 0, 6 );
+
+	useEffect( () => {
+		if ( ! uniqueIdTitle ) {
+			setAttributes( { uniqueIdTitle: uniqueIdBlock } );
+		} else if ( uniqueId && uniqueIdTitle !== uniqueIdBlock ) {
+			setAttributes( { uniqueIdTitle: uniqueIdBlock } );
+		}
+	}, [ clientId ] );
+
+	const { isSelectedChild, innerBlocks } = useSelect( ( select ) => {
+		const { hasSelectedInnerBlock, getBlocks } = select( blockEditorStore );
+
+		return {
+			isSelectedChild: hasSelectedInnerBlock( clientId, true ),
+			innerBlocks: getBlocks( clientId ),
+		};
 	}, [ clientId ] );
 
 	const isEditing = isSelected || isSelectedChild;
@@ -65,7 +79,7 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 
 		const updateInnerBlocks = [
 			...innerBlocks,
-			createBlock( 'gridflow/tab', { index: length - 1 } ),
+			createBlock( 'gridflow/tab', { index: length - 1, uniqueIdTab: uniqueIdBlock } ),
 		];
 
 		replaceInnerBlocks( clientId, updateInnerBlocks );
@@ -73,17 +87,11 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 
 	const { replaceInnerBlocks } = useDispatch( blockEditorStore );
 
-	const innerBlocks = useSelect( ( select ) => {
-		const { getBlocks } = select( blockEditorStore );
-
-		return getBlocks( clientId );
-	}, [ clientId ] );
-
 	const getTabsTemplate = () => {
 		const result = [];
 
 		tabTitles.forEach( ( ele, i ) => {
-			result.push( [ 'gridflow/tab', { index: i } ] );
+			result.push( [ 'gridflow/tab', { index: i, uniqueIdTab: uniqueIdBlock } ] );
 		} );
 
 		return result;
