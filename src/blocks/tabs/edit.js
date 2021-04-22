@@ -6,7 +6,7 @@ import { useSelect, useDispatch } from '@wordpress/data';
 import { useBlockProps, RichText, store as blockEditorStore, __experimentalUseInnerBlocksProps as useInnerBlocksProps } from '@wordpress/block-editor';
 import { createBlock } from '@wordpress/blocks';
 import { useState, useEffect } from '@wordpress/element';
-import { Icon, plus } from '@wordpress/icons';
+import { Icon, plus, closeSmall } from '@wordpress/icons';
 import { Tooltip, Button } from '@wordpress/components';
 
 import Controls from './controls';
@@ -23,33 +23,47 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 		const block = document.querySelector( `#block-${ clientId }` );
 		const ele = block.querySelector( `.gridflow-tab__panel-${ activeTab }` );
 
-		[ ...block.querySelectorAll( '.gridflow-tab' ) ].forEach( ( element ) => {
+		[ ...block.querySelectorAll( '.gridflow-tab .gridflow-tab__panel' ) ].forEach( ( element ) => {
 			element.style.display = 'none';
 		} );
 
 		if ( ele ) {
 			ele.style.display = 'block';
 		}
-	}, [ activeTab ] );
+	}, [ activeTab, tabTitles ] );
 
 	const uniqueIdBlock = clientId.substr( 0, 6 );
 
+	const { updateBlockAttributes } = useDispatch( blockEditorStore );
+
 	useEffect( () => {
-		if ( ! uniqueIdTitle ) {
-			setAttributes( { uniqueIdTitle: uniqueIdBlock } );
-		} else if ( uniqueId && uniqueIdTitle !== uniqueIdBlock ) {
+		if ( uniqueIdTitle !== uniqueIdBlock ) {
 			setAttributes( { uniqueIdTitle: uniqueIdBlock } );
 		}
-	}, [ clientId ] );
 
-	const { isSelectedChild, innerBlocks } = useSelect( ( select ) => {
-		const { hasSelectedInnerBlock, getBlocks } = select( blockEditorStore );
+		innerBlockClientIds.forEach( ( innerBlockClientId, index ) => {
+			updateBlockAttributes( innerBlockClientId, {
+				uniqueIdTab: uniqueIdBlock,
+				tabTitles: tabTitles[ index ],
+			} );
+		} );
+	}, [ clientId, activeTab ] );
+
+	const { isSelectedChild, innerBlocks, innerBlockClientIds } = useSelect( ( select ) => {
+		const { hasSelectedInnerBlock, getBlocks, getBlockOrder } = select( blockEditorStore );
 
 		return {
+			innerBlockClientIds: getBlockOrder( clientId ),
 			isSelectedChild: hasSelectedInnerBlock( clientId, true ),
 			innerBlocks: getBlocks( clientId ),
 		};
 	}, [ clientId ] );
+
+	const getPreviewDeviceType = useSelect( ( select ) => {
+		const { __experimentalGetPreviewDeviceType } = select( 'core/edit-post' );
+
+		return __experimentalGetPreviewDeviceType ? __experimentalGetPreviewDeviceType() : 'Desktop';
+	}, [] );
 
 	const isEditing = isSelected || isSelectedChild;
 
@@ -63,6 +77,15 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 		} );
 
 		setAttributes( { tabTitles: nextLabel } );
+
+		innerBlockClientIds.forEach( ( innerBlockClientId, index ) => {
+			if ( i === index ) {
+				updateBlockAttributes( innerBlockClientId, {
+					uniqueIdTab: uniqueIdBlock,
+					tabTitles: { title: value },
+				} );
+			}
+		} );
 	};
 
 	const addTab = () => {
@@ -70,7 +93,7 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 		const length = newTabTitle.length + 1;
 
 		newTabTitle.push( {
-			title: 'Tab' + length,
+			title: 'Tab ' + length,
 		} );
 
 		setActiveTab( length - 1 );
@@ -79,19 +102,48 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 
 		const updateInnerBlocks = [
 			...innerBlocks,
-			createBlock( 'gridflow/tab', { index: length - 1, uniqueIdTab: uniqueIdBlock } ),
+			createBlock( 'gridflow/tab', { index: length - 1 } ),
 		];
 
 		replaceInnerBlocks( clientId, updateInnerBlocks );
 	};
 
-	const { replaceInnerBlocks } = useDispatch( blockEditorStore );
+	const removeTab = ( i ) => {
+		const newTabTitle = [ ...tabTitles ];
+
+		if ( 1 >= innerBlockClientIds.length ) {
+			removeBlock( clientId );
+		} else if ( innerBlockClientIds[ i ] ) {
+			removeBlock( innerBlockClientIds[ i ].clientId );
+
+			if ( tabTitles[ i ] ) {
+				newTabTitle.splice( i, 1 );
+
+				const newInnerBlocks = [ ...innerBlocks ];
+				newInnerBlocks.splice( i, 1 );
+
+				replaceInnerBlocks( clientId, newInnerBlocks, false );
+
+				setAttributes( { tabTitles: newTabTitle } );
+
+				newInnerBlocks.forEach( ( innerBlock, index ) => {
+					updateBlockAttributes( innerBlock.clientId, {
+						index,
+					} );
+				} );
+
+				setActiveTab( newTabTitle.length );
+			}
+		}
+	};
+
+	const { replaceInnerBlocks, removeBlock } = useDispatch( blockEditorStore );
 
 	const getTabsTemplate = () => {
 		const result = [];
 
 		tabTitles.forEach( ( ele, i ) => {
-			result.push( [ 'gridflow/tab', { index: i, uniqueIdTab: uniqueIdBlock } ] );
+			result.push( [ 'gridflow/tab', { index: i } ] );
 		} );
 
 		return result;
@@ -123,43 +175,49 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 			<div { ...useBlockProps( { className: classnames( 'gridflow-tabs', uniqueId ) } ) }>
 				<div className={ classnames( 'gridflow-tabs__inner', 'gridflow-block-inner' ) }>
 					<div className="gridflow-tabs__wrapper">
-						<div className="gridflow-tabs__title">
-							{ tabTitles.map( ( tabData, i ) => {
-								return (
-									<button
-										key={ i }
-										className="gridflow-tabs__title__button"
-										onClick={ () => {
-											setActiveTab( i );
-										} }
-									>
-										<RichText
-											tagName="span"
-											placeholder={ __( 'Tab label', 'gridflow' ) }
-											keepplaceholderonfocus="true"
-											value={ tabData?.title }
-											onChange={ ( value ) => {
-												changeLabel( value, i );
-											} }
-										/>
-									</button>
-								);
-							} ) }
-
-							{ isEditing && (
-								<Tooltip text={ __( 'Add Tab', 'gridflow' ) }>
-									<div style={ { display: 'inline-flex', alignItems: 'center', margin: 0 } }>
-										<Button
-											className={ classnames( 'block-editor-button-block-appender' ) }
-											style={ { padding: 0 } }
-											onClick={ () => addTab() }
+						{ getPreviewDeviceType !== 'Mobile' && (
+							<div className="gridflow-tabs__title">
+								{ tabTitles.map( ( tabData, i ) => {
+									return (
+										<button
+											key={ i }
+											className={ classnames( 'gridflow-tabs__title__button', { 'gridflow-tabs__title__button-active': activeTab === i } ) }
+											onClick={ () => setActiveTab( i ) }
 										>
-											<Icon icon={ plus } />
-										</Button>
-									</div>
-								</Tooltip>
-							) }
-						</div>
+											<RichText
+												tagName="span"
+												placeholder={ __( 'Tab label', 'gridflow' ) }
+												keepplaceholderonfocus="true"
+												value={ tabData?.title }
+												onChange={ ( value ) => changeLabel( value, i ) }
+											/>
+											<Button
+												className="gridflow-tabs__title__button__remove"
+												icon={ closeSmall }
+												onClick={ () => removeTab( i ) }
+												label={ __( 'Remove tab', 'gridflow' ) }
+												style={ { display: activeTab !== i && 'none' } }
+												disabled={ activeTab !== i }
+											/>
+										</button>
+									);
+								} ) }
+
+								{ isEditing && (
+									<Tooltip text={ __( 'Add Tab', 'gridflow' ) }>
+										<div style={ { display: 'inline-flex', alignItems: 'center', margin: '0 0 0 10px' } }>
+											<Button
+												className={ classnames( 'block-editor-button-block-appender' ) }
+												style={ { padding: 0 } }
+												onClick={ () => addTab() }
+											>
+												<Icon icon={ plus } />
+											</Button>
+										</div>
+									</Tooltip>
+								) }
+							</div>
+						) }
 
 						<div { ...innerBlocksProps } />
 					</div>

@@ -1,28 +1,101 @@
-.gridflow-counter {
+body.gridflow-styles {
 
-	&__number {
-		display: flex;
-		font-size: 60px;
-		font-weight: 600;
-		color: #222;
-		line-height: 1;
+	.gridflow-tabs {
 
-		&__prefix {
-			flex: 1;
-			text-align: right;
+		&__title {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			overflow: hidden;
+
+			@media (max-width: 767px) {
+				display: none;
+			}
+
+			> button.gridflow-tabs__title__button {
+				position: relative;
+				margin: 0;
+				padding: 20px 25px;
+				background: #eee;
+				border: 2px solid #eee;
+				border-bottom: none;
+				outline: none;
+				color: #222;
+				font-size: 1rem;
+				font-weight: 600;
+				line-height: 1;
+
+				> span {
+					pointer-events: none;
+				}
+
+				&[aria-selected="true"] {
+					background: transparent;
+
+					&::before {
+						content: "";
+						position: absolute;
+						border-bottom: 2px solid #eee;
+						right: 100%;
+						bottom: 0;
+						height: 0;
+						width: 999em;
+					}
+
+					&::after {
+						content: "";
+						position: absolute;
+						border-bottom: 2px solid #eee;
+						left: 100%;
+						bottom: 0;
+						height: 0;
+						width: 999em;
+					}
+				}
+			}
 		}
 
-		&__suffix {
-			flex: 1;
-			text-align: left;
-		}
-	}
+		&__content {
 
-	&__title {
-		text-align: center;
-		font-size: 20px;
-		font-weight: 400;
-		color: #666;
-		line-height: 1.7;
+			.gridflow-tab {
+
+				@media (max-width: 767px) {
+					margin-bottom: 5px;
+				}
+			}
+
+			button.gridflow-tabs__title__button--mobile {
+				display: none;
+				position: relative;
+				text-align: left;
+				margin: 0;
+				padding: 20px 25px;
+				background: #eee;
+				border: 2px solid #eee;
+				border-bottom: none;
+				outline: none;
+				color: #222;
+				font-size: 1rem;
+				font-weight: 600;
+				line-height: 1;
+
+				@media (max-width: 767px) {
+					display: block;
+					width: 100%;
+				}
+			}
+
+		}
+
+		[role="tabpanel"] {
+			margin: 0;
+			padding: 20px;
+			border: 2px solid #eee;
+			border-top: none;
+
+			&[hidden] {
+				display: none;
+			}
+		}
 	}
 }

@@ -1,28 +1,10 @@
-.gridflow-counter {
+.gridflow-tab {
 
-	&__number {
-		display: flex;
-		font-size: 60px;
-		font-weight: 600;
-		color: #222;
-		line-height: 1;
+	.block-editor-block-list__layout {
 
-		&__prefix {
-			flex: 1;
-			text-align: right;
+		.wp-block {
+			margin-top: 0;
+			margin-bottom: 0;
 		}
-
-		&__suffix {
-			flex: 1;
-			text-align: left;
-		}
-	}
-
-	&__title {
-		text-align: center;
-		font-size: 20px;
-		font-weight: 400;
-		color: #666;
-		line-height: 1.7;
 	}
 }

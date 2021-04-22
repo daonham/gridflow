@@ -13,6 +13,9 @@
 		"uniqueIdTab": {
 			"type": "string",
 			"default": ""
+		},
+		"tabTitles": {
+			"type": "object"
 		}
 	}
 }

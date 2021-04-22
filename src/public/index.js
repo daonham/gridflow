@@ -2,12 +2,14 @@ import gridflowAnimate from './animate';
 import gridflowAccordion from './accordion';
 import gridflowProgressBar from './progress-bar';
 import gridflowCounter from './counter';
+import gridflowTabs from './tabs';
 
 gridflowDomReady( function() {
 	gridflowAnimate();
 	gridflowAccordion();
 	gridflowProgressBar();
 	gridflowCounter();
+	gridflowTabs();
 } );
 
 function gridflowDomReady( fn ) {
