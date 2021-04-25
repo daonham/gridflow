@@ -14,6 +14,104 @@
 		"uniqueIdTitle": {
 			"type": "string",
 			"default": ""
+		},
+		"position": {
+			"type": "string",
+			"default": "top"
+		},
+		"aligns": {
+			"type": "object"
+		},
+		"borderWidth": {
+			"type": "number",
+			"default": 2
+		},
+		"borderColor": {
+			"type": "string"
+		},
+		"color": {
+			"type": "string"
+		},
+		"gridflowFont": {
+			"type": "object",
+			"default": {
+				"1": {
+					"name": "font",
+					"weight": "fontWeight"
+				}
+			}
+		},
+		"font": {
+			"type": "string"
+		},
+		"fontSize": {
+			"type": "object"
+		},
+		"lineHeight": {
+			"type": "object"
+		},
+		"fontWeight": {
+			"type": "string"
+		},
+		"decoration": {
+			"type": "string"
+		},
+		"transform": {
+			"type": "string"
+		},
+		"fontStyle": {
+			"type": "string"
+		},
+		"letterSpacing": {
+			"type": "object"
+		},
+		"bgColor": {
+			"type": "string"
+		},
+		"marginTitle": {
+			"type": "object"
+		},
+		"paddingTitle": {
+			"type": "object"
+		},
+		"borderTitle": {
+			"type": "object"
+		},
+		"borderRadiusTitle": {
+			"type": "object"
+		},
+		"boxShadowTitle": {
+			"type": "object"
+		},
+		"colorActive": {
+			"type": "string"
+		},
+		"bgColorActive": {
+			"type": "string"
+		},
+		"borderTitleActive": {
+			"type": "object"
+		},
+		"borderRadiusTitleActive": {
+			"type": "object"
+		},
+		"boxShadowTitleActive": {
+			"type": "object"
+		},
+		"colorContent": {
+			"type": "string"
+		},
+		"bgColorContent": {
+			"type": "string"
+		},
+		"paddingContent": {
+			"type": "object"
+		},
+		"borderContent": {
+			"type": "object"
+		},
+		"borderRadiusContent": {
+			"type": "object"
 		}
 	}
 }

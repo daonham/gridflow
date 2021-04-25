@@ -30,7 +30,7 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 		if ( ele ) {
 			ele.style.display = 'block';
 		}
-	}, [ activeTab, tabTitles ] );
+	}, [ isSelected, activeTab, tabTitles ] );
 
 	const uniqueIdBlock = clientId.substr( 0, 6 );
 

@@ -40,6 +40,7 @@ body.gridflow-styles {
 						bottom: 0;
 						height: 0;
 						width: 999em;
+						z-index: 2;
 					}
 
 					&::after {
@@ -50,6 +51,7 @@ body.gridflow-styles {
 						bottom: 0;
 						height: 0;
 						width: 999em;
+						z-index: 2;
 					}
 				}
 			}
