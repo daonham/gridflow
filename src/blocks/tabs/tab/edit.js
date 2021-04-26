@@ -20,9 +20,9 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 	const onChangeLabel = ( value ) => {
 		const newTabTitle = parentTitles;
 
-		newTabTitle[ index ] = { title: value };
+		newTabTitle[ index ] = { title: value, icon: parentTitles[ index ].icon };
 
-		setAttributes( { tabTitles: { title: value } } );
+		setAttributes( { tabTitles: { title: value, icon: parentTitles[ index ].icon } } );
 
 		updateBlockAttributes( rootClientId, {
 			tabTitles: newTabTitle,
@@ -66,6 +66,12 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 			<div { ...useBlockProps( { className: classnames( 'gridflow-tab', uniqueId ) } ) }>
 				{ getPreviewDeviceType === 'Mobile' && (
 					<button className="gridflow-tabs__title__button gridflow-tabs__title__button--mobile">
+						{ tabTitles?.icon?.icon && (
+							<i className={ tabTitles.icon.icon }></i>
+						) }
+						{ tabTitles?.icon?.url && (
+							<img src={ tabTitles.icon.url } alt={ tabTitles?.icon?.alt ? tabTitles.icon.alt : '' } />
+						) }
 						<RichText
 							tagName="span"
 							placeholder={ __( 'Tab label', 'gridflow' ) }

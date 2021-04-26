@@ -15,11 +15,15 @@ import Inspector from './inspector';
 const { withInlineStyle } = wp.gridflowCompose;
 
 function Edit( { isSelected, attributes, setAttributes, clientId } ) {
-	const { uniqueId, tabTitles, uniqueIdTitle } = attributes;
+	const { uniqueId, tabTitles, uniqueIdTitle, iconPosition } = attributes;
 
 	const [ activeTab, setActiveTab ] = useState( 0 );
 
 	useEffect( () => {
+		if ( getPreviewDeviceType === 'Mobile' ) {
+			return;
+		}
+
 		const block = document.querySelector( `#block-${ clientId }` );
 		const ele = block.querySelector( `.gridflow-tab__panel-${ activeTab }` );
 
@@ -47,7 +51,7 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 				tabTitles: tabTitles[ index ],
 			} );
 		} );
-	}, [ clientId, activeTab ] );
+	}, [ clientId, activeTab, tabTitles ] );
 
 	const { isSelectedChild, innerBlocks, innerBlockClientIds } = useSelect( ( select ) => {
 		const { hasSelectedInnerBlock, getBlocks, getBlockOrder } = select( blockEditorStore );
@@ -68,12 +72,12 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 	const isEditing = isSelected || isSelectedChild;
 
 	const changeLabel = ( value, i ) => {
-		const nextLabel = tabTitles.map( ( title, index ) => {
+		const nextLabel = tabTitles.map( ( tabTitle, index ) => {
 			if ( i === index ) {
-				return { title: value };
+				return { title: value, icon: tabTitle.icon };
 			}
 
-			return title;
+			return tabTitle;
 		} );
 
 		setAttributes( { tabTitles: nextLabel } );
@@ -82,7 +86,7 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 			if ( i === index ) {
 				updateBlockAttributes( innerBlockClientId, {
 					uniqueIdTab: uniqueIdBlock,
-					tabTitles: { title: value },
+					tabTitles: { title: value, icon: nextLabel[ i ].icon },
 				} );
 			}
 		} );
@@ -94,6 +98,12 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 
 		newTabTitle.push( {
 			title: 'Tab ' + length,
+			icon: {
+				icon: null,
+				url: null,
+				id: null,
+				alt: null,
+			},
 		} );
 
 		setActiveTab( length - 1 );
@@ -172,7 +182,7 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 				/>
 			) }
 
-			<div { ...useBlockProps( { className: classnames( 'gridflow-tabs', uniqueId ) } ) }>
+			<div { ...useBlockProps( { className: classnames( 'gridflow-tabs', uniqueId, { 'gridflow-tabs__icons--right': iconPosition === 'right' } ) } ) }>
 				<div className={ classnames( 'gridflow-tabs__inner', 'gridflow-block-inner' ) }>
 					<div className="gridflow-tabs__wrapper">
 						{ getPreviewDeviceType !== 'Mobile' && (
@@ -184,6 +194,12 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 											className={ classnames( 'gridflow-tabs__title__button', { 'gridflow-tabs__title__button-active': activeTab === i } ) }
 											onClick={ () => setActiveTab( i ) }
 										>
+											{ tabData?.icon?.icon && (
+												<i className={ tabData.icon.icon }></i>
+											) }
+											{ tabData?.icon?.url && (
+												<img src={ tabData.icon.url } alt={ tabData?.icon?.alt ? tabData.icon.alt : '' } />
+											) }
 											<RichText
 												tagName="span"
 												placeholder={ __( 'Tab label', 'gridflow' ) }

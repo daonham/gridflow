@@ -3,10 +3,10 @@ import classnames from 'classnames';
 import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
 
 export default function save( { attributes } ) {
-	const { uniqueId, tabTitles, uniqueIdTitle } = attributes;
+	const { uniqueId, tabTitles, uniqueIdTitle, iconPosition } = attributes;
 
 	return (
-		<div { ...useBlockProps.save( { className: classnames( 'gridflow-tabs', uniqueId ) } ) }>
+		<div { ...useBlockProps.save( { className: classnames( 'gridflow-tabs', uniqueId, { 'gridflow-tabs__icons--right': iconPosition === 'right' } ) } ) }>
 			<div className={ classnames( 'gridflow-tabs__inner', 'gridflow-block-inner' ) }>
 				<div className="gridflow-tabs__wrapper">
 					<div className="gridflow-tabs__title" role="tablist">
@@ -21,6 +21,12 @@ export default function save( { attributes } ) {
 									aria-controls={ `gridflow-tab__panel_${ uniqueIdTitle }_${ i }` }
 									tabIndex={ i === 0 ? '0' : '-1' }
 								>
+									{ tabData?.icon?.icon && (
+										<i className={ tabData.icon.icon }></i>
+									) }
+									{ tabData?.icon?.url && (
+										<img src={ tabData.icon.url } alt={ tabData?.icon?.alt ? tabData.icon.alt : '' } />
+									) }
 									<RichText.Content
 										tagName="span"
 										value={ tabData?.title }

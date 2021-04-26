@@ -8,6 +8,9 @@
 
 		> button.gridflow-tabs__title__button {
 			position: relative;
+			display: flex;
+			align-items: center;
+			flex-flow: row nowrap;
 			margin: 0;
 			padding: 20px 25px;
 			background: #eee;
@@ -54,6 +57,11 @@
 				width: 24px;
 				min-width: 24px;
 			}
+
+			> i,
+			> img {
+				margin-right: 5px;
+			}
 		}
 	}
 
@@ -73,8 +81,15 @@
 
 			&:first-child {
 
-				&__panel {
+				.gridflow-tab__panel {
 					display: block;
+				}
+
+				.gridflow-tabs__title__button--mobile {
+
+					~ .gridflow-tab__panel {
+						display: none;
+					}
 				}
 			}
 
@@ -87,7 +102,9 @@
 
 			button.gridflow-tabs__title__button--mobile {
 				position: relative;
-				display: block;
+				display: flex;
+				flex-flow: row nowrap;
+				align-items: center;
 				width: 100%;
 				text-align: left;
 				margin: 0;
@@ -100,6 +117,28 @@
 				font-size: 1rem;
 				font-weight: 600;
 				line-height: 1;
+
+				> i,
+				> img {
+					margin-right: 5px;
+				}
+			}
+		}
+	}
+
+	&__icons--right {
+
+		.gridflow-tabs {
+
+			&__title {
+
+				&__button {
+
+					> i,
+					> img {
+						order: 2;
+					}
+				}
 			}
 		}
 	}

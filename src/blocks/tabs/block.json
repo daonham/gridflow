@@ -6,9 +6,33 @@
 		"tabTitles": {
 			"type": "array",
 			"default": [
-				{ "title": "Tab 1" },
-				{ "title": "Tab 2" },
-				{ "title": "Tab 3" }
+				{
+					"title": "Tab 1",
+					"icon": {
+						"icon": null,
+						"url": null,
+						"id": null,
+						"alt": null
+					}
+				},
+				{
+					"title": "Tab 2",
+					"icon": {
+						"icon": null,
+						"url": null,
+						"id": null,
+						"alt": null
+					}
+				},
+				{
+					"title": "Tab 3",
+					"icon": {
+						"icon": null,
+						"url": null,
+						"id": null,
+						"alt": null
+					}
+				}
 			]
 		},
 		"uniqueIdTitle": {
@@ -112,6 +136,25 @@
 		},
 		"borderRadiusContent": {
 			"type": "object"
+		},
+		"iconPosition": {
+			"type": "string",
+			"default": "left"
+		},
+		"iconSpacing": {
+			"type": "object"
+		},
+		"fontSizeIcon": {
+			"type": "object"
+		},
+		"imgWidthIcon": {
+			"type": "object"
+		},
+		"colorIcon": {
+			"type": "string"
+		},
+		"colorIconActive": {
+			"type": "string"
 		}
 	}
 }

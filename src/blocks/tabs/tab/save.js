@@ -14,6 +14,12 @@ export default function save( { attributes } ) {
 				aria-controls={ `gridflow-tab__panel_${ uniqueIdTab }_${ index }` }
 				tabIndex={ index === 0 ? '0' : '-1' }
 			>
+				{ tabTitles?.icon?.icon && (
+					<i className={ tabTitles.icon.icon }></i>
+				) }
+				{ tabTitles?.icon?.url && (
+					<img src={ tabTitles.icon.url } alt={ tabTitles?.icon?.alt ? tabTitles.icon.alt : '' } />
+				) }
 				<RichText.Content
 					tagName="span"
 					value={ tabTitles?.title }

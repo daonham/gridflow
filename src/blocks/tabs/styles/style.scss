@@ -14,6 +14,9 @@ body.gridflow-styles {
 
 			> button.gridflow-tabs__title__button {
 				position: relative;
+				display: flex;
+				align-items: center;
+				flex-flow: row nowrap;
 				margin: 0;
 				padding: 20px 25px;
 				background: #eee;
@@ -54,6 +57,12 @@ body.gridflow-styles {
 						z-index: 2;
 					}
 				}
+
+				> i,
+				> img {
+					pointer-events: none;
+					margin-right: 5px;
+				}
 			}
 		}
 
@@ -82,8 +91,16 @@ body.gridflow-styles {
 				line-height: 1;
 
 				@media (max-width: 767px) {
-					display: block;
+					display: flex;
+					align-items: center;
+					flex-flow: row nowrap;
 					width: 100%;
+				}
+
+				> i,
+				> img {
+					pointer-events: none;
+					margin-right: 5px;
 				}
 			}
 
@@ -97,6 +114,23 @@ body.gridflow-styles {
 
 			&[hidden] {
 				display: none;
+			}
+		}
+
+		&__icons--right {
+
+			.gridflow-tabs {
+
+				&__title {
+
+					&__button {
+
+						> i,
+						> img {
+							order: 2;
+						}
+					}
+				}
 			}
 		}
 	}

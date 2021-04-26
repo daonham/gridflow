@@ -5,6 +5,8 @@ import {
 	SelectControl,
 	RangeControl,
 	TabPanel,
+	Flex,
+	FlexItem,
 } from '@wordpress/components';
 
 const {
@@ -15,10 +17,13 @@ const {
 	GridFlowColorPicker,
 	GridFlowDivider,
 	GridFlowTextAlign,
+	GridFlowIconSelect,
+	GridFlowTextUnit,
 } = wp.gridflowComponents;
 
 const Inspector = ( { attributes, setAttributes } ) => {
 	const {
+		tabTitles,
 		position,
 		aligns,
 		borderWidth,
@@ -50,7 +55,27 @@ const Inspector = ( { attributes, setAttributes } ) => {
 		paddingContent,
 		borderContent,
 		borderRadiusContent,
+
+		iconPosition,
+		iconSpacing,
+		fontSizeIcon,
+		lineHeightIcon,
+		imgWidthIcon,
+		colorIcon,
+		colorIconActive,
 	} = attributes;
+
+	const onChangeIcon = ( value, i ) => {
+		const nextLabel = tabTitles.map( ( tabTitle, index ) => {
+			if ( i === index ) {
+				return { title: tabTitle.title, icon: value };
+			}
+
+			return tabTitle;
+		} );
+
+		setAttributes( { tabTitles: nextLabel } );
+	};
 
 	return (
 		<>
@@ -221,6 +246,88 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						values={ borderRadiusContent }
 						onChange={ ( value ) => setAttributes( { borderRadiusContent: value } ) }
 					/>
+				</PanelBody>
+
+				<PanelBody title={ __( 'Icons', 'gridflow' ) } initialOpen={ false }>
+					{ tabTitles.map( ( tabTitle, index ) => {
+						return (
+							<GridFlowIconSelect
+								key={ index }
+								label={ tabTitle?.title || 'Icon Tab' }
+								values={ tabTitle?.icon }
+								onChange={ ( value ) => onChangeIcon( value, index ) }
+							/>
+						);
+					} ) }
+					<Flex gap={ 8 } justify={ 'flex-start' } align={ 'flex-start' } style={ { marginTop: 10 } } >
+						<FlexItem>
+							<SelectControl
+								label={ __( 'Icon Position', 'gridflow' ) }
+								value={ iconPosition }
+								options={ [
+									{ label: __( 'Left', 'gridflow' ), value: 'left' },
+									{ label: __( 'Right', 'gridflow' ), value: 'right' },
+								] }
+								onChange={ ( value ) => setAttributes( { iconPosition: value } ) }
+								style={ { width: 100 } }
+							/>
+							<GridFlowTextUnit
+								label={ __( 'Font Size', 'gridflow' ) }
+								values={ fontSizeIcon }
+								onChange={ ( value ) => setAttributes( { fontSizeIcon: value } ) }
+							/>
+						</FlexItem>
+						<FlexItem>
+							<GridFlowTextUnit
+								label={ __( 'Icon Spacing', 'gridflow' ) }
+								values={ iconSpacing }
+								onChange={ ( value ) => setAttributes( { iconSpacing: value } ) }
+							/>
+							<GridFlowTextUnit
+								label={ __( 'Line Height', 'gridflow' ) }
+								values={ lineHeightIcon }
+								onChange={ ( value ) => setAttributes( { lineHeightIcon: value } ) }
+							/>
+						</FlexItem>
+					</Flex>
+
+					<GridFlowTextUnit
+						label={ __( 'Icon Image Width', 'gridflow' ) }
+						values={ imgWidthIcon }
+						onChange={ ( value ) => setAttributes( { imgWidthIcon: value } ) }
+					/>
+					<TabPanel
+						tabs={ [
+							{ name: 'normal', title: __( 'Normal', 'gridflow' ) },
+							{ name: 'active', title: __( 'Active', 'gridflow' ) },
+						] }
+					>
+						{ ( tab ) => {
+							if ( tab.name === 'normal' ) {
+								return (
+									<>
+										<GridFlowColorPicker
+											label={ __( 'Color', 'gridflow' ) }
+											value={ colorIcon }
+											onChange={ ( value ) => setAttributes( { colorIcon: value } ) }
+										/>
+									</>
+								);
+							}
+
+							if ( tab.name === 'active' ) {
+								return (
+									<>
+										<GridFlowColorPicker
+											label={ __( 'Color', 'gridflow' ) }
+											value={ colorIconActive }
+											onChange={ ( value ) => setAttributes( { colorIconActive: value } ) }
+										/>
+									</>
+								);
+							}
+						} }
+					</TabPanel>
 				</PanelBody>
 			</InspectorControls>
 		</>

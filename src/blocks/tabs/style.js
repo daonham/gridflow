@@ -39,6 +39,14 @@ function inlineStyle( { attributes } ) {
 		paddingContent,
 		borderContent,
 		borderRadiusContent,
+
+		iconPosition,
+		iconSpacing,
+		fontSizeIcon,
+		lineHeightIcon,
+		imgWidthIcon,
+		colorIcon,
+		colorIconActive,
 	} = attributes;
 
 	const desktop = {
@@ -125,6 +133,21 @@ function inlineStyle( { attributes } ) {
 			...GridFlowStyleBox( paddingContent, 'padding', 'desktop' ),
 			...GridFlowStyleBorder( borderContent, 'desktop' ),
 			...GridFlowStyleBox( borderRadiusContent, 'border-radius', 'desktop' ),
+		},
+		' .gridflow-tabs__title > button.gridflow-tabs__title__button > i': {
+			'margin-right': iconPosition === 'left' && iconSpacing?.desktop ? iconSpacing.desktop : undefined,
+			'margin-left': iconPosition === 'right' && iconSpacing?.desktop ? iconSpacing.desktop : undefined,
+			'font-size': fontSizeIcon?.desktop,
+			'line-height': lineHeightIcon?.desktop,
+			color: colorIcon,
+		},
+		' .gridflow-tabs__title > button.gridflow-tabs__title__button > img': {
+			'margin-right': iconPosition === 'left' && iconSpacing?.desktop ? iconSpacing.desktop : undefined,
+			'margin-left': iconPosition === 'right' && iconSpacing?.desktop ? iconSpacing.desktop : undefined,
+			width: imgWidthIcon?.desktop,
+		},
+		' .gridflow-tabs__title > button.gridflow-tabs__title__button.gridflow-tabs__title__button-active > i': {
+			color: colorIconActive,
 		},
 	};
 
