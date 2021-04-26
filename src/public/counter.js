@@ -8,10 +8,12 @@ const gridflowCounter = () => {
 					if ( entry.isIntersecting ) {
 						const element = entry.target,
 							ele = element.querySelector( '.gridflow-counter__number__number' ),
-							duration = parseInt( ele.dataset.duration ),
-							step = parseInt( ele.dataset.step ),
-							from = parseInt( ele.dataset.from ),
-							to = parseInt( ele.dataset.to );
+							data = JSON.parse( ele.dataset.counter ),
+							duration = parseInt( data?.duration ),
+							step = parseInt( data?.step ),
+							from = parseInt( data?.from ),
+							to = parseInt( data?.to ),
+							delimiter = data?.delimiter;
 
 						const second = duration * step / ( to - from );
 
@@ -25,12 +27,19 @@ const gridflowCounter = () => {
 								fromEle = fromEle + step;
 
 								if ( fromEle >= to ) {
-									ele.textContent = to;
+									ele.textContent = format( to );
 								} else {
-									ele.textContent = fromEle;
+									ele.textContent = format( fromEle );
 								}
 							}
 						}
+
+						const format = ( value ) => {
+							if ( delimiter ) {
+								return value.toString().replace( /\B(?=(\d{3})+(?!\d))/g, delimiter );
+							}
+							return value;
+						};
 
 						counterObserver.unobserve( element );
 					}

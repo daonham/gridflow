@@ -10,7 +10,7 @@ import Inspector from './inspector';
 const { withInlineStyle } = wp.gridflowCompose;
 
 function Edit( { isSelected, attributes, setAttributes } ) {
-	const { uniqueId, prefix, suffix, title, toValue } = attributes;
+	const { uniqueId, prefix, suffix, title, toValue, delimiter } = attributes;
 
 	return (
 		<>
@@ -33,7 +33,7 @@ function Edit( { isSelected, attributes, setAttributes } ) {
 					<div className="gridflow-counter__wrapper">
 						<div className="gridflow-counter__number">
 							<span className="gridflow-counter__number__prefix">{ prefix }</span>
-							<span className="gridflow-counter__number__number">{ toValue }</span>
+							<span className="gridflow-counter__number__number">{ toValue.toString().replace( /\B(?=(\d{3})+(?!\d))/g, delimiter ) }</span>
 							<span className="gridflow-counter__number__suffix">{ suffix }</span>
 						</div>
 						<RichText

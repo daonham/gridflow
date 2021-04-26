@@ -37,6 +37,9 @@
 			"type": "string",
 			"default": "1"
 		},
+		"delimiter": {
+			"type": "string"
+		},
 		"gridflowFont": {
 			"type": "object",
 			"default": {
@@ -49,6 +52,75 @@
 					"weight": "fontWeightTitle"
 				}
 			}
+		},
+		"color": {
+			"type": "string"
+		},
+		"font": {
+			"type": "string"
+		},
+		"fontSize": {
+			"type": "object"
+		},
+		"lineHeight": {
+			"type": "object"
+		},
+		"fontWeight": {
+			"type": "string"
+		},
+		"decoration": {
+			"type": "string"
+		},
+		"transform": {
+			"type": "string"
+		},
+		"fontStyle": {
+			"type": "string"
+		},
+		"letterSpacing": {
+			"type": "object"
+		},
+		"bgColor": {
+			"type": "string"
+		},
+		"paddingNumber": {
+			"type": "object"
+		},
+		"borderNumber": {
+			"type": "object"
+		},
+		"borderRadiusNumber": {
+			"type": "object"
+		},
+		"boxShadowNumber": {
+			"type": "object"
+		},
+		"colorTitle": {
+			"type": "string"
+		},
+		"fontTitle": {
+			"type": "string"
+		},
+		"fontSizeTitle": {
+			"type": "object"
+		},
+		"lineHeightTitle": {
+			"type": "object"
+		},
+		"fontWeightTitle": {
+			"type": "string"
+		},
+		"decorationTitle": {
+			"type": "string"
+		},
+		"transformTitle": {
+			"type": "string"
+		},
+		"fontStyleTitle": {
+			"type": "string"
+		},
+		"letterSpacingTitle": {
+			"type": "object"
 		}
 	}
 }

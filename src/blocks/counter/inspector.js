@@ -24,6 +24,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 		suffix,
 		duration,
 		step,
+		delimiter,
 
 		color,
 		font,
@@ -87,11 +88,9 @@ const Inspector = ( { attributes, setAttributes } ) => {
 								min="0"
 							/>
 							<TextControl
-								label={ __( 'Duration', 'gridflow' ) }
-								value={ duration || '2000' }
-								onChange={ ( value ) => setAttributes( { duration: value } ) }
-								type="number"
-								min="0"
+								label={ __( 'Delimiter', 'gridflow' ) }
+								value={ delimiter || '' }
+								onChange={ ( value ) => setAttributes( { delimiter: value } ) }
 							/>
 							<TextControl
 								label={ __( 'Suffix', 'gridflow' ) }
@@ -100,6 +99,13 @@ const Inspector = ( { attributes, setAttributes } ) => {
 							/>
 						</FlexItem>
 					</Flex>
+					<TextControl
+						label={ __( 'Duration', 'gridflow' ) }
+						value={ duration || '2000' }
+						onChange={ ( value ) => setAttributes( { duration: value } ) }
+						type="number"
+						min="0"
+					/>
 				</PanelBody>
 
 				<PanelBody title={ __( 'Number', 'gridflow' ) } initialOpen={ false }>
