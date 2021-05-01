@@ -24,6 +24,7 @@ import * as googleMap from './blocks/google-map';
 import * as counter from './blocks/counter';
 import * as tab from './blocks/tabs/tab';
 import * as tabs from './blocks/tabs';
+import * as divider from './blocks/divider';
 
 const registerBlock = ( block ) => {
 	if ( ! block ) {
@@ -51,6 +52,7 @@ export const registerGridFlowBlocks = () => {
 		counter,
 		tab,
 		tabs,
+		divider,
 	].forEach( registerBlock );
 };
 

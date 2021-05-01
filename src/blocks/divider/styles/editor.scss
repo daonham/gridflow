@@ -1,0 +1,59 @@
+
+.gridflow-divider {
+
+	&__wrapper {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	&-separator {
+
+		&:not(.gridflow-divider-separator--text):not(.gridflow-divider-separator--icon) {
+			border-top: var(--divider-border-width, 1px) var(--divider-border-style, solid) var(--divider-border-color, #222);
+		}
+
+		&--text,
+		&--icon {
+			display: flex;
+			align-items: center;
+			flex-flow: row nowrap;
+
+			&::after,
+			&::before {
+				display: block;
+				content: "";
+				flex: 1;
+				border-top: var(--divider-border-width, 1px) var(--divider-border-style, solid) var(--divider-border-color, #222);
+				border-bottom: none;
+			}
+		}
+
+		&--solid {
+			--divider-border-style: solid;
+		}
+
+		&--dashed {
+			--divider-border-style: dashed;
+		}
+
+		&--dotted {
+			--divider-border-style: dotted;
+		}
+
+		&--double {
+			--divider-border-style: double;
+		}
+
+		> .gridflow-divider__text {
+			line-height: 1;
+			font-size: 1rem;
+			margin: 0 5px;
+		}
+
+		> span.gridflow-divider__icon {
+			line-height: 1;
+			font-size: var(--divider-icon-size, 1rem);
+			margin: 0 5px;
+		}
+	}
+}

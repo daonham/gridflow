@@ -17,6 +17,7 @@ const allowedBlocks = [
 	'gridflow/google-map',
 	'gridflow/counter',
 	'gridflow/tabs',
+	'gridflow/divider',
 ];
 
 export function addAttributes( settings ) {

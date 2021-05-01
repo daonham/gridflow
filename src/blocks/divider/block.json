@@ -1,0 +1,114 @@
+{
+	"apiVersion": 2,
+	"name": "gridflow/divider",
+	"category": "gridflow",
+	"attributes": {
+		"text": {
+			"type": "string",
+			"source": "html",
+			"selector": ".gridflow-divider__text",
+			"default": ""
+		},
+		"style": {
+			"type": "string",
+			"default": "solid"
+		},
+		"tagName": {
+			"type": "string",
+			"default": "span"
+		},
+		"type": {
+			"type": "string",
+			"default": ""
+		},
+		"icon": {
+			"type": "object"
+		},
+		"textAligns": {
+			"type": "object"
+		},
+		"width": {
+			"type": "object"
+		},
+		"height": {
+			"type": "object"
+		},
+		"color": {
+			"type": "string"
+		},
+		"colorText": {
+			"type": "string"
+		},
+		"gridflowFont": {
+			"type": "object",
+			"default": {
+				"1": {
+					"name": "font",
+					"weight": "fontWeight"
+				}
+			}
+		},
+		"font": {
+			"type": "string"
+		},
+		"fontSize": {
+			"type": "object"
+		},
+		"lineHeight": {
+			"type": "object"
+		},
+		"fontWeight": {
+			"type": "string"
+		},
+		"decoration": {
+			"type": "string"
+		},
+		"transform": {
+			"type": "string"
+		},
+		"fontStyle": {
+			"type": "string"
+		},
+		"letterSpacing": {
+			"type": "object"
+		},
+		"textPosition": {
+			"type": "string",
+			"default": "center"
+		},
+		"textSpacing": {
+			"type": "object"
+		},
+		"iconPosition": {
+			"type": "string",
+			"default": "center"
+		},
+		"iconSpacing": {
+			"type": "object"
+		},
+		"iconWidth": {
+			"type": "object"
+		},
+		"iconFontSize": {
+			"type": "object"
+		},
+		"iconColor": {
+			"type": "string"
+		},
+		"iconBackgroundColor": {
+			"type": "string"
+		},
+		"iconPadding": {
+			"type": "object"
+		},
+		"iconBorder": {
+			"type": "object"
+		},
+		"iconBorderRadius": {
+			"type": "object"
+		},
+		"iconBoxShadow": {
+			"type": "object"
+		}
+	}
+}

@@ -1,62 +1,72 @@
 // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Tab_Role
 const gridflowTabs = () => {
-	const tabs = document.querySelectorAll( '[role="tab"]' );
-	const tabList = document.querySelector( '[role="tablist"]' );
+	const allTabs = document.querySelectorAll( '.gridflow-tabs' );
 
-	// Add a click event handler to each tab
-	tabs.forEach( ( tab ) => {
-		tab.addEventListener( 'click', changeTabs );
-	} );
+	if ( allTabs.length ) {
+		allTabs.forEach( ( element ) => {
+			const tabs = element.querySelectorAll( '[role="tab"]' );
+			const tabList = element.querySelector( '[role="tablist"]' );
 
-	// Enable arrow navigation between tabs in the tab list
-	let tabFocus = 0;
-
-	tabList.addEventListener( 'keydown', ( e ) => {
-		// Move right
-		if ( e.keyCode === 39 || e.keyCode === 37 ) {
-			tabs[ tabFocus ].setAttribute( 'tabindex', -1 );
-			if ( e.keyCode === 39 ) {
-				tabFocus++;
-				// If we're at the end, go to the start
-				if ( tabFocus >= tabs.length ) {
-					tabFocus = 0;
-				}
-				// Move left
-			} else if ( e.keyCode === 37 ) {
-				tabFocus--;
-				// If we're at the start, move to the end
-				if ( tabFocus < 0 ) {
-					tabFocus = tabs.length - 1;
-				}
+			if ( ! tabs || ! tabList ) {
+				return;
 			}
 
-			tabs[ tabFocus ].setAttribute( 'tabindex', 0 );
-			tabs[ tabFocus ].focus();
-		}
-	} );
+			// Add a click event handler to each tab
+			tabs.forEach( ( tab ) => {
+				tab.addEventListener( 'click', changeTabs );
+			} );
 
-	function changeTabs( e ) {
-		const target = e.target.tagName === 'SPAN' ? e.target.parentNode : e.target;
-		const parent = target.parentNode;
-		const grandparent = parent.parentNode;
+			// Enable arrow navigation between tabs in the tab list
+			let tabFocus = 0;
 
-		// Remove all current selected tabs
-		parent
-			.querySelectorAll( '[aria-selected="true"]' )
-			.forEach( ( t ) => t.setAttribute( 'aria-selected', false ) );
+			tabList.addEventListener( 'keydown', ( e ) => {
+				// Move right
+				if ( e.keyCode === 39 || e.keyCode === 37 ) {
+					tabs[ tabFocus ].setAttribute( 'tabindex', -1 );
+					if ( e.keyCode === 39 ) {
+						tabFocus++;
+						// If we're at the end, go to the start
+						if ( tabFocus >= tabs.length ) {
+							tabFocus = 0;
+						}
+						// Move left
+					} else if ( e.keyCode === 37 ) {
+						tabFocus--;
+						// If we're at the start, move to the end
+						if ( tabFocus < 0 ) {
+							tabFocus = tabs.length - 1;
+						}
+					}
 
-		// Set this tab as selected
-		target.setAttribute( 'aria-selected', true );
+					tabs[ tabFocus ].setAttribute( 'tabindex', 0 );
+					tabs[ tabFocus ].focus();
+				}
+			} );
 
-		// Hide all tab panels
-		grandparent
-			.querySelectorAll( '[role="tabpanel"]' )
-			.forEach( ( p ) => p.setAttribute( 'hidden', true ) );
+			function changeTabs( e ) {
+				const target = e.target.tagName === 'SPAN' ? e.target.parentNode : e.target;
+				const parent = target.parentNode;
+				const grandparent = parent.parentNode;
 
-		// Show the selected panel
-		grandparent.parentNode
-			.querySelector( `#${ target.getAttribute( 'aria-controls' ) }` )
-			.removeAttribute( 'hidden' );
+				// Remove all current selected tabs
+				parent
+					.querySelectorAll( '[aria-selected="true"]' )
+					.forEach( ( t ) => t.setAttribute( 'aria-selected', false ) );
+
+				// Set this tab as selected
+				target.setAttribute( 'aria-selected', true );
+
+				// Hide all tab panels
+				grandparent
+					.querySelectorAll( '[role="tabpanel"]' )
+					.forEach( ( p ) => p.setAttribute( 'hidden', true ) );
+
+				// Show the selected panel
+				grandparent.parentNode
+					.querySelector( `#${ target.getAttribute( 'aria-controls' ) }` )
+					.removeAttribute( 'hidden' );
+			}
+		} );
 	}
 };
 export default gridflowTabs;
