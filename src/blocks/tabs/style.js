@@ -270,7 +270,6 @@ function inlineStyle( { attributes } ) {
 		},
 	};
 
-	// Returns the icon position.s
 	return { desktop, tablet, mobile };
 }
 
