@@ -63,7 +63,7 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 				/>
 			) }
 
-			<div { ...useBlockProps( { className: classnames( 'gridflow-tab', uniqueId ) } ) }>
+			<div { ...useBlockProps( { className: classnames( 'gridflow-tab', uniqueId, { is_selected: isSelected } ) } ) }>
 				{ getPreviewDeviceType === 'Mobile' && (
 					<button className="gridflow-tabs__title__button gridflow-tabs__title__button--mobile">
 						{ tabTitles?.icon?.icon && (

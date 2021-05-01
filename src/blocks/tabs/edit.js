@@ -15,7 +15,7 @@ import Inspector from './inspector';
 const { withInlineStyle } = wp.gridflowCompose;
 
 function Edit( { isSelected, attributes, setAttributes, clientId } ) {
-	const { uniqueId, tabTitles, uniqueIdTitle, iconPosition } = attributes;
+	const { uniqueId, tabTitles, uniqueIdTitle, iconPosition, position } = attributes;
 
 	const [ activeTab, setActiveTab ] = useState( 0 );
 
@@ -221,7 +221,7 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 
 								{ isEditing && (
 									<Tooltip text={ __( 'Add Tab', 'gridflow' ) }>
-										<div style={ { display: 'inline-flex', alignItems: 'center', margin: '0 0 0 10px' } }>
+										<div style={ { display: 'inline-flex', alignItems: 'center', margin: ( position === 'left' || position === 'right' ) ? '10px 0 0 0' : '0 0 0 10px' } }>
 											<Button
 												className={ classnames( 'block-editor-button-block-appender' ) }
 												style={ { padding: 0 } }

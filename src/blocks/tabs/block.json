@@ -41,7 +41,7 @@
 		},
 		"position": {
 			"type": "string",
-			"default": "top"
+			"default": ""
 		},
 		"aligns": {
 			"type": "object"

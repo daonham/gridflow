@@ -86,10 +86,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						value={ position }
 						onChange={ ( value ) => setAttributes( { position: value } ) }
 						options={ [
-							{ label: __( 'Top', 'gridflow' ), value: 'top' },
-							{ label: __( 'Bottom', 'gridflow' ), value: 'bottom' },
-							{ label: __( 'Left', 'gridflow' ), value: 'left' },
-							{ label: __( 'Right', 'gridflow' ), value: 'right' },
+							{ label: __( 'Top', 'gridflow' ), value: '' },
 						] }
 					/>
 					<GridFlowTextAlign

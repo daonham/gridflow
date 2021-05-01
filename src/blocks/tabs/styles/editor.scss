@@ -142,4 +142,39 @@
 			}
 		}
 	}
+
+	&__position {
+
+		&--left {
+
+			.gridflow-tabs {
+
+				&__wrapper {
+					display: flex;
+					flex-flow: row nowrap;
+				}
+
+				&__title {
+					flex-direction: column;
+
+					button.gridflow-tabs__title__button {
+						border-bottom: 2px solid #eee;
+						border-right: none;
+					}
+				}
+
+				&__content {
+					flex: 1;
+				}
+			}
+
+			.gridflow-tab {
+
+				&__panel {
+					border-left: none;
+					border-top: 2px solid #eee;
+				}
+			}
+		}
+	}
 }
