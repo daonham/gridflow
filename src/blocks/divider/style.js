@@ -1,7 +1,6 @@
 import { addFilter, hasFilter } from '@wordpress/hooks';
 const {
 	GridFlowStyleTypography,
-	GridFlowStyleTextShadow,
 	GridFlowStyleBox,
 	GridFlowStyleBorder,
 	GridFlowStyleBoxShadow,
@@ -96,9 +95,77 @@ function inlineStyle( { attributes } ) {
 	};
 
 	const tablet = {
+		' .gridflow-divider-separator': {
+			width: width?.tablet,
+			'margin-left': textAligns?.tablet === 'left' ? '0' : undefined,
+			'margin-right': textAligns?.tablet === 'right' ? '0' : undefined,
+			'--divider-border-width': height?.tablet,
+		},
+		' .gridflow-divider__text': {
+			...GridFlowStyleTypography( {
+				font,
+				fontSize,
+				lineHeight,
+				fontWeight,
+				decoration,
+				transform,
+				fontStyle,
+				letterSpacing,
+				device: 'tablet',
+			} ),
+			'margin-left': textPosition !== 'left' && textSpacing?.tablet ? `${ textSpacing.tablet }px` : 0,
+			'margin-right': textPosition !== 'right' && textSpacing?.tablet ? `${ textSpacing.tablet }px` : 0,
+		},
+		' .gridflow-divider__icon': {
+			'margin-left': iconPosition !== 'left' && iconSpacing?.tablet ? iconSpacing.tablet : 0,
+			'margin-right': iconPosition !== 'right' && iconSpacing?.tablet ? iconSpacing.tablet  : 0,
+			...GridFlowStyleBox( iconPadding, 'padding', 'tablet' ),
+			...GridFlowStyleBorder( iconBorder, 'tablet' ),
+			...GridFlowStyleBox( iconBorderRadius, 'border-radius', 'tablet' ),
+		},
+		' .gridflow-divider__icon > img': {
+			width: iconWidth?.tablet || undefined,
+		},
+		' .gridflow-divider__icon > i': {
+			'font-size': iconFontSize?.tablet,
+		},
 	};
 
 	const mobile = {
+		' .gridflow-divider-separator': {
+			width: width?.mobile,
+			'margin-left': textAligns?.mobile === 'left' ? '0' : undefined,
+			'margin-right': textAligns?.mobile === 'right' ? '0' : undefined,
+			'--divider-border-width': height?.mobile,
+		},
+		' .gridflow-divider__text': {
+			...GridFlowStyleTypography( {
+				font,
+				fontSize,
+				lineHeight,
+				fontWeight,
+				decoration,
+				transform,
+				fontStyle,
+				letterSpacing,
+				device: 'mobile',
+			} ),
+			'margin-left': textPosition !== 'left' && textSpacing?.mobile ? `${ textSpacing.mobile }px` : 0,
+			'margin-right': textPosition !== 'right' && textSpacing?.mobile ? `${ textSpacing.mobile }px` : 0,
+		},
+		' .gridflow-divider__icon': {
+			'margin-left': iconPosition !== 'left' && iconSpacing?.mobile ? iconSpacing.mobile : 0,
+			'margin-right': iconPosition !== 'right' && iconSpacing?.mobile ? iconSpacing.mobile  : 0,
+			...GridFlowStyleBox( iconPadding, 'padding', 'mobile' ),
+			...GridFlowStyleBorder( iconBorder, 'mobile' ),
+			...GridFlowStyleBox( iconBorderRadius, 'border-radius', 'mobile' ),
+		},
+		' .gridflow-divider__icon > img': {
+			width: iconWidth?.mobile || undefined,
+		},
+		' .gridflow-divider__icon > i': {
+			'font-size': iconFontSize?.mobile,
+		},
 	};
 
 	return { desktop, tablet, mobile };
