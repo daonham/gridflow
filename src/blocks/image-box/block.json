@@ -1,0 +1,29 @@
+{
+	"apiVersion": 2,
+	"name": "gridflow/image-box",
+	"category": "gridflow",
+	"attributes": {
+		"url": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".gridflow-image-box__image > img",
+			"attribute": "src"
+		},
+		"alt": {
+			"type": "string",
+			"source": "attribute",
+			"selector": ".gridflow-image-box__image > img",
+			"attribute": "alt",
+			"default": ""
+		},
+		"id": {
+			"type": "number"
+		},
+		"linkType": {
+			"type": "string"
+		},
+		"links": {
+			"type": "object"
+		}
+	}
+}

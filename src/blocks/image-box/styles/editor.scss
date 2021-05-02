@@ -1,0 +1,10 @@
+.gridflow-image-box {
+
+	&__content {
+
+		> [data-block].wp-block {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+}
