@@ -9,7 +9,7 @@ import classnames from 'classnames';
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 export default function save( { attributes } ) {
-	const { uniqueId, url, id, alt, linkType, links } = attributes;
+	const { uniqueId, url, id, alt, linkType, links, imagePosition, overlay, hoverOverlay, hoverEffect } = attributes;
 
 	let href, target, rel;
 
@@ -25,15 +25,25 @@ export default function save( { attributes } ) {
 		}
 	}
 
-	const contentLink = (
+	const imageBoxImage = (
 		<>
 			{ linkType ? (
-				<a className={ classnames( 'gridflow-image-box__image' ) } href={ href } target={ target } rel={ rel }>
-					<img className={ id && `wp-image-${ id }` } src={ url } alt={ alt || '' } />
-				</a>
+				<div className={ 'gridflow-image-box__image' }>
+					<a className={ 'gridflow-image-box__link' } href={ href } target={ target } rel={ rel }>
+						<img className={ classnames(id && `wp-image-${ id }`, 'gridflow-image-box__img' ) } src={ url } alt={ alt || '' } />
+
+						{ ( overlay || hoverOverlay ) && (
+							<div className={ classnames('gridflow-image-box__image--overlay')}></div>
+						)}
+					</a>
+				</div>
 			) : (
-				<div className={ classnames( 'gridflow-image-box__image' ) }>
-					<img className={ id && `wp-image-${ id }` } src={ url } alt={ alt || '' } />
+				<div className={ 'gridflow-image-box__image' }>
+					<img className={ classnames(id && `wp-image-${ id }`, 'gridflow-image-box__img' ) } src={ url } alt={ alt || '' } />
+
+					{ ( overlay || hoverOverlay ) && (
+							<div className={ classnames('gridflow-image-box__image--overlay')}></div>
+						)}
 				</div>
 			) }
 		</>
@@ -42,8 +52,12 @@ export default function save( { attributes } ) {
 	return (
 		<div { ...useBlockProps.save( { className: classnames( 'gridflow-image-box', uniqueId ) } ) }>
 			<div className={ classnames( 'gridflow-image-box__inner', 'gridflow-block-inner' ) }>
-				<div className={ 'gridflow-image-box__wrapper' }>
-					{ contentLink }
+				<div className={ classnames(
+					'gridflow-image-box__wrapper',
+					`gridflow-image-box__wrapper--image--${ imagePosition }`,
+					{ [`gridflow-image-box__wrapper--image--hover--${ hoverEffect}`]: hoverEffect }
+					) }>
+					{ imageBoxImage }
 
 					<div className="gridflow-image-box__content">
 						<InnerBlocks.Content />

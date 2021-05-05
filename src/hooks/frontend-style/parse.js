@@ -1,7 +1,6 @@
 import { select } from '@wordpress/data';
 
-import getStyle from '../inline-style';
-import inlineStyle from '../inline-style/filter';
+import getStyles from './styles';
 import gridflowApi from './api';
 
 function parseStyle( isPreview = false ) {
@@ -9,47 +8,21 @@ function parseStyle( isPreview = false ) {
 	const { getCurrentPostId } = select( 'core/editor' );
 
 	let styles = '';
-	const fonts = [];
+	let fonts = [];
 
-	allBlocks.map( ( block ) => {
-		const { attributes, name } = block;
-		const { uniqueId } = attributes;
-		const blockName = name.split( '/' );
+	allBlocks.forEach( ( block ) => {
+		const blockStyle = getStyles( block, styles, fonts );
 
-		if ( blockName[ 0 ] === 'gridflow' && uniqueId ) {
-			if ( attributes.gridflowFont ) {
-				const { gridflowFont } = attributes;
+		styles = blockStyle.styles;
+		fonts = blockStyle.fonts;
 
-				Object.values( gridflowFont ).map( ( font ) => {
-					let weight = [ '400', '400i' ];
+		if ( ( block.innerBlocks ).length > 0 ) {
+			( block.innerBlocks ).forEach( ( innerBlock ) => {
+				const innerBlockStyle = getStyles( innerBlock, styles, fonts );
 
-					if ( attributes[ font.weight ] ) {
-						if ( attributes[ font.weight ] !== 'regular' ) {
-							weight = [ attributes[ font.weight ], `${ attributes[ font.weight ] }i` ];
-						}
-					}
-
-					if ( attributes[ font.name ] && gridFlowEditorData.systemFont && ! ( gridFlowEditorData.systemFont ).includes( attributes[ font.name ] ) ) {
-						fonts.push( {
-							font: attributes[ font.name ],
-							weights: weight,
-						} );
-					}
-				} );
-			}
-
-			const inline = typeof inlineStyle !== 'undefined' ? inlineStyle( { name: blockName[ 1 ], attributes } ) : undefined;
-			if ( inline ) {
-				styles += getStyle( inline.desktop, uniqueId );
-
-				if ( inline.tablet ) {
-					styles += getStyle( inline.tablet, uniqueId, true, 'tablet' );
-				}
-
-				if ( inline.mobile ) {
-					styles += getStyle( inline.mobile, uniqueId, true, 'mobile' );
-				}
-			}
+				styles = innerBlockStyle.styles;
+				fonts = innerBlockStyle.fonts;
+			} );
 		}
 	} );
 

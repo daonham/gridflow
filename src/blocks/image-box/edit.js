@@ -40,10 +40,10 @@ const TEMPLATE = [
 ];
 
 function Edit( { isSelected, attributes, setAttributes, noticeOperations, noticeUI } ) {
-	const { uniqueId, url, id, alt, linkType, links } = attributes;
+	const { uniqueId, url, id, alt, linkType, links, imagePosition, overlay, hoverOverlay, hoverEffect } = attributes;
 
 	const innerBlocksContent = useInnerBlocksProps( { className: 'gridflow-image-box__content' }, {
-		allowedBlocks: [ 'gridflow/heading' ],
+		allowedBlocks: [ 'gridflow/heading', 'gridflow/button' ],
 		template: TEMPLATE,
 		orientation: 'vertical',
 		renderAppender: isSelected ? InnerBlocks.ButtonBlockAppender : false,
@@ -96,27 +96,35 @@ function Edit( { isSelected, attributes, setAttributes, noticeOperations, notice
 		}
 	}
 
-	function imageBoxImage() {
-		return (
-			<>
-				{ linkType ? (
+	const imageBoxImage = (
+		<>
+			{ linkType ? (
+				<div className={ 'gridflow-image-box__image' }>
 					<a
-						className={ classnames( 'gridflow-image-box__image' ) }
+						className={ classnames( 'gridflow-image-box__link' ) }
 						href={ href }
 						target={ target }
 						rel={ rel }
 						onClick={ ( e ) => e.preventDefault() }
 					>
-						<img src={ url } alt={ alt || '' } />
+						<img className={ classnames( 'gridflow-image-box__img' ) } src={ url } alt={ alt || '' } />
+
+						{ ( overlay || hoverOverlay ) && (
+							<div className={ classnames('gridflow-image-box__image--overlay')}></div>
+						)}
 					</a>
-				) : (
-					<div className={ classnames( 'gridflow-image-box__image' ) }>
-						<img src={ url } alt={ alt || '' } />
-					</div>
-				) }
-			</>
-		);
-	}
+				</div>
+			) : (
+				<div className={ classnames( 'gridflow-image-box__image' ) }>
+					<img className={ classnames( 'gridflow-image-box__img' ) } src={ url } alt={ alt || '' } />
+
+					{ ( overlay || hoverOverlay ) && (
+						<div className={ classnames('gridflow-image-box__image--overlay')}></div>
+					)}
+				</div>
+			) }
+		</>
+	);
 
 	return (
 		<>
@@ -137,10 +145,14 @@ function Edit( { isSelected, attributes, setAttributes, noticeOperations, notice
 
 			<div { ...useBlockProps( { className: classnames( 'gridflow-image-box', uniqueId ) } ) }>
 				<div className={ classnames( 'gridflow-image-box_inner', 'gridflow-block-inner' ) }>
-					<div className={ 'gridflow-image-box__wrapper' }>
+					<div className={ classnames(
+						'gridflow-image-box__wrapper',
+						`gridflow-image-box__wrapper--image--${ imagePosition }`,
+						{ [`gridflow-image-box__wrapper--image--hover--${ hoverEffect}`]: hoverEffect }
+						) }>
 						{ url ? (
-							imageBoxImage()
-						) : (
+							imageBoxImage
+							) : (
 							<MediaPlaceholder
 								icon={ <BlockIcon icon={ icon } /> }
 								onSelect={ onSelectImage }

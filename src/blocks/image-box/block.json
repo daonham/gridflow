@@ -6,13 +6,13 @@
 		"url": {
 			"type": "string",
 			"source": "attribute",
-			"selector": ".gridflow-image-box__image > img",
+			"selector": ".gridflow-image-box__img",
 			"attribute": "src"
 		},
 		"alt": {
 			"type": "string",
 			"source": "attribute",
-			"selector": ".gridflow-image-box__image > img",
+			"selector": ".gridflow-image-box__img",
 			"attribute": "alt",
 			"default": ""
 		},
@@ -23,6 +23,85 @@
 			"type": "string"
 		},
 		"links": {
+			"type": "object"
+		},
+		"imagePosition": {
+			"type": "string",
+			"default": "top"
+		},
+		"spacing": {
+			"type": "object"
+		},
+		"sizeSlug": {
+			"type": "string",
+			"default": ""
+		},
+		"width": {
+			"type": "object"
+		},
+		"height": {
+			"type": "object"
+		},
+		"objectFit": {
+			"type": "object"
+		},
+		"objectPosition": {
+			"type": "object"
+		},
+		"overlay": {
+			"type": "number"
+		},
+		"bgOverlay": {
+			"type": "string"
+		},
+		"border": {
+			"type": "object"
+		},
+		"borderRadius": {
+			"type": "object"
+		},
+		"boxShadow": {
+			"type": "object"
+		},
+		"transition": {
+			"type": "number"
+		},
+		"hoverOverlay": {
+			"type": "number"
+		},
+		"hoverBgOverlay": {
+			"type": "string"
+		},
+		"hoverEffect": {
+			"type": "string",
+			"default": ""
+		},
+		"contentAlignment": {
+			"type": "object"
+		},
+		"contentVerticalAlignment": {
+			"type": "string",
+			"default": "flex-start"
+		},
+		"contentColor": {
+			"type": "string"
+		},
+		"contentBackgroundColor": {
+			"type": "string"
+		},
+		"contentMargin": {
+			"type": "object"
+		},
+		"contentPadding": {
+			"type": "object"
+		},
+		"contentBorder": {
+			"type": "object"
+		},
+		"contentBorderRadius": {
+			"type": "object"
+		},
+		"contentBoxShadow": {
 			"type": "object"
 		}
 	}

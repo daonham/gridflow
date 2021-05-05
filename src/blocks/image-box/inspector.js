@@ -14,17 +14,17 @@ import {
 } from '@wordpress/components';
 
 const {
-	GridFlowTyphography,
 	GridFlowBoxControl,
 	GridFlowBorder,
 	GridFlowBoxShadow,
 	GridFlowTextAlign,
 	GridFlowTextUnit,
-	GridFlowRangeControl,
 	GridFlowColorPicker,
 	GridFlowLinkControl,
 	GridFlowFocusPointPicker,
 	GridFlowSelect,
+	GridFlowDivider,
+	GridFlowRangeControl,
 } = wp.gridflowComponents;
 
 const Inspector = ( { attributes, setAttributes, isSelected } ) => {
@@ -35,6 +35,7 @@ const Inspector = ( { attributes, setAttributes, isSelected } ) => {
 		linkType,
 		links,
 		imagePosition,
+		spacing,
 		sizeSlug,
 		width,
 		height,
@@ -45,36 +46,20 @@ const Inspector = ( { attributes, setAttributes, isSelected } ) => {
 		border,
 		borderRadius,
 		boxShadow,
+		transition,
+		hoverOverlay,
+		hoverBgOverlay,
+		hoverEffect,
 
-		style,
-		tagName,
-		type,
-		icon,
-		textAligns,
-		color,
-
-		colorText,
-		font,
-		fontSize,
-		lineHeight,
-		fontWeight,
-		decoration,
-		transform,
-		fontStyle,
-		letterSpacing,
-		textPosition,
-		textSpacing,
-
-		iconPosition,
-		iconSpacing,
-		iconWidth,
-		iconFontSize,
-		iconColor,
-		iconBackgroundColor,
-		iconPadding,
-		iconBorder,
-		iconBorderRadius,
-		iconBoxShadow,
+		contentAlignment,
+		contentVerticalAlignment,
+		contentColor,
+		contentBackgroundColor,
+		contentMargin,
+		contentPadding,
+		contentBorder,
+		contentBorderRadius,
+		contentBoxShadow,
 	} = attributes;
 
 	const { image } = useSelect(
@@ -177,6 +162,11 @@ const Inspector = ( { attributes, setAttributes, isSelected } ) => {
 				</PanelBody>
 
 				<PanelBody title={ __( 'Image', 'gridflow' ) } initialOpen={ false }>
+					<GridFlowRangeControl
+						label={ __( 'Spacing', 'gridflow' ) }
+						values={ spacing }
+						onChange={ ( value ) => setAttributes( { spacing: value } ) }
+					/>
 					<SelectControl
 						label={ __( 'Image Size', 'gridflow' ) }
 						value={ sizeSlug || '' }
@@ -255,83 +245,96 @@ const Inspector = ( { attributes, setAttributes, isSelected } ) => {
 						value={ boxShadow }
 						onChange={ ( value ) => setAttributes( { boxShadow: value } ) }
 					/>
+					<GridFlowDivider />
+					<RangeControl
+						label={ __( 'Transition Duration', 'gridflow' ) }
+						value={ transition }
+						onChange={ ( value ) => setAttributes( { transition: value } ) }
+						min={ 0 }
+						max={ 3 }
+						step={ 0.1 }
+					/>
+					<RangeControl
+						label={ __( 'Hover Overlay', 'gridflow' ) }
+						value={ hoverOverlay }
+						onChange={ ( value ) => setAttributes( { hoverOverlay: value } ) }
+						min={ 0 }
+						max={ 100 }
+					/>
+					<GridFlowColorPicker
+						label={ __( 'Hover Background Overlay', 'gridflow' ) }
+						value={ hoverBgOverlay }
+						alpha={ false }
+						gradients={ true }
+						onChange={ ( value ) => setAttributes( { hoverBgOverlay: value } ) }
+					/>
+					<SelectControl
+						label={ __( 'Hover Effect', 'gridflow' ) }
+						value={ hoverEffect }
+						onChange={ ( value ) => setAttributes( { hoverEffect: value } ) }
+						options={ [
+							{ label: __( 'None', 'gridflow' ), value: '' },
+						] }
+					/>
 				</PanelBody>
 
-				{ type === 'icon' && (
-					<PanelBody title={ __( 'Icon', 'gridflow' ) } initialOpen={ false }>
-						<SelectControl
-							label={ __( 'Position', 'gridflow' ) }
-							value={ iconPosition }
-							options={ [
-								{ label: __( 'Center', 'gridflow' ), value: 'center' },
-								{ label: __( 'Left', 'gridflow' ), value: 'left' },
-								{ label: __( 'Right', 'gridflow' ), value: 'right' },
-							] }
-							onChange={ ( value ) => setAttributes( { iconPosition: value } ) }
-						/>
-						<Flex gap={ 8 } justify={ 'flex-start' } align={ 'flex-start' }>
-							<FlexItem>
-								<GridFlowTextUnit
-									label={ 'Font Size' }
-									values={ iconFontSize }
-									onChange={ ( value ) => setAttributes( { iconFontSize: value } ) }
-								/>
-							</FlexItem>
-							<FlexItem>
-								<GridFlowTextUnit
-									label={ __( 'Icon Spacing', 'gridflow' ) }
-									values={ iconSpacing }
-									onChange={ ( value ) => setAttributes( { iconSpacing: value } ) }
-									min={ 0 }
-									style={ { maxWidth: 90 } }
-								/>
-							</FlexItem>
-						</Flex>
-						{ icon?.url && (
-							<GridFlowTextUnit
-								label={ __( 'Width', 'gridflow' ) }
-								values={ iconWidth }
-								onChange={ ( value ) => setAttributes( { iconWidth: value } ) }
-							/>
-						) }
-						{ icon?.icon && (
-							<GridFlowColorPicker
-								label={ __( 'Color', 'gridflow' ) }
-								value={ iconColor }
-								alpha={ true }
-								onChange={ ( value ) => setAttributes( { iconColor: value } ) }
-							/>
-						) }
-						<GridFlowColorPicker
-							label={ __( 'Background Color', 'gridflow' ) }
-							value={ iconBackgroundColor }
-							alpha={ true }
-							gradients={ true }
-							onChange={ ( value ) => setAttributes( { iconBackgroundColor: value } ) }
-						/>
-						<GridFlowBoxControl
-							label={ __( 'Padding', 'gridflow' ) }
-							values={ iconPadding }
-							onChange={ ( value ) => setAttributes( { iconPadding: value } ) }
-						/>
-						<GridFlowBorder
-							label={ __( 'Border', 'gridflow' ) }
-							values={ iconBorder }
-							device={ true }
-							onChange={ ( value ) => setAttributes( { iconBorder: value } ) }
-						/>
-						<GridFlowBoxControl
-							label={ __( 'Border Radius', 'gridflow' ) }
-							values={ iconBorderRadius }
-							onChange={ ( value ) => setAttributes( { iconBorderRadius: value } ) }
-						/>
-						<GridFlowBoxShadow
-							label={ __( 'Box Shadow', 'gridflow' ) }
-							value={ iconBoxShadow }
-							onChange={ ( value ) => setAttributes( { iconBoxShadow: value } ) }
-						/>
-					</PanelBody>
-				) }
+				<PanelBody title={ __( 'Content', 'gridflow' ) } initialOpen={ false }>
+					<GridFlowTextAlign
+						label={ __( 'Alignment', 'gridflow' ) }
+						values={ contentAlignment }
+						onChange={ ( value ) => setAttributes( { contentAlignment: value } ) }
+					/>
+
+					<SelectControl
+						label={ __( 'Vertical Alignment', 'gridflow' ) }
+						value={ contentVerticalAlignment }
+						onChange={ ( value ) => setAttributes( { contentVerticalAlignment: value } ) }
+						options={ [
+							{ label: __( 'Top', 'gridflow' ), value: 'flex-start' },
+							{ label: __( 'Center', 'gridflow' ), value: 'center' },
+							{ label: __( 'Bottom', 'gridflow' ), value: 'flex-end' },
+						] }
+					/>
+					<GridFlowColorPicker
+						label={ __( 'Color', 'gridflow' ) }
+						value={ contentColor }
+						onChange={ ( value ) => setAttributes( { contentColor: value } ) }
+					/>
+					<GridFlowColorPicker
+						label={ __( 'Background Color', 'gridflow' ) }
+						value={ contentBackgroundColor }
+						alpha={ true }
+						gradients={ true }
+						onChange={ ( value ) => setAttributes( { contentBackgroundColor: value } ) }
+					/>
+					<GridFlowBoxControl
+						label={ __( 'Margin', 'gridflow' ) }
+						values={ contentMargin }
+						onChange={ ( value ) => setAttributes( { contentMargin: value } ) }
+					/>
+					<GridFlowBoxControl
+						label={ __( 'Padding', 'gridflow' ) }
+						values={ contentPadding }
+						onChange={ ( value ) => setAttributes( { contentPadding: value } ) }
+					/>
+					<GridFlowBorder
+						label={ __( 'Border', 'gridflow' ) }
+						values={ contentBorder }
+						device={ true }
+						onChange={ ( value ) => setAttributes( { contentBorder: value } ) }
+					/>
+					<GridFlowBoxControl
+						label={ __( 'Border Radius', 'gridflow' ) }
+						values={ contentBorderRadius }
+						onChange={ ( value ) => setAttributes( { contentBorderRadius: value } ) }
+					/>
+					<GridFlowBoxShadow
+						label={ __( 'Box Shadow', 'gridflow' ) }
+						value={ contentBoxShadow }
+						onChange={ ( value ) => setAttributes( { contentBoxShadow: value } ) }
+					/>
+				</PanelBody>
+
 			</InspectorControls>
 		</>
 	);
