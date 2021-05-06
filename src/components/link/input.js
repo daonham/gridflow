@@ -3,6 +3,8 @@ import { __ } from '@wordpress/i18n';
 import { useState } from '@wordpress/element';
 import { FlexItem, Flex, FlexBlock, TextControl, ToggleControl } from '@wordpress/components';
 
+import GridFlowDivider from '../divider';
+
 import LinkedButton from './linked-button';
 
 const TextInputControl = ( {
@@ -87,6 +89,7 @@ const TextInputControl = ( {
 							onChange={ createHandleOnChange( 'rel' ) }
 							placeholder={ __( 'noreferrer noopener', 'gridflow' ) }
 						/>
+						<GridFlowDivider />
 					</>
 				) }
 			</div>

@@ -26,6 +26,7 @@ import * as tab from './blocks/tabs/tab';
 import * as tabs from './blocks/tabs';
 import * as divider from './blocks/divider';
 import * as imageBox from './blocks/image-box';
+import * as iconBox from './blocks/icon-box';
 
 const registerBlock = ( block ) => {
 	if ( ! block ) {
@@ -55,6 +56,7 @@ export const registerGridFlowBlocks = () => {
 		tabs,
 		divider,
 		imageBox,
+		iconBox,
 	].forEach( registerBlock );
 };
 

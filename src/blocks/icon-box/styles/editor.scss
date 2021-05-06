@@ -1,26 +1,37 @@
-.gridflow-image-box {
+.gridflow-icon-box {
 
-	&__image {
-		display: inline-block;
+	&__icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 		position: relative;
 		margin: 0;
 		padding: 0;
 		margin-bottom: 15px;
-		overflow: hidden;
-
-		&--overlay {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-		}
+		line-height: 1;
 	}
 
 	&__link {
 		margin: 0;
 		padding: 0;
 		vertical-align: middle;
+
+		&:focus {
+			outline: none;
+			box-shadow: none;
+			border: none;
+			background: none;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: transparent;
+		}
 	}
 
 	&__img {
@@ -43,9 +54,13 @@
 		}
 	}
 
+	&__i {
+		font-size: 60px;
+	}
+
 	&__wrapper {
 
-		&--image {
+		&--icon {
 
 			&--left,
 			&--right {
@@ -56,9 +71,9 @@
 
 			&--left {
 
-				.gridflow-image-box {
+				.gridflow-icon-box {
 
-					&__image {
+					&__icon {
 						margin-right: 15px;
 					}
 				}
@@ -67,9 +82,9 @@
 			&--right {
 				flex-direction: row-reverse;
 
-				.gridflow-image-box {
+				.gridflow-icon-box {
 
-					&__image {
+					&__icon {
 						margin-left: 15px;
 					}
 				}

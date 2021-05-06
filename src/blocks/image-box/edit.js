@@ -43,10 +43,9 @@ function Edit( { isSelected, attributes, setAttributes, noticeOperations, notice
 	const { uniqueId, url, id, alt, linkType, links, imagePosition, overlay, hoverOverlay, hoverEffect } = attributes;
 
 	const innerBlocksContent = useInnerBlocksProps( { className: 'gridflow-image-box__content' }, {
-		allowedBlocks: [ 'gridflow/heading', 'gridflow/button' ],
+		allowedBlocks: [ 'gridflow/heading', 'gridflow/button', 'core/heading', 'core/button', 'core/buttons' ],
 		template: TEMPLATE,
-		orientation: 'vertical',
-		renderAppender: isSelected ? InnerBlocks.ButtonBlockAppender : false,
+		templateInsertUpdatesSelection: true,
 	} );
 
 	function onSelectImage( media ) {

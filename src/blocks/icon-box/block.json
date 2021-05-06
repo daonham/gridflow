@@ -1,0 +1,96 @@
+{
+	"apiVersion": 2,
+	"name": "gridflow/icon-box",
+	"category": "gridflow",
+	"attributes": {
+		"icon": {
+			"type": "object",
+			"default": {
+				"icon": "far fa-star",
+				"url": null,
+				"alt": null
+			}
+		},
+		"links": {
+			"type": "object"
+		},
+		"iconPosition": {
+			"type": "string",
+			"default": "top"
+		},
+		"spacing": {
+			"type": "object"
+		},
+		"color": {
+			"type": "string"
+		},
+		"bgColor": {
+			"type": "string"
+		},
+		"fontSize": {
+			"type": "object"
+		},
+		"lineHeight": {
+			"type": "object"
+		},
+		"imgWidth": {
+			"type": "object"
+		},
+		"width": {
+			"type": "object"
+		},
+		"height": {
+			"type": "object"
+		},
+		"border": {
+			"type": "object"
+		},
+		"borderRadius": {
+			"type": "object"
+		},
+		"boxShadow": {
+			"type": "object"
+		},
+		"colorHover": {
+			"type": "string"
+		},
+		"bgColorHover": {
+			"type": "string"
+		},
+		"transition": {
+			"type": "number"
+		},
+		"hoverEffect": {
+			"type": "string",
+			"default": ""
+		},
+		"contentAlignment": {
+			"type": "object"
+		},
+		"contentVerticalAlignment": {
+			"type": "string",
+			"default": "flex-start"
+		},
+		"contentColor": {
+			"type": "string"
+		},
+		"contentBackgroundColor": {
+			"type": "string"
+		},
+		"contentMargin": {
+			"type": "object"
+		},
+		"contentPadding": {
+			"type": "object"
+		},
+		"contentBorder": {
+			"type": "object"
+		},
+		"contentBorderRadius": {
+			"type": "object"
+		},
+		"contentBoxShadow": {
+			"type": "object"
+		}
+	}
+}
