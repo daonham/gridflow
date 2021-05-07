@@ -3,7 +3,16 @@
 	"name": "gridflow/accordion",
 	"category": "gridflow",
 	"attributes": {
+		"close": {
+			"type": "boolean",
+			"default": false
+		},
+		"collapse": {
+			"type": "boolean",
+			"default": false
+		},
 		"icon": {
+			"type": "object",
 			"default": {
 				"icon": "fas fa-chevron-down",
 				"url": null,
@@ -11,6 +20,7 @@
 			}
 		},
 		"iconActive": {
+			"type": "object",
 			"default": {
 				"icon": "fas fa-chevron-up",
 				"url": null,

@@ -15,14 +15,14 @@ const TEMPLATE = [
 ];
 
 function Edit( { isSelected, attributes, setAttributes, clientId } ) {
-	const { uniqueId, title, tagName, collapse, icon, iconActive, iconAlign } = attributes;
+	const { uniqueId, title, tagName, icon, iconActive, iconAlign } = attributes;
 
 	const isSelectedChild = useSelect( ( select ) => {
 		const { hasSelectedInnerBlock } = select( blockEditorStore );
 		return hasSelectedInnerBlock( clientId, true );
 	}, [ clientId ] );
 
-	const isEditing = isSelected || isSelectedChild || collapse;
+	const isEditing = isSelected || isSelectedChild;
 
 	return (
 		<>

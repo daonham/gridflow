@@ -6,6 +6,7 @@ import {
 	Flex,
 	FlexItem,
 	TabPanel,
+	ToggleControl,
 } from '@wordpress/components';
 
 const {
@@ -22,6 +23,8 @@ const {
 
 const Inspector = ( { attributes, setAttributes } ) => {
 	const {
+		close,
+		collapse,
 		icon,
 		iconActive,
 		spacing,
@@ -66,6 +69,18 @@ const Inspector = ( { attributes, setAttributes } ) => {
 		<>
 			<InspectorControls>
 				<PanelBody title={ __( 'Settings', 'gridflow' ) } initialOpen={ true }>
+					<ToggleControl
+						label={ __( 'Close All', 'gridflow' ) }
+						help={ __( 'Do not open accordion tab when page loaded', 'gridflow' ) }
+						checked={ close }
+						onChange={ () => setAttributes( { close: ! close } ) }
+					/>
+					<ToggleControl
+						label={ __( 'Collapse', 'gridflow' ) }
+						help={ __( 'Allow all accordion tabs able to open', 'gridflow' ) }
+						checked={ collapse }
+						onChange={ () => setAttributes( { collapse: ! collapse } ) }
+					/>
 					<GridFlowIconSelect
 						label={ __( 'Icon', 'gridflow' ) }
 						values={ icon }
@@ -108,7 +123,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 					<TabPanel
 						tabs={ [
 							{ name: 'normal', title: __( 'Normal', 'gridflow' ) },
-							{ name: 'active', title: __( 'Hover - Active', 'gridflow' ) },
+							{ name: 'active', title: __( 'Hover & Active', 'gridflow' ) },
 						] }
 					>
 						{ ( tab ) => {

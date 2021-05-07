@@ -19,6 +19,7 @@ const allowedBlocks = [
 	'gridflow/tabs',
 	'gridflow/divider',
 	'gridflow/image-box',
+	'gridflow/icon-box',
 ];
 
 export function addAttributes( settings ) {

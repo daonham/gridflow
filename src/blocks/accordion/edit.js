@@ -13,7 +13,7 @@ const { withInlineStyle } = wp.gridflowCompose;
 const TEMPLATE = [ [ 'gridflow/accordion-item' ] ];
 
 function Edit( { isSelected, attributes, setAttributes, clientId } ) {
-	const { uniqueId, icon, iconAlign, iconActive, tagName } = attributes;
+	const { uniqueId, icon, iconAlign, iconActive, tagName, close } = attributes;
 
 	const innerBlocksProps = useInnerBlocksProps( {}, {
 		allowedBlocks: [ 'gridflow/accordion-item' ],
@@ -56,7 +56,10 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 
 			<div { ...useBlockProps( { className: classnames( 'gridflow-accordion', uniqueId ) } ) }>
 				<div className={ classnames( 'gridflow-accordion__inner', 'gridflow-block-inner' ) }>
-					<div className={ 'gridflow-accordion__wrapper' }>
+					<div className={ classnames(
+						'gridflow-accordion__wrapper',
+						{ 'gridflow-accordion__wrapper--close': close },
+					) }>
 						<div { ...innerBlocksProps } />
 					</div>
 				</div>

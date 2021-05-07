@@ -16,10 +16,6 @@
 			"type": "string",
 			"default": "span"
 		},
-		"collapse": {
-			"type": "boolean",
-			"default": false
-		},
 		"icon": {
 			"type": "object"
 		},
