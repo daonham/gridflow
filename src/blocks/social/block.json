@@ -1,6 +1,6 @@
 {
 	"apiVersion": 2,
-	"name": "gridflow/icon",
+	"name": "gridflow/social",
 	"category": "gridflow",
 	"attributes": {
 		"icon": {
@@ -32,6 +32,9 @@
 		"bgColor": {
 			"type": "string"
 		},
+		"padding": {
+			"type": "object"
+		},
 		"border": {
 			"type": "object"
 		},
@@ -62,6 +65,5 @@
 		"boxShadowHover": {
 			"type": "object"
 		}
-	},
-	"style": "gridflow-icon"
+	}
 }

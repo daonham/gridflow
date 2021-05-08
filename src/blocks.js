@@ -27,6 +27,7 @@ import * as tabs from './blocks/tabs';
 import * as divider from './blocks/divider';
 import * as imageBox from './blocks/image-box';
 import * as iconBox from './blocks/icon-box';
+import * as socialIcon from './blocks/social';
 
 const registerBlock = ( block ) => {
 	if ( ! block ) {
@@ -57,6 +58,7 @@ export const registerGridFlowBlocks = () => {
 		divider,
 		imageBox,
 		iconBox,
+		socialIcon,
 	].forEach( registerBlock );
 };
 

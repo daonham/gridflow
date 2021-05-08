@@ -1,0 +1,21 @@
+.gridflow-social-icons {
+
+	&__items {
+		display: inline-grid;
+		column-gap: var(--social-column-gap, 10px);
+		row-gap: var(--social-row-gap, 10px);
+		grid-template-columns: repeat(var(--social-template-columns, 4), auto);
+		justify-content: var(--social-justify, center);
+		justify-items: var(--social-justify, center);
+
+		> div.wp-block {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+
+		> .block-list-appender {
+			display: inline-flex;
+			align-items: center;
+		}
+	}
+}

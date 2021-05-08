@@ -3,6 +3,7 @@ const {
 	GridFlowStyleBox,
 	GridFlowStyleBorder,
 	GridFlowStyleBoxShadow,
+	GridFlowStyleTypography,
 } = wp.gridflowComponents;
 
 function inlineStyle( { attributes } ) {
@@ -13,6 +14,7 @@ function inlineStyle( { attributes } ) {
 		width,
 		color,
 		bgColor,
+		padding,
 		border,
 		borderRadius,
 		boxShadow,
@@ -32,10 +34,11 @@ function inlineStyle( { attributes } ) {
 			width: width?.desktop ? width.desktop + 'px' : undefined,
 			height: width?.desktop ? width.desktop + 'px' : undefined,
 			'background-color': bgColor,
+			...GridFlowStyleBox( padding, 'padding', 'desktop' ),
 			...GridFlowStyleBorder( border, 'desktop' ),
 			...GridFlowStyleBox( borderRadius, 'border-radius', 'desktop' ),
 			...GridFlowStyleBoxShadow( boxShadow ),
-			transition: transition && `all ${ transition }s`,
+			transition: transition && `all ${transition}s`,
 		},
 		' .gridflow-icon__icon > i': {
 			color,
@@ -48,7 +51,7 @@ function inlineStyle( { attributes } ) {
 		},
 		' .gridflow-icon__icon:hover': {
 			'background-color': bgColorHover,
-			transition: transition && `all ${ transition }s`,
+			transition: transition && `all ${transition}s`,
 			...GridFlowStyleBorder( borderHover, 'desktop' ),
 			...GridFlowStyleBox( borderRadiusHover, 'border-radius', 'desktop' ),
 			...GridFlowStyleBoxShadow( boxShadowHover ),
@@ -58,7 +61,7 @@ function inlineStyle( { attributes } ) {
 		},
 		' .gridflow-icon__icon:hover > img': {
 			color: colorHover,
-		},
+		}
 	};
 
 	const tablet = {
@@ -68,6 +71,7 @@ function inlineStyle( { attributes } ) {
 		' .gridflow-icon__icon': {
 			width: width?.tablet ? width.tablet + 'px' : undefined,
 			height: width?.tablet ? width.tablet + 'px' : undefined,
+			...GridFlowStyleBox( padding, 'padding', 'tablet' ),
 			...GridFlowStyleBorder( border, 'tablet' ),
 			...GridFlowStyleBox( borderRadius, 'border-radius', 'tablet' ),
 		},
@@ -91,6 +95,7 @@ function inlineStyle( { attributes } ) {
 		' .gridflow-icon__icon': {
 			width: width?.mobile ? width.mobile + 'px' : undefined,
 			height: width?.mobile ? width.mobile + 'px' : undefined,
+			...GridFlowStyleBox( padding, 'padding', 'mobile' ),
 			...GridFlowStyleBorder( border, 'mobile' ),
 			...GridFlowStyleBox( borderRadius, 'border-radius', 'mobile' ),
 		},
@@ -111,7 +116,9 @@ function inlineStyle( { attributes } ) {
 }
 
 if ( ! hasFilter( 'gridflow.inlineStyle.icon', 'gridflow/inline/styles' ) ) {
-	addFilter( 'gridflow.inlineStyle.icon', 'gridflow/inline/styles', function( attributes ) {
+	addFilter( 'gridflow.inlineStyle.icon', 'gridflow/inline/styles', function(
+		attributes
+	) {
 		return inlineStyle( { attributes } );
 	} );
 }

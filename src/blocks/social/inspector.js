@@ -3,6 +3,8 @@ import { InspectorControls } from '@wordpress/block-editor';
 import {
 	PanelBody,
 	SelectControl,
+	Flex,
+	FlexItem,
 	RangeControl,
 	TabPanel,
 } from '@wordpress/components';
@@ -27,8 +29,10 @@ const Inspector = ( { attributes, setAttributes } ) => {
 		fontSize,
 		imgWidth,
 		width,
+		height,
 		color,
 		bgColor,
+		padding,
 		border,
 		borderRadius,
 		boxShadow,
@@ -115,6 +119,11 @@ const Inspector = ( { attributes, setAttributes } ) => {
 											alpha={ false }
 											gradients={ true }
 											onChange={ ( value ) => setAttributes( { bgColor: value } ) }
+										/>
+										<GridFlowBoxControl
+											label={ __( 'Padding', 'gridflow' ) }
+											values={ padding }
+											onChange={ ( value ) => setAttributes( { padding: value } ) }
 										/>
 										<GridFlowBorder
 											label={ __( 'Border', 'gridflow' ) }
