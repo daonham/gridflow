@@ -166,6 +166,8 @@ const Inspector = ( { attributes, setAttributes, isSelected } ) => {
 						label={ __( 'Spacing', 'gridflow' ) }
 						values={ spacing }
 						onChange={ ( value ) => setAttributes( { spacing: value } ) }
+						min={ 0 }
+						max={ 200 }
 					/>
 					<SelectControl
 						label={ __( 'Image Size', 'gridflow' ) }
@@ -203,7 +205,7 @@ const Inspector = ( { attributes, setAttributes, isSelected } ) => {
 							{ label: __( 'Default', 'gridflow' ), value: '' },
 							{ label: __( 'Contain', 'gridflow' ), value: 'contain' },
 							{ label: __( 'Cover', 'gridflow' ), value: 'cover' },
-							{ label: __( 'Scale down', 'gridflow' ), value: 'scale-down' },
+							{ label: __( 'Fill', 'gridflow' ), value: 'fill' },
 							{ label: __( 'None', 'gridflow' ), value: 'none' },
 						] }
 					/>
@@ -334,7 +336,6 @@ const Inspector = ( { attributes, setAttributes, isSelected } ) => {
 						onChange={ ( value ) => setAttributes( { contentBoxShadow: value } ) }
 					/>
 				</PanelBody>
-
 			</InspectorControls>
 		</>
 	);

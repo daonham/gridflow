@@ -137,7 +137,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 												{ label: __( 'Default', 'gridflow' ), value: '' },
 												{ label: __( 'Contain', 'gridflow' ), value: 'contain' },
 												{ label: __( 'Cover', 'gridflow' ), value: 'cover' },
-												{ label: __( 'Scale down', 'gridflow' ), value: 'scale-down' },
+												{ label: __( 'Fill', 'gridflow' ), value: 'fill' },
 												{ label: __( 'None', 'gridflow' ), value: 'none' },
 											] }
 										/>
