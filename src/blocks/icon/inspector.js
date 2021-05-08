@@ -3,8 +3,6 @@ import { InspectorControls } from '@wordpress/block-editor';
 import {
 	PanelBody,
 	SelectControl,
-	Flex,
-	FlexItem,
 	RangeControl,
 	TabPanel,
 } from '@wordpress/components';
@@ -29,7 +27,6 @@ const Inspector = ( { attributes, setAttributes } ) => {
 		fontSize,
 		imgWidth,
 		width,
-		height,
 		color,
 		bgColor,
 		padding,

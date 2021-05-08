@@ -3,7 +3,6 @@ const {
 	GridFlowStyleBox,
 	GridFlowStyleBorder,
 	GridFlowStyleBoxShadow,
-	GridFlowStyleTypography,
 } = wp.gridflowComponents;
 
 function inlineStyle( { attributes } ) {
@@ -38,7 +37,7 @@ function inlineStyle( { attributes } ) {
 			...GridFlowStyleBorder( border, 'desktop' ),
 			...GridFlowStyleBox( borderRadius, 'border-radius', 'desktop' ),
 			...GridFlowStyleBoxShadow( boxShadow ),
-			transition: transition && `all ${transition}s`,
+			transition: transition && `all ${ transition }s`,
 		},
 		' .gridflow-icon__icon > i': {
 			color,
@@ -51,7 +50,7 @@ function inlineStyle( { attributes } ) {
 		},
 		' .gridflow-icon__icon:hover': {
 			'background-color': bgColorHover,
-			transition: transition && `all ${transition}s`,
+			transition: transition && `all ${ transition }s`,
 			...GridFlowStyleBorder( borderHover, 'desktop' ),
 			...GridFlowStyleBox( borderRadiusHover, 'border-radius', 'desktop' ),
 			...GridFlowStyleBoxShadow( boxShadowHover ),
@@ -61,7 +60,7 @@ function inlineStyle( { attributes } ) {
 		},
 		' .gridflow-icon__icon:hover > img': {
 			color: colorHover,
-		}
+		},
 	};
 
 	const tablet = {
@@ -116,9 +115,7 @@ function inlineStyle( { attributes } ) {
 }
 
 if ( ! hasFilter( 'gridflow.inlineStyle.icon', 'gridflow/inline/styles' ) ) {
-	addFilter( 'gridflow.inlineStyle.icon', 'gridflow/inline/styles', function(
-		attributes
-	) {
+	addFilter( 'gridflow.inlineStyle.icon', 'gridflow/inline/styles', function( attributes ) {
 		return inlineStyle( { attributes } );
 	} );
 }
