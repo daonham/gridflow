@@ -31,10 +31,8 @@ const Inspector = ( { attributes, setAttributes } ) => {
 		color,
 		bgColor,
 		fontSize,
-		lineHeight,
 		imgWidth,
 		width,
-		height,
 		border,
 		borderRadius,
 		boxShadow,
@@ -91,6 +89,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 							if ( tab.name === 'normal' ) {
 								return (
 									<>
+										<div style={ { marginTop: 10 } } />
 										<GridFlowRangeControl
 											label={ __( 'Spacing', 'gridflow' ) }
 											values={ spacing }
@@ -109,23 +108,13 @@ const Inspector = ( { attributes, setAttributes } ) => {
 										/>
 
 										{ icon?.icon && (
-											<Flex gap={ 8 } justify={ 'flex-start' } align={ 'flex-start' } style={ { marginTop: 10 } }>
-												<FlexItem>
-													<GridFlowTextUnit
-														label={ __( 'Font size', 'gridflow' ) }
-														values={ fontSize }
-														onChange={ ( value ) => setAttributes( { fontSize: value } ) }
-													/>
-												</FlexItem>
-
-												<FlexItem>
-													<GridFlowTextUnit
-														label={ __( 'Line Height', 'gridflow' ) }
-														values={ lineHeight }
-														onChange={ ( value ) => setAttributes( { lineHeight: value } ) }
-													/>
-												</FlexItem>
-											</Flex>
+											<GridFlowRangeControl
+												label={ __( 'Font Size', 'gridflow' ) }
+												values={ fontSize }
+												onChange={ ( value ) => setAttributes( { fontSize: value } ) }
+												min={ 2 }
+												max={ 300 }
+											/>
 										) }
 										{ icon?.url && (
 											<GridFlowTextUnit
@@ -135,22 +124,13 @@ const Inspector = ( { attributes, setAttributes } ) => {
 											/>
 										) }
 
-										<Flex gap={ 8 } justify={ 'flex-start' } align={ 'flex-start' } style={ { marginTop: 10 } }>
-											<FlexItem>
-												<GridFlowTextUnit
-													label={ __( 'Width', 'gridflow' ) }
-													values={ width }
-													onChange={ ( value ) => setAttributes( { width: value } ) }
-												/>
-											</FlexItem>
-											<FlexItem>
-												<GridFlowTextUnit
-													label={ __( 'Height', 'gridflow' ) }
-													values={ height }
-													onChange={ ( value ) => setAttributes( { height: value } ) }
-												/>
-											</FlexItem>
-										</Flex>
+										<GridFlowRangeControl
+											label={ __( 'Width & Height', 'gridflow' ) }
+											values={ width }
+											onChange={ ( value ) => setAttributes( { width: value } ) }
+											min={ 5 }
+											max={ 500 }
+										/>
 
 										<GridFlowBorder
 											label={ __( 'Border', 'gridflow' ) }

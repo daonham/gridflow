@@ -13,10 +13,8 @@ function inlineStyle( { attributes } ) {
 		color,
 		bgColor,
 		fontSize,
-		lineHeight,
 		imgWidth,
 		width,
-		height,
 		border,
 		borderRadius,
 		boxShadow,
@@ -43,8 +41,8 @@ function inlineStyle( { attributes } ) {
 		},
 		' .gridflow-icon-box__icon': {
 			background: bgColor,
-			'width': width?.desktop,
-			'height': height?.desktop,
+			'width': width?.desktop ? width.desktop + 'px' : undefined,
+			'height': width?.desktop ? width.desktop + 'px' : undefined,
 			'margin-bottom': iconPosition === 'top' && spacing?.desktop !== undefined && spacing?.desktop !== null ? `${spacing.desktop}px` : undefined,
 			'margin-right': iconPosition === 'left' && spacing?.desktop !== undefined && spacing?.desktop !== null ? `${spacing.desktop}px` : undefined,
 			'margin-left': iconPosition === 'right' && spacing?.desktop !== undefined && spacing?.desktop !== null ? `${spacing.desktop}px` : undefined,
@@ -54,8 +52,8 @@ function inlineStyle( { attributes } ) {
 		},
 		' .gridflow-icon-box__i': {
 			transition: transition ? `all ${transition}s` : undefined,
-			'font-size': fontSize?.desktop,
-			'line-height': lineHeight?.desktop,
+			'font-size': fontSize?.desktop ? fontSize.desktop + 'px' : undefined,
+			'line-height': fontSize?.desktop ? fontSize.desktop + 'px' : undefined,
 			color: color,
 		},
 		' .gridflow-icon-box__img': {
@@ -84,8 +82,8 @@ function inlineStyle( { attributes } ) {
 			'text-align': contentAlignment?.tablet,
 		},
 		' .gridflow-icon-box__icon': {
-			'width': width?.tablet,
-			'height': height?.tablet,
+			'width': width?.tablet ? width.tablet + 'px' : undefined,
+			'height': width?.tablet ? width.tablet + 'px' : undefined,
 			'margin-bottom': iconPosition === 'top' && spacing?.tablet !== undefined && spacing?.tablet !== null ? `${spacing.tablet}px` : undefined,
 			'margin-right': iconPosition === 'left' && spacing?.tablet !== undefined && spacing?.tablet !== null ? `${spacing.tablet}px` : undefined,
 			'margin-left': iconPosition === 'right' && spacing?.tablet !== undefined && spacing?.tablet !== null ? `${spacing.tablet}px` : undefined,
@@ -93,8 +91,8 @@ function inlineStyle( { attributes } ) {
 			...GridFlowStyleBox( borderRadius, 'border-radius', 'tablet' ),
 		},
 		' .gridflow-icon-box__i': {
-			'font-size': fontSize?.tablet,
-			'line-height': lineHeight?.tablet,
+			'font-size': fontSize?.tablet ? fontSize.tablet + 'px' : undefined,
+			'line-height': fontSize?.tablet ? fontSize.tablet + 'px' : undefined,
 		},
 		' .gridflow-icon-box__img': {
 			width: imgWidth?.tablet,
@@ -113,8 +111,8 @@ function inlineStyle( { attributes } ) {
 			'text-align': contentAlignment?.mobile,
 		},
 		' .gridflow-icon-box__icon': {
-			'width': width?.mobile,
-			'height': height?.mobile,
+			'width': width?.mobile ? width.mobile + 'px' : undefined,
+			'height': width?.mobile ? width.mobile + 'px' : undefined,
 			'margin-bottom': iconPosition === 'top' && spacing?.mobile !== undefined && spacing?.mobile !== null ? `${spacing.mobile}px` : undefined,
 			'margin-right': iconPosition === 'left' && spacing?.mobile !== undefined && spacing?.mobile !== null ? `${spacing.mobile}px` : undefined,
 			'margin-left': iconPosition === 'right' && spacing?.mobile !== undefined && spacing?.mobile !== null ? `${spacing.mobile}px` : undefined,
@@ -122,8 +120,8 @@ function inlineStyle( { attributes } ) {
 			...GridFlowStyleBox( borderRadius, 'border-radius', 'mobile' ),
 		},
 		' .gridflow-icon-box__i': {
-			'font-size': fontSize?.mobile,
-			'line-height': lineHeight?.mobile,
+			'font-size': fontSize?.mobile ? fontSize.mobile + 'px' : undefined,
+			'line-height': fontSize?.mobile ? fontSize.mobile + 'px' : undefined,
 		},
 		' .gridflow-icon-box__img': {
 			width: imgWidth?.mobile,
