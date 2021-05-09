@@ -12,7 +12,6 @@ function inlineStyle( { attributes } ) {
 		color,
 		bgColor,
 		fontSize,
-		imgWidth,
 		width,
 		border,
 		borderRadius,
@@ -51,12 +50,12 @@ function inlineStyle( { attributes } ) {
 		},
 		' .gridflow-icon-box__i': {
 			transition: transition ? `all ${ transition }s` : undefined,
-			'font-size': fontSize?.desktop ? fontSize.desktop + 'px' : undefined,
-			'line-height': fontSize?.desktop ? fontSize.desktop + 'px' : undefined,
+			'font-size': fontSize?.desktop !== undefined && fontSize?.desktop !== null ? `${ fontSize.desktop }px` : undefined,
+			'line-height': fontSize?.desktop !== undefined && fontSize?.desktop !== null ? `${ fontSize.desktop }px` : undefined,
 			color,
 		},
 		' .gridflow-icon-box__img': {
-			width: imgWidth?.desktop,
+			width: fontSize?.desktop !== undefined && fontSize?.desktop !== null ? `${ fontSize.desktop }px` : undefined,
 		},
 		' .gridflow-icon-box__icon:hover': {
 			background: bgColorHover,
@@ -90,11 +89,11 @@ function inlineStyle( { attributes } ) {
 			...GridFlowStyleBox( borderRadius, 'border-radius', 'tablet' ),
 		},
 		' .gridflow-icon-box__i': {
-			'font-size': fontSize?.tablet ? fontSize.tablet + 'px' : undefined,
-			'line-height': fontSize?.tablet ? fontSize.tablet + 'px' : undefined,
+			'font-size': fontSize?.tablet !== undefined && fontSize?.tablet !== null ? `${ fontSize.tablet }px` : undefined,
+			'line-height': fontSize?.tablet !== undefined && fontSize?.tablet !== null ? `${ fontSize.tablet }px` : undefined,
 		},
 		' .gridflow-icon-box__img': {
-			width: imgWidth?.tablet,
+			width: fontSize?.tablet !== undefined && fontSize?.tablet !== null ? `${ fontSize.tablet }px` : undefined,
 		},
 		' .gridflow-image-box__content': {
 			...GridFlowStyleBox( contentMargin, 'margin', 'tablet' ),
@@ -119,11 +118,11 @@ function inlineStyle( { attributes } ) {
 			...GridFlowStyleBox( borderRadius, 'border-radius', 'mobile' ),
 		},
 		' .gridflow-icon-box__i': {
-			'font-size': fontSize?.mobile ? fontSize.mobile + 'px' : undefined,
-			'line-height': fontSize?.mobile ? fontSize.mobile + 'px' : undefined,
+			'font-size': fontSize?.mobile !== undefined && fontSize?.mobile !== null ? `${ fontSize.mobile }px` : undefined,
+			'line-height': fontSize?.mobile !== undefined && fontSize?.mobile !== null ? `${ fontSize.mobile }px` : undefined,
 		},
 		' .gridflow-icon-box__img': {
-			width: imgWidth?.mobile,
+			width: fontSize?.mobile !== undefined && fontSize?.mobile !== null ? `${ fontSize.mobile }px` : undefined,
 		},
 		' .gridflow-image-box__content': {
 			...GridFlowStyleBox( contentMargin, 'margin', 'mobile' ),

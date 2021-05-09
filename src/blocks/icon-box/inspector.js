@@ -4,8 +4,6 @@ import { InspectorControls } from '@wordpress/block-editor';
 import {
 	PanelBody,
 	SelectControl,
-	Flex,
-	FlexItem,
 	RangeControl,
 	TabPanel,
 } from '@wordpress/components';
@@ -15,7 +13,6 @@ const {
 	GridFlowBorder,
 	GridFlowBoxShadow,
 	GridFlowTextAlign,
-	GridFlowTextUnit,
 	GridFlowColorPicker,
 	GridFlowLinkControl,
 	GridFlowRangeControl,
@@ -31,7 +28,6 @@ const Inspector = ( { attributes, setAttributes } ) => {
 		color,
 		bgColor,
 		fontSize,
-		imgWidth,
 		width,
 		border,
 		borderRadius,
@@ -106,24 +102,13 @@ const Inspector = ( { attributes, setAttributes } ) => {
 											value={ bgColor }
 											onChange={ ( value ) => setAttributes( { bgColor: value } ) }
 										/>
-
-										{ icon?.icon && (
-											<GridFlowRangeControl
-												label={ __( 'Font Size', 'gridflow' ) }
-												values={ fontSize }
-												onChange={ ( value ) => setAttributes( { fontSize: value } ) }
-												min={ 2 }
-												max={ 300 }
-											/>
-										) }
-										{ icon?.url && (
-											<GridFlowTextUnit
-												label={ __( 'Icon Image Width', 'gridflow' ) }
-												values={ imgWidth }
-												onChange={ ( value ) => setAttributes( { imgWidth: value } ) }
-											/>
-										) }
-
+										<GridFlowRangeControl
+											label={ __( 'Icon Size', 'gridflow' ) }
+											values={ fontSize }
+											onChange={ ( value ) => setAttributes( { fontSize: value } ) }
+											min={ 2 }
+											max={ 300 }
+										/>
 										<GridFlowRangeControl
 											label={ __( 'Width & Height', 'gridflow' ) }
 											values={ width }
@@ -131,7 +116,6 @@ const Inspector = ( { attributes, setAttributes } ) => {
 											min={ 5 }
 											max={ 500 }
 										/>
-
 										<GridFlowBorder
 											label={ __( 'Border', 'gridflow' ) }
 											values={ border }

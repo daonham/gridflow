@@ -19,10 +19,12 @@ function inlineStyle( { attributes } ) {
 		colorHover,
 		bgColorHover,
 		transition,
+		hoverEffect,
 		borderHover,
 		borderRadiusHover,
 		boxShadowHover,
 	} = attributes;
+
 	const desktop = {
 		'': {
 			'text-align': textAligns?.desktop,
@@ -30,7 +32,7 @@ function inlineStyle( { attributes } ) {
 		' .gridflow-icon__icon': {
 			width: width?.desktop ? width.desktop + 'px' : undefined,
 			height: width?.desktop ? width.desktop + 'px' : undefined,
-			'background-color': bgColor,
+			background: bgColor,
 			...GridFlowStyleBorder( border, 'desktop' ),
 			...GridFlowStyleBox( borderRadius, 'border-radius', 'desktop' ),
 			...GridFlowStyleBoxShadow( boxShadow ),
@@ -46,8 +48,10 @@ function inlineStyle( { attributes } ) {
 			width: fontSize?.desktop ? fontSize.desktop + 'px' : undefined,
 		},
 		' .gridflow-icon__icon:hover': {
-			'background-color': bgColorHover,
+			background: bgColorHover,
 			transition: transition && `all ${ transition }s`,
+			'animation-name': hoverEffect || undefined,
+			'animation-duration': hoverEffect ? '1s' : undefined,
 			...GridFlowStyleBorder( borderHover, 'desktop' ),
 			...GridFlowStyleBox( borderRadiusHover, 'border-radius', 'desktop' ),
 			...GridFlowStyleBoxShadow( boxShadowHover ),

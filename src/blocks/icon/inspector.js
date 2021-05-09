@@ -131,14 +131,12 @@ const Inspector = ( { attributes, setAttributes } ) => {
 											<GridFlowColorPicker
 												label={ __( 'Color', 'gridflow' ) }
 												value={ color }
-												alpha={ false }
-												gradients={ true }
 												onChange={ ( value ) => setAttributes( { color: value } ) }
 											/>
 											<GridFlowColorPicker
 												label={ __( 'Background Color', 'gridflow' ) }
 												value={ bgColor }
-												alpha={ false }
+												alpha={ true }
 												gradients={ true }
 												onChange={ ( value ) => setAttributes( { bgColor: value } ) }
 											/>
@@ -168,14 +166,12 @@ const Inspector = ( { attributes, setAttributes } ) => {
 											<GridFlowColorPicker
 												label={ __( 'Color', 'gridflow' ) }
 												value={ colorHover }
-												alpha={ false }
-												gradients={ true }
 												onChange={ ( value ) => setAttributes( { colorHover: value } ) }
 											/>
 											<GridFlowColorPicker
 												label={ __( 'Background Color', 'gridflow' ) }
 												value={ bgColorHover }
-												alpha={ false }
+												alpha={ true }
 												gradients={ true }
 												onChange={ ( value ) => setAttributes( { bgColorHover: value } ) }
 											/>
@@ -193,6 +189,22 @@ const Inspector = ( { attributes, setAttributes } ) => {
 												onChange={ ( value ) => setAttributes( { hoverEffect: value } ) }
 												options={ [
 													{ label: __( 'None', 'gridflow' ), value: '' },
+													{ label: 'bounce', value: 'bounce' },
+													{ label: 'bounceIn', value: 'bounceIn' },
+													{ label: 'flash', value: 'flash' },
+													{ label: 'pulse', value: 'pulse' },
+													{ label: 'rubberBand', value: 'rubberBand' },
+													{ label: 'shakeX', value: 'shakeX' },
+													{ label: 'shakeY', value: 'shakeY' },
+													{ label: 'headShake', value: 'headShake' },
+													{ label: 'swing', value: 'swing' },
+													{ label: 'tada', value: 'tada' },
+													{ label: 'wobble', value: 'wobble' },
+													{ label: 'jello', value: 'jello' },
+													{ label: 'heartBeat', value: 'heartBeat' },
+													{ label: 'fadeIn', value: 'fadeIn' },
+													{ label: 'fadeOut', value: 'fadeOut' },
+													{ label: 'flip', value: 'flip' },
 												] }
 											/>
 											<GridFlowBorder
