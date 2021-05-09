@@ -127,6 +127,7 @@ const Inspector = ( { attributes, setAttributes, clientId } ) => {
 											onChange={ ( value ) => setAttributes( { width: value } ) }
 											min={ 5 }
 											max={ 500 }
+											allowReset={ true }
 										/>
 										<GridFlowColorPicker
 											label={ __( 'Color', 'gridflow' ) }

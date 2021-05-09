@@ -115,6 +115,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 											onChange={ ( value ) => setAttributes( { width: value } ) }
 											min={ 5 }
 											max={ 500 }
+											allowReset={ true }
 										/>
 										<GridFlowBorder
 											label={ __( 'Border', 'gridflow' ) }
