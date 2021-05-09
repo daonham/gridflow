@@ -20,6 +20,7 @@ const allowedBlocks = [
 	'gridflow/divider',
 	'gridflow/image-box',
 	'gridflow/icon-box',
+	'gridflow/social',
 ];
 
 export function addAttributes( settings ) {

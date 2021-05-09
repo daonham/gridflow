@@ -9,7 +9,6 @@ function inlineStyle( { attributes } ) {
 	const {
 		textAligns,
 		fontSize,
-		imgWidth,
 		width,
 		color,
 		bgColor,
@@ -44,7 +43,7 @@ function inlineStyle( { attributes } ) {
 		},
 		' .gridflow-icon__icon > img': {
 			color,
-			width: imgWidth?.desktop,
+			width: fontSize?.desktop ? fontSize.desktop + 'px' : undefined,
 		},
 		' .gridflow-icon__icon:hover': {
 			'background-color': bgColorHover,
@@ -76,7 +75,7 @@ function inlineStyle( { attributes } ) {
 			'line-height': fontSize?.tablet ? fontSize.tablet + 'px' : undefined,
 		},
 		' .gridflow-icon__icon > img': {
-			width: imgWidth?.tablet,
+			width: fontSize?.tablet ? fontSize.tablet + 'px' : undefined,
 		},
 		' .gridflow-icon__icon:hover': {
 			...GridFlowStyleBorder( borderHover, 'tablet' ),
@@ -99,7 +98,7 @@ function inlineStyle( { attributes } ) {
 			'line-height': fontSize?.mobile ? fontSize.mobile + 'px' : undefined,
 		},
 		' .gridflow-icon__icon > img': {
-			width: imgWidth?.mobile,
+			width: fontSize?.mobile ? fontSize.mobile + 'px' : undefined,
 		},
 		' .gridflow-icon__icon:hover': {
 			...GridFlowStyleBorder( borderHover, 'mobile' ),

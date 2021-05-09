@@ -21,6 +21,7 @@ const allowedBlocks = [
 	'gridflow/divider',
 	'gridflow/image-box',
 	'gridflow/icon-box',
+	'gridflow/social',
 ];
 
 export function addAttributes( settings ) {
@@ -55,7 +56,7 @@ export function addSaveProps( extraProps, blockType, attributes ) {
 			delay: gridflowDelay || '',
 		};
 
-		extraProps['data-gridflow-animated'] = JSON.stringify( animated );
+		extraProps[ 'data-gridflow-animated' ] = JSON.stringify( animated );
 	}
 
 	return extraProps;
@@ -80,12 +81,12 @@ export const withDataAnimation = createHigherOrderComponent(
 		newProps.wrapperProps = {
 			...wrapperProps,
 			className: classnames(
-				{'gridflow__animated': gridflowAnimation?.[getDevice]},
-				{ [`gridflow-animate__${gridflowAnimation?.[getDevice]}`]: gridflowAnimation?.[getDevice]},
-				{ [`gridflow_animated__${gridflowSpeed}`]: gridflowSpeed},
-				{ [`gridflow_animated__delay-${gridflowDelay}`]: gridflowDelay},
+				{ gridflow__animated: gridflowAnimation?.[ getDevice ] },
+				{ [ `gridflow-animate__${ gridflowAnimation?.[ getDevice ] }` ]: gridflowAnimation?.[ getDevice ] },
+				{ [ `gridflow_animated__${ gridflowSpeed }` ]: gridflowSpeed },
+				{ [ `gridflow_animated__delay-${ gridflowDelay }` ]: gridflowDelay },
 				props.wrapperProps?.className
-			)
+			),
 		};
 
 		return <BlockListBlock { ...newProps } />;

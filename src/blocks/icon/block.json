@@ -20,9 +20,6 @@
 		"fontSize": {
 			"type": "object"
 		},
-		"imgWidth": {
-			"type": "object"
-		},
 		"width": {
 			"type": "object"
 		},

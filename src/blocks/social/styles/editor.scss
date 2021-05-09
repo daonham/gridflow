@@ -2,11 +2,12 @@
 
 	&__items {
 		display: inline-grid;
-		column-gap: var(--social-column-gap, 10px);
-		row-gap: var(--social-row-gap, 10px);
-		grid-template-columns: repeat(var(--social-template-columns, 4), auto);
-		justify-content: var(--social-justify, center);
-		justify-items: var(--social-justify, center);
+		column-gap: var(--gridflow-social-column-gap, 10px);
+		row-gap: var(--gridflow-social-row-gap, 10px);
+		grid-template-columns: repeat(var(--gridflow-social-template-columns, 4), auto);
+		justify-content: var(--gridflow-social-justify, center);
+		justify-items: var(--gridflow-social-justify, center);
+		line-height: 1;
 
 		> div.wp-block {
 			margin-top: 0;

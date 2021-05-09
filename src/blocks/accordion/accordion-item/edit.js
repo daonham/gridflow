@@ -19,6 +19,7 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 
 	const isSelectedChild = useSelect( ( select ) => {
 		const { hasSelectedInnerBlock } = select( blockEditorStore );
+
 		return hasSelectedInnerBlock( clientId, true );
 	}, [ clientId ] );
 

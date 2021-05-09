@@ -3,25 +3,35 @@
 	"name": "gridflow/social",
 	"category": "gridflow",
 	"attributes": {
-		"icon": {
+		"columns": {
 			"type": "object",
 			"default": {
-				"icon": "far fa-star",
-				"url": null,
-				"alt": null
+				"desktop": 4,
+				"tablet": 4,
+				"mobile": 4
 			}
-		},
-		"links": {
-			"type": "object"
 		},
 		"textAligns": {
 			"type": "object"
 		},
-		"fontSize": {
+		"spacing": {
+			"type": "object",
+			"default": {
+				"desktop": 20,
+				"tablet": null,
+				"mobile": null
+			}
+		},
+		"rowGap": {
 			"type": "object"
 		},
-		"imgWidth": {
-			"type": "object"
+		"fontSize": {
+			"type": "object",
+			"default": {
+				"desktop": 24,
+				"tablet": null,
+				"mobile": null
+			}
 		},
 		"width": {
 			"type": "object"
@@ -31,9 +41,6 @@
 		},
 		"bgColor": {
 			"type": "string"
-		},
-		"padding": {
-			"type": "object"
 		},
 		"border": {
 			"type": "object"

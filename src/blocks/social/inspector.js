@@ -1,10 +1,11 @@
 import { __ } from '@wordpress/i18n';
-import { InspectorControls } from '@wordpress/block-editor';
+import { InspectorControls, store as blockEditorStore } from '@wordpress/block-editor';
+import { useDispatch, useSelect } from '@wordpress/data';
+import { useEffect } from '@wordpress/element';
+
 import {
 	PanelBody,
 	SelectControl,
-	Flex,
-	FlexItem,
 	RangeControl,
 	TabPanel,
 } from '@wordpress/components';
@@ -14,25 +15,21 @@ const {
 	GridFlowBorder,
 	GridFlowBoxShadow,
 	GridFlowTextAlign,
-	GridFlowTextUnit,
 	GridFlowColorPicker,
-	GridFlowLinkControl,
-	GridFlowIconSelect,
 	GridFlowRangeControl,
 } = wp.gridflowComponents;
 
-const Inspector = ( { attributes, setAttributes } ) => {
+const Inspector = ( { attributes, setAttributes, clientId } ) => {
 	const {
-		icon,
-		links,
+		columns,
 		textAligns,
+		spacing,
+		rowGap,
+
 		fontSize,
-		imgWidth,
 		width,
-		height,
 		color,
 		bgColor,
-		padding,
 		border,
 		borderRadius,
 		boxShadow,
@@ -46,21 +43,57 @@ const Inspector = ( { attributes, setAttributes } ) => {
 		boxShadowHover,
 	} = attributes;
 
+	const innerBlockClientIds = useSelect( ( select ) => {
+		const { getBlockOrder } = select( blockEditorStore );
+
+		return getBlockOrder( clientId );
+	}, [ clientId ] );
+
+	const { updateBlockAttributes } = useDispatch( blockEditorStore );
+
+	useEffect( () => {
+		innerBlockClientIds.forEach( ( innerBlockClientId ) => {
+			updateBlockAttributes( innerBlockClientId, {
+				fontSize, width, color, bgColor, border, borderRadius, boxShadow, colorHover, bgColorHover, transition, hoverEffect, borderHover, borderRadiusHover,
+			} );
+		} );
+	}, [ fontSize, width, color, bgColor, border, borderRadius, boxShadow, colorHover, bgColorHover, transition, hoverEffect, borderHover, borderRadiusHover, clientId, innerBlockClientIds ] );
+
 	return (
 		<>
 			<InspectorControls>
 				<PanelBody title={ __( 'Settings', 'gridflow' ) } initialOpen={ true }>
-					<GridFlowIconSelect
-						label={ 'Icon' }
-						values={ icon }
-						onChange={ ( value ) => setAttributes( { icon: value } ) }
+					<GridFlowRangeControl
+						label={ __( 'Columns', 'gridflow' ) }
+						values={ columns }
+						onChange={ ( value ) => setAttributes( { columns: value } ) }
+						min={ 1 }
+						max={ 10 }
+						step={ 1 }
+						marks={ [
+							{ value: 1, label: '1' },
+							{ value: 2, label: '2' },
+							{ value: 3, label: '3' },
+							{ value: 4, label: '4' },
+							{ value: 5, label: '5' },
+							{ value: 6, label: '6' },
+							{ value: 10, label: '10' },
+						] }
 					/>
-
-					<GridFlowLinkControl
-						values={ links }
-						onChange={ ( value ) => setAttributes( { links: value } ) }
+					<GridFlowRangeControl
+						label={ __( 'Spacing', 'gridflow' ) }
+						values={ spacing }
+						onChange={ ( value ) => setAttributes( { spacing: value } ) }
+						min={ 0 }
+						max={ 200 }
 					/>
-
+					<GridFlowRangeControl
+						label={ __( 'Row Gap', 'gridflow' ) }
+						values={ rowGap }
+						onChange={ ( value ) => setAttributes( { rowGap: value } ) }
+						min={ 0 }
+						max={ 200 }
+					/>
 					<GridFlowTextAlign
 						label={ __( 'Alignment', 'gridflow' ) }
 						values={ textAligns }
@@ -80,24 +113,14 @@ const Inspector = ( { attributes, setAttributes } ) => {
 								return (
 									<>
 										<div style={ { marginTop: 10 } } />
-										{ icon?.icon && (
-											<GridFlowRangeControl
-												label={ __( 'Font Size', 'gridflow' ) }
-												values={ fontSize }
-												onChange={ ( value ) => setAttributes( { fontSize: value } ) }
-												min={ 2 }
-												max={ 300 }
-											/>
-										) }
 
-										{ icon?.url && (
-											<GridFlowTextUnit
-												label={ __( 'Image Width', 'gridflow' ) }
-												values={ imgWidth }
-												onChange={ ( value ) => setAttributes( { imgWidth: value } ) }
-											/>
-										) }
-
+										<GridFlowRangeControl
+											label={ __( 'Icon Size', 'gridflow' ) }
+											values={ fontSize }
+											onChange={ ( value ) => setAttributes( { fontSize: value } ) }
+											min={ 2 }
+											max={ 300 }
+										/>
 										<GridFlowRangeControl
 											label={ __( 'Width & Height', 'gridflow' ) }
 											values={ width }
@@ -105,7 +128,6 @@ const Inspector = ( { attributes, setAttributes } ) => {
 											min={ 5 }
 											max={ 500 }
 										/>
-
 										<GridFlowColorPicker
 											label={ __( 'Color', 'gridflow' ) }
 											value={ color }
@@ -119,11 +141,6 @@ const Inspector = ( { attributes, setAttributes } ) => {
 											alpha={ false }
 											gradients={ true }
 											onChange={ ( value ) => setAttributes( { bgColor: value } ) }
-										/>
-										<GridFlowBoxControl
-											label={ __( 'Padding', 'gridflow' ) }
-											values={ padding }
-											onChange={ ( value ) => setAttributes( { padding: value } ) }
 										/>
 										<GridFlowBorder
 											label={ __( 'Border', 'gridflow' ) }

@@ -9,9 +9,70 @@ import Inspector from './inspector';
 const { withInlineStyle } = wp.gridflowCompose;
 
 const ALLOWED_BLOCKS = [ 'gridflow/icon' ];
-const ICON_TEMPLATE = [ [ 'gridflow/icon' ] ];
+const ICON_TEMPLATE = [
+	[
+		'gridflow/icon',
+		{
+			icon: {
+				icon: 'fab fa-facebook-f',
+				url: null,
+				alt: null,
+			},
+			fontSize: {
+				desktop: 24,
+				tablet: null,
+				mobile: null,
+			},
+		},
+	],
+	[
+		'gridflow/icon',
+		{
+			icon: {
+				icon: 'fab fa-twitter',
+				url: null,
+				alt: null,
+			},
+			fontSize: {
+				desktop: 24,
+				tablet: null,
+				mobile: null,
+			},
+		},
+	],
+	[
+		'gridflow/icon',
+		{
+			icon: {
+				icon: 'fab fa-instagram',
+				url: null,
+				alt: null,
+			},
+			fontSize: {
+				desktop: 24,
+				tablet: null,
+				mobile: null,
+			},
+		},
+	],
+	[
+		'gridflow/icon',
+		{
+			icon: {
+				icon: 'fab fa-linkedin-in',
+				url: null,
+				alt: null,
+			},
+			fontSize: {
+				desktop: 24,
+				tablet: null,
+				mobile: null,
+			},
+		},
+	],
+];
 
-function Edit( { isSelected, attributes, setAttributes } ) {
+function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 	const { uniqueId } = attributes;
 
 	const innerBlocksProps = useInnerBlocksProps( { className: 'gridflow-social-icons__items' }, {
@@ -34,6 +95,7 @@ function Edit( { isSelected, attributes, setAttributes } ) {
 				<Inspector
 					attributes={ attributes }
 					setAttributes={ setAttributes }
+					clientId={ clientId }
 				/>
 			) }
 
