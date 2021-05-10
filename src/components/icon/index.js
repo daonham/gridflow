@@ -94,7 +94,7 @@ const GridFlowIconSelect = ( {
 	const [ search, setSearch ] = useState( '' );
 	const [ tab, setTab ] = useState( 'fontawesome' );
 
-	const allTabs = [ { label: __( 'Font Awesome' ), value: 'fontawesome' } ];
+	const allTabs = [ { label: 'Font Awesome', value: 'fontawesome' } ];
 
 	return (
 		<>

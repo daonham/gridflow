@@ -18,72 +18,72 @@ const FontAwesome = ( { search, onChange, closeModal } ) => {
 			setLoading( true );
 		}
 
-		const timer = setTimeout( () => {
-			setRenderRegular(
-				regular.icons.map( ( icon ) => {
-					if ( ! search || icon.toLowerCase().includes( search.toLowerCase() ) ) {
-						return (
-							<div className="gridflow-icon-component__icon" key={ icon }>
-								<button onClick={ () => {
-									onChange( `far fa-${ icon }` );
-									closeModal();
-								} }>
-									<i className={ `far fa-${ icon }` } />
-									<span>{ icon }</span>
-								</button>
-							</div>
-						);
-					}
-
-					return null;
-				} )
-			);
-
-			setRenderSolid(
-				solid.icons.map( ( icon ) => {
-					if ( ! search || icon.toLowerCase().includes( search.toLowerCase() ) ) {
-						return (
-							<div className="gridflow-icon-component__icon" key={ icon }>
-								<button onClick={ () => {
-									onChange( `fas fa-${ icon }` );
-									closeModal();
-								} }>
-									<i className={ `fas fa-${ icon }` } />
-									<span>{ icon }</span>
-								</button>
-							</div>
-						);
-					}
-
-					return null;
-				} )
-			);
-
-			setRenderBrands(
-				brands.icons.map( ( icon ) => {
-					if ( ! search || icon.toLowerCase().includes( search.toLowerCase() ) ) {
-						return (
-							<div className="gridflow-icon-component__icon" key={ icon }>
-								<button onClick={ () => {
-									onChange( `fab fa-${ icon }` );
-									closeModal();
-								} }>
-									<i className={ `fab fa-${ icon }` } />
-									<span>{ icon }</span>
-								</button>
-							</div>
-						);
-					}
-
-					return null;
-				} )
-			);
-
-			setLoading( false );
-		}, 1000 );
-
-		return () => clearTimeout( timer );
+		renderIcon();
 	}, [ search ] );
+
+	const renderIcon = () => {
+		setRenderRegular(
+			regular.icons.map( ( icon ) => {
+				if ( ! search || icon.toLowerCase().includes( search.toLowerCase() ) ) {
+					return (
+						<div className="gridflow-icon-component__icon" key={ icon }>
+							<button onClick={ () => {
+								onChange( `far fa-${ icon }` );
+								closeModal();
+							} }>
+								<i className={ `far fa-${ icon }` } />
+								<span>{ icon }</span>
+							</button>
+						</div>
+					);
+				}
+
+				return null;
+			} )
+		);
+
+		setRenderSolid(
+			solid.icons.map( ( icon ) => {
+				if ( ! search || icon.toLowerCase().includes( search.toLowerCase() ) ) {
+					return (
+						<div className="gridflow-icon-component__icon" key={ icon }>
+							<button onClick={ () => {
+								onChange( `fas fa-${ icon }` );
+								closeModal();
+							} }>
+								<i className={ `fas fa-${ icon }` } />
+								<span>{ icon }</span>
+							</button>
+						</div>
+					);
+				}
+
+				return null;
+			} )
+		);
+
+		setRenderBrands(
+			brands.icons.map( ( icon ) => {
+				if ( ! search || icon.toLowerCase().includes( search.toLowerCase() ) ) {
+					return (
+						<div className="gridflow-icon-component__icon" key={ icon }>
+							<button onClick={ () => {
+								onChange( `fab fa-${ icon }` );
+								closeModal();
+							} }>
+								<i className={ `fab fa-${ icon }` } />
+								<span>{ icon }</span>
+							</button>
+						</div>
+					);
+				}
+
+				return null;
+			} )
+		);
+
+		setLoading( false );
+	};
 
 	const tabs = [
 		{
@@ -105,7 +105,8 @@ const FontAwesome = ( { search, onChange, closeModal } ) => {
 	];
 
 	return (
-		<TabPanel className="gridflow-icon-tab-panel"
+		<TabPanel
+			className="gridflow-icon-tab-panel"
 			activeClass="is-active"
 			orientation="horizontal"
 			tabs={ tabs }
