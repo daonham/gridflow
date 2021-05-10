@@ -98,5 +98,8 @@
 		"iconBoxShadow": {
 			"type": "object"
 		}
+	},
+	"supports": {
+		"reusable": false
 	}
 }

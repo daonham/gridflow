@@ -115,5 +115,8 @@
 		"captionSpacing": {
 			"type": "object"
 		}
+	},
+	"supports": {
+		"reusable": false
 	}
 }

@@ -60,5 +60,8 @@
 			"type": "object"
 		}
 	},
-	"style": "gridflow-icon"
+	"style": "gridflow-icon",
+	"supports": {
+		"reusable": false
+	}
 }

@@ -162,5 +162,8 @@
 		"paddingPercent":{
 			"type": "object"
 		}
+	},
+	"supports": {
+		"reusable": false
 	}
 }

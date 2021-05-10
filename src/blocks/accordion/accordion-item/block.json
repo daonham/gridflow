@@ -26,5 +26,8 @@
 			"type": "string",
 			"default": "left"
 		}
+	},
+	"supports": {
+		"reusable": false
 	}
 }

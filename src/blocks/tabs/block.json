@@ -156,5 +156,8 @@
 		"colorIconActive": {
 			"type": "string"
 		}
+	},
+	"supports": {
+		"reusable": false
 	}
 }

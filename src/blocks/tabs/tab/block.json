@@ -17,5 +17,8 @@
 		"tabTitles": {
 			"type": "object"
 		}
+	},
+	"supports": {
+		"reusable": false
 	}
 }

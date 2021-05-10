@@ -72,5 +72,8 @@
 		"boxShadowHover": {
 			"type": "object"
 		}
+	},
+	"supports": {
+		"reusable": false
 	}
 }

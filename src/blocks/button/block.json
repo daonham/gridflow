@@ -122,5 +122,8 @@
 			"type": "string"
 		}
 	},
+	"supports": {
+		"reusable": false
+	},
 	"style": "gridflow-button"
 }

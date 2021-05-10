@@ -36,5 +36,8 @@
 		"boxShadow":{
 			"type": "object"
 		}
+	},
+	"supports": {
+		"reusable": false
 	}
 }
