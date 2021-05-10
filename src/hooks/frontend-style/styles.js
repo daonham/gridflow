@@ -1,6 +1,8 @@
 import getStyle from '../inline-style';
 import inlineStyle from '../inline-style/filter';
 
+const gridFlowEditorData = window.gridFlowEditorData;
+
 function getStyles( block, styles, fonts ) {
 	const { attributes, name } = block;
 	const { uniqueId } = attributes;
@@ -19,7 +21,7 @@ function getStyles( block, styles, fonts ) {
 					}
 				}
 
-				if ( attributes[ font.name ] && gridFlowEditorData.systemFont && ! ( gridFlowEditorData.systemFont ).includes( attributes[ font.name ] ) ) {
+				if ( attributes[ font.name ] && gridFlowEditorData?.systemFont && ! ( gridFlowEditorData.systemFont ).includes( attributes[ font.name ] ) ) {
 					fonts.push( {
 						font: attributes[ font.name ],
 						weights: weight,

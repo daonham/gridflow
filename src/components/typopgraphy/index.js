@@ -18,6 +18,8 @@ import GridFlowTextUnit from '../text';
 
 import ggFonts from './google-fonts.json';
 
+const gridFlowEditorData = window.gridFlowEditorData;
+
 const Typhography = ( {
 	font,
 	onChangeFont,
@@ -66,7 +68,7 @@ const Typhography = ( {
 			} );
 		}
 
-		if ( gridFlowEditorData.systemFont ) {
+		if ( gridFlowEditorData?.systemFont ) {
 			const output = [];
 
 			gridFlowEditorData.systemFont.map( ( ele ) => {

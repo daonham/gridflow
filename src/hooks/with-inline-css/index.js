@@ -7,6 +7,8 @@ import GoogleFontLoader from 'react-google-font-loader';
 import getStyle from '../inline-style';
 import inlineStyle from '../inline-style/filter';
 
+const gridFlowEditorData = window.gridFlowEditorData;
+
 const withInlineStyle = createHigherOrderComponent(
 	( WrappedComponent ) => ( props ) => {
 		const { attributes, setAttributes, clientId, name } = props;
@@ -37,7 +39,7 @@ const withInlineStyle = createHigherOrderComponent(
 						}
 					}
 
-					if ( attributes[ font.name ] && gridFlowEditorData.systemFont && ! ( gridFlowEditorData.systemFont ).includes( attributes[ font.name ] ) ) {
+					if ( attributes[ font.name ] && gridFlowEditorData?.systemFont && ! ( gridFlowEditorData.systemFont ).includes( attributes[ font.name ] ) ) {
 						fonts.push( {
 							font: attributes[ font.name ],
 							weights: [ weight ],
