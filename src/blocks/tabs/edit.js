@@ -40,6 +40,16 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 
 	const { updateBlockAttributes } = useDispatch( blockEditorStore );
 
+	const { isSelectedChild, innerBlocks, innerBlockClientIds } = useSelect( ( select ) => {
+		const { hasSelectedInnerBlock, getBlocks, getBlockOrder } = select( blockEditorStore );
+
+		return {
+			innerBlockClientIds: getBlockOrder( clientId ),
+			isSelectedChild: hasSelectedInnerBlock( clientId, true ),
+			innerBlocks: getBlocks( clientId ),
+		};
+	}, [ clientId ] );
+
 	useEffect( () => {
 		if ( uniqueIdTitle !== uniqueIdBlock ) {
 			setAttributes( { uniqueIdTitle: uniqueIdBlock } );
@@ -51,17 +61,7 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 				tabTitles: tabTitles[ index ],
 			} );
 		} );
-	}, [ clientId, activeTab, tabTitles ] );
-
-	const { isSelectedChild, innerBlocks, innerBlockClientIds } = useSelect( ( select ) => {
-		const { hasSelectedInnerBlock, getBlocks, getBlockOrder } = select( blockEditorStore );
-
-		return {
-			innerBlockClientIds: getBlockOrder( clientId ),
-			isSelectedChild: hasSelectedInnerBlock( clientId, true ),
-			innerBlocks: getBlocks( clientId ),
-		};
-	}, [ clientId ] );
+	}, [ isSelected, innerBlockClientIds, activeTab, tabTitles ] );
 
 	const getPreviewDeviceType = useSelect( ( select ) => {
 		const { __experimentalGetPreviewDeviceType } = select( 'core/edit-post' );

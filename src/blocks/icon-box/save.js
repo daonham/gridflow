@@ -24,34 +24,34 @@ export default function save( { attributes } ) {
 				<div className={ classnames(
 					'gridflow-icon-box__wrapper',
 					`gridflow-icon-box__wrapper--icon--${ iconPosition }`,
-					{ [`gridflow-icon-box__wrapper--icon--hover--${ hoverEffect}`]: hoverEffect }
-					) }>
-						{ links?.url ? (
-							<div className={ 'gridflow-icon-box__icon' }>
-								<a
-									className={ classnames( 'gridflow-icon-box__link' ) }
-									href={ links.url }
-									target={ target }
-									rel={ rel }
-								>
-									{ icon?.icon && (
-										<i className={ classnames( 'gridflow-icon-box__i', icon.icon ) }></i>
-									) }
-									{ icon?.url && (
-										<img className={ 'gridflow-icon-box__img' } src={ icon.url } alt={ icon?.alt || '' } />
-									) }
-								</a>
-							</div>
-						) : (
-							<div className={ classnames( 'gridflow-icon-box__icon' ) }>
+					{ [ `gridflow-icon-box__wrapper--icon--hover--${ hoverEffect }` ]: hoverEffect }
+				) }>
+					{ links?.url ? (
+						<div className={ 'gridflow-icon-box__icon' }>
+							<a
+								className={ classnames( 'gridflow-icon-box__link' ) }
+								href={ links.url }
+								target={ target }
+								rel={ rel }
+							>
 								{ icon?.icon && (
 									<i className={ classnames( 'gridflow-icon-box__i', icon.icon ) }></i>
 								) }
 								{ icon?.url && (
-									<img  className={ 'gridflow-icon-box__img' } src={ icon.url } alt={ icon?.alt || '' } />
+									<img className={ 'gridflow-icon-box__img' } src={ icon.url } alt={ icon?.alt || '' } />
 								) }
-							</div>
-						) }
+							</a>
+						</div>
+					) : (
+						<div className={ classnames( 'gridflow-icon-box__icon' ) }>
+							{ icon?.icon && (
+								<i className={ classnames( 'gridflow-icon-box__i', icon.icon ) }></i>
+							) }
+							{ icon?.url && (
+								<img className={ 'gridflow-icon-box__img' } src={ icon.url } alt={ icon?.alt || '' } />
+							) }
+						</div>
+					) }
 					<div className="gridflow-icon-box__content">
 						<InnerBlocks.Content />
 					</div>

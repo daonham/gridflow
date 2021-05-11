@@ -45,7 +45,7 @@ function Edit( { isSelected, attributes, setAttributes, toggleSelection } ) {
 						<div className={ 'gridflow-progress-bar__content' }>
 							<ResizableBox
 								showHandle={ isSelected }
-								className={ classnames( 'gridflow-progress-bar__content__value', {[`is-percent-${percentPosition}`]: percentPosition } ) }
+								className={ classnames( 'gridflow-progress-bar__content__value', { [ `is-percent-${ percentPosition }` ]: percentPosition } ) }
 								size={ { width: percent + '%' } }
 								minWidth="0%"
 								maxWidth="100%"

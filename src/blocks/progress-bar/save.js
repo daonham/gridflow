@@ -17,7 +17,7 @@ export default function save( { attributes } ) {
 						/>
 					) }
 					<div className="gridflow-progress-bar__content">
-						<div className={ classnames( 'gridflow-progress-bar__content__value', {[`is-percent-${percentPosition}`]: percentPosition } ) } data-percent={ parseInt( percent ) } data-suffix={ suffix || '' }>
+						<div className={ classnames( 'gridflow-progress-bar__content__value', { [ `is-percent-${ percentPosition }` ]: percentPosition } ) } data-percent={ parseInt( percent ) } data-suffix={ suffix || '' }>
 							<div className="gridflow-progress-bar__content__label">
 								{ showCaption && ! RichText.isEmpty( caption ) && (
 									<RichText.Content

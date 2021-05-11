@@ -9,7 +9,6 @@ import classnames from 'classnames';
 import { __ } from '@wordpress/i18n';
 import {
 	useBlockProps,
-	InnerBlocks,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 	BlockIcon,
 	MediaPlaceholder,
@@ -109,8 +108,8 @@ function Edit( { isSelected, attributes, setAttributes, noticeOperations, notice
 						<img className={ classnames( 'gridflow-image-box__img' ) } src={ url } alt={ alt || '' } />
 
 						{ ( overlay || hoverOverlay ) && (
-							<div className={ classnames('gridflow-image-box__image--overlay')}></div>
-						)}
+							<div className={ classnames( 'gridflow-image-box__image--overlay' ) }></div>
+						) }
 					</a>
 				</div>
 			) : (
@@ -118,8 +117,8 @@ function Edit( { isSelected, attributes, setAttributes, noticeOperations, notice
 					<img className={ classnames( 'gridflow-image-box__img' ) } src={ url } alt={ alt || '' } />
 
 					{ ( overlay || hoverOverlay ) && (
-						<div className={ classnames('gridflow-image-box__image--overlay')}></div>
-					)}
+						<div className={ classnames( 'gridflow-image-box__image--overlay' ) }></div>
+					) }
 				</div>
 			) }
 		</>
@@ -147,11 +146,11 @@ function Edit( { isSelected, attributes, setAttributes, noticeOperations, notice
 					<div className={ classnames(
 						'gridflow-image-box__wrapper',
 						`gridflow-image-box__wrapper--image--${ imagePosition }`,
-						{ [`gridflow-image-box__wrapper--image--hover--${ hoverEffect}`]: hoverEffect }
-						) }>
+						{ [ `gridflow-image-box__wrapper--image--hover--${ hoverEffect }` ]: hoverEffect }
+					) }>
 						{ url ? (
 							imageBoxImage
-							) : (
+						) : (
 							<MediaPlaceholder
 								icon={ <BlockIcon icon={ icon } /> }
 								onSelect={ onSelectImage }

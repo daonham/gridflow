@@ -30,20 +30,20 @@ export default function save( { attributes } ) {
 			{ linkType ? (
 				<div className={ 'gridflow-image-box__image' }>
 					<a className={ 'gridflow-image-box__link' } href={ href } target={ target } rel={ rel }>
-						<img className={ classnames(id && `wp-image-${ id }`, 'gridflow-image-box__img' ) } src={ url } alt={ alt || '' } />
+						<img className={ classnames( id && `wp-image-${ id }`, 'gridflow-image-box__img' ) } src={ url } alt={ alt || '' } />
 
 						{ ( overlay || hoverOverlay ) && (
-							<div className={ classnames('gridflow-image-box__image--overlay')}></div>
-						)}
+							<div className={ classnames( 'gridflow-image-box__image--overlay' ) }></div>
+						) }
 					</a>
 				</div>
 			) : (
 				<div className={ 'gridflow-image-box__image' }>
-					<img className={ classnames(id && `wp-image-${ id }`, 'gridflow-image-box__img' ) } src={ url } alt={ alt || '' } />
+					<img className={ classnames( id && `wp-image-${ id }`, 'gridflow-image-box__img' ) } src={ url } alt={ alt || '' } />
 
 					{ ( overlay || hoverOverlay ) && (
-							<div className={ classnames('gridflow-image-box__image--overlay')}></div>
-						)}
+						<div className={ classnames( 'gridflow-image-box__image--overlay' ) }></div>
+					) }
 				</div>
 			) }
 		</>
@@ -55,8 +55,8 @@ export default function save( { attributes } ) {
 				<div className={ classnames(
 					'gridflow-image-box__wrapper',
 					`gridflow-image-box__wrapper--image--${ imagePosition }`,
-					{ [`gridflow-image-box__wrapper--image--hover--${ hoverEffect}`]: hoverEffect }
-					) }>
+					{ [ `gridflow-image-box__wrapper--image--hover--${ hoverEffect }` ]: hoverEffect }
+				) }>
 					{ imageBoxImage }
 
 					<div className="gridflow-image-box__content">

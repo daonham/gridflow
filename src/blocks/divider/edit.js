@@ -39,17 +39,17 @@ function Edit( { isSelected, attributes, setAttributes } ) {
 					<div className={ 'gridflow-divider__wrapper' }>
 						<div className={ classnames(
 							'gridflow-divider-separator',
-							{ [`gridflow-divider-separator--${style}`]: style },
-							{ [`gridflow-divider-separator--${type}`]: type }
-							)}>
+							{ [ `gridflow-divider-separator--${ style }` ]: style },
+							{ [ `gridflow-divider-separator--${ type }` ]: type }
+						) }>
 							{ type === 'text' && (
 								<RichText
-								className={ classnames( 'gridflow-divider__text' ) }
-								tagName={ tagName }
-								placeholder={ placeholder || __( 'Write text...', 'gridflow' ) }
-								keepplaceholderonfocus="true"
-								value={ text }
-								onChange={ ( value ) => setAttributes( { text: value } ) }
+									className={ classnames( 'gridflow-divider__text' ) }
+									tagName={ tagName }
+									placeholder={ placeholder || __( 'Write text...', 'gridflow' ) }
+									keepplaceholderonfocus="true"
+									value={ text }
+									onChange={ ( value ) => setAttributes( { text: value } ) }
 								/>
 							) }
 
@@ -62,7 +62,7 @@ function Edit( { isSelected, attributes, setAttributes } ) {
 										<img src={ icon.url } alt={ icon?.alt ? icon.alt : '' } />
 									) }
 								</span>
-							)}
+							) }
 						</div>
 					</div>
 				</div>
