@@ -1,5 +1,5 @@
 import { subscribe, select } from '@wordpress/data';
-import parseStyle from './parse';
+import savePostStyle from './post';
 
 subscribe( () => {
 	const {
@@ -11,9 +11,9 @@ subscribe( () => {
 
 	if ( isPublishingPost() || isPreviewingPost() || ( isSavingPost() && ! isAutosavingPost() ) ) {
 		if ( isPreviewingPost() ) {
-			parseStyle( true );
+			savePostStyle( true );
 		} else {
-			parseStyle();
+			savePostStyle();
 		}
 	}
 } );

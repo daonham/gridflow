@@ -3,7 +3,7 @@ import { select } from '@wordpress/data';
 import getStyles from './styles';
 import gridflowApi from './api';
 
-function parseStyle( isPreview = false ) {
+function savePostStyle( isPreview = false ) {
 	const allBlocks = select( 'core/block-editor' ).getBlocks();
 	const { getCurrentPostId } = select( 'core/editor' );
 
@@ -39,5 +39,5 @@ function parseStyle( isPreview = false ) {
 		} );
 	}
 }
-export default parseStyle;
+export default savePostStyle;
 
