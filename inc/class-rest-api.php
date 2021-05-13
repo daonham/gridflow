@@ -1,11 +1,10 @@
 <?php
 namespace GridFlow;
-
 class Styles {
 
-	protected $folder_name = 'gridflow';
+	use SingletonTrait;
 
-	protected static $instance = null;
+	protected $folder_name = 'gridflow';
 
 	public function init() {
 		add_action( 'rest_api_init', array( $this, 'register_endpoints' ) );
@@ -181,15 +180,6 @@ class Styles {
 				)
 			);
 		}
-	}
-
-	public static function instance() {
-		if ( is_null( self::$instance ) ) {
-			self::$instance = new Styles();
-			self::$instance->init();
-		}
-
-		return self::$instance;
 	}
 }
 Styles::instance();

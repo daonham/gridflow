@@ -2,7 +2,7 @@
 namespace GridFlow;
 
 class Assets {
-	protected static $instance = null;
+	use SingletonTrait;
 
 	public static $version = null;
 
@@ -91,15 +91,6 @@ class Assets {
 		}
 
 		return $url;
-	}
-
-	public static function instance() {
-		if ( is_null( self::$instance ) ) {
-			self::$instance = new Assets();
-			self::$instance->init();
-		}
-
-		return self::$instance;
 	}
 }
 

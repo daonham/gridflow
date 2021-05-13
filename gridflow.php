@@ -7,7 +7,7 @@
  * Version: 1.0.0
  * Author URI: http://alura-studio.com
  * Requires at least: 3.8
- * Tested up to: 5.6
+ * Tested up to: 5.7
  * Text Domain: gridflow
  * Domain Path: /languages/
  *
@@ -35,6 +35,9 @@ if ( ! class_exists( 'GridFlow' ) ) {
 		}
 
 		protected function includes() {
+			require_once GRIDFLOW_PLUGIN_DIR . 'inc/utilities/singleton-trait.php';
+
+			// Include Classes Module.
 			require_once GRIDFLOW_PLUGIN_DIR . 'inc/class-init.php';
 			require_once GRIDFLOW_PLUGIN_DIR . 'inc/class-assets.php';
 			require_once GRIDFLOW_PLUGIN_DIR . 'inc/class-rest-api.php';

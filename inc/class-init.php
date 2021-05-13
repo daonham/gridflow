@@ -2,7 +2,7 @@
 namespace GridFlow;
 
 class Init {
-	protected static $instance = null;
+	use SingletonTrait;
 
 	public function init() {
 		add_action( 'block_categories', array( $this, 'block_categories' ) );
@@ -25,15 +25,6 @@ class Init {
 		$classes[] = 'gridflow-styles';
 
 		return $classes;
-	}
-
-	public static function instance() {
-		if ( is_null( self::$instance ) ) {
-			self::$instance = new Init();
-			self::$instance->init();
-		}
-
-		return self::$instance;
 	}
 }
 
