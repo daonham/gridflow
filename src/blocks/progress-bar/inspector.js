@@ -174,7 +174,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 					/>
 					<GridFlowDivider />
 					<GridFlowRangeControl
-						label={ __( 'Spacing', 'gridhub' ) }
+						label={ __( 'Spacing', 'gridflow' ) }
 						values={ spacing }
 						onChange={ ( value ) => setAttributes( { spacing: value } ) }
 						min={ 0 }

@@ -139,7 +139,7 @@ class Styles {
 			}
 
 			if ( empty( $post_css ) ) {
-				throw new \Exception( esc_html__( 'Gridhub no content for save!', 'gridflow' ) );
+				throw new \Exception( esc_html__( 'Gridflow: No content for save!', 'gridflow' ) );
 			}
 
 			$file_name = 'post-' . $post_id . '.css';
@@ -154,7 +154,7 @@ class Styles {
 			$file_path     = $upload_dir . $file_name;
 
 			if ( ! $wp_filesystem->is_writable( $wp_upload_dir['basedir'] ) ) {
-				throw new \Exception( esc_html__( 'Gridhub can\'t write in upload folder!', 'gridflow' ) );
+				throw new \Exception( esc_html__( 'Gridflow: Can\'t write in upload folder!', 'gridflow' ) );
 			}
 
 			if ( ! $target_dir ) {
@@ -164,13 +164,13 @@ class Styles {
 			$put_content = $wp_filesystem->put_contents( $file_path, $post_css, FS_CHMOD_FILE );
 
 			if ( ! $put_content ) {
-				throw new \Exception( esc_html__( 'Gridhub can\'t put content style!', 'gridflow' ) );
+				throw new \Exception( esc_html__( 'Gridflow: Can\'t put content style!', 'gridflow' ) );
 			}
 
 			return rest_ensure_response(
 				array(
 					'status'  => 'success',
-					'message' => esc_html__( 'Gridhub save style successfully!', 'gridflow' ),
+					'message' => esc_html__( 'Gridflow: Save style successfully!', 'gridflow' ),
 				)
 			);
 		} catch ( \Exception $e ) {
