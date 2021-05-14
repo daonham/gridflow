@@ -1,43 +1,27 @@
 {
 	"apiVersion": 2,
-	"name": "gridflow/social",
+	"name": "gridflow/alert",
 	"category": "gridflow",
 	"attributes": {
-		"columns": {
+		"icon": {
 			"type": "object",
 			"default": {
-				"desktop": 4,
-				"tablet": 4,
-				"mobile": 4
+				"icon": "far fa-star",
+				"url": null,
+				"alt": null
 			}
+		},
+		"links": {
+			"type": "object"
 		},
 		"textAligns": {
 			"type": "object"
 		},
-		"spacing": {
-			"type": "object",
-			"default": {
-				"desktop": 20,
-				"tablet": null,
-				"mobile": null
-			}
-		},
-		"rowGap": {
-			"type": "object"
-		},
 		"fontSize": {
-			"type": "object",
-			"default": {
-				"desktop": 24,
-				"tablet": null,
-				"mobile": null
-			}
+			"type": "object"
 		},
 		"padding": {
 			"type": "object"
-		},
-		"colorType": {
-			"type": "string"
 		},
 		"color": {
 			"type": "string"
@@ -53,9 +37,6 @@
 		},
 		"boxShadow": {
 			"type": "object"
-		},
-		"colorTypeHover": {
-			"type": "string"
 		},
 		"colorHover": {
 			"type": "string"

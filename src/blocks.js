@@ -28,6 +28,7 @@ import * as divider from './blocks/divider';
 import * as imageBox from './blocks/image-box';
 import * as iconBox from './blocks/icon-box';
 import * as socialIcon from './blocks/social';
+import * as alert from './blocks/alert';
 
 const registerBlock = ( block ) => {
 	if ( ! block ) {
@@ -44,6 +45,7 @@ const registerBlock = ( block ) => {
  */
 export const registerGridFlowBlocks = () => {
 	[
+		alert,
 		heading,
 		button,
 		image,

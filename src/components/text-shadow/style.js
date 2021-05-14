@@ -9,7 +9,7 @@ const GridFlowStyleTextShadow = ( textShadow ) => {
 	}
 
 	return {
-		"text-shadow": `${X || 0} ${Y || 0} ${blur || 0} ${color || "rgb(0 0 0 / 50%)"}`
+		'text-shadow': `${ X || 0 } ${ Y || 0 } ${ blur || 0 } ${ color || 'rgb(0 0 0 / 50%)' }`,
 	};
 };
 export default GridFlowStyleTextShadow;

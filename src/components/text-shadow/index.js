@@ -92,7 +92,14 @@ const GridFlowTextShadow = ( {
 					</FlexItem>
 				</Flex>
 
-				<Flex className="gridflow-text-shadow-component__content" justify="flex-start" align="flex-start" >
+				<div
+					className="gridflow-text-shadow-component__content"
+					style={ {
+						display: 'grid',
+						gridTemplateColumns: '1fr 1fr 1fr 30px',
+						columnGap: 8,
+					} }
+				>
 					<UnitControl
 						label={ 'X offset' }
 						labelPosition="bottom"
@@ -130,7 +137,7 @@ const GridFlowTextShadow = ( {
 						alpha={ true }
 						hint={ __( 'Shadow Color', 'gridflow' ) }
 					/>
-				</Flex>
+				</div>
 			</div>
 		</>
 	);

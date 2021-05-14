@@ -19,7 +19,7 @@ import GridFlowFocusPointPicker from '../focus-point';
 const DEFAULT_VALUES = {
 	type: 'classic',
 	color: undefined,
-	image: null,
+	image: undefined,
 	position: undefined,
 	attachment: undefined,
 	repeat: undefined,
@@ -159,7 +159,6 @@ const GridFlowBackground = ( { label, values: valuesProp, onChange = noop } ) =>
 											options={ [
 												{ label: 'Default', value: '' },
 												{ label: 'No Repeat', value: 'no-repeat' },
-												{ label: 'Repeat', value: 'repeat' },
 												{ label: 'Repeat', value: 'repeat' },
 												{ label: 'Repeat X', value: 'repeat-x' },
 												{ label: 'Repeat Y', value: 'repeat-y' },

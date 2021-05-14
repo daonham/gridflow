@@ -28,12 +28,14 @@ const Inspector = ( { attributes, setAttributes, clientId } ) => {
 
 		fontSize,
 		padding,
+		colorType,
 		color,
 		bgColor,
 		border,
 		borderRadius,
 		boxShadow,
 
+		colorTypeHover,
 		colorHover,
 		bgColorHover,
 		transition,
@@ -51,13 +53,31 @@ const Inspector = ( { attributes, setAttributes, clientId } ) => {
 
 	const { updateBlockAttributes } = useDispatch( blockEditorStore );
 
+	const updateChildColor = colorType === 'all' ? {
+		color,
+		bgColor,
+	} : {};
+
+	const updateChildColorHover = colorTypeHover === 'all' ? {
+		colorHover,
+		bgColorHover,
+	} : {};
+
 	useEffect( () => {
 		innerBlockClientIds.forEach( ( innerBlockClientId ) => {
-			updateBlockAttributes( innerBlockClientId, {
-				fontSize, padding, color, bgColor, border, borderRadius, boxShadow, colorHover, bgColorHover, transition, hoverEffect, borderHover, borderRadiusHover,
-			} );
+			updateBlockAttributes( innerBlockClientId, { ...{
+				fontSize,
+				padding,
+				border,
+				borderRadius,
+				boxShadow,
+				transition,
+				hoverEffect,
+				borderHover,
+				borderRadiusHover,
+			}, ...updateChildColor, ...updateChildColorHover } );
 		} );
-	}, [ fontSize, padding, color, bgColor, border, borderRadius, boxShadow, colorHover, bgColorHover, transition, hoverEffect, borderHover, borderRadiusHover, clientId, innerBlockClientIds ] );
+	}, [ fontSize, padding, color, bgColor, border, borderRadius, boxShadow, colorHover, bgColorHover, transition, hoverEffect, borderHover, borderRadiusHover, clientId, innerBlockClientIds, colorType, colorTypeHover ] );
 
 	return (
 		<>
@@ -128,18 +148,31 @@ const Inspector = ( { attributes, setAttributes, clientId } ) => {
 											min={ 0 }
 											max={ 300 }
 										/>
-										<GridFlowColorPicker
-											label={ __( 'Color', 'gridflow' ) }
-											value={ color }
-											onChange={ ( value ) => setAttributes( { color: value } ) }
+										<SelectControl
+											label={ __( 'Color type', 'gridflow' ) }
+											value={ colorType }
+											onChange={ ( value ) => setAttributes( { colorType: value } ) }
+											options={ [
+												{ label: __( 'Icon Color', 'gridflow' ), value: 'icon' },
+												{ label: __( 'Custom All Icon', 'gridflow' ), value: 'all' },
+											] }
 										/>
-										<GridFlowColorPicker
-											label={ __( 'Background Color', 'gridflow' ) }
-											value={ bgColor }
-											alpha={ true }
-											gradients={ true }
-											onChange={ ( value ) => setAttributes( { bgColor: value } ) }
-										/>
+										{ colorType === 'all' && (
+											<>
+												<GridFlowColorPicker
+													label={ __( 'Color', 'gridflow' ) }
+													value={ color }
+													onChange={ ( value ) => setAttributes( { color: value } ) }
+												/>
+												<GridFlowColorPicker
+													label={ __( 'Background Color', 'gridflow' ) }
+													value={ bgColor }
+													alpha={ true }
+													gradients={ true }
+													onChange={ ( value ) => setAttributes( { bgColor: value } ) }
+												/>
+											</>
+										) }
 										<GridFlowBorder
 											label={ __( 'Border', 'gridflow' ) }
 											values={ border }
@@ -163,18 +196,31 @@ const Inspector = ( { attributes, setAttributes, clientId } ) => {
 							if ( tab.name === 'hover' ) {
 								return (
 									<>
-										<GridFlowColorPicker
-											label={ __( 'Color', 'gridflow' ) }
-											value={ colorHover }
-											onChange={ ( value ) => setAttributes( { colorHover: value } ) }
+										<SelectControl
+											label={ __( 'Color type', 'gridflow' ) }
+											value={ colorTypeHover }
+											onChange={ ( value ) => setAttributes( { colorTypeHover: value } ) }
+											options={ [
+												{ label: __( 'Icon Color', 'gridflow' ), value: 'icon' },
+												{ label: __( 'Custom All Icon', 'gridflow' ), value: 'all' },
+											] }
 										/>
-										<GridFlowColorPicker
-											label={ __( 'Background Color', 'gridflow' ) }
-											value={ bgColorHover }
-											alpha={ true }
-											gradients={ true }
-											onChange={ ( value ) => setAttributes( { bgColorHover: value } ) }
-										/>
+										{ colorTypeHover === 'all' && (
+											<>
+												<GridFlowColorPicker
+													label={ __( 'Color', 'gridflow' ) }
+													value={ colorHover }
+													onChange={ ( value ) => setAttributes( { colorHover: value } ) }
+												/>
+												<GridFlowColorPicker
+													label={ __( 'Background Color', 'gridflow' ) }
+													value={ bgColorHover }
+													alpha={ true }
+													gradients={ true }
+													onChange={ ( value ) => setAttributes( { bgColorHover: value } ) }
+												/>
+											</>
+										) }
 										<RangeControl
 											label={ __( 'Transition Duration', 'gridflow' ) }
 											value={ transition }

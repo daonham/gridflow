@@ -1,0 +1,49 @@
+.gridflow-icon {
+
+	&__icon {
+		--gridflow-icon-size: 40px;
+		--gridflow-icon-padding: 10px;
+		width: calc(var(--gridflow-icon-size) + var(--gridflow-icon-padding));
+		height: calc(var(--gridflow-icon-size) + var(--gridflow-icon-padding));
+		padding: 0;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		vertical-align: middle;
+		text-decoration: none;
+		line-height: 1;
+		transition: all 0.3s ease;
+		border: none;
+		box-shadow: none;
+		outline: none;
+
+		> i {
+			font-size: var(--gridflow-icon-size);
+			line-height: 1;
+		}
+
+		> img {
+			height: auto;
+			max-width: 100%;
+		}
+	}
+
+	&.is-style-bordered {
+
+		.gridflow-icon__icon {
+			width: 80px;
+			height: 80px;
+			border: 1px solid #222;
+		}
+	}
+
+	&.is-style-rounded {
+
+		.gridflow-icon__icon {
+			width: 80px;
+			height: 80px;
+			border: 1px solid #222;
+			border-radius: 999px;
+		}
+	}
+}
