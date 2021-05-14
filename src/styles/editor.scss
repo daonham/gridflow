@@ -76,6 +76,11 @@
 	}
 }
 
+// Block styles.
+.gridflow-block-inner {
+	transition: all 0.3s;
+}
+
 @import "../components/**/editor.scss";
 @import "../blocks/**/editor.scss";
 @import "../inspector/**/editor.scss";

@@ -7,21 +7,21 @@ addFilter( 'gridflow.style.spacing', 'gridflow/inline/spacing', function(
 	padding
 ) {
 	const desktop = {
-		' .gridflow-block-inner': {
+		' >.gridflow-block-inner': {
 			...GridFlowStyleBox( padding, 'padding', 'desktop' ),
 			...GridFlowStyleBox( margin, 'margin', 'desktop' ),
 		},
 	};
 
 	const tablet = {
-		' .gridflow-block-inner': {
+		' >.gridflow-block-inner': {
 			...GridFlowStyleBox( padding, 'padding', 'tablet' ),
 			...GridFlowStyleBox( margin, 'margin', 'tablet' ),
 		},
 	};
 
 	const mobile = {
-		' .gridflow-block-inner': {
+		' >.gridflow-block-inner': {
 			...GridFlowStyleBox( padding, 'padding', 'mobile' ),
 			...GridFlowStyleBox( margin, 'margin', 'mobile' ),
 		},

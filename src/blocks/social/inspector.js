@@ -27,7 +27,7 @@ const Inspector = ( { attributes, setAttributes, clientId } ) => {
 		rowGap,
 
 		fontSize,
-		width,
+		padding,
 		color,
 		bgColor,
 		border,
@@ -54,10 +54,10 @@ const Inspector = ( { attributes, setAttributes, clientId } ) => {
 	useEffect( () => {
 		innerBlockClientIds.forEach( ( innerBlockClientId ) => {
 			updateBlockAttributes( innerBlockClientId, {
-				fontSize, width, color, bgColor, border, borderRadius, boxShadow, colorHover, bgColorHover, transition, hoverEffect, borderHover, borderRadiusHover,
+				fontSize, padding, color, bgColor, border, borderRadius, boxShadow, colorHover, bgColorHover, transition, hoverEffect, borderHover, borderRadiusHover,
 			} );
 		} );
-	}, [ fontSize, width, color, bgColor, border, borderRadius, boxShadow, colorHover, bgColorHover, transition, hoverEffect, borderHover, borderRadiusHover, clientId, innerBlockClientIds ] );
+	}, [ fontSize, padding, color, bgColor, border, borderRadius, boxShadow, colorHover, bgColorHover, transition, hoverEffect, borderHover, borderRadiusHover, clientId, innerBlockClientIds ] );
 
 	return (
 		<>
@@ -122,12 +122,11 @@ const Inspector = ( { attributes, setAttributes, clientId } ) => {
 											max={ 300 }
 										/>
 										<GridFlowRangeControl
-											label={ __( 'Width & Height', 'gridflow' ) }
-											values={ width }
-											onChange={ ( value ) => setAttributes( { width: value } ) }
-											min={ 5 }
-											max={ 500 }
-											allowReset={ true }
+											label={ __( 'Padding', 'gridflow' ) }
+											values={ padding }
+											onChange={ ( value ) => setAttributes( { padding: value } ) }
+											min={ 0 }
+											max={ 300 }
 										/>
 										<GridFlowColorPicker
 											label={ __( 'Color', 'gridflow' ) }

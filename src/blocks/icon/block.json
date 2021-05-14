@@ -20,7 +20,7 @@
 		"fontSize": {
 			"type": "object"
 		},
-		"width": {
+		"padding": {
 			"type": "object"
 		},
 		"color": {

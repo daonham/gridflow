@@ -1,3 +1,7 @@
+// Transition for Block.
+.gridflow-block-inner {
+	transition: all 0.3s;
+}
 
 @import "../blocks/**/styles/style.scss";
 @import "../inspector/**/style.scss";

@@ -1,6 +1,10 @@
 .gridflow-icon {
 
 	&__icon {
+		--gridflow-icon-size: 40px;
+		--gridflow-icon-padding: 10px;
+		width: calc(var(--gridflow-icon-size) + var(--gridflow-icon-padding));
+		height: calc(var(--gridflow-icon-size) + var(--gridflow-icon-padding));
 		padding: 0;
 		display: inline-flex;
 		align-items: center;
@@ -14,7 +18,7 @@
 		outline: none;
 
 		> i {
-			font-size: 40px;
+			font-size: var(--gridflow-icon-size);
 			line-height: 1;
 		}
 

@@ -131,7 +131,7 @@ const TextInputControl = ( {
 					className="gridflow-border-control__width"
 					value={ values.width }
 					onChange={ createHandleOnChange( 'width' ) }
-					style={ { maxWidth: 60 } }
+					style={ { maxWidth: 60, marginRight: 8 } }
 					disableUnits={ true }
 					min="0"
 				/>

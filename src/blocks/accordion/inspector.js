@@ -7,6 +7,7 @@ import {
 	FlexItem,
 	TabPanel,
 	ToggleControl,
+	RadioControl,
 } from '@wordpress/components';
 
 const {
@@ -239,9 +240,9 @@ const Inspector = ( { attributes, setAttributes } ) => {
 				</PanelBody>
 
 				<PanelBody title={ __( 'Icon', 'gridflow' ) } initialOpen={ false }>
-					<SelectControl
-						label={ __( 'Alignment', 'gridflow' ) }
-						value={ iconAlign }
+					<RadioControl
+						label={ __( 'Icon Alignment:', 'gridflow' ) }
+						selected={ iconAlign }
 						options={ [
 							{ label: 'Left', value: 'left' },
 							{ label: 'Right', value: 'right' },

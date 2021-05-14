@@ -28,7 +28,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 		links,
 		textAligns,
 		fontSize,
-		width,
+		padding,
 		color,
 		bgColor,
 		border,
@@ -121,12 +121,11 @@ const Inspector = ( { attributes, setAttributes } ) => {
 												max={ 300 }
 											/>
 											<GridFlowRangeControl
-												label={ __( 'Width & Height', 'gridflow' ) }
-												values={ width }
-												onChange={ ( value ) => setAttributes( { width: value } ) }
-												min={ 5 }
-												max={ 500 }
-												allowReset={ true }
+												label={ __( 'Padding', 'gridflow' ) }
+												values={ padding }
+												onChange={ ( value ) => setAttributes( { padding: value } ) }
+												min={ 0 }
+												max={ 300 }
 											/>
 
 											<GridFlowColorPicker

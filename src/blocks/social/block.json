@@ -33,7 +33,7 @@
 				"mobile": null
 			}
 		},
-		"width": {
+		"padding": {
 			"type": "object"
 		},
 		"color": {

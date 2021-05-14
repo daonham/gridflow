@@ -36,6 +36,7 @@ export const withInspectorControl = createHigherOrderComponent( ( BlockEdit ) =>
 		return (
 			<>
 				<BlockEdit { ...props } />
+
 				{ props.isSelected && allowedBlocks.includes( props.name ) && (
 					<Inspector
 						setAttributes={ props.setAttributes }
