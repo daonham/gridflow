@@ -11,8 +11,8 @@ function inlineStyle( { attributes } ) {
 		spacing,
 		color,
 		bgColor,
-		fontSize,
-		width,
+		size,
+		padding,
 		border,
 		borderRadius,
 		boxShadow,
@@ -38,9 +38,9 @@ function inlineStyle( { attributes } ) {
 			'align-items': contentVerticalAlignment,
 		},
 		' .gridflow-icon-box__icon': {
+			'--gridflow-icon-box-size': size?.desktop ? size.desktop + 'px' : undefined,
+			'--gridflow-icon-box-padding': padding?.desktop !== undefined && padding?.desktop !== null ? `${ padding.desktop }px` : undefined,
 			background: bgColor,
-			width: width?.desktop ? width.desktop + 'px' : undefined,
-			height: width?.desktop ? width.desktop + 'px' : undefined,
 			'margin-bottom': iconPosition === 'top' && spacing?.desktop !== undefined && spacing?.desktop !== null ? `${ spacing.desktop }px` : undefined,
 			'margin-right': iconPosition === 'left' && spacing?.desktop !== undefined && spacing?.desktop !== null ? `${ spacing.desktop }px` : undefined,
 			'margin-left': iconPosition === 'right' && spacing?.desktop !== undefined && spacing?.desktop !== null ? `${ spacing.desktop }px` : undefined,
@@ -50,12 +50,7 @@ function inlineStyle( { attributes } ) {
 		},
 		' .gridflow-icon-box__i': {
 			transition: transition ? `all ${ transition }s` : undefined,
-			'font-size': fontSize?.desktop !== undefined && fontSize?.desktop !== null ? `${ fontSize.desktop }px` : undefined,
-			'line-height': fontSize?.desktop !== undefined && fontSize?.desktop !== null ? `${ fontSize.desktop }px` : undefined,
 			color,
-		},
-		' .gridflow-icon-box__img': {
-			width: fontSize?.desktop !== undefined && fontSize?.desktop !== null ? `${ fontSize.desktop }px` : undefined,
 		},
 		' .gridflow-icon-box__icon:hover': {
 			background: bgColorHover,
@@ -80,20 +75,13 @@ function inlineStyle( { attributes } ) {
 			'text-align': contentAlignment?.tablet,
 		},
 		' .gridflow-icon-box__icon': {
-			width: width?.tablet ? width.tablet + 'px' : undefined,
-			height: width?.tablet ? width.tablet + 'px' : undefined,
+			'--gridflow-icon-box-size': size?.tablet ? size.tablet + 'px' : undefined,
+			'--gridflow-icon-box-padding': padding?.tablet !== undefined && padding?.tablet !== null ? `${ padding.tablet }px` : undefined,
 			'margin-bottom': iconPosition === 'top' && spacing?.tablet !== undefined && spacing?.tablet !== null ? `${ spacing.tablet }px` : undefined,
 			'margin-right': iconPosition === 'left' && spacing?.tablet !== undefined && spacing?.tablet !== null ? `${ spacing.tablet }px` : undefined,
 			'margin-left': iconPosition === 'right' && spacing?.tablet !== undefined && spacing?.tablet !== null ? `${ spacing.tablet }px` : undefined,
 			...GridFlowStyleBorder( border, 'tablet' ),
 			...GridFlowStyleBox( borderRadius, 'border-radius', 'tablet' ),
-		},
-		' .gridflow-icon-box__i': {
-			'font-size': fontSize?.tablet !== undefined && fontSize?.tablet !== null ? `${ fontSize.tablet }px` : undefined,
-			'line-height': fontSize?.tablet !== undefined && fontSize?.tablet !== null ? `${ fontSize.tablet }px` : undefined,
-		},
-		' .gridflow-icon-box__img': {
-			width: fontSize?.tablet !== undefined && fontSize?.tablet !== null ? `${ fontSize.tablet }px` : undefined,
 		},
 		' .gridflow-image-box__content': {
 			...GridFlowStyleBox( contentMargin, 'margin', 'tablet' ),
@@ -109,20 +97,13 @@ function inlineStyle( { attributes } ) {
 			'text-align': contentAlignment?.mobile,
 		},
 		' .gridflow-icon-box__icon': {
-			width: width?.mobile ? width.mobile + 'px' : undefined,
-			height: width?.mobile ? width.mobile + 'px' : undefined,
+			'--gridflow-icon-box-size': size?.mobile ? size.mobile + 'px' : undefined,
+			'--gridflow-icon-box-padding': padding?.mobile !== undefined && padding?.mobile !== null ? `${ padding.mobile }px` : undefined,
 			'margin-bottom': iconPosition === 'top' && spacing?.mobile !== undefined && spacing?.mobile !== null ? `${ spacing.mobile }px` : undefined,
 			'margin-right': iconPosition === 'left' && spacing?.mobile !== undefined && spacing?.mobile !== null ? `${ spacing.mobile }px` : undefined,
 			'margin-left': iconPosition === 'right' && spacing?.mobile !== undefined && spacing?.mobile !== null ? `${ spacing.mobile }px` : undefined,
 			...GridFlowStyleBorder( border, 'mobile' ),
 			...GridFlowStyleBox( borderRadius, 'border-radius', 'mobile' ),
-		},
-		' .gridflow-icon-box__i': {
-			'font-size': fontSize?.mobile !== undefined && fontSize?.mobile !== null ? `${ fontSize.mobile }px` : undefined,
-			'line-height': fontSize?.mobile !== undefined && fontSize?.mobile !== null ? `${ fontSize.mobile }px` : undefined,
-		},
-		' .gridflow-icon-box__img': {
-			width: fontSize?.mobile !== undefined && fontSize?.mobile !== null ? `${ fontSize.mobile }px` : undefined,
 		},
 		' .gridflow-image-box__content': {
 			...GridFlowStyleBox( contentMargin, 'margin', 'mobile' ),

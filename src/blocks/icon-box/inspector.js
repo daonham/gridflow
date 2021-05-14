@@ -27,8 +27,8 @@ const Inspector = ( { attributes, setAttributes } ) => {
 		spacing,
 		color,
 		bgColor,
-		fontSize,
-		width,
+		size,
+		padding,
 		border,
 		borderRadius,
 		boxShadow,
@@ -104,15 +104,15 @@ const Inspector = ( { attributes, setAttributes } ) => {
 										/>
 										<GridFlowRangeControl
 											label={ __( 'Icon Size', 'gridflow' ) }
-											values={ fontSize }
-											onChange={ ( value ) => setAttributes( { fontSize: value } ) }
+											values={ size }
+											onChange={ ( value ) => setAttributes( { size: value } ) }
 											min={ 2 }
 											max={ 300 }
 										/>
 										<GridFlowRangeControl
-											label={ __( 'Width & Height', 'gridflow' ) }
-											values={ width }
-											onChange={ ( value ) => setAttributes( { width: value } ) }
+											label={ __( 'Padding', 'gridflow' ) }
+											values={ padding }
+											onChange={ ( value ) => setAttributes( { padding: value } ) }
 											min={ 5 }
 											max={ 500 }
 											allowReset={ true }

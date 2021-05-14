@@ -27,10 +27,10 @@
 		"bgColor": {
 			"type": "string"
 		},
-		"fontSize": {
+		"size": {
 			"type": "object"
 		},
-		"width": {
+		"padding": {
 			"type": "object"
 		},
 		"border": {

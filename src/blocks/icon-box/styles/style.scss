@@ -1,6 +1,10 @@
 .gridflow-icon-box {
 
 	&__icon {
+		--gridflow-icon-box-size: 60px;
+		--gridflow-icon-box-padding: 10px;
+		width: calc(var(--gridflow-icon-box-size) + var(--gridflow-icon-box-padding));
+		height: calc(var(--gridflow-icon-box-size) + var(--gridflow-icon-box-padding));
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -35,6 +39,7 @@
 	}
 
 	&__img {
+		width: var(--gridflow-icon-box-size);
 		object-position: center;
 		object-fit: cover;
 		max-width: 100%;
@@ -42,7 +47,7 @@
 	}
 
 	&__i {
-		font-size: 60px;
+		font-size: var(--gridflow-icon-box-size);
 	}
 
 	&__content {
