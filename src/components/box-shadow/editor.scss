@@ -1,10 +1,11 @@
 .gridflow-box-shadow-component {
 
 	> .components-base-control__field {
-		display: flex;
+		display: grid;
 		align-items: center;
-		justify-content: space-between;
 		margin-top: 16px;
+		grid-template-columns: 1fr auto auto;
+		column-gap: 10px;
 
 		> .components-dropdown {
 			margin: 0;
@@ -24,21 +25,11 @@
 	}
 
 	&__button {
-		margin-right: 10px;
-		height: 30px;
-		min-height: 30px;
-		line-height: 30px;
-		min-width: 30px !important;
-		width: 30px !important;
-		border-radius: 100px;
-		justify-content: center;
-
-		> span {
-			margin: 0 !important;
-			font-size: 15px;
-			width: 15px;
-			height: 15px;
-		}
+		height: 30px !important;
+		min-height: 30px !important;
+		line-height: 30px !important;
+		min-width: 40px !important;
+		width: 40px !important;
 	}
 
 	.gridflow-color-component {

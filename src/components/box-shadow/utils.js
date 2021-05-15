@@ -2,10 +2,10 @@ import { isEmpty } from 'lodash';
 
 export const DEFAULT_VALUES = {
 	color: undefined,
-	horizontal: null,
-	vertical: null,
-	blur: null,
-	spread: null,
+	horizontal: undefined,
+	vertical: undefined,
+	blur: undefined,
+	spread: undefined,
 };
 
 export function isValuesDefined( values ) {

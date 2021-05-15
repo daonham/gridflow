@@ -3,6 +3,10 @@
 	"name": "gridflow/alert",
 	"category": "gridflow",
 	"attributes": {
+		"showTitle":{
+			"type": "boolean",
+			"default": true
+		},
 		"icon": {
 			"type": "object",
 			"default": {

@@ -1,40 +1,28 @@
 import classnames from 'classnames';
 
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function save( { attributes } ) {
-	const { uniqueId, icon, links } = attributes;
-
-	let rel = links?.rel;
-	const target = links?.target ? '_blank' : undefined;
-
-	if ( target && ! rel.includes( 'noreferrer' ) ) {
-		rel = rel ? `noreferrer noopener ${ rel }` : 'noreferrer noopener';
-	}
+	const { uniqueId, title, content, showTitle } = attributes;
 
 	return (
-		<div { ...useBlockProps.save( { className: classnames( 'gridflow-icon', uniqueId ) } ) }>
-			<div className={ classnames( 'gridflow-icon__inner', 'gridflow-block-inner' ) }>
-				<div className={ 'gridflow-icon__wrapper' }>
-					{ links?.url ? (
-						<a className="gridflow-icon__icon" href={ links?.url } target={ target } rel={ rel } onClick={ ( e ) => e.preventDefault() }>
-							{ icon?.icon && (
-								<i className={ icon.icon }></i>
-							) }
-							{ icon?.url && (
-								<img src={ icon.url } alt={ icon?.alt ? icon.alt : '' } />
-							) }
-						</a>
-					) : (
-						<span className="gridflow-icon__icon">
-							{ icon?.icon && (
-								<i className={ icon.icon }></i>
-							) }
-							{ icon?.url && (
-								<img src={ icon.url } alt={ icon?.alt ? icon.alt : '' } />
-							) }
-						</span>
-					) }
+		<div { ...useBlockProps.save( { className: classnames( 'gridflow-alert', uniqueId ) } ) }>
+			<div className={ classnames( 'gridflow-alert__inner', 'gridflow-block-inner' ) }>
+				<div className={ 'gridflow-alert__wrapper' } role="alert">
+					<div className={ 'gridflow-alert__text' }>
+						{ showTitle && (
+							<RichText.Content
+								tagName={ 'div' }
+								className={ 'gridflow-alert__title' }
+								value={ title }
+							/>
+						) }
+						<RichText.Content
+							tagName={ 'div' }
+							className={ 'gridflow-alert__content' }
+							value={ content }
+						/>
+					</div>
 				</div>
 			</div>
 		</div>

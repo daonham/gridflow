@@ -1,26 +1,16 @@
 import classnames from 'classnames';
 
+import { __ } from '@wordpress/i18n';
 import { compose } from '@wordpress/compose';
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 import Controls from './controls';
 import Inspector from './inspector';
 
 const { withInlineStyle } = wp.gridflowCompose;
 
-function Edit( {
-	isSelected,
-	attributes,
-	setAttributes,
-} ) {
-	const { uniqueId, icon, links } = attributes;
-
-	let rel = links?.rel;
-	const target = links?.target ? '_blank' : undefined;
-
-	if ( target && ! rel.includes( 'noreferrer' ) ) {
-		rel = rel ? `noreferrer noopener ${ rel }` : 'noreferrer noopener';
-	}
+function Edit( { isSelected, attributes, setAttributes } ) {
+	const { uniqueId, title, content, showTitle } = attributes;
 
 	return (
 		<>
@@ -38,28 +28,30 @@ function Edit( {
 				/>
 			) }
 
-			<div { ...useBlockProps( { className: classnames( 'gridflow-icon', uniqueId ) } ) }>
-				<div className={ classnames( 'gridflow-icon__inner', 'gridflow-block-inner' ) }>
-					<div className={ 'gridflow-icon__wrapper' }>
-						{ links?.url ? (
-							<a className="gridflow-icon__icon" href={ links?.url } target={ target } rel={ rel } onClick={ ( e ) => e.preventDefault() }>
-								{ icon?.icon && (
-									<i className={ icon.icon }></i>
-								) }
-								{ icon?.url && (
-									<img src={ icon.url } alt={ icon?.alt ? icon.alt : '' } />
-								) }
-							</a>
-						) : (
-							<span className="gridflow-icon__icon">
-								{ icon?.icon && (
-									<i className={ icon.icon }></i>
-								) }
-								{ icon?.url && (
-									<img src={ icon.url } alt={ icon?.alt ? icon.alt : '' } />
-								) }
-							</span>
-						) }
+			<div { ...useBlockProps( { className: classnames( 'gridflow-alert', uniqueId ) } ) }>
+				<div className={ classnames( 'gridflow-alert__inner', 'gridflow-block-inner' ) }>
+					<div className={ 'gridflow-alert__wrapper' } role="alert">
+						<div className={ 'gridflow-alert__text' }>
+							{ showTitle && (
+								<RichText
+									tagName={ 'div' }
+									placeholder={ __( 'Write alert title…', 'gridflow' ) }
+									className={ 'gridflow-alert__title' }
+									value={ title }
+									onChange={ ( value ) => setAttributes( { title: value } ) }
+									keepplaceholderonfocus="true"
+								/>
+							) }
+
+							<RichText
+								tagName={ 'div' }
+								placeholder={ __( 'Write alert content…', 'gridflow' ) }
+								className={ 'gridflow-alert__content' }
+								value={ content }
+								onChange={ ( value ) => setAttributes( { content: value } ) }
+								keepplaceholderonfocus="true"
+							/>
+						</div>
 					</div>
 				</div>
 			</div>
