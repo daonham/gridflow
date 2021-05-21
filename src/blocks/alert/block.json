@@ -3,10 +3,31 @@
 	"name": "gridflow/alert",
 	"category": "gridflow",
 	"attributes": {
+		"title": {
+			"type": "string",
+			"source": "html",
+			"selector": ".gridflow-alert__title",
+			"default": ""
+		},
+		"content": {
+			"type": "string",
+			"source": "html",
+			"selector": ".gridflow-alert__content",
+			"default": ""
+		},
+		"type":{
+			"type": "string",
+			"default": "left-border"
+		},
 		"showTitle":{
 			"type": "boolean",
 			"default": true
 		},
+		"showDismissButton":{
+			"type": "boolean",
+			"default": false
+		},
+
 		"icon": {
 			"type": "object",
 			"default": {

@@ -1,270 +1,193 @@
 import { __ } from '@wordpress/i18n';
-import { InspectorControls, store as blockEditorStore } from '@wordpress/block-editor';
-import { useSelect, useDispatch } from '@wordpress/data';
+import { InspectorControls } from '@wordpress/block-editor';
 import {
 	PanelBody,
 	SelectControl,
-	RangeControl,
-	TabPanel,
-	Tip,
-	Button,
+	ToggleControl,
+	Flex,
+	FlexItem,
 } from '@wordpress/components';
 
 const {
 	GridFlowBoxControl,
-	GridFlowBorder,
-	GridFlowBoxShadow,
-	GridFlowTextAlign,
 	GridFlowColorPicker,
-	GridFlowLinkControl,
 	GridFlowIconSelect,
 	GridFlowRangeControl,
-	GridFlowDivider,
+	GridFlowTextUnit,
+	GridFlowTyphography,
 } = wp.gridflowComponents;
 
 const Inspector = ( { attributes, setAttributes } ) => {
 	const {
-		icon,
-		links,
-		textAligns,
-		fontSize,
-		padding,
-		color,
+		type,
+		showTitle,
+		showDismissButton,
 		bgColor,
-		border,
-		borderRadius,
-		boxShadow,
+		borderColor,
+		borderWidth,
 
-		colorHover,
-		bgColorHover,
-		transition,
-		hoverEffect,
-		borderHover,
-		borderRadiusHover,
-		boxShadowHover,
+		color,
+		font,
+		fontSize,
+		lineHeight,
+		fontWeight,
+		decoration,
+		transform,
+		fontStyle,
+		letterSpacing,
+		paddingTitle,
+
+		colorContent,
+		fontContent,
+		fontSizeContent,
+		lineHeightContent,
+		fontWeightContent,
+		decorationContent,
+		transformContent,
+		fontStyleContent,
+		letterSpacingContent,
+		paddingContent,
+
+		showIcon,
+		icons,
+		sizeIcon,
+		iconColor,
 	} = attributes;
-
-	const { selectBlock } = useDispatch(
-		blockEditorStore
-	);
-
-	const { firstParentClientId, parentBlockName, colorType, colorTypeHover } = useSelect(
-		( select ) => {
-			const { getBlockParents, getSelectedBlockClientId, getBlockName, getBlockAttributes } = select( blockEditorStore );
-
-			const selectedBlockClientId = getSelectedBlockClientId();
-			const parents = getBlockParents( selectedBlockClientId );
-			const _firstParentClientId = parents[ parents.length - 1 ];
-
-			return {
-				firstParentClientId: _firstParentClientId,
-				parentBlockName: getBlockName( _firstParentClientId ),
-				colorType: getBlockAttributes( _firstParentClientId )?.colorType,
-				colorTypeHover: getBlockAttributes( _firstParentClientId )?.colorTypeHover,
-			};
-		},
-		[]
-	);
 
 	return (
 		<>
 			<InspectorControls>
 				<PanelBody title={ __( 'Settings', 'gridflow' ) } initialOpen={ true }>
-					<GridFlowIconSelect
-						label={ 'Icon' }
-						values={ icon }
-						onChange={ ( value ) => setAttributes( { icon: value } ) }
+					<SelectControl
+						label={ __( 'Type', 'gridflow' ) }
+						value={ type }
+						onChange={ ( value ) => setAttributes( { type: value } ) }
+						options={ [
+							{ label: __( 'Left Accent Border', 'gridflow' ), value: 'left-border' },
+							{ label: __( 'Titled', 'gridflow' ), value: 'titled' },
+							{ label: __( 'Solid', 'gridflow' ), value: 'solid' },
+							{ label: __( 'Top Accent Border', 'gridflow' ), value: 'top-border' },
+							{ label: __( 'Banner', 'gridflow' ), value: 'banner' },
+						] }
 					/>
-					<GridFlowLinkControl
-						values={ links }
-						onChange={ ( value ) => setAttributes( { links: value } ) }
+					<ToggleControl
+						label={ __( 'Show Title', 'gridflow' ) }
+						checked={ showTitle }
+						onChange={ () => setAttributes( { showTitle: ! showTitle } ) }
 					/>
-					<GridFlowTextAlign
-						label={ __( 'Alignment', 'gridflow' ) }
-						values={ textAligns }
-						onChange={ ( value ) => setAttributes( { textAligns: value } ) }
+					<ToggleControl
+						label={ __( 'Show Dismiss Button', 'gridflow' ) }
+						checked={ showDismissButton }
+						onChange={ () => setAttributes( { showDismissButton: ! showDismissButton } ) }
 					/>
+					<GridFlowColorPicker
+						label={ __( 'Background Color', 'gridflow' ) }
+						value={ bgColor }
+						alpha={ true }
+						onChange={ ( value ) => setAttributes( { bgColor: value } ) }
+					/>
+					<GridFlowColorPicker
+						label={ __( 'Border Color', 'gridflow' ) }
+						value={ borderColor }
+						alpha={ true }
+						onChange={ ( value ) => setAttributes( { borderColor: value } ) }
+					/>
+					<GridFlowRangeControl
+						label={ __( 'Border Width', 'gridflow' ) }
+						values={ borderWidth }
+						onChange={ ( value ) => setAttributes( { borderWidth: value } ) }
+						min={ 0 }
+						max={ 50 }
+					/>
+				</PanelBody>
 
-					{ firstParentClientId && parentBlockName === 'gridflow/social' && (
+				<PanelBody title={ __( 'Title', 'gridflow' ) } initialOpen={ false }>
+					<GridFlowColorPicker
+						label={ __( 'Color', 'gridflow' ) }
+						value={ color }
+						onChange={ ( value ) => setAttributes( { color: value } ) }
+					/>
+					<GridFlowTyphography
+						font={ font }
+						onChangeFont={ ( value ) => setAttributes( { font: value } ) }
+						fontSize={ fontSize }
+						onChangeFontSize={ ( value ) => setAttributes( { fontSize: value } ) }
+						lineHeight={ lineHeight }
+						onChangeLineHeight={ ( value ) => setAttributes( { lineHeight: value } ) }
+						fontWeight={ fontWeight }
+						onChangeFontWeight={ ( value ) => setAttributes( { fontWeight: value } ) }
+						decoration={ decoration }
+						onChangeDecoration={ ( value ) => setAttributes( { decoration: value } ) }
+						transform={ transform }
+						onChangeTransform={ ( value ) => setAttributes( { transform: value } ) }
+						fontStyle={ fontStyle }
+						onChangeFontStyle={ ( value ) => setAttributes( { fontStyle: value } ) }
+						letterSpacing={ letterSpacing }
+						onChangeLetterSpacing={ ( value ) => setAttributes( { letterSpacing: value } ) }
+					/>
+					<GridFlowBoxControl
+						label={ __( 'Padding', 'gridflow' ) }
+						values={ paddingTitle }
+						onChange={ ( value ) => setAttributes( { paddingTitle: value } ) }
+					/>
+				</PanelBody>
+
+				<PanelBody title={ __( 'Content', 'gridflow' ) } initialOpen={ false }>
+					<GridFlowColorPicker
+						label={ __( 'Color', 'gridflow' ) }
+						value={ colorContent }
+						onChange={ ( value ) => setAttributes( { colorContent: value } ) }
+					/>
+					<GridFlowTyphography
+						font={ fontContent }
+						onChangeFont={ ( value ) => setAttributes( { fontContent: value } ) }
+						fontSize={ fontSizeContent }
+						onChangeFontSize={ ( value ) => setAttributes( { fontSizeContent: value } ) }
+						lineHeight={ lineHeightContent }
+						onChangeLineHeight={ ( value ) => setAttributes( { lineHeightContent: value } ) }
+						fontWeight={ fontWeightContent }
+						onChangeFontWeight={ ( value ) => setAttributes( { fontWeightContent: value } ) }
+						decoration={ decorationContent }
+						onChangeDecoration={ ( value ) => setAttributes( { decorationContent: value } ) }
+						transform={ transformContent }
+						onChangeTransform={ ( value ) => setAttributes( { transformContent: value } ) }
+						fontStyle={ fontStyleContent }
+						onChangeFontStyle={ ( value ) => setAttributes( { fontStyleContent: value } ) }
+						letterSpacing={ letterSpacingContent }
+						onChangeLetterSpacing={ ( value ) => setAttributes( { letterSpacingContent: value } ) }
+					/>
+					<GridFlowBoxControl
+						label={ __( 'Padding', 'gridflow' ) }
+						values={ paddingContent }
+						onChange={ ( value ) => setAttributes( { paddingContent: value } ) }
+					/>
+				</PanelBody>
+
+				<PanelBody title={ __( 'Icon', 'gridflow' ) } initialOpen={ false }>
+					<ToggleControl
+						label={ __( 'Show Icon', 'gridflow' ) }
+						checked={ showIcon }
+						onChange={ () => setAttributes( { showIcon: ! showIcon } ) }
+					/>
+					{ showIcon && (
 						<>
-							{ colorType === 'icon' && (
-								<>
-									<GridFlowColorPicker
-										label={ __( 'Color', 'gridflow' ) }
-										value={ color }
-										onChange={ ( value ) => setAttributes( { color: value } ) }
-									/>
-									<GridFlowColorPicker
-										label={ __( 'Background Color', 'gridflow' ) }
-										value={ bgColor }
-										alpha={ true }
-										gradients={ true }
-										onChange={ ( value ) => setAttributes( { bgColor: value } ) }
-									/>
-								</>
-							) }
-
-							{ colorTypeHover === 'icon' && (
-								<>
-									<GridFlowColorPicker
-										label={ __( 'Color Hover', 'gridflow' ) }
-										value={ colorHover }
-										onChange={ ( value ) => setAttributes( { colorHover: value } ) }
-									/>
-									<GridFlowColorPicker
-										label={ __( 'Background Color Hover', 'gridflow' ) }
-										value={ bgColorHover }
-										alpha={ true }
-										gradients={ true }
-										onChange={ ( value ) => setAttributes( { bgColorHover: value } ) }
-									/>
-								</>
-							) }
-							<GridFlowDivider />
-							<Tip>
-								{ __( 'You can configure style Icon in ', 'gridflow' ) }
-								<Button
-									isLink
-									onClick={ () => selectBlock( firstParentClientId ) }
-								>
-									{ __( 'Social Icons', 'gridflow' ) }
-								</Button>
-							</Tip>
+							<GridFlowIconSelect
+								values={ icons }
+								onChange={ ( value ) => setAttributes( { icons: value } ) }
+							/>
+							<GridFlowRangeControl
+								label={ __( 'Icon Size', 'gridflow' ) }
+								values={ sizeIcon }
+								onChange={ ( value ) => setAttributes( { sizeIcon: value } ) }
+							/>
+							<GridFlowColorPicker
+								label={ __( 'Icon Color', 'gridflow' ) }
+								value={ iconColor }
+								onChange={ ( value ) => setAttributes( { iconColor: value } ) }
+							/>
 						</>
 					) }
 				</PanelBody>
-
-				{ ( ! firstParentClientId || ! parentBlockName === 'gridflow/social' ) && (
-					<PanelBody title={ __( 'Icon', 'gridflow' ) } initialOpen={ false }>
-						<TabPanel
-							tabs={ [
-								{ name: 'normal', title: __( 'Normal', 'gridflow' ) },
-								{ name: 'hover', title: __( 'Hover', 'gridflow' ) },
-							] }
-						>
-							{ ( tab ) => {
-								if ( tab.name === 'normal' ) {
-									return (
-										<>
-											<div style={ { marginTop: 10 } } />
-
-											<GridFlowRangeControl
-												label={ __( 'Icon Size', 'gridflow' ) }
-												values={ fontSize }
-												onChange={ ( value ) => setAttributes( { fontSize: value } ) }
-												min={ 2 }
-												max={ 300 }
-											/>
-											<GridFlowRangeControl
-												label={ __( 'Padding', 'gridflow' ) }
-												values={ padding }
-												onChange={ ( value ) => setAttributes( { padding: value } ) }
-												min={ 0 }
-												max={ 300 }
-											/>
-
-											<GridFlowColorPicker
-												label={ __( 'Color', 'gridflow' ) }
-												value={ color }
-												onChange={ ( value ) => setAttributes( { color: value } ) }
-											/>
-											<GridFlowColorPicker
-												label={ __( 'Background Color', 'gridflow' ) }
-												value={ bgColor }
-												alpha={ true }
-												gradients={ true }
-												onChange={ ( value ) => setAttributes( { bgColor: value } ) }
-											/>
-											<GridFlowBorder
-												label={ __( 'Border', 'gridflow' ) }
-												values={ border }
-												device={ true }
-												onChange={ ( value ) => setAttributes( { border: value } ) }
-											/>
-											<GridFlowBoxControl
-												label={ __( 'Border Radius', 'gridflow' ) }
-												values={ borderRadius }
-												onChange={ ( value ) => setAttributes( { borderRadius: value } ) }
-											/>
-											<GridFlowBoxShadow
-												label={ __( 'Box Shadow', 'gridflow' ) }
-												value={ boxShadow }
-												onChange={ ( value ) => setAttributes( { boxShadow: value } ) }
-											/>
-										</>
-									);
-								}
-
-								if ( tab.name === 'hover' ) {
-									return (
-										<>
-											<GridFlowColorPicker
-												label={ __( 'Color', 'gridflow' ) }
-												value={ colorHover }
-												onChange={ ( value ) => setAttributes( { colorHover: value } ) }
-											/>
-											<GridFlowColorPicker
-												label={ __( 'Background Color', 'gridflow' ) }
-												value={ bgColorHover }
-												alpha={ true }
-												gradients={ true }
-												onChange={ ( value ) => setAttributes( { bgColorHover: value } ) }
-											/>
-											<RangeControl
-												label={ __( 'Transition Duration', 'gridflow' ) }
-												value={ transition }
-												onChange={ ( value ) => setAttributes( { transition: value } ) }
-												min={ 0 }
-												max={ 3 }
-												step={ 0.1 }
-											/>
-											<SelectControl
-												label={ __( 'Hover Effect', 'gridflow' ) }
-												value={ hoverEffect }
-												onChange={ ( value ) => setAttributes( { hoverEffect: value } ) }
-												options={ [
-													{ label: __( 'None', 'gridflow' ), value: '' },
-													{ label: 'bounce', value: 'bounce' },
-													{ label: 'bounceIn', value: 'bounceIn' },
-													{ label: 'flash', value: 'flash' },
-													{ label: 'pulse', value: 'pulse' },
-													{ label: 'rubberBand', value: 'rubberBand' },
-													{ label: 'shakeX', value: 'shakeX' },
-													{ label: 'shakeY', value: 'shakeY' },
-													{ label: 'headShake', value: 'headShake' },
-													{ label: 'swing', value: 'swing' },
-													{ label: 'tada', value: 'tada' },
-													{ label: 'wobble', value: 'wobble' },
-													{ label: 'jello', value: 'jello' },
-													{ label: 'heartBeat', value: 'heartBeat' },
-													{ label: 'fadeIn', value: 'fadeIn' },
-													{ label: 'fadeOut', value: 'fadeOut' },
-													{ label: 'flip', value: 'flip' },
-												] }
-											/>
-											<GridFlowBorder
-												label={ __( 'Border', 'gridflow' ) }
-												values={ borderHover }
-												device={ true }
-												onChange={ ( value ) => setAttributes( { borderHover: value } ) }
-											/>
-											<GridFlowBoxControl
-												label={ __( 'Border Radius', 'gridflow' ) }
-												values={ borderRadiusHover }
-												onChange={ ( value ) => setAttributes( { borderRadiusHover: value } ) }
-											/>
-											<GridFlowBoxShadow
-												label={ __( 'Box Shadow', 'gridflow' ) }
-												value={ boxShadowHover }
-												onChange={ ( value ) => setAttributes( { boxShadowHover: value } ) }
-											/>
-										</>
-									);
-								}
-							} }
-						</TabPanel>
-					</PanelBody>
-				) }
 			</InspectorControls>
 		</>
 	);
