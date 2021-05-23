@@ -21,6 +21,7 @@ const allowedBlocks = [
 	'gridflow/image-box',
 	'gridflow/icon-box',
 	'gridflow/social',
+	'gridflow/alert',
 ];
 
 export function addAttributes( settings ) {
