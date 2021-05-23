@@ -4,8 +4,6 @@ import {
 	PanelBody,
 	SelectControl,
 	ToggleControl,
-	Flex,
-	FlexItem,
 } from '@wordpress/components';
 
 const {
@@ -13,13 +11,20 @@ const {
 	GridFlowColorPicker,
 	GridFlowIconSelect,
 	GridFlowRangeControl,
-	GridFlowTextUnit,
 	GridFlowTyphography,
 } = wp.gridflowComponents;
+
+const ALERT_TYPE = {
+	info: { color: '#0c5460', background: '#d1ecf1', border: '#b1dae0' },
+	success: { color: '#155724', background: '#d4edda', border: '#a3ddb1' },
+	warning: { color: '#856404', background: '#fff3cd', border: '#f4de99' },
+	danger: { color: '#721c24', background: '#f8d7da', border: '#ffb5bc' },
+};
 
 const Inspector = ( { attributes, setAttributes } ) => {
 	const {
 		type,
+		style,
 		showTitle,
 		showDismissButton,
 		bgColor,
@@ -51,6 +56,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 		showIcon,
 		icons,
 		sizeIcon,
+		iconSpacing,
 		iconColor,
 	} = attributes;
 
@@ -59,7 +65,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 			<InspectorControls>
 				<PanelBody title={ __( 'Settings', 'gridflow' ) } initialOpen={ true }>
 					<SelectControl
-						label={ __( 'Type', 'gridflow' ) }
+						label={ __( 'Layout', 'gridflow' ) }
 						value={ type }
 						onChange={ ( value ) => setAttributes( { type: value } ) }
 						options={ [
@@ -68,6 +74,26 @@ const Inspector = ( { attributes, setAttributes } ) => {
 							{ label: __( 'Solid', 'gridflow' ), value: 'solid' },
 							{ label: __( 'Top Accent Border', 'gridflow' ), value: 'top-border' },
 							{ label: __( 'Banner', 'gridflow' ), value: 'banner' },
+						] }
+					/>
+					<SelectControl
+						label={ __( 'Type', 'gridflow' ) }
+						value={ style }
+						onChange={ ( value ) => {
+							setAttributes( {
+								style: value,
+								bgColor: ALERT_TYPE?.[ value ]?.background,
+								color: ALERT_TYPE?.[ value ]?.color,
+								colorContent: ALERT_TYPE?.[ value ]?.color,
+								borderColor: ALERT_TYPE?.[ value ]?.border,
+							} );
+						} }
+						options={ [
+							{ label: __( 'Default', 'gridflow' ), value: '' },
+							{ label: __( 'Info', 'gridflow' ), value: 'info' },
+							{ label: __( 'Success', 'gridflow' ), value: 'success' },
+							{ label: __( 'Warning', 'gridflow' ), value: 'warning' },
+							{ label: __( 'Danger', 'gridflow' ), value: 'danger' },
 						] }
 					/>
 					<ToggleControl
@@ -98,6 +124,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						onChange={ ( value ) => setAttributes( { borderWidth: value } ) }
 						min={ 0 }
 						max={ 50 }
+						allowReset={ true }
 					/>
 				</PanelBody>
 
@@ -179,6 +206,11 @@ const Inspector = ( { attributes, setAttributes } ) => {
 								label={ __( 'Icon Size', 'gridflow' ) }
 								values={ sizeIcon }
 								onChange={ ( value ) => setAttributes( { sizeIcon: value } ) }
+							/>
+							<GridFlowRangeControl
+								label={ __( 'Icon Spacing', 'gridflow' ) }
+								values={ iconSpacing }
+								onChange={ ( value ) => setAttributes( { iconSpacing: value } ) }
 							/>
 							<GridFlowColorPicker
 								label={ __( 'Icon Color', 'gridflow' ) }

@@ -19,6 +19,9 @@
 			"type": "string",
 			"default": "left-border"
 		},
+		"style": {
+			"type": "string"
+		},
 		"showTitle":{
 			"type": "boolean",
 			"default": true
@@ -27,8 +30,92 @@
 			"type": "boolean",
 			"default": false
 		},
-
-		"icon": {
+		"bgColor":{
+			"type": "string"
+		},
+		"borderColor":{
+			"type": "string"
+		},
+		"borderWidth":{
+			"type": "object"
+		},
+		"color":{
+			"type": "string"
+		},
+		"gridflowFont": {
+			"type": "object",
+			"default": {
+				"1": {
+					"name": "font",
+					"weight": "fontWeight"
+				},
+				"2": {
+					"name": "fontContent",
+					"weight": "fontWeightContent"
+				}
+			}
+		},
+		"font": {
+			"type": "string"
+		},
+		"fontSize":{
+			"type": "object"
+		},
+		"lineHeight":{
+			"type": "object"
+		},
+		"fontWeight":{
+			"type": "string"
+		},
+		"decoration":{
+			"type": "string"
+		},
+		"transform":{
+			"type": "string"
+		},
+		"fontStyle":{
+			"type": "string"
+		},
+		"letterSpacing":{
+			"type": "object"
+		},
+		"paddingTitle":{
+			"type": "object"
+		},
+		"colorContent":{
+			"type": "string"
+		},
+		"fontContent":{
+			"type": "string"
+		},
+		"fontSizeContent":{
+			"type": "object"
+		},
+		"lineHeightContent":{
+			"type": "object"
+		},
+		"fontWeightContent":{
+			"type": "string"
+		},
+		"decorationContent":{
+			"type": "string"
+		},
+		"transformContent":{
+			"type": "string"
+		},
+		"fontStyleContent":{
+			"type": "string"
+		},
+		"letterSpacingContent":{
+			"type": "object"
+		},
+		"paddingContent":{
+			"type": "object"
+		},
+		"showIcon":{
+			"type": "boolean"
+		},
+		"icons": {
 			"type": "object",
 			"default": {
 				"icon": "far fa-star",
@@ -36,53 +123,14 @@
 				"alt": null
 			}
 		},
-		"links": {
+		"sizeIcon": {
 			"type": "object"
 		},
-		"textAligns": {
+		"iconSpacing": {
 			"type": "object"
 		},
-		"fontSize": {
-			"type": "object"
-		},
-		"padding": {
-			"type": "object"
-		},
-		"color": {
+		"iconColor": {
 			"type": "string"
-		},
-		"bgColor": {
-			"type": "string"
-		},
-		"border": {
-			"type": "object"
-		},
-		"borderRadius": {
-			"type": "object"
-		},
-		"boxShadow": {
-			"type": "object"
-		},
-		"colorHover": {
-			"type": "string"
-		},
-		"bgColorHover": {
-			"type": "string"
-		},
-		"transition": {
-			"type": "number"
-		},
-		"hoverEffect": {
-			"type": "string"
-		},
-		"borderHover": {
-			"type": "object"
-		},
-		"borderRadiusHover": {
-			"type": "object"
-		},
-		"boxShadowHover": {
-			"type": "object"
 		}
 	},
 	"supports": {

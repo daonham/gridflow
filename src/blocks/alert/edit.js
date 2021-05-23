@@ -10,7 +10,7 @@ import Inspector from './inspector';
 const { withInlineStyle } = wp.gridflowCompose;
 
 function Edit( { isSelected, attributes, setAttributes } ) {
-	const { uniqueId, title, content, type, showTitle, showDismissButton } = attributes;
+	const { uniqueId, title, content, type, showTitle, showDismissButton, showIcon, icons } = attributes;
 
 	return (
 		<>
@@ -30,7 +30,17 @@ function Edit( { isSelected, attributes, setAttributes } ) {
 
 			<div { ...useBlockProps( { className: classnames( 'gridflow-alert', uniqueId ) } ) }>
 				<div className={ classnames( 'gridflow-alert__inner', 'gridflow-block-inner' ) }>
-					<div className={ classnames( 'gridflow-alert__wrapper', `gridflow-alert--type__${ type }` ) } role="alert">
+					<div className={ classnames( 'gridflow-alert__wrapper', `gridflow-alert--type__${ type }`, { 'gridflow-alert__wrapper--icon': showIcon } ) } role="alert">
+						{ showIcon && type !== 'titled' && (
+							<span className="gridflow-alert__icon">
+								{ icons?.icon && (
+									<i className={ icons.icon }></i>
+								) }
+								{ icons?.url && (
+									<img src={ icons.url } alt={ icons?.alt ? icons.alt : '' } />
+								) }
+							</span>
+						) }
 						<div className={ 'gridflow-alert__text' }>
 							{ showTitle && (
 								<RichText

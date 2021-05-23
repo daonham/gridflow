@@ -2,22 +2,52 @@
 
 	&__wrapper {
 		--gridflow-alert-border-color: rgba(248, 113, 113, 1);
+		--gridflow-border-width: 2px;
 		position: relative;
 		padding: 16px;
 		background-color: rgba(254, 226, 226, 1);
+
+		&--icon {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+
+			.gridflow-alert {
+
+				&__icon {
+					align-self: var(--gridflow-alert-icon-align);
+					margin-right: var(--gridflow-alert-icon-spacing, 10px);
+
+					> i {
+						font-size: var(--gridflow-alert-icon-size);
+						line-height: var(--gridflow-alert-icon-size, 1);
+					}
+
+					> img {
+						width: var(--gridflow-alert-icon-size);
+					}
+				}
+
+				&__text {
+					align-self: center;
+					flex: 1;
+				}
+			}
+		}
 	}
 
 	&__title {
 		margin: 0;
 		font-weight: 600;
-		line-height: 1.6;
+		line-height: 1;
+		padding-bottom: 10px;
 	}
 
 	&__content {
 		margin: 0;
 		font-size: 14px;
 		font-weight: 400;
-		line-height: 1.6;
+		line-height: 1;
 	}
 
 	&__dismiss {
@@ -45,9 +75,9 @@
 	&--type {
 
 		&__left-border {
-			--gridflow-border-left-width: 5px;
+			--gridflow-border-width: 5px;
 			border-width: 0;
-			border-left-width: var(--gridflow-border-left-width);
+			border-left-width: var(--gridflow-border-width);
 			border-color: var(--gridflow-alert-border-color);
 			border-style: solid;
 		}
@@ -55,20 +85,22 @@
 		&__titled {
 			margin: 0;
 			padding: 0;
+			--gridflow-border-width: 1px;
 
 			.gridflow-alert {
 
 				&__title {
 					color: #fff;
-					padding: 8px 16px;
+					padding: 12px 16px;
 					background-color: var(--gridflow-alert-border-color);
 					border-top-left-radius: 4px;
 					border-top-right-radius: 4px;
 				}
 
 				&__content {
-					padding: 12px 16px;
-					border-width: 1px;
+					padding: 18px 16px;
+					border-width: var(--gridflow-border-width);
+					border-top-width: 0;
 					border-style: solid;
 					border-color: var(--gridflow-alert-border-color);
 					border-bottom-left-radius: 4px;
@@ -85,19 +117,19 @@
 		}
 
 		&__top-border {
-			--gridflow-border-top-width: 5px;
+			--gridflow-border-width: 5px;
 			border-width: 0;
-			border-top-width: var(--gridflow-border-top-width);
+			border-top-width: var(--gridflow-border-width);
 			border-color: var(--gridflow-alert-border-color);
 			border-style: solid;
 		}
 
 		&__banner {
-			--gridflow-border-top-width: 2px;
-			--gridflow-border-bottom-width: 2px;
+			--gridflow-border-width: 2px;
+			--gridflow-border-width: 2px;
 			border-width: 0;
-			border-top-width: var(--gridflow-border-top-width);
-			border-bottom-width: var(--gridflow-border-bottom-width);
+			border-top-width: var(--gridflow-border-width);
+			border-bottom-width: var(--gridflow-border-width);
 			border-color: var(--gridflow-alert-border-color);
 			border-style: solid;
 		}

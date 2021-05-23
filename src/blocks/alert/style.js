@@ -1,95 +1,158 @@
 import { addFilter, hasFilter } from '@wordpress/hooks';
 const {
+	GridFlowStyleTypography,
 	GridFlowStyleBox,
-	GridFlowStyleBorder,
-	GridFlowStyleBoxShadow,
 } = wp.gridflowComponents;
 
 function inlineStyle( { attributes } ) {
 	const {
-		textAligns,
-		fontSize,
-		padding,
-		color,
 		bgColor,
-		border,
-		borderRadius,
-		boxShadow,
+		borderColor,
+		borderWidth,
 
-		colorHover,
-		bgColorHover,
-		transition,
-		hoverEffect,
-		borderHover,
-		borderRadiusHover,
-		boxShadowHover,
+		color,
+		font,
+		fontSize,
+		lineHeight,
+		fontWeight,
+		decoration,
+		transform,
+		fontStyle,
+		letterSpacing,
+		paddingTitle,
+
+		colorContent,
+		fontContent,
+		fontSizeContent,
+		lineHeightContent,
+		fontWeightContent,
+		decorationContent,
+		transformContent,
+		fontStyleContent,
+		letterSpacingContent,
+		paddingContent,
+
+		sizeIcon,
+		iconSpacing,
+		iconColor,
 	} = attributes;
 
 	const desktop = {
-		'': {
-			'text-align': textAligns?.desktop,
+		' .gridflow-alert__wrapper': {
+			'background-color': bgColor,
+			'--gridflow-alert-border-color': borderColor,
+			'--gridflow-border-width': borderWidth?.desktop !== null && borderWidth?.desktop !== undefined ? `${ borderWidth.desktop }px` : undefined,
 		},
-		' .gridflow-icon__icon': {
-			'--gridflow-icon-size': fontSize?.desktop ? `${ fontSize.desktop }px` : undefined,
-			'--gridflow-icon-padding': padding?.desktop !== undefined && padding?.desktop !== null ? `${ padding.desktop }px` : undefined,
-			background: bgColor,
-			...GridFlowStyleBorder( border, 'desktop' ),
-			...GridFlowStyleBox( borderRadius, 'border-radius', 'desktop' ),
-			...GridFlowStyleBoxShadow( boxShadow ),
-			transition: transition && `all ${ transition }s`,
-		},
-		' .gridflow-icon__icon > i': {
+		' .gridflow-alert__title': {
 			color,
+			...GridFlowStyleTypography( {
+				font,
+				fontSize,
+				lineHeight,
+				fontWeight,
+				decoration,
+				transform,
+				fontStyle,
+				letterSpacing,
+				device: 'desktop',
+			} ),
+			...GridFlowStyleBox( paddingTitle, 'padding', 'desktop' ),
 		},
-		' .gridflow-icon__icon > img': {
-			color,
+		' .gridflow-alert__content': {
+			color: colorContent,
+			...GridFlowStyleTypography( {
+				font: fontContent,
+				fontSize: fontSizeContent,
+				lineHeight: lineHeightContent,
+				fontWeight: fontWeightContent,
+				decoration: decorationContent,
+				transform: transformContent,
+				fontStyle: fontStyleContent,
+				letterSpacing: letterSpacingContent,
+				device: 'desktop',
+			} ),
+			...GridFlowStyleBox( paddingContent, 'padding', 'desktop' ),
 		},
-		' .gridflow-icon__icon:hover': {
-			background: bgColorHover,
-			transition: transition && `all ${ transition }s`,
-			'animation-name': hoverEffect || undefined,
-			'animation-duration': hoverEffect ? '1s' : undefined,
-			...GridFlowStyleBorder( borderHover, 'desktop' ),
-			...GridFlowStyleBox( borderRadiusHover, 'border-radius', 'desktop' ),
-			...GridFlowStyleBoxShadow( boxShadowHover ),
-		},
-		' .gridflow-icon__icon:hover > i': {
-			color: colorHover,
-		},
-		' .gridflow-icon__icon:hover > img': {
-			color: colorHover,
+		' .gridflow-alert__icon': {
+			color: iconColor,
+			'--gridflow-alert-icon-size': sizeIcon?.desktop !== null && sizeIcon?.desktop !== undefined ? `${ sizeIcon.desktop }px` : undefined,
+			'--gridflow-alert-icon-spacing': iconSpacing?.desktop !== null && iconSpacing?.desktop !== undefined ? `${ iconSpacing.desktop }px` : undefined,
 		},
 	};
 
 	const tablet = {
-		'': {
-			'text-align': textAligns?.tablet,
+		' .gridflow-alert__wrapper': {
+			'--gridflow-border-width': borderWidth?.tablet !== null && borderWidth?.tablet !== undefined ? `${ borderWidth.tablet }px` : undefined,
 		},
-		' .gridflow-icon__icon': {
-			'--gridflow-icon-size': fontSize?.tablet ? `${ fontSize.tablet }px` : undefined,
-			'--gridflow-icon-padding': padding?.tablet !== undefined && padding?.tablet !== null ? `${ padding.tablet }px` : undefined,
-			...GridFlowStyleBorder( border, 'tablet' ),
-			...GridFlowStyleBox( borderRadius, 'border-radius', 'tablet' ),
+		' .gridflow-alert__title': {
+			...GridFlowStyleTypography( {
+				font,
+				fontSize,
+				lineHeight,
+				fontWeight,
+				decoration,
+				transform,
+				fontStyle,
+				letterSpacing,
+				device: 'tablet',
+			} ),
+			...GridFlowStyleBox( paddingTitle, 'padding', 'tablet' ),
 		},
-		' .gridflow-icon__icon:hover': {
-			...GridFlowStyleBorder( borderHover, 'tablet' ),
-			...GridFlowStyleBox( borderRadiusHover, 'border-radius', 'tablet' ),
+		' .gridflow-alert__content': {
+			...GridFlowStyleTypography( {
+				font: fontContent,
+				fontSize: fontSizeContent,
+				lineHeight: lineHeightContent,
+				fontWeight: fontWeightContent,
+				decoration: decorationContent,
+				transform: transformContent,
+				fontStyle: fontStyleContent,
+				letterSpacing: letterSpacingContent,
+				device: 'tablet',
+			} ),
+			...GridFlowStyleBox( paddingContent, 'padding', 'tablet' ),
+		},
+		' .gridflow-alert__icon': {
+			'--gridflow-alert-icon-size': sizeIcon?.tablet !== null && sizeIcon?.tablet !== undefined ? `${ sizeIcon.tablet }px` : undefined,
+			'--gridflow-alert-icon-spacing': iconSpacing?.tablet !== null && iconSpacing?.tablet !== undefined ? `${ iconSpacing.tablet }px` : undefined,
 		},
 	};
 
 	const mobile = {
-		'': {
-			'text-align': textAligns?.mobile,
+		' .gridflow-alert__wrapper': {
+			'--gridflow-border-width': borderWidth?.mobile !== null && borderWidth?.mobile !== undefined ? `${ borderWidth.mobile }px` : undefined,
 		},
-		' .gridflow-icon__icon': {
-			'--gridflow-icon-size': fontSize?.mobile ? `${ fontSize.mobile }px` : undefined,
-			'--gridflow-icon-padding': padding?.mobile !== undefined && padding?.mobile !== null ? `${ padding.mobile }px` : undefined,
-			...GridFlowStyleBorder( border, 'mobile' ),
-			...GridFlowStyleBox( borderRadius, 'border-radius', 'mobile' ),
+		' .gridflow-alert__title': {
+			...GridFlowStyleTypography( {
+				font,
+				fontSize,
+				lineHeight,
+				fontWeight,
+				decoration,
+				transform,
+				fontStyle,
+				letterSpacing,
+				device: 'mobile',
+			} ),
+			...GridFlowStyleBox( paddingTitle, 'padding', 'mobile' ),
 		},
-		' .gridflow-icon__icon:hover': {
-			...GridFlowStyleBorder( borderHover, 'mobile' ),
-			...GridFlowStyleBox( borderRadiusHover, 'border-radius', 'mobile' ),
+		' .gridflow-alert__content': {
+			...GridFlowStyleTypography( {
+				font: fontContent,
+				fontSize: fontSizeContent,
+				lineHeight: lineHeightContent,
+				fontWeight: fontWeightContent,
+				decoration: decorationContent,
+				transform: transformContent,
+				fontStyle: fontStyleContent,
+				letterSpacing: letterSpacingContent,
+				device: 'mobile',
+			} ),
+			...GridFlowStyleBox( paddingContent, 'padding', 'mobile' ),
+		},
+		' .gridflow-alert__icon': {
+			'--gridflow-alert-icon-size': sizeIcon?.mobile !== null && sizeIcon?.mobile !== undefined ? `${ sizeIcon.mobile }px` : undefined,
+			'--gridflow-alert-icon-spacing': iconSpacing?.mobile !== null && iconSpacing?.mobile !== undefined ? `${ iconSpacing.mobile }px` : undefined,
 		},
 	};
 

@@ -3,6 +3,7 @@ import gridflowAccordion from './accordion';
 import gridflowProgressBar from './progress-bar';
 import gridflowCounter from './counter';
 import gridflowTabs from './tabs';
+import gridflowAlert from './alert';
 
 gridflowDomReady( function() {
 	gridflowAnimate();
@@ -10,6 +11,7 @@ gridflowDomReady( function() {
 	gridflowProgressBar();
 	gridflowCounter();
 	gridflowTabs();
+	gridflowAlert();
 } );
 
 function gridflowDomReady( fn ) {
