@@ -31,6 +31,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 		padding,
 		color,
 		bgColor,
+		rotate,
 		border,
 		borderRadius,
 		boxShadow,
@@ -162,7 +163,13 @@ const Inspector = ( { attributes, setAttributes } ) => {
 												min={ 0 }
 												max={ 300 }
 											/>
-
+											<GridFlowRangeControl
+												label={ __( 'Rotate', 'gridflow' ) }
+												values={ rotate }
+												onChange={ ( value ) => setAttributes( { rotate: value } ) }
+												min={ 0 }
+												max={ 360 }
+											/>
 											<GridFlowColorPicker
 												label={ __( 'Color', 'gridflow' ) }
 												value={ color }

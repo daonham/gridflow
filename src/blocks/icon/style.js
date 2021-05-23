@@ -10,6 +10,7 @@ function inlineStyle( { attributes } ) {
 		textAligns,
 		fontSize,
 		padding,
+		rotate,
 		color,
 		bgColor,
 		border,
@@ -39,9 +40,11 @@ function inlineStyle( { attributes } ) {
 			transition: transition && `all ${ transition }s`,
 		},
 		' .gridflow-icon__icon > i': {
+			transform: rotate?.desktop !== undefined && rotate?.desktop !== null ? `rotate(${ rotate.desktop }deg)` : undefined,
 			color,
 		},
 		' .gridflow-icon__icon > img': {
+			transform: rotate?.desktop !== undefined && rotate?.desktop !== null ? `rotate(${ rotate.desktop }deg)` : undefined,
 			color,
 		},
 		' .gridflow-icon__icon:hover': {
@@ -75,6 +78,12 @@ function inlineStyle( { attributes } ) {
 			...GridFlowStyleBorder( borderHover, 'tablet' ),
 			...GridFlowStyleBox( borderRadiusHover, 'border-radius', 'tablet' ),
 		},
+		' .gridflow-icon__icon > i': {
+			transform: rotate?.tablet !== undefined && rotate?.tablet !== null ? `rotate(${ rotate.tablet }deg)` : undefined,
+		},
+		' .gridflow-icon__icon > img': {
+			transform: rotate?.tablet !== undefined && rotate?.tablet !== null ? `rotate(${ rotate.tablet }deg)` : undefined,
+		},
 	};
 
 	const mobile = {
@@ -90,6 +99,12 @@ function inlineStyle( { attributes } ) {
 		' .gridflow-icon__icon:hover': {
 			...GridFlowStyleBorder( borderHover, 'mobile' ),
 			...GridFlowStyleBox( borderRadiusHover, 'border-radius', 'mobile' ),
+		},
+		' .gridflow-icon__icon > i': {
+			transform: rotate?.mobile !== undefined && rotate?.mobile !== null ? `rotate(${ rotate.mobile }deg)` : undefined,
+		},
+		' .gridflow-icon__icon > img': {
+			transform: rotate?.mobile !== undefined && rotate?.mobile !== null ? `rotate(${ rotate.mobile }deg)` : undefined,
 		},
 	};
 

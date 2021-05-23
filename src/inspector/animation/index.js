@@ -4,6 +4,7 @@ import assign from 'lodash/assign';
 import { useSelect } from '@wordpress/data';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { addFilter } from '@wordpress/hooks';
+import { hasBlockSupport } from '@wordpress/blocks';
 
 import Inspector from './inspector';
 import gridflowAttributes from './attributes';
@@ -26,7 +27,7 @@ const allowedBlocks = [
 ];
 
 export function addAttributes( settings ) {
-	if ( allowedBlocks.includes( settings.name ) ) {
+	if ( hasBlockSupport( settings, 'gridflowAnimation' ) ) {
 		settings.attributes = assign( settings.attributes, gridflowAttributes );
 	}
 
@@ -37,7 +38,7 @@ export const withInspectorControl = createHigherOrderComponent( ( BlockEdit ) =>
 	return (
 		<>
 			<BlockEdit { ...props } />
-			{ props.isSelected && allowedBlocks.includes( props.name ) && (
+			{ props.isSelected && hasBlockSupport( props.name, 'gridflowAnimation' ) && (
 				<Inspector
 					setAttributes={ props.setAttributes }
 					attributes={ props.attributes }
@@ -48,6 +49,10 @@ export const withInspectorControl = createHigherOrderComponent( ( BlockEdit ) =>
 } );
 
 export function addSaveProps( extraProps, blockType, attributes ) {
+	if ( ! hasBlockSupport( blockType, 'gridflowAnimation' ) ) {
+		return extraProps;
+	}
+
 	const { gridflowAnimation, gridflowSpeed, gridflowDelay } = attributes;
 
 	if ( gridflowAnimation?.desktop || gridflowAnimation?.tablet || gridflowAnimation?.mobile ) {

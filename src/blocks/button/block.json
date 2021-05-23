@@ -123,6 +123,11 @@
 		}
 	},
 	"supports": {
+		"gridflowSpacing": true,
+		"gridflowBorder": true,
+		"gridflowAnimation": true,
+		"gridflowBackground": true,
+		"gridflowResponsive": true,
 		"reusable": false
 	},
 	"style": "gridflow-button"

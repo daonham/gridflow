@@ -29,6 +29,9 @@
 		"bgColor": {
 			"type": "string"
 		},
+		"rotate": {
+			"type": "object"
+		},
 		"border": {
 			"type": "object"
 		},
@@ -62,6 +65,11 @@
 	},
 	"style": "gridflow-icon",
 	"supports": {
+		"gridflowSpacing": true,
+		"gridflowBorder": true,
+		"gridflowAnimation": true,
+		"gridflowBackground": true,
+		"gridflowResponsive": true,
 		"reusable": false
 	}
 }
