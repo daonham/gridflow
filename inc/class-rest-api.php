@@ -56,7 +56,7 @@ class Styles {
 		}
 
 		$query_args = array(
-			'family'  => implode( '%7C', $output ),
+			'family'  => implode( rawurlencode( '|' ), $output ),
 			'display' => 'swap',
 		);
 
