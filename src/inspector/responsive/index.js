@@ -17,21 +17,20 @@ export function addAttributes( settings ) {
 	return settings;
 }
 
-export const withInspectorControl = createHigherOrderComponent( ( BlockEdit ) => {
-	return ( props ) => {
-		return (
-			<>
-				<BlockEdit { ...props } />
-				{ props.isSelected && hasBlockSupport( props.name, 'gridflowResponsive' ) && (
-					<Inspector
-						setAttributes={ props.setAttributes }
-						attributes={ props.attributes }
-					/>
-				) }
-			</>
-		);
-	};
-}, 'withInspectorControl' );
+export function responsiveControl( output, name, attributes, setAttributes ) {
+	return (
+		<>
+			{ output }
+
+			{ hasBlockSupport( name, 'gridflowResponsive' ) && (
+				<Inspector
+					setAttributes={ setAttributes }
+					attributes={ attributes }
+				/>
+			) }
+		</>
+	);
+}
 
 export function addSaveProps( extraProps, blockType, attributes ) {
 	const { gridflowHideDesktop, gridflowHideTablet, gridflowHideMobile } = attributes;
@@ -88,7 +87,6 @@ export const withDataResponsive = createHigherOrderComponent(
 );
 
 addFilter( 'blocks.registerBlockType', 'gridflow/inspector/attributes', addAttributes );
-addFilter( 'editor.BlockEdit', 'gridflow/responsive', withInspectorControl );
 addFilter( 'blocks.getSaveContent.extraProps', 'gridflow/responsive/class', addSaveProps );
 addFilter( 'editor.BlockListBlock', 'gridflow/responsive/with-data-responsive', withDataResponsive );
-
+addFilter( 'gridflow.inspector.advanced', 'gridflow/responsive/inspector', responsiveControl );

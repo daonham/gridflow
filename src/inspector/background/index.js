@@ -1,6 +1,5 @@
 import assign from 'lodash/assign';
 
-import { createHigherOrderComponent } from '@wordpress/compose';
 import { addFilter } from '@wordpress/hooks';
 import { hasBlockSupport } from '@wordpress/blocks';
 
@@ -16,22 +15,21 @@ export function addAttributes( settings ) {
 	return settings;
 }
 
-export const withInspectorControl = createHigherOrderComponent( ( BlockEdit ) => {
-	return ( props ) => {
-		return (
-			<>
-				<BlockEdit { ...props } />
-				{ props.isSelected && hasBlockSupport( props.name, 'gridflowBackground' ) && (
-					<Inspector
-						setAttributes={ props.setAttributes }
-						attributes={ props.attributes }
-					/>
-				) }
-			</>
-		);
-	};
-}, 'withInspectorControl' );
+export function backgroundControl( output, name, attributes, setAttributes ) {
+	return (
+		<>
+			{ output }
+
+			{ hasBlockSupport( name, 'gridflowBackground' ) && (
+				<Inspector
+					setAttributes={ setAttributes }
+					attributes={ attributes }
+				/>
+			) }
+		</>
+	);
+}
 
 addFilter( 'blocks.registerBlockType', 'gridflow/inspector/attributes', addAttributes );
-addFilter( 'editor.BlockEdit', 'gridflow/spacing', withInspectorControl );
+addFilter( 'gridflow.inspector.advanced', 'gridflow/background/inspector', backgroundControl );
 

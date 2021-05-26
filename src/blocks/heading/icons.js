@@ -1,4 +1,4 @@
-const { SVG } = wp.components;
+import { SVG } from '@wordpress/components';
 
 const getTagIcon = ( value ) => {
 	if ( 'h1' === value ) {

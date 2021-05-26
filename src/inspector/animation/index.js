@@ -9,23 +9,6 @@ import { hasBlockSupport } from '@wordpress/blocks';
 import Inspector from './inspector';
 import gridflowAttributes from './attributes';
 
-const allowedBlocks = [
-	'gridflow/heading',
-	'gridflow/button',
-	'gridflow/image',
-	'gridflow/icon',
-	'gridflow/accordion',
-	'gridflow/progress-bar',
-	'gridflow/google-map',
-	'gridflow/counter',
-	'gridflow/tabs',
-	'gridflow/divider',
-	'gridflow/image-box',
-	'gridflow/icon-box',
-	'gridflow/social',
-	'gridflow/alert',
-];
-
 export function addAttributes( settings ) {
 	if ( hasBlockSupport( settings, 'gridflowAnimation' ) ) {
 		settings.attributes = assign( settings.attributes, gridflowAttributes );
@@ -34,19 +17,20 @@ export function addAttributes( settings ) {
 	return settings;
 }
 
-export const withInspectorControl = createHigherOrderComponent( ( BlockEdit ) => ( props ) => {
+export function animationControl( output, name, attributes, setAttributes ) {
 	return (
 		<>
-			<BlockEdit { ...props } />
-			{ props.isSelected && hasBlockSupport( props.name, 'gridflowAnimation' ) && (
+			{ output }
+
+			{ hasBlockSupport( name, 'gridflowAnimation' ) && (
 				<Inspector
-					setAttributes={ props.setAttributes }
-					attributes={ props.attributes }
+					setAttributes={ setAttributes }
+					attributes={ attributes }
 				/>
 			) }
 		</>
 	);
-} );
+}
 
 export function addSaveProps( extraProps, blockType, attributes ) {
 	if ( ! hasBlockSupport( blockType, 'gridflowAnimation' ) ) {
@@ -100,6 +84,6 @@ export const withDataAnimation = createHigherOrderComponent(
 );
 
 addFilter( 'blocks.registerBlockType', 'gridflow/inspector/attributes', addAttributes );
-addFilter( 'editor.BlockEdit', 'gridflow/animation', withInspectorControl );
+addFilter( 'gridflow.inspector.advanced', 'gridflow/animation/inspector', animationControl );
 addFilter( 'blocks.getSaveContent.extraProps', 'gridflow/responsive/class', addSaveProps );
 addFilter( 'editor.BlockListBlock', 'gridflow/animation/with-data-animation', withDataAnimation );

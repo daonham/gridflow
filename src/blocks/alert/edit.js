@@ -7,9 +7,9 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
 import Controls from './controls';
 import Inspector from './inspector';
 
-const { withInlineStyle } = wp.gridflowCompose;
+const { withInlineStyle, GridFlowInspectorControls } = wp.gridflowCompose;
 
-function Edit( { isSelected, attributes, setAttributes } ) {
+function Edit( { name, isSelected, attributes, setAttributes } ) {
 	const { uniqueId, title, content, type, showTitle, showDismissButton, showIcon, icons } = attributes;
 
 	return (
@@ -22,10 +22,12 @@ function Edit( { isSelected, attributes, setAttributes } ) {
 			) }
 
 			{ isSelected && (
-				<Inspector
-					attributes={ attributes }
-					setAttributes={ setAttributes }
-				/>
+				<GridFlowInspectorControls name={ name } attributes={ attributes } setAttributes={ setAttributes }>
+					<Inspector
+						attributes={ attributes }
+						setAttributes={ setAttributes }
+					/>
+				</GridFlowInspectorControls>
 			) }
 
 			<div { ...useBlockProps( { className: classnames( 'gridflow-alert', uniqueId ) } ) }>

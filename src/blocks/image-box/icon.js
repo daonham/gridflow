@@ -1,4 +1,4 @@
-const { Icon } = wp.components;
+import { Icon } from '@wordpress/components';
 export default (
 	<Icon
 		icon={
