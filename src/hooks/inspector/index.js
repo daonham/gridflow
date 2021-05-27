@@ -10,8 +10,8 @@ function GridFlowInspectorControls( { children, name, attributes, setAttributes 
 			<TabPanel
 				tabs={ [
 					{
-						name: 'normal',
-						title: <><span style={ { marginRight: 6 } }>{ edit }</span>{ __( 'Normal', 'gridflow' ) }</>,
+						name: 'edit',
+						title: <><span style={ { marginRight: 6 } }>{ edit }</span>{ __( 'Edit', 'gridflow' ) }</>,
 						className: 'gridflow-tab-inspector__button gridflow-tab-inspector__normal',
 					},
 					{
@@ -23,7 +23,7 @@ function GridFlowInspectorControls( { children, name, attributes, setAttributes 
 				className="gridflow-tab-inspector"
 			>
 				{ ( tab ) => {
-					if ( tab.name === 'normal' ) {
+					if ( tab.name === 'edit' ) {
 						return (
 							<>
 								{ children }
