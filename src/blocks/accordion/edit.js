@@ -8,11 +8,11 @@ import { useEffect } from '@wordpress/element';
 import Controls from './controls';
 import Inspector from './inspector';
 
-const { withInlineStyle } = wp.gridflowCompose;
+const { withInlineStyle, GridFlowInspectorControls } = wp.gridflowCompose;
 
 const TEMPLATE = [ [ 'gridflow/accordion-item' ] ];
 
-function Edit( { isSelected, attributes, setAttributes, clientId } ) {
+function Edit( { name, isSelected, attributes, setAttributes, clientId } ) {
 	const { uniqueId, icon, iconAlign, iconActive, tagName, close } = attributes;
 
 	const innerBlocksProps = useInnerBlocksProps( {}, {
@@ -48,10 +48,12 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 			) }
 
 			{ isSelected && (
-				<Inspector
-					attributes={ attributes }
-					setAttributes={ setAttributes }
-				/>
+				<GridFlowInspectorControls name={ name } attributes={ attributes } setAttributes={ setAttributes }>
+					<Inspector
+						attributes={ attributes }
+						setAttributes={ setAttributes }
+					/>
+				</GridFlowInspectorControls>
 			) }
 
 			<div { ...useBlockProps( { className: classnames( 'gridflow-accordion', uniqueId ) } ) }>

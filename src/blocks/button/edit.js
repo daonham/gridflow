@@ -13,9 +13,10 @@ import { compose } from '@wordpress/compose';
 import Controls from './controls';
 import Inspector from './inspector';
 
-const { withInlineStyle } = wp.gridflowCompose;
+const { withInlineStyle, GridFlowInspectorControls } = wp.gridflowCompose;
 
 function Edit( {
+	name,
 	isSelected,
 	attributes,
 	setAttributes,
@@ -39,10 +40,12 @@ function Edit( {
 			) }
 
 			{ isSelected && (
-				<Inspector
-					attributes={ attributes }
-					setAttributes={ setAttributes }
-				/>
+				<GridFlowInspectorControls name={ name } attributes={ attributes } setAttributes={ setAttributes }>
+					<Inspector
+						attributes={ attributes }
+						setAttributes={ setAttributes }
+					/>
+				</GridFlowInspectorControls>
 			) }
 
 			<div { ...useBlockProps( { className: classnames( 'gridflow-button', uniqueId ) } ) }>

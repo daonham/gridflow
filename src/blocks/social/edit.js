@@ -6,7 +6,7 @@ import { useBlockProps, __experimentalUseInnerBlocksProps as useInnerBlocksProps
 import Controls from './controls';
 import Inspector from './inspector';
 
-const { withInlineStyle } = wp.gridflowCompose;
+const { withInlineStyle, GridFlowInspectorControls } = wp.gridflowCompose;
 
 const ALLOWED_BLOCKS = [ 'gridflow/icon' ];
 const ICON_TEMPLATE = [
@@ -72,7 +72,7 @@ const ICON_TEMPLATE = [
 	],
 ];
 
-function Edit( { isSelected, attributes, setAttributes, clientId } ) {
+function Edit( { name, isSelected, attributes, setAttributes, clientId } ) {
 	const { uniqueId } = attributes;
 
 	const innerBlocksProps = useInnerBlocksProps( { className: 'gridflow-social-icons__items' }, {
@@ -92,11 +92,13 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 			) }
 
 			{ isSelected && (
-				<Inspector
-					attributes={ attributes }
-					setAttributes={ setAttributes }
-					clientId={ clientId }
-				/>
+				<GridFlowInspectorControls name={ name } attributes={ attributes } setAttributes={ setAttributes }>
+					<Inspector
+						attributes={ attributes }
+						setAttributes={ setAttributes }
+						clientId={ clientId }
+					/>
+				</GridFlowInspectorControls>
 			) }
 
 			<div { ...useBlockProps( { className: classnames( 'gridflow-social-icons', uniqueId ) } ) }>

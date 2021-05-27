@@ -12,9 +12,9 @@ import { Tooltip, Button } from '@wordpress/components';
 import Controls from './controls';
 import Inspector from './inspector';
 
-const { withInlineStyle } = wp.gridflowCompose;
+const { withInlineStyle, GridFlowInspectorControls } = wp.gridflowCompose;
 
-function Edit( { isSelected, attributes, setAttributes, clientId } ) {
+function Edit( { name, isSelected, attributes, setAttributes, clientId } ) {
 	const { uniqueId, tabTitles, uniqueIdTitle, iconPosition, position } = attributes;
 
 	const [ activeTab, setActiveTab ] = useState( 0 );
@@ -176,10 +176,12 @@ function Edit( { isSelected, attributes, setAttributes, clientId } ) {
 			) }
 
 			{ isSelected && (
-				<Inspector
-					attributes={ attributes }
-					setAttributes={ setAttributes }
-				/>
+				<GridFlowInspectorControls name={ name } attributes={ attributes } setAttributes={ setAttributes }>
+					<Inspector
+						attributes={ attributes }
+						setAttributes={ setAttributes }
+					/>
+				</GridFlowInspectorControls>
 			) }
 
 			<div { ...useBlockProps( { className: classnames( 'gridflow-tabs', uniqueId, { 'gridflow-tabs__icons--right': iconPosition === 'right' } ) } ) }>

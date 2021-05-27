@@ -8,9 +8,9 @@ import { ResizableBox } from '@wordpress/components';
 import Controls from './controls';
 import Inspector from './inspector';
 
-const { withInlineStyle } = wp.gridflowCompose;
+const { withInlineStyle, GridFlowInspectorControls } = wp.gridflowCompose;
 
-function Edit( { isSelected, attributes, setAttributes, toggleSelection } ) {
+function Edit( { name, isSelected, attributes, setAttributes, toggleSelection } ) {
 	const { uniqueId, percent, suffix, showValue, title, caption, showTitle, showCaption, percentPosition } = attributes;
 
 	return (
@@ -23,10 +23,12 @@ function Edit( { isSelected, attributes, setAttributes, toggleSelection } ) {
 			) }
 
 			{ isSelected && (
-				<Inspector
-					attributes={ attributes }
-					setAttributes={ setAttributes }
-				/>
+				<GridFlowInspectorControls name={ name } attributes={ attributes } setAttributes={ setAttributes }>
+					<Inspector
+						attributes={ attributes }
+						setAttributes={ setAttributes }
+					/>
+				</GridFlowInspectorControls>
 			) }
 
 			<div { ...useBlockProps( { className: classnames( 'gridflow-progress-bar', uniqueId ) } ) }>

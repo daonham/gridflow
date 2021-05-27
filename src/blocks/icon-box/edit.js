@@ -16,7 +16,7 @@ import { compose } from '@wordpress/compose';
 import Controls from './controls';
 import Inspector from './inspector';
 
-const { withInlineStyle } = wp.gridflowCompose;
+const { withInlineStyle, GridFlowInspectorControls } = wp.gridflowCompose;
 
 const TEMPLATE = [
 	[
@@ -35,7 +35,7 @@ const TEMPLATE = [
 	],
 ];
 
-function Edit( { isSelected, attributes, setAttributes } ) {
+function Edit( { name, isSelected, attributes, setAttributes } ) {
 	const { uniqueId, icon, links, iconPosition, hoverEffect } = attributes;
 
 	const innerBlocksContent = useInnerBlocksProps( { className: 'gridflow-icon-box__content' }, {
@@ -61,10 +61,12 @@ function Edit( { isSelected, attributes, setAttributes } ) {
 			) }
 
 			{ isSelected && (
-				<Inspector
-					attributes={ attributes }
-					setAttributes={ setAttributes }
-				/>
+				<GridFlowInspectorControls name={ name } attributes={ attributes } setAttributes={ setAttributes }>
+					<Inspector
+						attributes={ attributes }
+						setAttributes={ setAttributes }
+					/>
+				</GridFlowInspectorControls>
 			) }
 
 			<div { ...useBlockProps( { className: classnames( 'gridflow-icon-box', uniqueId ) } ) }>

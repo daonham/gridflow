@@ -16,9 +16,9 @@ import icon from './icon';
 import Controls from './controls';
 import Inspector from './inspector';
 
-const { withInlineStyle } = wp.gridflowCompose;
+const { withInlineStyle, GridFlowInspectorControls } = wp.gridflowCompose;
 
-function Edit( { isSelected, attributes, setAttributes } ) {
+function Edit( { name, isSelected, attributes, setAttributes } ) {
 	const { uniqueId, location, height, zoom } = attributes;
 
 	const [ address, setAddress ] = useState( location );
@@ -43,10 +43,12 @@ function Edit( { isSelected, attributes, setAttributes } ) {
 			) }
 
 			{ isSelected && (
-				<Inspector
-					attributes={ attributes }
-					setAttributes={ setAttributes }
-				/>
+				<GridFlowInspectorControls name={ name } attributes={ attributes } setAttributes={ setAttributes }>
+					<Inspector
+						attributes={ attributes }
+						setAttributes={ setAttributes }
+					/>
+				</GridFlowInspectorControls>
 			) }
 
 			<div { ...useBlockProps( { className: classnames( 'gridflow-google-map', uniqueId ) } ) }>

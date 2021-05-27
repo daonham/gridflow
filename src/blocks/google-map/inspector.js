@@ -42,7 +42,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						style={ { display: 'flex' } }
 					>
 						<TextControl
-							value={ address || '' }
+							value={ address || location || '' }
 							placeholder={ __( 'Enter for a location or address...', 'gridflow' ) }
 							onChange={ ( value ) => setAddress( value ) }
 							style={ { height: 36 } }
