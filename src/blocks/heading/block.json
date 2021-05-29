@@ -105,6 +105,7 @@
 		"gridflowAnimation": true,
 		"gridflowBackground": true,
 		"gridflowResponsive": true,
+		"gridflowPositioning": true,
 		"reusable": false
 	}
 }
