@@ -14,7 +14,7 @@ const { name } = metadata;
 
 const settings = {
 	title: __( 'Divider', 'gridflow' ),
-	description: __( 'Add new Divider for Editor.', 'gridflow' ),
+	description: __( 'Create a break between ideas or sections with a horizontal separator.', 'gridflow' ),
 	keywords: [
 		'gridflow',
 		__( 'divider', 'gridflow' ),

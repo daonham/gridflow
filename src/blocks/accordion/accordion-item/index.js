@@ -9,7 +9,7 @@ const { name } = metadata;
 
 const settings = {
 	title: __( 'Accordion Item', 'gridflow' ),
-	description: __( 'Add a Accordion Item for Editor.', 'gridflow' ),
+	description: __( 'Add collapsable accordion items to accordions.', 'gridflow' ),
 	icon,
 	keywords: [
 		'gridflow',

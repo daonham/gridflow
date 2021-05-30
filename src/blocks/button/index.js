@@ -11,7 +11,7 @@ const { name } = metadata;
 
 const settings = {
 	title: __( 'Button', 'gridflow' ),
-	description: __( 'Advanced button for Editor.', 'gridflow' ),
+	description: __( 'Add a customizable button.', 'gridflow' ),
 	icon,
 	keywords: [
 		'gridflow',

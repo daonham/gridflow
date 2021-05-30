@@ -11,7 +11,7 @@ const { name } = metadata;
 
 const settings = {
 	title: __( 'Alert', 'gridflow' ),
-	description: __( 'Add a Alert for Editor.', 'gridflow' ),
+	description: __( 'Create a message or notice.', 'gridflow' ),
 	icon,
 	keywords: [
 		'gridflow',

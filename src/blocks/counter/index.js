@@ -11,7 +11,7 @@ const { name } = metadata;
 
 const settings = {
 	title: __( 'Counter', 'gridflow' ),
-	description: __( 'Add a Counter for Editor.', 'gridflow' ),
+	description: __( 'Specify the starting number and ending number for your counter, along with number prefixes and suffixes.', 'gridflow' ),
 	icon,
 	keywords: [
 		'gridflow',

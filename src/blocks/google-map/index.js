@@ -14,7 +14,7 @@ const { name } = metadata;
 
 const settings = {
 	title: __( 'Google map', 'gridflow' ),
-	description: __( 'Add an address or location to Google map for Editor.', 'gridflow' ),
+	description: __( 'Add an address or location to Google map.', 'gridflow' ),
 	keywords: [
 		'gridflow',
 		__( 'map', 'gridflow' ),
