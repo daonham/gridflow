@@ -52,7 +52,7 @@ const GridFlowColorPicker = ( {
 							aria-label={ hint }
 							style={ {
 								background: value || '',
-								color: `rgba(0, 0, 0, 0)`
+								color: `rgba(0, 0, 0, 0)`,
 							} }
 						></Button>
 					</Tooltip>
@@ -94,7 +94,7 @@ const GridFlowColorPicker = ( {
 											colorString = color.hex;
 										} else {
 											const { r, g, b, a } = color.rgb;
-											colorString = `rgba(${r}, ${g}, ${b}, ${a})`;
+											colorString = `rgba(${ r }, ${ g }, ${ b }, ${ a })`;
 										}
 										onChange( colorString );
 									} }
@@ -116,11 +116,9 @@ const GridFlowColorPicker = ( {
 						{ currentTab === 'gradient' && gradients && (
 							<GradientPicker
 								value={ value }
-								onChange={ ( newGradient ) =>
-									onChange( newGradient || '' )
-								}
+								onChange={ ( newGradient ) => onChange( newGradient || '' ) }
 								disableCustomGradients={ false }
-								{ ...colorGradientSettings }
+								gradients={ colorGradientSettings?.gradients }
 							/>
 						) }
 					</div>

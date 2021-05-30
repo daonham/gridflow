@@ -136,7 +136,7 @@ function inlineStyle( { attributes } ) {
 }
 
 if ( ! hasFilter( 'gridflow.inlineStyle.counter', 'gridflow/inline/styles' ) ) {
-	addFilter( 'gridflow.inlineStyle.counter', 'gridflow/inline/styles', function( attributes ) {
-		return inlineStyle( { attributes } );
+	addFilter( 'gridflow.inlineStyle.counter', 'gridflow/inline/styles', function( output, attributes ) {
+		return { ...output, ...inlineStyle( { attributes } ) };
 	} );
 }

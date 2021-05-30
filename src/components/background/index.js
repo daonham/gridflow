@@ -189,7 +189,7 @@ const GridFlowBackground = ( { label, values: valuesProp, onChange = noop } ) =>
 						value={ inputValues.gradient }
 						onChange={ createHandleOnChange( 'gradient' ) }
 						disableCustomGradients={ false }
-						{ ...colorGradientSettings }
+						gradients={ colorGradientSettings?.gradients }
 					/>
 				) }
 			</div>

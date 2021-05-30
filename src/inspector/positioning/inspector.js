@@ -5,6 +5,8 @@ import GridFlowSelect from '../../components/select';
 import GridFlowRangeControl from '../../components/range';
 import GridFlowTextUnit from '../../components/text';
 
+import { useSelect } from '@wordpress/data';
+
 const Inspector = ( { attributes, setAttributes } ) => {
 	const {
 		gridflowZindex,
@@ -14,6 +16,14 @@ const Inspector = ( { attributes, setAttributes } ) => {
 		gridflowPositionVertical,
 		gridflowPositionVerticalOffset,
 	} = attributes;
+
+	const getPreviewDeviceType = useSelect( ( select ) => {
+		const { __experimentalGetPreviewDeviceType } = select( 'core/edit-post' );
+
+		return __experimentalGetPreviewDeviceType ? __experimentalGetPreviewDeviceType() : false;
+	}, [] );
+
+	const deviceType = getPreviewDeviceType.toLowerCase() || 'desktop';
 
 	return (
 		<InspectorControls key="inspector">
@@ -38,7 +48,7 @@ const Inspector = ( { attributes, setAttributes } ) => {
 						{ label: 'Sticky', value: 'sticky' },
 					] }
 				/>
-				{ gridflowPosition && (
+				{ gridflowPosition?.[ deviceType ] && (
 					<>
 						<Flex>
 							<FlexItem>

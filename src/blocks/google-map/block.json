@@ -44,6 +44,7 @@
 		"gridflowBackground": true,
 		"gridflowResponsive": true,
 		"gridflowPositioning": true,
+		"gridflowDimensions": true,
 		"reusable": false
 	}
 }

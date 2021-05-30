@@ -48,22 +48,22 @@ function inlineStyle( { attributes } ) {
 			height: height?.desktop,
 			'object-fit': objectFit?.desktop || undefined,
 			'-o-object-fit': objectFit?.desktop || undefined,
-			'object-position': objectPosition?.desktop?.x && objectPosition?.desktop?.y ? `${objectPosition?.desktop?.x * 100}% ${objectPosition?.desktop?.y * 100}%` : undefined
+			'object-position': objectPosition?.desktop?.x && objectPosition?.desktop?.y ? `${ objectPosition?.desktop?.x * 100 }% ${ objectPosition?.desktop?.y * 100 }%` : undefined,
 		},
 		' .gridflow-image__wrapper--overlay:after': {
 			opacity: overlay ? overlay * 0.01 : undefined,
 			background: bgOverlay,
-			transition: `all ${transition}s`,
+			transition: `all ${ transition }s`,
 		},
 		' .gridflow-image__wrapper--overlay:hover:after': {
-			transition: `all ${transition}s`,
+			transition: `all ${ transition }s`,
 			opacity: overlayHover ? overlayHover * 0.01 : undefined,
 			background: bgOverlayHover,
 		},
 		' .gridflow-image__caption__text': {
 			'text-align': captionTextAligns?.desktop,
 			...GridFlowStyleBox( captionSpacing, 'margin', 'desktop' ),
-			...GridFlowStyleTypography( { font, fontSize, lineHeight, fontWeight, decoration, transform, fontStyle, letterSpacing, device: 'desktop', } ),
+			...GridFlowStyleTypography( { font, fontSize, lineHeight, fontWeight, decoration, transform, fontStyle, letterSpacing, device: 'desktop' } ),
 		},
 	};
 
@@ -80,12 +80,12 @@ function inlineStyle( { attributes } ) {
 			height: height?.tablet,
 			'object-fit': objectFit?.tablet || undefined,
 			'-o-object-fit': objectFit?.tablet || undefined,
-			'object-position': objectPosition?.tablet?.x && objectPosition?.tablet?.y ? `${objectPosition?.tablet?.x * 100}% ${objectPosition?.tablet?.y * 100}%` : undefined
+			'object-position': objectPosition?.tablet?.x && objectPosition?.tablet?.y ? `${ objectPosition?.tablet?.x * 100 }% ${ objectPosition?.tablet?.y * 100 }%` : undefined,
 		},
 		' .gridflow-image__caption__text': {
 			'text-align': captionTextAligns?.tablet,
 			...GridFlowStyleBox( captionSpacing, 'margin', 'tablet' ),
-			...GridFlowStyleTypography( { font, fontSize, lineHeight, fontWeight, decoration, transform, fontStyle, letterSpacing, device: 'tablet', } ),
+			...GridFlowStyleTypography( { font, fontSize, lineHeight, fontWeight, decoration, transform, fontStyle, letterSpacing, device: 'tablet' } ),
 		},
 	};
 
@@ -102,12 +102,12 @@ function inlineStyle( { attributes } ) {
 			height: height?.mobile,
 			'object-fit': objectFit?.mobile || undefined,
 			'-o-object-fit': objectFit?.mobile || undefined,
-			'object-position': objectPosition?.mobile?.x && objectPosition?.mobile?.y ? `${objectPosition?.mobile?.x * 100}% ${objectPosition?.mobile?.y * 100}%` : undefined
+			'object-position': objectPosition?.mobile?.x && objectPosition?.mobile?.y ? `${ objectPosition?.mobile?.x * 100 }% ${ objectPosition?.mobile?.y * 100 }%` : undefined,
 		},
 		' .gridflow-image__caption__text': {
 			'text-align': captionTextAligns?.mobile,
 			...GridFlowStyleBox( captionSpacing, 'margin', 'mobile' ),
-			...GridFlowStyleTypography( { font, fontSize, lineHeight, fontWeight, decoration, transform, fontStyle, letterSpacing, device: 'mobile', } ),
+			...GridFlowStyleTypography( { font, fontSize, lineHeight, fontWeight, decoration, transform, fontStyle, letterSpacing, device: 'mobile' } ),
 		},
 	};
 
@@ -115,9 +115,7 @@ function inlineStyle( { attributes } ) {
 }
 
 if ( ! hasFilter( 'gridflow.inlineStyle.image', 'gridflow/inline/styles' ) ) {
-	addFilter( 'gridflow.inlineStyle.image', 'gridflow/inline/styles', function(
-		attributes
-	) {
-		return inlineStyle( { attributes } );
+	addFilter( 'gridflow.inlineStyle.image', 'gridflow/inline/styles', function( output, attributes ) {
+		return { ...output, ...inlineStyle( { attributes } ) };
 	} );
 }

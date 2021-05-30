@@ -72,7 +72,7 @@ function inlineStyle( { attributes } ) {
 		},
 		' .gridflow-divider__icon': {
 			'margin-left': iconPosition !== 'left' && iconSpacing?.desktop ? iconSpacing.desktop : 0,
-			'margin-right': iconPosition !== 'right' && iconSpacing?.desktop ? iconSpacing.desktop  : 0,
+			'margin-right': iconPosition !== 'right' && iconSpacing?.desktop ? iconSpacing.desktop : 0,
 			background: iconBackgroundColor || undefined,
 			...GridFlowStyleBox( iconPadding, 'padding', 'desktop' ),
 			...GridFlowStyleBorder( iconBorder, 'desktop' ),
@@ -118,7 +118,7 @@ function inlineStyle( { attributes } ) {
 		},
 		' .gridflow-divider__icon': {
 			'margin-left': iconPosition !== 'left' && iconSpacing?.tablet ? iconSpacing.tablet : 0,
-			'margin-right': iconPosition !== 'right' && iconSpacing?.tablet ? iconSpacing.tablet  : 0,
+			'margin-right': iconPosition !== 'right' && iconSpacing?.tablet ? iconSpacing.tablet : 0,
 			...GridFlowStyleBox( iconPadding, 'padding', 'tablet' ),
 			...GridFlowStyleBorder( iconBorder, 'tablet' ),
 			...GridFlowStyleBox( iconBorderRadius, 'border-radius', 'tablet' ),
@@ -155,7 +155,7 @@ function inlineStyle( { attributes } ) {
 		},
 		' .gridflow-divider__icon': {
 			'margin-left': iconPosition !== 'left' && iconSpacing?.mobile ? iconSpacing.mobile : 0,
-			'margin-right': iconPosition !== 'right' && iconSpacing?.mobile ? iconSpacing.mobile  : 0,
+			'margin-right': iconPosition !== 'right' && iconSpacing?.mobile ? iconSpacing.mobile : 0,
 			...GridFlowStyleBox( iconPadding, 'padding', 'mobile' ),
 			...GridFlowStyleBorder( iconBorder, 'mobile' ),
 			...GridFlowStyleBox( iconBorderRadius, 'border-radius', 'mobile' ),
@@ -172,7 +172,7 @@ function inlineStyle( { attributes } ) {
 }
 
 if ( ! hasFilter( 'gridflow.inlineStyle.divider', 'gridflow/inline/styles' ) ) {
-	addFilter( 'gridflow.inlineStyle.divider', 'gridflow/inline/styles', function( attributes ) {
-		return inlineStyle( { attributes } );
+	addFilter( 'gridflow.inlineStyle.divider', 'gridflow/inline/styles', function( output, attributes ) {
+		return { ...output, ...inlineStyle( { attributes } ) };
 	} );
 }

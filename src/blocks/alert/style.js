@@ -160,7 +160,7 @@ function inlineStyle( { attributes } ) {
 }
 
 if ( ! hasFilter( 'gridflow.inlineStyle.alert', 'gridflow/inline/styles' ) ) {
-	addFilter( 'gridflow.inlineStyle.alert', 'gridflow/inline/styles', function( attributes ) {
-		return inlineStyle( { attributes } );
+	addFilter( 'gridflow.inlineStyle.alert', 'gridflow/inline/styles', function( output, attributes ) {
+		return { ...output, ...inlineStyle( { attributes } ) };
 	} );
 }

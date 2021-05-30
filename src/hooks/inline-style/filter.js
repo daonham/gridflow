@@ -2,6 +2,10 @@ import { applyFilters } from '@wordpress/hooks';
 
 export default function inlineStyle( { name, attributes } ) {
 	const {
+		gridflowWidth,
+		gridflowCustomWidth,
+		gridflowMinWidth,
+		gridflowMaxWidth,
 		gridflowMargin,
 		gridflowPadding,
 		gridflowBorder,
@@ -20,7 +24,8 @@ export default function inlineStyle( { name, attributes } ) {
 		gridflowPositionVerticalOffset,
 	} = attributes;
 
-	const blockStyle = applyFilters( `gridflow.inlineStyle.${ name }`, attributes );
+	const blockStyle = applyFilters( `gridflow.inlineStyle.${ name }`, null, attributes );
+	const dimensions = applyFilters( 'gridflow.style.dimensions', gridflowWidth, gridflowCustomWidth, gridflowMinWidth, gridflowMaxWidth );
 	const spacing = applyFilters( 'gridflow.style.spacing', gridflowMargin, gridflowPadding );
 	const borderStyle = applyFilters( 'gridflow.style.border', gridflowBorder, gridflowBorderRadius, gridflowBoxShadow, gridflowBorderHover, gridflowBorderRadiusHover, gridflowBoxShadowHover );
 	const backgroundStyle = applyFilters( 'gridflow.style.background', gridflowBackground, gridflowBackgroundHover );
@@ -30,10 +35,11 @@ export default function inlineStyle( { name, attributes } ) {
 	const inner = ' >.gridflow-block-inner';
 	const innerHover = ' >.gridflow-block-inner:hover';
 
-	if ( blockStyle.desktop ) {
+	if ( blockStyle?.desktop ) {
 		blockStyle.desktop[ block ] = {
 			...blockStyle.desktop[ block ] || {},
 			...positioning?.desktop?.[ block ] || {},
+			...dimensions?.desktop?.[ block ] || {},
 		};
 
 		blockStyle.desktop[ inner ] = {
@@ -50,10 +56,11 @@ export default function inlineStyle( { name, attributes } ) {
 		};
 	}
 
-	if ( blockStyle.tablet ) {
+	if ( blockStyle?.tablet ) {
 		blockStyle.tablet[ block ] = {
 			...blockStyle.tablet[ block ] || {},
 			...positioning?.tablet?.[ block ] || {},
+			...dimensions?.tablet?.[ block ] || {},
 		};
 
 		blockStyle.tablet[ inner ] = {
@@ -70,10 +77,11 @@ export default function inlineStyle( { name, attributes } ) {
 		};
 	}
 
-	if ( blockStyle.mobile ) {
+	if ( blockStyle?.mobile ) {
 		blockStyle.mobile[ block ] = {
 			...blockStyle.mobile[ block ] || {},
 			...positioning?.mobile?.[ block ] || {},
+			...dimensions?.mobile?.[ block ] || {},
 		};
 
 		blockStyle.mobile[ inner ] = {

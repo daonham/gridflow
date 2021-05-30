@@ -21,7 +21,7 @@ export default function save( { attributes } ) {
 							title={ __( 'Google Map', 'gridflow' ) }
 							allowFullScreen=""
 							loading="lazy"
-							src={ `https://www.google.com/maps?output=embed&q=${ encodeURIComponent( location ) }&z=${ zoom }` }
+							src={ `https://maps.google.com/maps?output=embed&q=${ encodeURIComponent( location ) }&z=${ zoom }` }
 						/>
 					</div>
 				</div>
