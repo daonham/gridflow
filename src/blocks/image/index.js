@@ -11,7 +11,7 @@ const { name } = metadata;
 
 const settings = {
 	title: __( 'Image', 'gridflow' ),
-	description: __( 'Advanced image for Editor.', 'gridflow' ),
+	description: __( 'Insert an image to make a visual statement.', 'gridflow' ),
 	icon,
 	keywords: [
 		'gridflow',

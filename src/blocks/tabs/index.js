@@ -11,7 +11,7 @@ const { name } = metadata;
 
 const settings = {
 	title: __( 'Tabs', 'gridflow' ),
-	description: __( 'Add a Tabs for Editor.', 'gridflow' ),
+	description: __( 'Allow you to divide your content into tabs.', 'gridflow' ),
 	icon,
 	keywords: [
 		'gridflow',

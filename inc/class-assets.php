@@ -31,7 +31,7 @@ class Assets {
 		wp_enqueue_script( 'gridflow', $url . 'js/gridflow.js', array(), $this->get_asset_info( 'dist/js/gridflow' )['version'], true );
 
 		// Enqueue style in uploads.
-		do_action( 'gridflow/enqueue/style/uploads', self::$version );
+		do_action( 'gridflow_enqueue_style_frontend_uploads', self::$version );
 	}
 
 	public function vendor() {
@@ -43,6 +43,8 @@ class Assets {
 
 		// Style.
 		wp_enqueue_style( 'gridflow-font-awesome', GRIDFLOW_PLUGIN_URL . 'src/components/icon/public/font-awesome/css/all.css', array(), '5.12.0' );
+
+		do_action( 'gridflow_enqueue_assets_vendor' );
 	}
 
 	public function editor() {
@@ -71,10 +73,10 @@ class Assets {
 	}
 
 	public function get_asset_info( $url ) {
-		$path = GRIDFLOW_PLUGIN_DIR . $url . '.asset.php';
+		$path = GRIDFLOW_PLUGIN_PATH . $url . '.asset.php';
 
 		if ( file_exists( $path ) ) {
-			return include( $path );
+			return include $path;
 		} else {
 			return array(
 				'dependencies' => array(),

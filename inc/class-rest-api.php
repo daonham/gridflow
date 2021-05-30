@@ -9,7 +9,7 @@ class Styles {
 
 	public function init() {
 		add_action( 'rest_api_init', array( $this, 'register_endpoints' ) );
-		add_action( 'gridflow/enqueue/style/uploads', array( $this, 'enqueue_style' ) );
+		add_action( 'gridflow_enqueue_style_frontend_uploads', array( $this, 'enqueue_style' ) );
 		add_action( 'wp_head', array( $this, 'enqueue_google_fonts' ) );
 		add_filter( 'wp_resource_hints', array( $this, 'filter_resource_hints' ), 10, 2 );
 	}

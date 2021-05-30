@@ -11,7 +11,7 @@ const { name } = metadata;
 
 const settings = {
 	title: __( 'Social Icons', 'gridflow' ),
-	description: __( 'Add a Social Icons for Editor.', 'gridflow' ),
+	description: __( 'Display icons linking to your social media profiles.', 'gridflow' ),
 	icon,
 	keywords: [
 		'gridflow',

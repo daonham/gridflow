@@ -14,7 +14,7 @@ const { name } = metadata;
 
 const settings = {
 	title: __( 'Image Box', 'gridflow' ),
-	description: __( 'Add new Image Box for Editor.', 'gridflow' ),
+	description: __( 'Add an image box that combines an image with a headline and text.', 'gridflow' ),
 	keywords: [
 		'gridflow',
 		__( 'image', 'gridflow' ),

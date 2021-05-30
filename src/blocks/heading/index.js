@@ -14,7 +14,7 @@ const { name } = metadata;
 
 const settings = {
 	title: __( 'Heading', 'gridflow' ),
-	description: __( 'Advanced heading for Editor.', 'gridflow' ),
+	description: __( 'Introduce new sections of your content in style.', 'gridflow' ),
 	keywords: [
 		'gridflow',
 		__( 'heading', 'gridflow' ),

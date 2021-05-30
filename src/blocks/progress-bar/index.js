@@ -11,7 +11,7 @@ const { name } = metadata;
 
 const settings = {
 	title: __( 'Progress Bar', 'gridflow' ),
-	description: __( 'Add a Progress bar for Editor.', 'gridflow' ),
+	description: __( 'A progress bar can be used to show a user how far along he/she is in a process.', 'gridflow' ),
 	icon,
 	keywords: [
 		'gridflow',

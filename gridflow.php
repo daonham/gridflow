@@ -17,7 +17,7 @@
 defined( 'ABSPATH' ) || exit;
 
 define( 'GRIDFLOW_VERSION', '1.0.0' );
-define( 'GRIDFLOW_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'GRIDFLOW_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'GRIDFLOW_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'GRIDFLOW_PLUGIN_FILE', __FILE__ );
 define( 'GRIDFLOW_PLUGIN_BASE', plugin_basename( __FILE__ ) );
@@ -35,21 +35,21 @@ if ( ! class_exists( 'GridFlow' ) ) {
 		}
 
 		protected function includes() {
-			require_once GRIDFLOW_PLUGIN_DIR . 'inc/utilities/singleton-trait.php';
+			require_once GRIDFLOW_PLUGIN_PATH . 'inc/utilities/singleton-trait.php';
 
 			// Include Classes Module.
-			require_once GRIDFLOW_PLUGIN_DIR . 'inc/class-init.php';
-			require_once GRIDFLOW_PLUGIN_DIR . 'inc/class-assets.php';
-			require_once GRIDFLOW_PLUGIN_DIR . 'inc/class-rest-api.php';
+			require_once GRIDFLOW_PLUGIN_PATH . 'inc/class-init.php';
+			require_once GRIDFLOW_PLUGIN_PATH . 'inc/class-assets.php';
+			require_once GRIDFLOW_PLUGIN_PATH . 'inc/class-rest-api.php';
 		}
 
 		public function load_textdomain() {
-			load_plugin_textdomain( 'gridflow', false, basename( GRIDFLOW_PLUGIN_DIR ) . '/languages' );
+			load_plugin_textdomain( 'gridflow', false, basename( GRIDFLOW_PLUGIN_PATH ) . '/languages' );
 		}
 
 		public function block_localization() {
 			if ( function_exists( 'wp_set_script_translations' ) ) {
-				wp_set_script_translations( 'gridflow-editor', 'gridflow', GRIDFLOW_PLUGIN_DIR . '/languages' );
+				wp_set_script_translations( 'gridflow-editor', 'gridflow', GRIDFLOW_PLUGIN_PATH . '/languages' );
 			}
 		}
 
