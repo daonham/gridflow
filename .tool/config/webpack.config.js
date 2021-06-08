@@ -19,7 +19,7 @@ module.exports = {
 
 		'js/gridflow': path.resolve( process.cwd(), 'src/public/index.js' ),
 
-		'js/vendors/flickity': path.resolve( process.cwd(), 'node_modules/flickity/dist/flickity.pkgd.js' ),
+		// 'js/vendors/flickity': path.resolve( process.cwd(), 'node_modules/flickity/dist/flickity.pkgd.js' ),
 	},
 
 	output: {

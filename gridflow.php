@@ -54,8 +54,8 @@ if ( ! class_exists( 'GridFlow' ) ) {
 		}
 
 		public static function instance() {
-			if ( is_null( self::$instance ) && ! ( self::$instance instanceof GridFlow ) ) {
-				self::$instance = new GridFlow();
+			if ( is_null( self::$instance ) ) {
+				self::$instance = new self();
 				self::$instance->init();
 			}
 
