@@ -2,7 +2,7 @@
 **/*.build.js
 **/node_modules/**
 **/vendor/**
-**/build/**
+**/release/**
 wordpress*/
 .vscode/
 *.sublime-project
