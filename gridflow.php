@@ -6,7 +6,7 @@
  * Author: GridFlow
  * Version: 1.0.0
  * Author URI: http://alura-studio.com
- * Requires at least: 3.8
+ * Requires at least: 5.2
  * Tested up to: 5.7
  * Text Domain: gridflow
  * Domain Path: /languages/

@@ -52,7 +52,19 @@ const del = require( 'del' );
 const zip = require( 'gulp-vinyl-zip' );
 const copy = require( 'gulp-copy' );
 const cache = require( 'gulp-cache' );
+const replace = require( 'gulp-replace' );
 const deleteEmpty = require( 'delete-empty' );
+const readFile = require( 'read-file' );
+
+const getCurrentVer = function() {
+	const current = readFile.sync( 'gridflow.php', { encoding: 'utf8' } ).match( /Version:\s*(.*)/ );
+	return current ? current[ 1 ] : null;
+};
+
+const getTestedUpTo = function() {
+	const current = readFile.sync( 'gridflow.php', { encoding: 'utf8' } ).match( /Tested up to:\s*(.*)/ );
+	return current ? current[ 1 ] : null;
+};
 
 gulp.task( 'clearCache', function() {
 	return cache.clearAll();
@@ -60,6 +72,19 @@ gulp.task( 'clearCache', function() {
 
 gulp.task( 'clean', function() {
 	return del( './release/**' );
+} );
+
+gulp.task( 'replaceReadme', function() {
+	return gulp.src( [ 'readme.txt' ] )
+		.pipe( replace( /Stable tag: (.*)/g, 'Stable tag: ' + getCurrentVer() ) )
+		.pipe( replace( /Tested up to: (.*)/g, 'Tested up to: ' + getTestedUpTo() ) )
+		.pipe( gulp.dest( './', { overwrite: true } ) );
+} );
+
+gulp.task( 'replaceDefine', function() {
+	return gulp.src( [ 'gridflow.php' ] )
+		.pipe( replace( /define\(\s*'GRIDFLOW_VERSION',\s*'(.*)'\s*\);/, 'define( \'GRIDFLOW_VERSION\', \'' + getCurrentVer() + '\' );' ) )
+		.pipe( gulp.dest( './', { overwrite: true } ) );
 } );
 
 gulp.task( 'copy', function() {
@@ -85,6 +110,8 @@ gulp.task(
 	gulp.series(
 		'clearCache',
 		'clean',
+		'replaceReadme',
+		'replaceDefine',
 		'copy',
 		'cleanSrc',
 		'deleteEmptyDirectories',
