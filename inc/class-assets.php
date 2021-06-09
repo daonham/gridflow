@@ -66,7 +66,7 @@ class Assets {
 		);
 	}
 
-	public function get_asset_info( $url ) {
+	public function get_asset_info( string $url ) : array {
 		$path = GRIDFLOW_PLUGIN_PATH . $url . '.asset.php';
 
 		if ( file_exists( $path ) ) {
@@ -79,7 +79,7 @@ class Assets {
 		}
 	}
 
-	public function url( $vendor = false ) {
+	public function url( bool $vendor = false ) : string {
 		if ( $vendor ) {
 			$url = GRIDFLOW_PLUGIN_URL . 'dist/js/vendors/';
 		} else {

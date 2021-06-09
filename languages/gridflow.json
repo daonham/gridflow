@@ -1,0 +1,760 @@
+{
+   "domain": "gridflow",
+   "locale_data": {
+      "gridflow": {
+         "": {
+            "domain": "gridflow"
+         },
+         "GridFlow": [
+            ""
+         ],
+         "http://alura-studio.com": [
+            ""
+         ],
+         "It is page builder for the WordPress Gutenberg block editor.": [
+            ""
+         ],
+         "Something went wrong.": [
+            ""
+         ],
+         "Gridflow: No content for save!": [
+            ""
+         ],
+         "Gridflow: Can't write in upload folder!": [
+            ""
+         ],
+         "Gridflow: Can't put content style!": [
+            ""
+         ],
+         "Gridflow: Save style successfully!": [
+            ""
+         ],
+         "Add content…": [
+            ""
+         ],
+         "Write accordion item title…": [
+            ""
+         ],
+         "Accordion Item": [
+            ""
+         ],
+         "Add collapsable accordion items to accordions.": [
+            ""
+         ],
+         "accordion": [
+            ""
+         ],
+         "Settings": [
+            ""
+         ],
+         "You can configuration in ": [
+            ""
+         ],
+         "Accordion": [
+            ""
+         ],
+         "Display creative content within collapsable accordion items.": [
+            ""
+         ],
+         "Close All": [
+            ""
+         ],
+         "Do not open accordion tab when page loaded": [
+            ""
+         ],
+         "Collapse": [
+            ""
+         ],
+         "Allow all accordion tabs able to open": [
+            ""
+         ],
+         "Icon": [
+            ""
+         ],
+         "Icon Active": [
+            ""
+         ],
+         "Spacing": [
+            ""
+         ],
+         "Box Shadow": [
+            ""
+         ],
+         "Title HTML Tag": [
+            ""
+         ],
+         "Title": [
+            ""
+         ],
+         "Normal": [
+            ""
+         ],
+         "Hover & Active": [
+            ""
+         ],
+         "Alignment": [
+            ""
+         ],
+         "Color": [
+            ""
+         ],
+         "Background Color": [
+            ""
+         ],
+         "Padding": [
+            ""
+         ],
+         "Border": [
+            ""
+         ],
+         "Border Radius": [
+            ""
+         ],
+         "Icon Alignment:": [
+            ""
+         ],
+         "Active Color": [
+            ""
+         ],
+         "Font size": [
+            ""
+         ],
+         "Content": [
+            ""
+         ],
+         "Write alert title…": [
+            ""
+         ],
+         "Write alert content…": [
+            ""
+         ],
+         "Alert": [
+            ""
+         ],
+         "Create a message or notice.": [
+            ""
+         ],
+         "alert": [
+            ""
+         ],
+         "Layout": [
+            ""
+         ],
+         "Left Accent Border": [
+            ""
+         ],
+         "Titled": [
+            ""
+         ],
+         "Solid": [
+            ""
+         ],
+         "Top Accent Border": [
+            ""
+         ],
+         "Banner": [
+            ""
+         ],
+         "Type": [
+            ""
+         ],
+         "Default": [
+            ""
+         ],
+         "Info": [
+            ""
+         ],
+         "Success": [
+            ""
+         ],
+         "Warning": [
+            ""
+         ],
+         "Danger": [
+            ""
+         ],
+         "Show Title": [
+            ""
+         ],
+         "Show Dismiss Button": [
+            ""
+         ],
+         "Border Color": [
+            ""
+         ],
+         "Border Width": [
+            ""
+         ],
+         "Show Icon": [
+            ""
+         ],
+         "Icon Size": [
+            ""
+         ],
+         "Icon Spacing": [
+            ""
+         ],
+         "Icon Color": [
+            ""
+         ],
+         "Add text...": [
+            ""
+         ],
+         "Button": [
+            ""
+         ],
+         "Add a customizable button.": [
+            ""
+         ],
+         "button": [
+            ""
+         ],
+         "Simple": [
+            ""
+         ],
+         "Link": [
+            ""
+         ],
+         "Outline": [
+            ""
+         ],
+         "Elevated": [
+            ""
+         ],
+         "Width": [
+            ""
+         ],
+         "Height": [
+            ""
+         ],
+         "Hover": [
+            ""
+         ],
+         "Text": [
+            ""
+         ],
+         "Icon Position": [
+            ""
+         ],
+         "Left": [
+            ""
+         ],
+         "Right": [
+            ""
+         ],
+         "Write title…": [
+            ""
+         ],
+         "Counter": [
+            ""
+         ],
+         "Specify the starting number and ending number for your counter, along with number prefixes and suffixes.": [
+            ""
+         ],
+         "counter": [
+            ""
+         ],
+         "Counter title": [
+            ""
+         ],
+         "Start Number": [
+            ""
+         ],
+         "Step": [
+            ""
+         ],
+         "Prefix": [
+            ""
+         ],
+         "End Number": [
+            ""
+         ],
+         "Delimiter": [
+            ""
+         ],
+         "Suffix": [
+            ""
+         ],
+         "Duration": [
+            ""
+         ],
+         "Number": [
+            ""
+         ],
+         "Write text...": [
+            ""
+         ],
+         "Divider": [
+            ""
+         ],
+         "Create a break between ideas or sections with a horizontal separator.": [
+            ""
+         ],
+         "divider": [
+            ""
+         ],
+         "separator": [
+            ""
+         ],
+         "Style": [
+            ""
+         ],
+         "Add Text or Icon": [
+            ""
+         ],
+         "HTML Tag": [
+            ""
+         ],
+         "Position": [
+            ""
+         ],
+         "Center": [
+            ""
+         ],
+         "Address": [
+            ""
+         ],
+         "Enter for a location or address...": [
+            ""
+         ],
+         "Apply": [
+            ""
+         ],
+         "Zoom": [
+            ""
+         ],
+         "Google Map": [
+            ""
+         ],
+         "Google map": [
+            ""
+         ],
+         "Enter a location or address on a Google map.": [
+            ""
+         ],
+         "Add an address or location to Google map.": [
+            ""
+         ],
+         "map": [
+            ""
+         ],
+         "google": [
+            ""
+         ],
+         "Write heading...": [
+            ""
+         ],
+         "Heading": [
+            ""
+         ],
+         "Introduce new sections of your content in style.": [
+            ""
+         ],
+         "heading": [
+            ""
+         ],
+         "text": [
+            ""
+         ],
+         "Hello World!": [
+            ""
+         ],
+         "Text Shadow": [
+            ""
+         ],
+         "Vertical Alignment": [
+            ""
+         ],
+         "Top": [
+            ""
+         ],
+         "Bottom": [
+            ""
+         ],
+         "Add heading": [
+            ""
+         ],
+         "Add content...": [
+            ""
+         ],
+         "Icon Box": [
+            ""
+         ],
+         "The Icon Box allows you to use some of the coolest icons with an heading and small bits of content.": [
+            ""
+         ],
+         "icon": [
+            ""
+         ],
+         "box": [
+            ""
+         ],
+         "Select Icon": [
+            ""
+         ],
+         "Transition Duration": [
+            ""
+         ],
+         "Hover Effect": [
+            ""
+         ],
+         "None": [
+            ""
+         ],
+         "Margin": [
+            ""
+         ],
+         "Pick an icon or upload your icon to your content.": [
+            ""
+         ],
+         "Bordered": [
+            ""
+         ],
+         "Rounded": [
+            ""
+         ],
+         "Color Hover": [
+            ""
+         ],
+         "Background Color Hover": [
+            ""
+         ],
+         "You can configure style Icon in ": [
+            ""
+         ],
+         "Social Icons": [
+            ""
+         ],
+         "Rotate": [
+            ""
+         ],
+         "Edit image": [
+            ""
+         ],
+         "Image Box": [
+            ""
+         ],
+         "Add an image box that combines an image with a headline and text.": [
+            ""
+         ],
+         "image": [
+            ""
+         ],
+         "Alt text (alternative text)": [
+            ""
+         ],
+         "Media File": [
+            ""
+         ],
+         "Custom Link": [
+            ""
+         ],
+         "Image Position": [
+            ""
+         ],
+         "Image": [
+            ""
+         ],
+         "Image Size": [
+            ""
+         ],
+         "Object Fit": [
+            ""
+         ],
+         "Contain": [
+            ""
+         ],
+         "Cover": [
+            ""
+         ],
+         "Fill": [
+            ""
+         ],
+         "Object Position": [
+            ""
+         ],
+         "Overlay": [
+            ""
+         ],
+         "Background Overlay": [
+            ""
+         ],
+         "Hover Overlay": [
+            ""
+         ],
+         "Hover Background Overlay": [
+            ""
+         ],
+         "Insert an image to make a visual statement.": [
+            ""
+         ],
+         "Enable Caption": [
+            ""
+         ],
+         "Caption": [
+            ""
+         ],
+         "Caption Spacing": [
+            ""
+         ],
+         "Write caption…": [
+            ""
+         ],
+         "Progress Bar": [
+            ""
+         ],
+         "A progress bar can be used to show a user how far along he/she is in a process.": [
+            ""
+         ],
+         "progress bar": [
+            ""
+         ],
+         "My Skill": [
+            ""
+         ],
+         "Designer": [
+            ""
+         ],
+         "Bar Color": [
+            ""
+         ],
+         "Bar Background Color": [
+            ""
+         ],
+         "Percent": [
+            ""
+         ],
+         "Percent Position": [
+            ""
+         ],
+         "Inner": [
+            ""
+         ],
+         "Show Percent": [
+            ""
+         ],
+         "Show Caption": [
+            ""
+         ],
+         "Display icons linking to your social media profiles.": [
+            ""
+         ],
+         "social": [
+            ""
+         ],
+         "Columns": [
+            ""
+         ],
+         "Row Gap": [
+            ""
+         ],
+         "Color type": [
+            ""
+         ],
+         "Custom All Icon": [
+            ""
+         ],
+         "Tab label": [
+            ""
+         ],
+         "Remove tab": [
+            ""
+         ],
+         "Add Tab": [
+            ""
+         ],
+         "Tabs": [
+            ""
+         ],
+         "Allow you to divide your content into tabs.": [
+            ""
+         ],
+         "tabs": [
+            ""
+         ],
+         "Border width": [
+            ""
+         ],
+         "Active": [
+            ""
+         ],
+         "Icons": [
+            ""
+         ],
+         "Font Size": [
+            ""
+         ],
+         "Line Height": [
+            ""
+         ],
+         "Icon Image Width": [
+            ""
+         ],
+         "Tab": [
+            ""
+         ],
+         "Add a Tab to Tabs for Editor.": [
+            ""
+         ],
+         "tab": [
+            ""
+         ],
+         "Background type": [
+            ""
+         ],
+         "Classic": [
+            ""
+         ],
+         "Gradient": [
+            ""
+         ],
+         "Upload": [
+            ""
+         ],
+         "Replace": [
+            ""
+         ],
+         "Attachment": [
+            ""
+         ],
+         "Repeat": [
+            ""
+         ],
+         "Size": [
+            ""
+         ],
+         "Unlink Sides": [
+            ""
+         ],
+         "Link Sides": [
+            ""
+         ],
+         "X offset": [
+            ""
+         ],
+         "Y offset": [
+            ""
+         ],
+         "Blur": [
+            ""
+         ],
+         "Spread": [
+            ""
+         ],
+         "Shadow Color": [
+            ""
+         ],
+         "All": [
+            ""
+         ],
+         "Regular": [
+            ""
+         ],
+         "Brands": [
+            ""
+         ],
+         "Icon Library": [
+            ""
+         ],
+         "Upload SVG, PNG, JPG": [
+            ""
+         ],
+         "Select Icons": [
+            ""
+         ],
+         "Search for icon...": [
+            ""
+         ],
+         "Enter for URL": [
+            ""
+         ],
+         "Open in new tab": [
+            ""
+         ],
+         "Link rel": [
+            ""
+         ],
+         "noreferrer noopener": [
+            ""
+         ],
+         "Show Settings": [
+            ""
+         ],
+         "Hide Setting": [
+            ""
+         ],
+         "Text Align": [
+            ""
+         ],
+         "Justified": [
+            ""
+         ],
+         "System Fonts": [
+            ""
+         ],
+         "Google Fonts": [
+            ""
+         ],
+         "Edit": [
+            ""
+         ],
+         "Advanced": [
+            ""
+         ],
+         "Animation": [
+            ""
+         ],
+         "Speed": [
+            ""
+         ],
+         "Delay": [
+            ""
+         ],
+         "Background": [
+            ""
+         ],
+         "Dimensions": [
+            ""
+         ],
+         "Custom Width": [
+            ""
+         ],
+         "Min Width": [
+            ""
+         ],
+         "Max Width": [
+            ""
+         ],
+         "Positioning": [
+            ""
+         ],
+         "Z Index": [
+            ""
+         ],
+         "X Orientation": [
+            ""
+         ],
+         "Y Orientation": [
+            ""
+         ],
+         "X Offset": [
+            ""
+         ],
+         "Y Offset": [
+            ""
+         ],
+         "Responsive": [
+            ""
+         ],
+         "Hide in Desktop": [
+            ""
+         ],
+         "Hide in Tablet": [
+            ""
+         ],
+         "Hide in Mobile": [
+            ""
+         ]
+      }
+   }
+}

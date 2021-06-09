@@ -9,7 +9,7 @@ class Init {
 		add_filter( 'body_class', array( $this, 'body_class' ) );
 	}
 
-	public function block_categories( $categories ) {
+	public function block_categories( array $categories ) : array {
 		return array_merge(
 			$categories,
 			array(
@@ -21,7 +21,7 @@ class Init {
 		);
 	}
 
-	public function body_class( $classes ) {
+	public function body_class( array $classes ) : array {
 		$classes[] = 'gridflow-styles';
 
 		return $classes;
