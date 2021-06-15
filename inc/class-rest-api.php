@@ -10,7 +10,7 @@ class Styles {
 	public function init() {
 		add_action( 'rest_api_init', array( $this, 'register_endpoints' ) );
 		add_action( 'gridflow_enqueue_assets_frontend', array( $this, 'enqueue_style' ) );
-		add_action( 'wp_head', array( $this, 'enqueue_google_fonts' ) );
+		add_action( 'gridflow_enqueue_assets_frontend', array( $this, 'enqueue_google_fonts' ) );
 		add_filter( 'wp_resource_hints', array( $this, 'filter_resource_hints' ), 10, 2 );
 	}
 
@@ -45,7 +45,7 @@ class Styles {
 		return $urls;
 	}
 
-	public function enqueue_google_fonts() {
+	public function enqueue_google_fonts( $version ) {
 		$post_id = get_the_ID();
 
 		if ( ! $post_id ) {
@@ -98,7 +98,7 @@ class Styles {
 
 		$url = add_query_arg( $query_args, $base_url );
 
-		echo '<link rel="stylesheet" href="' . esc_url( $url ) . '" media="all">';
+		wp_enqueue_style( 'gridflow-google-font-post-' . $post_id, $url, array(), $version );
 	}
 
 	public function enqueue_style( $version ) {

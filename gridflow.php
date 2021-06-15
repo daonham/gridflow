@@ -1,7 +1,6 @@
 <?php
 /**
  * Plugin Name: GridFlow
- * Plugin URI: http://alura-studio.com
  * Description: It is page builder for the WordPress Gutenberg block editor.
  * Author: GridFlow
  * Version: 1.0.0

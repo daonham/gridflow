@@ -30,7 +30,7 @@ class Assets {
 		// Script.
 		wp_enqueue_script( 'gridflow', $url . 'js/gridflow.js', array(), $this->get_asset_info( 'dist/js/gridflow' )['version'], true );
 
-		// Enqueue style in uploads.
+		// Action.
 		do_action( 'gridflow_enqueue_assets_frontend', self::$version );
 	}
 
@@ -52,6 +52,9 @@ class Assets {
 
 		// Scripts.
 		wp_enqueue_script( 'gridflow-editor', $url_js . '.js', $js_file['dependencies'], $js_file['version'], true );
+
+		// Action.
+		do_action( 'gridflow_enqueue_assets_editor' );
 
 		// Localize.
 		wp_localize_script(

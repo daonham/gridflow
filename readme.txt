@@ -35,12 +35,24 @@ GridFlow provides a large blocks of Gutenberg Blocks. With professional blocks f
 * Icon Block
 * Social Block
 
-= Extensions =
+= Tools =
 
-* Spacings: Easily add spacings margin, padding for Block.
+* Spacings
 * Border Control
-* Dimensions Control
+* Dimensions ControL
 * Background Control
 * Positioning Control
 * Responsive Control
 * Animation Control
+
+== Installation ==
+
+= Option 1. =
+
+- Upload the `gridflow` folder to the `/wp-content/plugins/` directory or alternatively upload the gridflow.zip file via the plugin page of WordPress by clicking 'Add New' and selecting the zip from your computer.
+- Activate the plugin through the 'Plugins' menu in WordPress.
+
+= Option 2. =
+
+- From your wp-admin > Plugins > Add New > Search "gridflow" > Click install.
+- After plugin is downloaded, click active plugin
