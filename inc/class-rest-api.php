@@ -11,7 +11,6 @@ class Styles {
 		add_action( 'rest_api_init', array( $this, 'register_endpoints' ) );
 		add_action( 'gridflow_enqueue_assets_frontend', array( $this, 'enqueue_style' ) );
 		add_action( 'gridflow_enqueue_assets_frontend', array( $this, 'enqueue_google_fonts' ) );
-		add_filter( 'wp_resource_hints', array( $this, 'filter_resource_hints' ), 10, 2 );
 	}
 
 	public function register_endpoints() {
@@ -26,23 +25,6 @@ class Styles {
 				},
 			)
 		);
-	}
-
-	public function filter_resource_hints( array $urls, string $relation_type ) : array {
-		$post_id = get_the_ID();
-
-		if ( 'preconnect' === $relation_type && $post_id ) {
-			$fonts = get_post_meta( $post_id, 'gridflow_google_fonts', true );
-
-			if ( ! empty( $fonts ) && is_array( $fonts ) ) {
-				$urls[] = array(
-					'href' => 'https://fonts.gstatic.com',
-					'crossorigin',
-				);
-			}
-		}
-
-		return $urls;
 	}
 
 	public function enqueue_google_fonts( $version ) {
