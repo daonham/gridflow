@@ -38,7 +38,7 @@ class Assets {
 		// Style.
 		wp_enqueue_style( 'gridflow-font-awesome', GRIDFLOW_PLUGIN_URL . 'public/icon/font-awesome/css/all.css', array(), '5.12.0' );
 
-		do_action( 'gridflow_enqueue_assets_vendor' );
+		do_action( 'gridflow_enqueue_assets_vendor', self::$version );
 	}
 
 	public function editor() {
@@ -54,7 +54,7 @@ class Assets {
 		wp_enqueue_script( 'gridflow-editor', $url_js . '.js', $js_file['dependencies'], $js_file['version'], true );
 
 		// Action.
-		do_action( 'gridflow_enqueue_assets_editor' );
+		do_action( 'gridflow_enqueue_assets_editor', self::$version );
 
 		// Localize.
 		wp_localize_script(
