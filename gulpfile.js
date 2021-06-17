@@ -95,6 +95,12 @@ gulp.task( 'cleanSrc', function() {
 	return del( cleanSrcFiles );
 } );
 
+gulp.task( 'replaceDefineDebug', function() {
+	return gulp.src( [ releaseDestination + 'gridflow.php' ] )
+		.pipe( replace( /define\(\s*'GRIDFLOW_BLOCKS_DEV',\s*(.*)\s*\);/, 'define( \'GRIDFLOW_BLOCKS_DEV\', false );' ) )
+		.pipe( gulp.dest( releaseDestination + './', { overwrite: true } ) );
+} );
+
 gulp.task( 'deleteEmptyDirectories', function() {
 	return deleteEmpty( './release/' + project + '/src/' );
 } );
@@ -115,6 +121,7 @@ gulp.task(
 		'copy',
 		'cleanSrc',
 		'deleteEmptyDirectories',
+		'replaceDefineDebug',
 		'zip',
 		function( done ) {
 			done();
