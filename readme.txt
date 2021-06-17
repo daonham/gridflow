@@ -45,6 +45,18 @@ GridFlow provides a large blocks of Gutenberg Blocks. With professional blocks f
 * Responsive Control
 * Animation Control
 
+= Font and Icon Managers =
+
+* GridFlow provides all latest Google fonts and FontAwesome Free library.
+
+= Responsive Control =
+
+* You can easily edit on tablet and mobile interface, all our controls make it easy and intuitive.
+
+= And much more things are waitting for you discover =
+
+* [Screenshot](https://wordpress.org/plugins/gridflow/screenshots)
+
 == Installation ==
 
 = Option 1. =
@@ -56,3 +68,16 @@ GridFlow provides a large blocks of Gutenberg Blocks. With professional blocks f
 
 - From your wp-admin > Plugins > Add New > Search "gridflow" > Click install.
 - After plugin is downloaded, click active plugin
+
+== Screenshots ==
+
+1. Make beautiful website with GridFlow
+2. Build easily page with New Control
+3. Advanced controls
+4. And more tools with Custom Control
+
+== Changelog ==
+
+= 1.0.0 =
+
+* Released Plugin
