@@ -14,8 +14,8 @@ function inlineStyle( { attributes } ) {
 		},
 		' .gridflow-social-icons__items': {
 			'--gridflow-social-template-columns': columns?.desktop,
-			'--gridflow-social-column-gap': spacing?.desktop !== undefined && spacing?.desktop !== null ? `${ spacing.desktop }px` : undefined,
-			'--gridflow-social-row-gap': rowGap?.desktop !== undefined && rowGap?.desktop !== null ? `${ rowGap.desktop }px` : undefined,
+			'--gridflow-social-column-gap': spacing?.desktop && `${ spacing.desktop }px`,
+			'--gridflow-social-row-gap': rowGap?.desktop && `${ rowGap.desktop }px`,
 		},
 	};
 
@@ -25,8 +25,8 @@ function inlineStyle( { attributes } ) {
 		},
 		' .gridflow-social-icons__items': {
 			'--gridflow-social-template-columns': columns?.tablet,
-			'--gridflow-social-column-gap': spacing?.tablet !== undefined && spacing?.tablet !== null ? `${ spacing.tablet }px` : undefined,
-			'--gridflow-social-row-gap': rowGap?.tablet !== undefined && rowGap?.tablet !== null ? `${ rowGap.tablet }px` : undefined,
+			'--gridflow-social-column-gap': spacing?.tablet && `${ spacing.tablet }px`,
+			'--gridflow-social-row-gap': rowGap?.tablet && `${ rowGap.tablet }px`,
 		},
 	};
 
@@ -36,8 +36,8 @@ function inlineStyle( { attributes } ) {
 		},
 		' .gridflow-social-icons__items': {
 			'--gridflow-social-template-columns': columns?.mobile,
-			'--gridflow-social-column-gap': spacing?.mobile !== undefined && spacing?.mobile !== null ? `${ spacing.mobile }px` : undefined,
-			'--gridflow-social-row-gap': rowGap?.mobile !== undefined && rowGap?.mobile !== null ? `${ rowGap.mobile }px` : undefined,
+			'--gridflow-social-column-gap': spacing?.mobile && `${ spacing.mobile }px`,
+			'--gridflow-social-row-gap': rowGap?.mobile && `${ rowGap.mobile }px`,
 		},
 	};
 

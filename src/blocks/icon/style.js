@@ -32,7 +32,7 @@ function inlineStyle( { attributes } ) {
 		},
 		' .gridflow-icon__icon': {
 			'--gridflow-icon-size': fontSize?.desktop ? `${ fontSize.desktop }px` : undefined,
-			'--gridflow-icon-padding': padding?.desktop !== undefined && padding?.desktop !== null ? `${ padding.desktop }px` : undefined,
+			'--gridflow-icon-padding': padding?.desktop && `${ padding.desktop }px`,
 			background: bgColor,
 			...GridFlowStyleBorder( border, 'desktop' ),
 			...GridFlowStyleBox( borderRadius, 'border-radius', 'desktop' ),
@@ -40,11 +40,11 @@ function inlineStyle( { attributes } ) {
 			transition: transition && `all ${ transition }s`,
 		},
 		' .gridflow-icon__icon > i': {
-			transform: rotate?.desktop !== undefined && rotate?.desktop !== null ? `rotate(${ rotate.desktop }deg)` : undefined,
+			transform: rotate?.desktop && `rotate(${ rotate.desktop }deg)`,
 			color,
 		},
 		' .gridflow-icon__icon > img': {
-			transform: rotate?.desktop !== undefined && rotate?.desktop !== null ? `rotate(${ rotate.desktop }deg)` : undefined,
+			transform: rotate?.desktop && `rotate(${ rotate.desktop }deg)`,
 			color,
 		},
 		' .gridflow-icon__icon:hover': {
@@ -70,7 +70,7 @@ function inlineStyle( { attributes } ) {
 		},
 		' .gridflow-icon__icon': {
 			'--gridflow-icon-size': fontSize?.tablet ? `${ fontSize.tablet }px` : undefined,
-			'--gridflow-icon-padding': padding?.tablet !== undefined && padding?.tablet !== null ? `${ padding.tablet }px` : undefined,
+			'--gridflow-icon-padding': padding?.tablet && `${ padding.tablet }px`,
 			...GridFlowStyleBorder( border, 'tablet' ),
 			...GridFlowStyleBox( borderRadius, 'border-radius', 'tablet' ),
 		},
@@ -79,10 +79,10 @@ function inlineStyle( { attributes } ) {
 			...GridFlowStyleBox( borderRadiusHover, 'border-radius', 'tablet' ),
 		},
 		' .gridflow-icon__icon > i': {
-			transform: rotate?.tablet !== undefined && rotate?.tablet !== null ? `rotate(${ rotate.tablet }deg)` : undefined,
+			transform: rotate?.tablet && `rotate(${ rotate.tablet }deg)`,
 		},
 		' .gridflow-icon__icon > img': {
-			transform: rotate?.tablet !== undefined && rotate?.tablet !== null ? `rotate(${ rotate.tablet }deg)` : undefined,
+			transform: rotate?.tablet && `rotate(${ rotate.tablet }deg)`,
 		},
 	};
 
@@ -92,7 +92,7 @@ function inlineStyle( { attributes } ) {
 		},
 		' .gridflow-icon__icon': {
 			'--gridflow-icon-size': fontSize?.mobile ? `${ fontSize.mobile }px` : undefined,
-			'--gridflow-icon-padding': padding?.mobile !== undefined && padding?.mobile !== null ? `${ padding.mobile }px` : undefined,
+			'--gridflow-icon-padding': padding?.mobile && `${ padding.mobile }px`,
 			...GridFlowStyleBorder( border, 'mobile' ),
 			...GridFlowStyleBox( borderRadius, 'border-radius', 'mobile' ),
 		},
@@ -101,10 +101,10 @@ function inlineStyle( { attributes } ) {
 			...GridFlowStyleBox( borderRadiusHover, 'border-radius', 'mobile' ),
 		},
 		' .gridflow-icon__icon > i': {
-			transform: rotate?.mobile !== undefined && rotate?.mobile !== null ? `rotate(${ rotate.mobile }deg)` : undefined,
+			transform: rotate?.mobile && `rotate(${ rotate.mobile }deg)`,
 		},
 		' .gridflow-icon__icon > img': {
-			transform: rotate?.mobile !== undefined && rotate?.mobile !== null ? `rotate(${ rotate.mobile }deg)` : undefined,
+			transform: rotate?.mobile && `rotate(${ rotate.mobile }deg)`,
 		},
 	};
 

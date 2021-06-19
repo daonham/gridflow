@@ -41,7 +41,7 @@ function inlineStyle( { attributes } ) {
 		' .gridflow-alert__wrapper': {
 			'background-color': bgColor,
 			'--gridflow-alert-border-color': borderColor,
-			'--gridflow-border-width': borderWidth?.desktop !== null && borderWidth?.desktop !== undefined ? `${ borderWidth.desktop }px` : undefined,
+			'--gridflow-border-width': borderWidth?.desktop && `${ borderWidth.desktop }px`,
 		},
 		' .gridflow-alert__title': {
 			color,
@@ -75,14 +75,14 @@ function inlineStyle( { attributes } ) {
 		},
 		' .gridflow-alert__icon': {
 			color: iconColor,
-			'--gridflow-alert-icon-size': sizeIcon?.desktop !== null && sizeIcon?.desktop !== undefined ? `${ sizeIcon.desktop }px` : undefined,
-			'--gridflow-alert-icon-spacing': iconSpacing?.desktop !== null && iconSpacing?.desktop !== undefined ? `${ iconSpacing.desktop }px` : undefined,
+			'--gridflow-alert-icon-size': sizeIcon?.desktop && `${ sizeIcon.desktop }px`,
+			'--gridflow-alert-icon-spacing': iconSpacing?.desktop && `${ iconSpacing.desktop }px`,
 		},
 	};
 
 	const tablet = {
 		' .gridflow-alert__wrapper': {
-			'--gridflow-border-width': borderWidth?.tablet !== null && borderWidth?.tablet !== undefined ? `${ borderWidth.tablet }px` : undefined,
+			'--gridflow-border-width': borderWidth?.tablet && `${ borderWidth.tablet }px`,
 		},
 		' .gridflow-alert__title': {
 			...GridFlowStyleTypography( {
@@ -113,14 +113,14 @@ function inlineStyle( { attributes } ) {
 			...GridFlowStyleBox( paddingContent, 'padding', 'tablet' ),
 		},
 		' .gridflow-alert__icon': {
-			'--gridflow-alert-icon-size': sizeIcon?.tablet !== null && sizeIcon?.tablet !== undefined ? `${ sizeIcon.tablet }px` : undefined,
-			'--gridflow-alert-icon-spacing': iconSpacing?.tablet !== null && iconSpacing?.tablet !== undefined ? `${ iconSpacing.tablet }px` : undefined,
+			'--gridflow-alert-icon-size': sizeIcon?.tablet && `${ sizeIcon.tablet }px`,
+			'--gridflow-alert-icon-spacing': iconSpacing?.tablet && `${ iconSpacing.tablet }px`,
 		},
 	};
 
 	const mobile = {
 		' .gridflow-alert__wrapper': {
-			'--gridflow-border-width': borderWidth?.mobile !== null && borderWidth?.mobile !== undefined ? `${ borderWidth.mobile }px` : undefined,
+			'--gridflow-border-width': borderWidth?.mobile !== null && `${ borderWidth.mobile }px`,
 		},
 		' .gridflow-alert__title': {
 			...GridFlowStyleTypography( {
@@ -151,8 +151,8 @@ function inlineStyle( { attributes } ) {
 			...GridFlowStyleBox( paddingContent, 'padding', 'mobile' ),
 		},
 		' .gridflow-alert__icon': {
-			'--gridflow-alert-icon-size': sizeIcon?.mobile !== null && sizeIcon?.mobile !== undefined ? `${ sizeIcon.mobile }px` : undefined,
-			'--gridflow-alert-icon-spacing': iconSpacing?.mobile !== null && iconSpacing?.mobile !== undefined ? `${ iconSpacing.mobile }px` : undefined,
+			'--gridflow-alert-icon-size': sizeIcon?.mobile && `${ sizeIcon.mobile }px`,
+			'--gridflow-alert-icon-spacing': iconSpacing?.mobile && `${ iconSpacing.mobile }px`,
 		},
 	};
 
