@@ -5,11 +5,11 @@ class Init {
 	use SingletonTrait;
 
 	public function init() {
-		add_action( 'block_categories', array( $this, 'block_categories' ) );
+		add_action( 'block_categories_all', array( $this, 'block_categories' ), 10, 2 );
 		add_filter( 'body_class', array( $this, 'body_class' ) );
 	}
 
-	public function block_categories( array $categories ) : array {
+	public function block_categories( array $categories, \WP_Block_Editor_Context $block_editor_context ) : array {
 		return array_merge(
 			$categories,
 			array(
