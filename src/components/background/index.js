@@ -8,7 +8,7 @@ import {
 	TextControl,
 	FlexItem,
 	Flex,
-	__experimentalGradientPicker as GradientPicker,
+	GradientPicker,
 } from '@wordpress/components';
 
 import { useControlledState } from '../../utils/use-controlled-state';

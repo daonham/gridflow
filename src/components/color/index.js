@@ -16,7 +16,7 @@ import {
 	BaseControl,
 	ButtonGroup,
 	Button,
-	__experimentalGradientPicker as GradientPicker,
+	GradientPicker,
 	ColorPicker,
 } from '@wordpress/components';
 

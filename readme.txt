@@ -78,6 +78,10 @@ GridFlow provides a large blocks of Gutenberg Blocks. With professional blocks f
 
 == Changelog ==
 
+= 1.1.0 =
+
+* Fix GradientComponent error
+
 = 1.0.1 =
 
 * Fix some style blocks
