@@ -41,7 +41,7 @@ const GridFlowColorPicker = ( {
 	return (
 		<BaseControl id={ null } label={ label } className="gridflow-color-component" >
 			<Dropdown
-				className={ classnames( 'components-color-palette__item-wrapper components-circular-option-picker__option-wrapper', value ? '' : 'components-color-palette__custom-color' ) }
+				className={ classnames( 'components-color-palette__item-wrapper components-circular-option-picker__option-wrapper' ) }
 				contentClassName="gridflow-color-component__popover"
 				renderToggle={ ( { isOpen, onToggle } ) => (
 					<Tooltip text={ hint }>

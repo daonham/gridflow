@@ -9,6 +9,14 @@
 		> .components-dropdown {
 			margin: 0;
 		}
+
+		.components-circular-option-picker__option-wrapper {
+			height: 28px !important;
+			width: 28px !important;
+			box-shadow: none !important;
+			outline: none !important;
+			background-image: none !important;
+		}
 	}
 
 	&__tabs {
