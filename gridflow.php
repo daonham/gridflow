@@ -3,10 +3,10 @@
  * Plugin Name: GridFlow
  * Description: It is page builder for the WordPress Gutenberg block editor.
  * Author: GridFlow
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author URI: http://alura-studio.com
  * Requires at least: 5.2
- * Tested up to: 5.7
+ * Tested up to: 5.8
  * Requires PHP: 7.0
  * Text Domain: gridflow
  * Domain Path: /languages/
@@ -16,7 +16,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'GRIDFLOW_VERSION', '1.0.0' );
+define( 'GRIDFLOW_VERSION', '1.1.0' );
 define( 'GRIDFLOW_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'GRIDFLOW_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'GRIDFLOW_PLUGIN_FILE', __FILE__ );
