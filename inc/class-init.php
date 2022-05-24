@@ -9,7 +9,7 @@ class Init {
 		add_filter( 'body_class', array( $this, 'body_class' ) );
 	}
 
-	public function block_categories( array $categories, \WP_Block_Editor_Context $block_editor_context ) : array {
+	public function block_categories( array $categories, \WP_Block_Editor_Context $block_editor_context = null ) : array {
 		return array_merge(
 			$categories,
 			array(
