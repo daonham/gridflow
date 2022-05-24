@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 
 import { compose } from '@wordpress/compose';
-import { useBlockProps, __experimentalUseInnerBlocksProps as useInnerBlocksProps } from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 import Controls from './controls';
 import Inspector from './inspector';

@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 
 import { compose } from '@wordpress/compose';
-import { useBlockProps, InnerBlocks, __experimentalUseInnerBlocksProps as useInnerBlocksProps, store as blockEditorStore } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks, useInnerBlocksProps, store as blockEditorStore } from '@wordpress/block-editor';
 import { useDispatch, useSelect } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
 
